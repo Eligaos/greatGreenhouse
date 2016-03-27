@@ -7,7 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Dashboard Template for Bootstrap</title>
+    <title>Greenhouse Control</title>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -22,7 +22,7 @@
       <div class="col-sm-12 col-md-10 col-md-offset-1">
         <form action="" id="loginForm">
           <div class="form-group input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span></span>
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span></span>
             <input class="form-control" type="text" name='username' placeholder="username"/>          
           </div>
           <div class="form-group input-group">

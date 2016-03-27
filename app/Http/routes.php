@@ -11,11 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return "tssssse";
-
-});
-
 
 /*
 |--------------------------------------------------------------------------
@@ -29,5 +24,10 @@ Route::get('/', function () {
 */
 
 Route::group(['middleware' => ['web']], function () {
-    //
+ 
+	Route::get('/', function () {
+	    return view("auth.login");
+
+	});
+
 });
