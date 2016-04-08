@@ -11,7 +11,7 @@
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <!-- Custom styles for this template -->
-        
+    <link href="css/geral.css" rel="stylesheet">
     <link href="css/login.css" rel="stylesheet">
 </head>
 <body>

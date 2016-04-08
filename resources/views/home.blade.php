@@ -2,13 +2,13 @@
 
 @section('customStyles')
     
-@stop
+@endsection
 
 @section('content')
 
 
-@stop
+@endsection
 
 @section('customScripts')
 
-@stop
+@endsection

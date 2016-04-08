@@ -31,9 +31,15 @@ Route::group(['middleware' => ['web']], function () {
 	});
 
 	Route::get('login', function () {
-	    return "DDS";
+	    return "login";
 
 	});
+
+	Route::get('adicionarExploracao', function () {
+	    return view("adicionarExploracao");
+
+	});
+
 
 	Route::get('home', function () {
 	    return view("home");
