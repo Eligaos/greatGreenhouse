@@ -21,28 +21,49 @@
 | it contains. The "web" middleware group is defined in your HTTP
 | kernel and includes session state, CSRF protection, and more.
 |
-*/
+*/	
 
-Route::group(['middleware' => ['web']], function () {
- 
-	Route::get('/', function () {
-	    return view("auth.login");
-
-	});
-
-	Route::get('login', function () {
-	    return "login";
+Route::get('/', function () 
+	{
+		return view("auth.login");
 
 	});
 
-	Route::get('adicionarExploracao', function () {
-	    return view("adicionarExploracao");
+	Route::get('/login', function () 
+	{
+		return view("auth.login");
+
+	});
+
+Route::group(['middleware' => ['web']], function () 
+{
+
+
+
+	Route::get('/exploracoes/adicionar', function () 
+	{
+		return view("adicionarExploracao");
+
+	});
+
+	Route::get('/estufas/listar', function () 
+	{
+		return view("listagemEstufas");
 
 	});
 
 
-	Route::get('home', function () {
-	    return view("home");
+
+	Route::get('/adicionarEstufa', function () 
+	{
+		return view("adicionarEstufa");
+
+	});
+
+
+	Route::get('/home', function () 
+	{
+		return view("home");
 
 	});
 

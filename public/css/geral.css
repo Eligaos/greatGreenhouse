@@ -1,9 +1,11 @@
-.modal-content{
-  background-color: rgb(251, 251, 251);
+
+.centered-form .panel{
+  background: rgb(251, 251, 251);
 }
 
-
 body {
+   /* background-image: url("../tree_barkv2.png");*/
+   /* background-image: url("../congruent_pentagon.png");*/
     background-image: url("../congruent_pentagon.png");
     background-repeat: repeat;
 
