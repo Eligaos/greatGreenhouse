@@ -13,14 +13,15 @@ class ExploracaoController extends Controller
 {
     protected $eaService;
 
-    public function __contruct(ExploracaoService $eaService)
+    public function __construct(ExploracaoService $eaService)
     {
     	//$this->middleware('auth');
     	$this->eaService = $eaService;
     }
 
-    public function adicionarExploracao(){
+    public function adicionarExploracao(){    	
     	$input=Input::except('_token');
+    	dd($input);
     	$this->eaService->adicionarExploracao($input);
     	return "asd";
     	return Redirect::to("/exploracoes/adicionar");

@@ -35,6 +35,14 @@ Route::get('/', function ()
 
 	});
 
+	//Route::any('/register', 'RegisterController@showRegisterView');
+	Route::get('/register', function(){
+
+		return view("auth.register");
+	});
+
+
+
 Route::group(['middleware' => ['web']], function () 
 {
 

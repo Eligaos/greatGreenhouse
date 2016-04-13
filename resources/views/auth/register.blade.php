@@ -20,31 +20,31 @@
    <div class="Absolute-Center is-Responsive">
       <div id="logo-container"></div>
       <div class="col-sm-12 col-md-10 col-md-offset-1">
-      <div style="text-align: center">
-        <span style="font-weight: bold">Please Login</span> <span>Or</span>
-       <a href="/register"><button class="btn btn-xs btn-primary " type="submit">Register</button></a>
-    </div>
-        <form action="" id="loginForm">
+        <form class="form-signin" method="POST" action="register/registration">
+        <input type="hidden" name="_token" value="{!!  csrf_token()!!}">
+        <h3 class="form-signin-heading" >Please Enter your Details</h3>
           <div class="form-group input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span></span>
             <input class="form-control" type="text" name='username' placeholder="username"/>          
           </div>
           <div class="form-group input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span></span>
+            <input class="form-control" type="text" name='email' placeholder="email"/>          
+          </div>
+          <div class="form-group input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-
             <input class="form-control" type="password" name='password' placeholder="password"/>     
           </div>
-          <div class="checkbox">
-            <label>
-              <input type="checkbox"> Remember me</a>
-            </label>
-          </div>
 
-          <div style="text-align: center;">
-            <button type="button" class="btn btn-def btn-block" >Login</button>
+          <div class="form-group input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+            <input class="form-control" type="password" name='password' placeholder="password confirmation"/>     
+          </div>
+          <div class="form-group">
+            <button type="button" class="btn btn-def btn-block">Register</button>
           </div>
           <div class="form-group text-center">
-            <a href="#">Forgot Password</a>
+            <button type="button" class="btn btn-def btn-block">Cancel</button>
           </div>
         </form>        
       </div>  
