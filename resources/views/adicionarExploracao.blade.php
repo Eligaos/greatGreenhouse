@@ -14,7 +14,7 @@
 						<h3 class="modal-title" id="myModalLabel">Exploração Agrícola</h3>
 					</div>
 					<div class="panel-body">
-						<form id="registerForm" method="POST" >
+						<form id="registerForm" method="POST" action="/exploracoes/adicionar/submit" >
 							<div class="form-group">
 								<fieldset> 
 									<legend>Dados do Terreno</legend>
@@ -28,7 +28,7 @@
 										<br>
 										<label for="numero">Número do Terreno</label>
 										<div>
-											<input type="text" class="form-control" id="numero"  name="numero" placeholder="Insira o número de registo do terreno">
+											<input type="number" class="form-control" id="numero"  name="numero" min=0 placeholder="Insira o número de registo do terreno">
 										</span>
 									</div>
 

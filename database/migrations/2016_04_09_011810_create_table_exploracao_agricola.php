@@ -15,7 +15,7 @@ class CreateTableExploracaoAgricola extends Migration
         Schema::create('exploracoes', function (Blueprint $table) {
            $table->increments('id');
            $table->string('nome');
-           $table->long('numero');
+           $table->bigInteger('numero');
            $table->string('distrito');
            $table->string('concelho');
            $table->string('freguesia');

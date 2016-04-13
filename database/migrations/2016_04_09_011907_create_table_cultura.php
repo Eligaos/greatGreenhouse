@@ -15,9 +15,9 @@ class CreateTableCultura extends Migration
         Schema::create('culturas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome');
-            $table->long('duracao_ciclo');
-            $table->long('espaco_entre_linhas');
-            $table->long('espaco_na_linha');
+            $table->bigInteger('duracao_ciclo');
+            $table->bigInteger('espaco_entre_linhas');
+            $table->bigInteger('espaco_na_linha');
             $table->date('data_inicio_ciclo');
             $table->date('data_prevista_fim_ciclo');
             $table->string('tipo_cultivo');

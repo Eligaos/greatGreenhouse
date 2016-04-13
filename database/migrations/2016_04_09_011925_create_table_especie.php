@@ -23,19 +23,16 @@ class CreateTableEspecie extends Migration
             $table->string('coleccao_termica');
             $table->float('ph_solo_ideal');
             $table->float('ph_agua_ideal');
-            $table->float('temperatura_atmosferica_min');
-            $table->float('temperatura_atmosferica_max');
-            $table->float('temperatura_solo_min');
-            $table->float('temperatura_solo_max');
+            $table->float('temperatura_atmosferica_ideal');
+            $table->float('temperatura_solo_ideal');
             $table->float('condutividade_electrica_solo_ideal');
             $table->timestamps();  
         });
 
-        Schema::create('especies', function (Blueprint $table) { 
+        /*Schema::create('especies_culturas', function (Blueprint $table) { 
            $table->integer('especie_id');
            $table->integer('cultura_id');
-       });
-
+       });*/
     }
 
     /**
@@ -46,5 +43,6 @@ class CreateTableEspecie extends Migration
     public function down()
     {
         Schema::drop('especies');
+        Schema::drop('especies_culturas');
     }
 }

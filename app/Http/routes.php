@@ -46,6 +46,8 @@ Route::group(['middleware' => ['web']], function ()
 
 	});
 
+	Route::any('/exploracoes/adicionar/submit','ExploracaoController@adicionarExploracao'); 
+
 	Route::get('/estufas/listar', function () 
 	{
 		return view("listagemEstufas");

@@ -12,11 +12,11 @@ class CreateTableSetor extends Migration
      */
     public function up()
     {
-        Schema::table('setores', function (Blueprint $table) {
+        Schema::create('setores', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome');
-            $table->long('largura');
-            $table->long('comprimento');
+            $table->bigInteger('largura');
+            $table->bigInteger('comprimento');
             $table->integer('estufa_id');
             $table->timestamps();      
 
