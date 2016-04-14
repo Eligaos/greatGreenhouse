@@ -29,25 +29,27 @@ Route::get('/', function ()
 
 	});
 
-	Route::get('/login', function () 
-	{
-		return view("auth.login");
 
-	});
 
-	Route::any('/register', 'RegisterController@showRegisterView');
+Route::get('/{action}', 'GuestController@cardinal');
 
-	Route::any('/register/registration', 'RegisterController@registerAccount');
 
 	Route::any('/exploracoes/adicionar/submit', 'ExploracaoController@adicionarExploracao'); //meter no middleware
+
+
+Route::any('/register/registration', 'GuestController@registerUser');
 
 
 
 Route::group(['middleware' => ['web']], function () 
 {
 
+	
+	Route::get('/home', function () 
+	{
+		return view("home");
 
-
+	});
 	Route::get('/exploracoes/adicionar', function () 
 	{
 		return view("adicionarExploracao");
@@ -70,10 +72,5 @@ Route::group(['middleware' => ['web']], function ()
 	});
 
 
-	Route::get('/home', function () 
-	{
-		return view("home");
-
-	});
 
 });

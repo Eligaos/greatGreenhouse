@@ -20,12 +20,14 @@
    <div class="Absolute-Center is-Responsive">
     <div id="logo-container"></div>
     <div class="col-sm-12 col-md-10 col-md-offset-1">
-      <form class="form-signin" method="POST" action="register/registration">
-        <input type="hidden" name="_token" value="{!!  csrf_token()!!}">
+
+      <form class="form-signin" method="POST" action="/register/registration">
+       <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
         <h3 class="form-signin-heading" >Please Enter your Details</h3>
         <div class="form-group input-group">
           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span></span>
-          <input class="form-control" type="text" name='username' placeholder="username"/>          
+          <input class="form-control" type="text" name='name' placeholder="name"/>          
+
         </div>
         <div class="form-group input-group">
           <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span></span>
@@ -38,7 +40,7 @@
 
         <div class="form-group input-group">
           <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-          <input class="form-control" type="password" name='password' placeholder="password confirmation"/>     
+          <input class="form-control" type="password" name='password_confirmation' placeholder="password confirmation"/>     
         </div>
         <div class="form-group">
           <button type="submit" class="btn btn-def btn-block">Register</button>
