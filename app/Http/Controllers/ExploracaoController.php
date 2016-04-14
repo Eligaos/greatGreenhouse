@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
-
 use App\Http\Requests;
+
 use App\Services\ExploracaoService;
 use Redirect;
 
@@ -15,15 +15,18 @@ class ExploracaoController extends Controller
 
     public function __construct(ExploracaoService $eaService)
     {
-    	//$this->middleware('auth');
+    	//$this->middleware('auth'); meter quando login
     	$this->eaService = $eaService;
     }
 
-    public function adicionarExploracao(){    	
+    public function adicionarExploracao(){ 
     	$input=Input::except('_token');
-    	//dd("hey");
-    	$this->eaService->adicionarExploracao($input);
-    	//return "asd";
-    	return Redirect::to("/exploracoes/adicionar");
+        $exists = $this->eaService->adicionarExploracao($input);
+        if($exists){
+            return Redirect::to("/exploracoes/adicionar")->with('message', 'Já existe um Terreno com esse nome');
+        }else{
+            return Redirect::to("/exploracoes/adicionar");
+
+        }
     }
 }

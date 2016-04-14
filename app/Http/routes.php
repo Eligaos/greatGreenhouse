@@ -39,6 +39,8 @@ Route::get('/', function ()
 
 	Route::any('/register/registration', 'RegisterController@registerAccount');
 
+	Route::any('/exploracoes/adicionar/submit', 'ExploracaoController@adicionarExploracao'); //meter no middleware
+
 
 
 Route::group(['middleware' => ['web']], function () 
@@ -52,7 +54,6 @@ Route::group(['middleware' => ['web']], function ()
 
 	});
 
-	Route::any('/exploracoes/adicionar/submit','ExploracaoController@adicionarExploracao'); 
 
 	Route::get('/estufas/listar', function () 
 	{

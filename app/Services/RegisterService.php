@@ -9,14 +9,12 @@ use Hash;
 class RegisterService
 {
 
-    public function registerAccount($input){  
+	public function registerAccount($input){  
 
-    	$passHashed = Hash::make($input['password']);
-        $input['password'] = $passHashed;
-      $user = User::insert($input);
-    dd($user);  
-
-      $user->save();
-      return $user;
-    }
+		$passHashed = Hash::make($input['password']);
+		$input['password'] = $passHashed;
+		$user = User::create($input);
+		$user->save();
+		return $user;
+	}
 }

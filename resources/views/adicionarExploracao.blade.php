@@ -19,67 +19,68 @@
 								<fieldset> 
 									<legend>Dados do Terreno</legend>
 									<div class="col-xs-12 col-md-12">
-									
+
 										<label for="nome">Nome do Terreno</label>
 										<div class="input-group">
 											<input type="text" class="form-control" id="nome"  name="nome" placeholder="Insira o nome do terreno"><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
-										</span>
-										</div>
-										<br>
-										<label for="numero">Número do Terreno</label>
-										<div>
-											<input type="number" class="form-control" id="numero"  name="numero" min=0 placeholder="Insira o número de registo do terreno">
-										</span>
+										</span>										
 									</div>
-
-								</fieldset>
-							</div>
-							<div class="form-group">
-								<fieldset> 
-									<legend>Localização</legend>
-									<div class="col-xs-12 col-md-6">
-
-										<label for="distrito">Distrito</label>
-										<div>
-											<input type="text" class="form-control" id="distrito" name="distrito" placeholder="Insira o distrito onde se localiza o terreno" >
-										</div>
-										<br>
-										<label for="concelho">Concelho</label>
-										<div>
-											<input type="text" class="form-control" id="concelho" name="concelho" placeholder="Insira o concelho onde se localiza o terreno" >
-										</div><br>
-									</div> 
-
-									<div class="col-xs-12 col-md-6"> 
-										<label for="freguesia">Freguesia</label>
-										<div>
-											<input type="text" class="form-control" id="freguesia"  name="freguesia" placeholder="Insira a freguesia onde se localiza o terreno">
-
-										</div>
-										<br>
-										<label for="area">Área</label>
-										<div>
-											<input type="text" class="form-control" id="area" name="area" placeholder="Insira a área total do terreno">
-										</div><br>
-									</div>  
-								</fieldset>
-							</div>    
-
-
-
-
-							<div class="form-group">
-								<div class="input-group-addon">
-									<input type="button" name="cancelar" id="cancelar" value="Cancelar" class="btn btn-default pull-right">
-									<input type="submit" name="submit" id="submit" value="Gravar" class="btn btn-success pull-right">
+									@if( Session::get('message'))
+									<div style="text-align: center">
+										<span class="alert alert-info"> {{ Session::get('message') }}</span>
+									</div>
+									@endif
+									<br>
+									<label for="numero">Número do Terreno</label>
+									<div>
+										<input type="number" class="form-control" id="numero"  name="numero" min=0 placeholder="Insira o número de registo do terreno">
+									</span>
 								</div>
+
+							</fieldset>
+						</div>
+						<div class="form-group">
+							<fieldset> 
+								<legend>Localização</legend>
+								<div class="col-xs-12 col-md-6">
+
+									<label for="distrito">Distrito</label>
+									<div>
+										<input type="text" class="form-control" id="distrito" name="distrito" placeholder="Insira o distrito onde se localiza o terreno" >
+									</div>
+									<br>
+									<label for="concelho">Concelho</label>
+									<div>
+										<input type="text" class="form-control" id="concelho" name="concelho" placeholder="Insira o concelho onde se localiza o terreno" >
+									</div><br>
+								</div> 
+
+								<div class="col-xs-12 col-md-6"> 
+									<label for="freguesia">Freguesia</label>
+									<div>
+										<input type="text" class="form-control" id="freguesia"  name="freguesia" placeholder="Insira a freguesia onde se localiza o terreno">
+
+									</div>
+									<br>
+									<label for="area">Área</label>
+									<div>
+										<input type="text" class="form-control" id="area" name="area" placeholder="Insira a área total do terreno">
+									</div><br>
+								</div>  
+							</fieldset>
+						</div>    
+						<div class="form-group">
+							<div class="input-group-addon">
+								<input type="button" name="cancelar" id="cancelar" value="Cancelar" class="btn btn-default pull-right">
+								<input type="submit" name="submit" id="submit" value="Gravar" class="btn btn-success pull-right">
 							</div>
-						</form>
-					</div>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
 </div>
 @endsection
 
