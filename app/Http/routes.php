@@ -35,11 +35,9 @@ Route::get('/', function ()
 
 	});
 
-	//Route::any('/register', 'RegisterController@showRegisterView');
-	Route::get('/register', function(){
+	Route::any('/register', 'RegisterController@showRegisterView');
 
-		return view("auth.register");
-	});
+	Route::any('/register/registration', 'RegisterController@registerAccount');
 
 
 

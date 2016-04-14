@@ -21,9 +21,9 @@ class ExploracaoController extends Controller
 
     public function adicionarExploracao(){    	
     	$input=Input::except('_token');
-    	dd($input);
+    	//dd("hey");
     	$this->eaService->adicionarExploracao($input);
-    	return "asd";
+    	//return "asd";
     	return Redirect::to("/exploracoes/adicionar");
     }
 }

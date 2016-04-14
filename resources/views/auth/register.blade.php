@@ -41,7 +41,7 @@
             <input class="form-control" type="password" name='password' placeholder="password confirmation"/>     
           </div>
           <div class="form-group">
-            <button type="button" class="btn btn-def btn-block">Register</button>
+            <button type="submit" class="btn btn-def btn-block">Register</button>
           </div>
           <div class="form-group text-center">
             <button type="button" class="btn btn-def btn-block">Cancel</button>
