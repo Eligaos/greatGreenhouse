@@ -42,7 +42,7 @@
             </a>
           </li> 
           <ul class="sub-menu collapse" id="MGA">
-           <li><a href="/exploracoes/adicionar"><i class="fa fa-globe fa-lg"></i> Exploração Agrícola</a></li>
+           <li><a href="/exploracoes/listar"><i class="fa fa-globe fa-lg"></i> Exploração Agrícola</a></li>
            <li><a href="/estufas/listar"><i class="fa fa-globe fa-lg"></i> Estufas</a>  </li>
            <li><a href="#"><i class="fa fa-globe fa-lg"></i> Culturas</a>	</li>
            <li><a href="#"><i class="fa fa-globe fa-lg"></i> Espécies</a></li>  

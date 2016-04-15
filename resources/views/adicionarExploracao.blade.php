@@ -71,7 +71,7 @@
 						</div>    
 						<div class="form-group">
 							<div class="input-group-addon">
-								<input type="button" name="cancelar" id="cancelar" value="Cancelar" class="btn btn-default pull-right">
+								<a href="/exploracoes/listar" role="button" name="cancelar"class="btn btn-default pull-right">Cancelar</a>
 								<input type="submit" name="submit" id="submit" value="Gravar" class="btn btn-success pull-right">
 							</div>
 						</div>

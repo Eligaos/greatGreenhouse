@@ -63,6 +63,11 @@ Route::group(['middleware' => ['web']], function ()
 
 	});
 
+	Route::get('/exploracoes/listar', function () 
+	{
+		return view("listagemExploracoes");
+
+	});
 
 
 	Route::get('/adicionarEstufa', function () 
