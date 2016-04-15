@@ -63,6 +63,9 @@ Route::group(['middleware' => ['web']], function ()
 
 	});
 
+	Route::get('/exploracoes/atualizarLista', 'ExploracaoController@listarExploracao');
+
+
 	Route::get('/exploracoes/listar', function () 
 	{
 		return view("listagemExploracoes");
