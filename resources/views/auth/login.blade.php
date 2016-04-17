@@ -24,10 +24,10 @@
         <span style="font-weight: bold">Please Login</span> <span>Or</span>
        <a href="/register"><button class="btn btn-xs btn-primary " type="submit">Register</button></a>
     </div>
-        <form action="" id="loginForm">
+        <form method="POST" id="loginForm" action="/auth">
           <div class="form-group input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span></span>
-            <input class="form-control" type="text" name='username' placeholder="username"/>          
+            <input class="form-control" type="text" name='name' placeholder="username"/>          
           </div>
           <div class="form-group input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
@@ -41,7 +41,7 @@
           </div>
 
           <div style="text-align: center;">
-            <button type="button" class="btn btn-def btn-block" >Login</button>
+            <button type="submit" class="btn btn-def btn-block" >Login</button>
           </div>
           <div class="form-group text-center">
             <a href="#">Forgot Password</a>

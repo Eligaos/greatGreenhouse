@@ -8,10 +8,10 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<!-- Bootstrap core CSS -->
-	<link href="../../css/bootstrap.css" rel="stylesheet">
+	<link href="{{asset('css/bootstrap.css')}}" rel="stylesheet">
 
-  <link href="../../css/geral.css" rel="stylesheet">
-  <link href="../../css/barraLateral.css" rel="stylesheet">
+  <link href="{{asset('css/geral.css')}}" rel="stylesheet">
+  <link href="{{asset('css/barraLateral.css')}}" rel="stylesheet">
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <!-- Custom styles for this template -->
   @yield('customStyles')
@@ -25,7 +25,7 @@
 
       <ul id="menu-content" class="menu-content collapse out">
         <li>
-          <a href="/home">
+          <a href="/admin/home">
             <i class="fa fa-home fa-lg"></i> Início</a>
           </li>
 
@@ -42,8 +42,8 @@
             </a>
           </li> 
           <ul class="sub-menu collapse" id="MGA">
-           <li><a href="/exploracoes/listar"><i class="fa fa-globe fa-lg"></i> Exploração Agrícola</a></li>
-           <li><a href="/estufas/listar"><i class="fa fa-globe fa-lg"></i> Estufas</a>  </li>
+           <li><a href="/admin/exploracoes/listar"><i class="fa fa-globe fa-lg"></i> Exploração Agrícola</a></li>
+           <li><a href="/admin/estufas/listar"><i class="fa fa-globe fa-lg"></i> Estufas</a>  </li>
            <li><a href="#"><i class="fa fa-globe fa-lg"></i> Culturas</a>	</li>
            <li><a href="#"><i class="fa fa-globe fa-lg"></i> Espécies</a></li>  
          </ul>   
@@ -75,8 +75,8 @@
 </div>
 @yield('content')
 </body>
-<script src="../../js/jquery-2.1.4.js"></script>
-<script src="../../js/angular.js"></script>
-<script src="../../js/bootstrap.js"></script>
+<script src="{{asset('js/jquery-2.1.4.js')}}"></script>
+<script src="{{asset('js/angular.js')}}"></script>
+<script src="{{asset('js/bootstrap.js')}}"></script>
 @yield('customScripts')
 </html>

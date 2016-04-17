@@ -2,7 +2,7 @@
 @extends('app')
 
 @section('customStyles')
-<link href="../css/listagemEstufas.css" rel="stylesheet">
+<link href="{{asset('css/listagemEstufas.css')}}" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -62,7 +62,7 @@
 							<div class="form-group">
 										<div class="input-group-addon">
 											<!--<input type="button" name="cancelar" id="cancelar" value="Cancelar" class="btn btn-default pull-right">-->
-											<a href="/exploracoes/adicionar" role="button" name="adicionar" id="adicionar exploracao" class="btn btn-success pull-right">Adicionar Exploracao</a>
+											<a href="/admin/exploracoes/adicionar" role="button" name="adicionar" id="adicionar exploracao" class="btn btn-success pull-right">Adicionar Exploracao</a>
 										</div>
 									</div>			
 						</div>
@@ -77,6 +77,6 @@
 @endsection
 
 @section('customScripts')
-<script src="../js/listagemEstufas.js"></script>
+<script src="{{asset('js/listagemEstufas.js')}}"></script>
 @endsection
 

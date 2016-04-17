@@ -23,9 +23,9 @@ class ExploracaoController extends Controller
         $input=Input::except('_token');
         $exists = $this->eaService->adicionarExploracao($input);
         if($exists){
-            return Redirect::to("/exploracoes/adicionar")->with('message', 'Já existe um Terreno com esse nome');
+            return Redirect::to("/admin/exploracoes/adicionar")->with('message', 'Já existe um Terreno com esse nome');
         }else{
-            return Redirect::to("/exploracoes/adicionar");
+            return Redirect::to("/admin/exploracoes/adicionar");
 
         }
     }

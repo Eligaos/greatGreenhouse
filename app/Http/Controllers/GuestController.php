@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Input;
 use App\Http\Requests;
 use App\Http\Requests\ClientRegistrationRequest;
 
-use App\Models\User;
+use App\User;
 
 use App\Services\UserService;
 
@@ -42,19 +42,19 @@ class GuestController extends Controller
             return $this->auth();
             case 'login':
             return $this->login();
+            default: 
+            return Redirect::to('/');
         }
     }
 
     public function auth()
     {
         $input = Input::except('_token');
-        $user = User::where('display', '=', $input['display'])->first();
 
-        if( is_object($user) && $user->isActive() ) {
+        $user = User::where('name', '=', $input['name'])->first();
 
-            if (Auth::attempt(['email' => $user->email, 'password' => $input['pass']])) {
-                return Redirect::to('/admin');
-            }
+        if (Auth::attempt(['email' => $user->email, 'password' => $input['password']])) {
+            return Redirect::to('/admin/home');
         }
 
             //Session::flash('error', 'Your account have not yet been activated. Please wait 24h for the admin to check it out.');
@@ -69,7 +69,7 @@ class GuestController extends Controller
     public function registerUser(ClientRegistrationRequest $request)
     {   
         $input = Input::except('_token', 'password_confirmation');
-       
+        
         $input['password'] = $this->uService->hashPass($input['password']);
         $user = User::create($input);
         $user->save();
@@ -77,7 +77,7 @@ class GuestController extends Controller
         if(is_object($user)) {
             Auth::login($user);
 
-            return Redirect::to('/home');
+            return Redirect::to('/admin/home');
         }
 
         return Redirect::to('/register');     
@@ -85,8 +85,8 @@ class GuestController extends Controller
 
     public function recovery()
     {
-       return "recovering...";
-   }
+     return "recovering...";
+ }
 
 
 }

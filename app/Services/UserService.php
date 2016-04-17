@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Services\ValidatorInterface;
 
-use App\Models\User;
+use App\User;
 
 use Hash;
 

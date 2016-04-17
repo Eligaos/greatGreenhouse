@@ -2,7 +2,7 @@
 @extends('app')
 
 @section('customStyles')
-    <link href="../css/listagemEstufas.css" rel="stylesheet">
+    <link href="{{asset('css/listagemEstufas.css')}}" rel="stylesheet">
 @endsection
 
 @section('content')
