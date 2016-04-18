@@ -54,7 +54,7 @@ class GuestController extends Controller
         $user = User::where('name', '=', $input['name'])->first();
 
         if (Auth::attempt(['email' => $user->email, 'password' => $input['password']])) {
-            return Redirect::to('/admin/home');
+            return Redirect::to('/admin/selecionarExploracao');
         }
 
             //Session::flash('error', 'Your account have not yet been activated. Please wait 24h for the admin to check it out.');
@@ -77,7 +77,7 @@ class GuestController extends Controller
         if(is_object($user)) {
             Auth::login($user);
 
-            return Redirect::to('/admin/home');
+            return Redirect::to('/admin/selecionarExploracao');
         }
 
         return Redirect::to('/register');     

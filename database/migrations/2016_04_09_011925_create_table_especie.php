@@ -43,6 +43,6 @@ class CreateTableEspecie extends Migration
     public function down()
     {
         Schema::drop('especies');
-        Schema::drop('especies_culturas');
+       // Schema::drop('especies_culturas');
     }
 }

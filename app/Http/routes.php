@@ -32,7 +32,7 @@ Route::get('/', function ()
 
 Route::post('/auth', 'GuestController@auth');
 
-Route::any('/exploracoes/adicionar/submit', 'ExploracaoController@adicionarExploracao'); //meter no middleware
+
 
 
 Route::any('/register/registration', 'GuestController@registerUser');
@@ -54,6 +54,13 @@ Route::group(['middleware' => ['web']], function ()
 
 	});
 
+	Route::get('/admin/exploracoes/detalhes', 'ExploracaoController@listarExploracao');
+
+	Route::get('/admin/selecionarExploracao', 'ExploracaoController@listarExploracao');
+	
+	Route::any('/admin/adicionar/submit', 'ExploracaoController@adicionarExploracao');
+	
+
 
 	Route::get('/admin/estufas/listar', function () 
 	{
@@ -61,14 +68,7 @@ Route::group(['middleware' => ['web']], function ()
 
 	});
 
-	Route::get('/admin/exploracoes/atualizarLista', 'ExploracaoController@listarExploracao');
 
-
-	Route::get('/admin/exploracoes/listar', function () 
-	{
-		return view("listagemExploracoes");
-
-	});
 
 
 	Route::get('/admin/adicionarEstufa', function () 

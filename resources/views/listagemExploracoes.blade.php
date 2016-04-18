@@ -1,20 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>Greenhouse Control</title>
+	<!-- Bootstrap core CSS -->
+	<link href="{{asset('css/bootstrap.css')}}" rel="stylesheet">
+	<!-- Custom styles for this template -->
+	<link href="{{asset('css/geral.css')}}" rel="stylesheet">
+	<link href="{{asset('css/listagemEstufas.css')}}" rel="stylesheet">
 
-@extends('app')
-
-@section('customStyles')
-<link href="{{asset('css/listagemEstufas.css')}}" rel="stylesheet">
-@endsection
-
-@section('content')
+</head>
 
 <div class="container">
 	<div class="row centered-form">
 		<div class="col-xs-12 col-sm-9 col-md-10  col-sm-offset-2 col-md-offset-2">
 			<section class="content">
-
 				<div >
 					<div class="panel panel-default">
 						<div class="panel-heading"><h1>Lista de Explorações Agrícolas</h1></div>
+						@foreach($lista as $key => $estufa)
 						<div class="panel-body">
 						<!--<div class="pull-right">
 							<div class="btn-group">
@@ -27,45 +36,38 @@
 						<div class="table-container">
 							<table class="table table-filter table-striped table-bordered table-responsive">
 								<tbody>
-									<tr data-status="pagado">
-										<!--<td>
-											<div class="ckbox">
-												<input type="checkbox" id="checkbox1">
-												<label for="checkbox1"></label>
-											</div>
-										</td>
-										<td>
-											<a href="javascript:;" class="star">
-												<i class="glyphicon glyphicon-star"></i>
-											</a>
-										</td>-->
+									<tr>									
 										<td>
 											<div class="media">
 												<div class="media-body">
-													<span class="media-meta pull-right">Febrero 13, 2016</span>
-													<h4 class="title">
-														Lorem Impsum
-														<span class="pull-right pagado">(Pagado)</span>
-													</h4>
-													<p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+													@if($estufa->numero>0)
+													<span class="media-meta pull-right">{{$estufa->numero}}</span>
+													@else
+													<span class="media-meta pull-right">---</span>
+													@endif
+													<p class="summary">{{$estufa->nome}}</p>
 												</div>
 											</div>
 										</td>
 										<td>
 											<div class="">
 												<a class="btn btn-sm  btn-default" href="#">Ver Detalhes</a>
+												<a class="btn btn-sm  btn-default" href="#">Editar</a>
+												<a class="btn btn-sm  btn-default" href="#">Eliminar</a>
 											</div>
 										</td>
 									</tr>													
 								</tbody>
-							</table>
-							<div class="form-group">
-										<div class="input-group-addon">
-											<!--<input type="button" name="cancelar" id="cancelar" value="Cancelar" class="btn btn-default pull-right">-->
-											<a href="/admin/exploracoes/adicionar" role="button" name="adicionar" id="adicionar exploracao" class="btn btn-success pull-right">Adicionar Exploracao</a>
-										</div>
-									</div>			
+							</table>									
 						</div>
+						@endforeach
+						<div class="form-group">
+							<div class="input-group-addon">
+								<!--<input type="button" name="cancelar" id="cancelar" value="Cancelar" class="btn btn-default pull-right">-->
+								<a href="/admin/exploracoes/adicionar" role="button" name="adicionar" id="adicionar exploracao" class="btn btn-success pull-right">Adicionar Exploracao</a>
+							</div>
+						</div>	
+
 					</div>
 				</div>
 
@@ -74,9 +76,7 @@
 	</div>
 </div>
 </div>
-@endsection
-
-@section('customScripts')
-<script src="{{asset('js/listagemEstufas.js')}}"></script>
-@endsection
+</body>
+<script src="{{asset('js/bootstrap.js')}}"></script>
+</html>
 

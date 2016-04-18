@@ -15,7 +15,7 @@
 					</div>
 					<div class="panel-body">
 						<form id="registerForm" method="POST" action="/exploracoes/adicionar/submit" >
-						<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">		
+							<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">		
 							<div class="form-group">
 								<fieldset> 
 									<legend>Dados do Terreno</legend>
@@ -25,11 +25,6 @@
 											<input type="text" class="form-control" id="nome"  name="nome" placeholder="Insira o nome do terreno" required><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
 										</span>										
 									</div>
-									@if( Session::get('message'))
-									<div style="text-align: center">
-										<span class="alert alert-info"> {{ Session::get('message') }}</span>
-									</div>
-									@endif
 									<br>
 									<label for="numero">Número do Terreno</label>
 									<div>

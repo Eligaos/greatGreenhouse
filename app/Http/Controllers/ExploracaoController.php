@@ -23,15 +23,14 @@ class ExploracaoController extends Controller
         $input=Input::except('_token');
         $exists = $this->eaService->adicionarExploracao($input);
         if($exists){
-            return Redirect::to("/admin/exploracoes/adicionar")->with('message', 'Já existe um Terreno com esse nome');
+            return Redirect::to("/admin/exploracoes/adicionar")->with('message', 'Estufa guardada com sucesso!');
         }else{
-            return Redirect::to("/admin/exploracoes/adicionar");
-
+            return Redirect::to("/admin/exploracoes/adicionar")->with('message', 'Já existe um Terreno com esse nome');
         }
     }
 
     public function listarExploracao(){ 
     	$lista = $this->eaService->listarExploracao();
-        return $lista
+        return view('listagemExploracoes', compact('lista'));
     }
 }
