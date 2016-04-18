@@ -12,21 +12,29 @@
   <link href="css/bootstrap.css" rel="stylesheet">
   <!-- Custom styles for this template -->
   <link href="css/geral.css" rel="stylesheet">
-  <link href="css/login.css" rel="stylesheet">
+  <link href="css/register.css" rel="stylesheet">
 </head>
 <body>
  <div class="container-fluid">
   <div class="row">
    <div class="Absolute-Center is-Responsive">
     <div id="logo-container"></div>
+     <div class="panel panel-default">
+        <div class="panel-heading">
+          <h1 class="panel-title" id="panelTitle">Great Greenhouse</h1>
+        </div>
+        <div class="panel-body">
     <div class="col-sm-12 col-md-10 col-md-offset-1">
 
       <form class="form-signin" method="POST" action="/register/registration">
        <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-        <h3 class="form-signin-heading" >Please Enter your Details</h3>
+         <div id="registerText">
+        <span class="form-signin-heading" >Insira os seus dados</span>
         <div class="form-group input-group">
           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span></span>
           <input class="form-control" type="text" name='name' placeholder="name"/>          
+
+        </div>
 
         </div>
         <div class="form-group input-group">
@@ -45,6 +53,7 @@
         <div class="form-group">
           <button type="button" class="btn btn-default pull-right">Cancel</button>        
           <button type="submit" class="btn btn-default pull-right">Register</button>
+        </div>  
         </div>
       </form>        
     </div>  

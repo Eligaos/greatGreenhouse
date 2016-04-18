@@ -19,12 +19,19 @@
   <div class="row">
    <div class="Absolute-Center is-Responsive">
       <div id="logo-container"></div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h1 class="panel-title" id="panelTitle">Great Greenhouse</h1>
+        </div>
+        <div class="panel-body">
       <div class="col-sm-12 col-md-10 col-md-offset-1">
-      <div style="text-align: center">
-        <span style="font-weight: bold">Please Login</span> <span>Or</span>
-       <a href="/register"><button class="btn btn-xs btn-primary " type="submit">Register</button></a>
+      <div id="loginText">
+        <span >Entra na sua conta</span> <span>Ou</span>
+       <a href="/register"><button class="btn btn-xs btn-primary " type="submit">Registe-se</button></a>
+       <hr>
     </div>
         <form method="POST" id="loginForm" action="/auth">
+      
           <div class="form-group input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span></span>
             <input class="form-control" type="text" name='name' placeholder="username"/>          
@@ -36,16 +43,17 @@
           </div>
           <div class="checkbox">
             <label>
-              <input type="checkbox"> Remember me</a>
+              <input type="checkbox"> Lembra-mee</a>
             </label>
           </div>
 
-          <div style="text-align: center;">
-            <button type="submit" class="btn btn-def btn-block" >Login</button>
+          <div  class="text-center">
+            <button type="submit" class="btn btn-def btn-block" >Entrar</button>
           </div>
           <div class="form-group text-center">
-            <a href="#">Forgot Password</a>
+            <a href="#">Esquecer Password</a>
           </div>
+           </div>
         </form>        
       </div>  
     </div>    
