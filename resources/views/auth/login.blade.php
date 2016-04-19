@@ -43,7 +43,7 @@
           </div>
           <div class="checkbox">
             <label>
-              <input type="checkbox"> Lembra-mee</a>
+              <input type="checkbox"> Lembra-me</a>
             </label>
           </div>
 

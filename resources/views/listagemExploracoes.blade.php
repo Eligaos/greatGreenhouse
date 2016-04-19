@@ -12,10 +12,9 @@
 	<link href="{{asset('css/bootstrap.css')}}" rel="stylesheet">
 	<!-- Custom styles for this template -->
 	<link href="{{asset('css/geral.css')}}" rel="stylesheet">
-	<link href="{{asset('css/listagemEstufas.css')}}" rel="stylesheet">
+	<link href="{{asset('css/listagemexploracaos.css')}}" rel="stylesheet">
 
 </head>
-
 <div class="container">
 	<div class="row centered-form">
 		<div class="col-xs-12 col-sm-9 col-md-10  col-sm-offset-2 col-md-offset-2">
@@ -23,57 +22,51 @@
 				<div >
 					<div class="panel panel-default">
 						<div class="panel-heading"><h1>Lista de Explorações Agrícolas</h1></div>
-						@foreach($lista as $key => $estufa)
-						<div class="panel-body">
-						<!--<div class="pull-right">
-							<div class="btn-group">
-								<button type="button" class="btn btn-success btn-filter" data-target="pagado">Pagado</button>
-								<button type="button" class="btn btn-warning btn-filter" data-target="pendiente">Pendiente</button>
-								<button type="button" class="btn btn-danger btn-filter" data-target="cancelado">Cancelado</button>
-								<button type="button" class="btn btn-default btn-filter" data-target="all">Todos</button>
-							</div>-->
-						</div>
-						<div class="table-container">
-							<table class="table table-filter table-striped table-bordered table-responsive">
-								<tbody>
-									<tr>									
-										<td>
-											<div class="media">
-												<div class="media-body">
-													@if($estufa->numero>0)
-													<span class="media-meta pull-right">{{$estufa->numero}}</span>
-													@else
-													<span class="media-meta pull-right">---</span>
-													@endif
-													<p class="summary">{{$estufa->nome}}</p>
+						@foreach($lista as $key => $exploracao)
+						<form class="form-signin" method="POST" action="/admin/home">
+							<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+							<div class="panel-body">
+							</div>
+							<div class="table-container">
+								<table class="table table-filter table-striped table-bordered table-responsive">
+									<tbody>
+										<tr>									
+											<td>
+												<div class="media">
+													<div class="media-body">
+														@if($exploracao->numero>0)
+														<span class="media-meta pull-right">nr:{{$exploracao->numero}}</span>
+														@else
+														<span class="media-meta pull-right">---</span>
+														@endif
+														<p class="summary">{{$exploracao->nome}}</p>
+													</div>
 												</div>
-											</div>
-										</td>
-										<td>
-											<div class="">
-												<a class="btn btn-sm  btn-default" href="#">Ver Detalhes</a>
-												<a class="btn btn-sm  btn-default" href="#">Editar</a>
-												<a class="btn btn-sm  btn-default" href="#">Eliminar</a>
+											</td>
+											<td>
+												<div class="">
+												<!--<a class="btn btn-sm  btn-default glyphicon glyphicon-triangle-right" data-toggle="tooltip" role="button" data-placement="top" title="Entrar nesta Exploração" href="/admin/home/{{$exploracao->id}}"></a>
+											-->
+											<input type="hidden" name="exploracaoID" value="{{$exploracao}}">
+											<button type="submit" class="btn btn-sm  btn-default glyphicon glyphicon-triangle-right" toggle="tooltip" role="button" data-placement="top" title="Entrar nesta Exploração"></button>
 											</div>
 										</td>
 									</tr>													
 								</tbody>
 							</table>									
 						</div>
-						@endforeach
-						<div class="form-group">
-							<div class="input-group-addon">
-								<!--<input type="button" name="cancelar" id="cancelar" value="Cancelar" class="btn btn-default pull-right">-->
-								<a href="/admin/exploracoes/adicionar" role="button" name="adicionar" id="adicionar exploracao" class="btn btn-success pull-right">Adicionar Exploracao</a>
-							</div>
-						</div>	
-
-					</div>
+					</form>  
+					@endforeach
+					<div class="form-group">
+						<div class="input-group-addon">
+							<a href="/admin/exploracoes/adicionar" role="button" name="adicionar" id="adicionar exploracao" class="btn btn-success pull-right">Adicionar Exploracao</a>
+						</div>
+					</div>	
 				</div>
-
 			</div>
-		</section>
-	</div>
+		</div>
+	</section>
+</div>
 </div>
 </div>
 </body>

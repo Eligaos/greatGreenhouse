@@ -43,11 +43,8 @@ Route::group(['middleware' => ['web']], function ()
 {
 
 	
-	Route::get('/admin/home', function () 
-	{
-		return view("home");
+	Route::post('/admin/home', 'HomeController@home');
 
-	});
 	Route::get('/admin/exploracoes/adicionar', function () 
 	{
 		return view("adicionarExploracao");
