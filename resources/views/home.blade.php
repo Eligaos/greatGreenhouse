@@ -18,7 +18,7 @@
 								<div class="panel panel-danger panel-pricing">
 									<div class="panel-heading">
 										<i class="fa fa-leaf"></i>
-										<h3><a class="btn btn-md btn-block btn-danger" href="#">Estufa 1</a></h3>
+										<h3><a class="btn btn-md btn-block btn-danger" href="#">{{exploracao->nome}}</a></h3>
 									</div>
 									<ul class="list-group text-center">
 										<li class="list-group-item"><i class="fa fa-leaf"></i> <a href="#">Cultura A</a> </li>					

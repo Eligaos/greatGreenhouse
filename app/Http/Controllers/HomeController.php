@@ -24,12 +24,13 @@ class HomeController extends Controller
 	}
 
 	public function home(){
-		/*$response = new Response;
+		$response = new Response;
 		$request = new Request;
-		$input=Input::except('_token');
-		$response->withCookie(cookie('exploracao', 'my value', 20));
-		dd($request->cookie('exploracao'));*/
-		return view("home");
+		$exploracao=Input::except('_token');
+		//$response->withCookie(cookie('exploracao', 'my value', $input));
+		//dd($request->cookie('exploracao'));
+		//dd(view('home', $input));
+		return view('home', compact('exploracao'));
 		//dd($request('ex'));
 		//$this->eaService->adicionarExploracao($input);
 	}
