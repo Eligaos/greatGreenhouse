@@ -60,7 +60,7 @@
      </ul>
 
      <li>
-      <a href="#">
+      <a href="/admin/perfil">
         <i class="fa fa-user fa-lg"></i> Perfil
       </a>
     </li>
@@ -70,7 +70,7 @@
       </a>
     </li>
     <li>
-      <a href="#">
+      <a href="/admin/logout">
         <i class="fa fa-door fa-lg"></i> Sair
       </a>
     </li>

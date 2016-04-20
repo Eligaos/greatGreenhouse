@@ -43,13 +43,18 @@ Route::group(['middleware' => ['web']], function ()
 
 	Route::get('/admin/home', 'HomeController@home');
 
+	Route::get('/admin/cookie', 'HomeController@showCookie');
+	Route::get('/admin/perfil', 'HomeController@showPerfil');
+
+	Route::post('/admin/home', 'HomeController@home');
 
 	Route::get('/admin/logout', 'HomeController@logout');
+
+	//Route::get('/admin/perfil', 'HomeController@showPerfil');
 
 	Route::get('/admin/exploracoes/adicionar', function () 
 	{
 		return view("adicionarExploracao");
-
 	});
 
 	Route::get('/admin/exploracoes/detalhes', 'ExploracaoController@listarExploracao');
@@ -60,14 +65,7 @@ Route::group(['middleware' => ['web']], function ()
 	
 
 
-	Route::get('/admin/estufas/listar', function () 
-	{
-		return view("listagemEstufas");
-
-	});
-
-
-
+	Route::get('/admin/estufas/listar', 'EstufaController@listarEstufas');
 
 	Route::get('/admin/adicionarEstufa', function () 
 	{

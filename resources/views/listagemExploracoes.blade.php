@@ -45,8 +45,8 @@
 											</td>
 											<td>
 												<div class="">
-												<!--<a class="btn btn-sm  btn-default glyphicon glyphicon-triangle-right" data-toggle="tooltip" role="button" data-placement="top" title="Entrar nesta Exploração" href="/admin/home/{{$exploracao->id}}"></a>
-											-->
+												<!--<a class="btn btn-sm  btn-default glyphicon glyphicon-triangle-right" data-toggle="tooltip" role="button" data-placement="top" title="Entrar nesta Exploração" href="/admin/home"></a>-->
+											
 											<input type="hidden" name="exploracaoID" value="{{$exploracao}}">
 											<button type="submit" class="btn btn-sm  btn-default glyphicon glyphicon-triangle-right" toggle="tooltip" role="button" data-placement="top" title="Entrar nesta Exploração"></button>
 											</div>
@@ -55,11 +55,11 @@
 								</tbody>
 							</table>									
 						</div>
-					</form>  
+					</form> 
 					@endforeach
 					<div class="form-group">
 						<div class="input-group-addon">
-							<a href="/admin/exploracoes/adicionar" role="button" name="adicionar" id="adicionar exploracao" class="btn btn-success pull-right">Adicionar Exploracao</a>
+							<a href=" /admin/exploracoes/adicionar" role="button" name="adicionar" id="adicionar exploracao" class="btn btn-success pull-right">Adicionar Exploracao</a>
 						</div>
 					</div>	
 				</div>

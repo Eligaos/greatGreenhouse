@@ -34,7 +34,7 @@ class ExploracaoController extends Controller
 
 
     	$lista = $this->eaService->listarExploracao();
-                 \Debugbar::info(Auth::check());
+                 //\Debugbar::info(Auth::check());
 
 
         return view('listagemExploracoes', compact('lista'));

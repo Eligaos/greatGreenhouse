@@ -14,11 +14,12 @@
 					<div class="col-xs-12 col-sm-9 col-md-10  col-sm-offset-2 col-md-offset-2">
 						<section class="content">
 							<!-- item -->
+							<li><a href="/admin/cookie"><i class="fa fa-globe fa-lg"></i> Cookie</a>  </li>
 							<div class="col-md-4 text-center">
 								<div class="panel panel-danger panel-pricing">
 									<div class="panel-heading">
 										<i class="fa fa-leaf"></i>
-										<h3><a class="btn btn-md btn-block btn-danger" href="#">{{exploracao->nome}}</a></h3>
+										<h3><a class="btn btn-md btn-block btn-danger" href="#">Estufa 1</a></h3>
 									</div>
 									<ul class="list-group text-center">
 										<li class="list-group-item"><i class="fa fa-leaf"></i> <a href="#">Cultura A</a> </li>					

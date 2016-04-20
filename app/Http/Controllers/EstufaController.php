@@ -16,4 +16,12 @@ class EstufaController extends Controller
     	$this->middleware('auth');
     	$this->eService = $eService;
     }
+
+    public function listarEstufas(){ 
+
+
+    	//$lista = $this->eService->listarEstufas();
+                 //\Debugbar::info(Auth::check());
+        return view('listagemEstufas', compact('lista'));
+    }
 }

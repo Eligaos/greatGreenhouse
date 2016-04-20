@@ -21,34 +21,61 @@ class HomeController extends Controller
 
 	public function __construct(HomeService $hService)
 	{
-    	$this->middleware('auth');
+		$this->middleware('auth');
 		$this->hService = $hService;
 	}
+
+
+
 
 	public function home(){
 		$response = new Response;
 		$request = new Request;
 
+
+
 		$exploracao=Input::except('_token');
-		//$response->withCookie(cookie('exploracao', 'my value', $input));
-		//dd($request->cookie('exploracao'));
+
+		/*$HEY = $request->session()->put('exploracaoSelecionada', $exploracao);
+		dd($HEY);
+		$val = $request->session()->get('exploracaoSelecionada');
+		dd($val);*/
 		//dd(view('home', $input));
 		//return view('home', compact('exploracao'));
+		
+		/*$cookie = Cookie::make('cExploracao', $exploracao);
 
-		$input=Input::except('_token');
-		$response->withCookie(cookie('exploracao', 'my value', 20));
-		dd($request->cookie('exploracao'));
-		 
-		return view("home");
+		$val = Cookie::get('cExploracao');*/
+
+		//dd($val);
+		//$input=Input::except('_token');
+		$response->withCookie(cookie('exploracao', $exploracao , 60));
+		//dd($response);
+		//$request->cookie('exploracao');
+		//dd($request);
+
+		return view("home", compact($exploracao));
 
 		//dd($request('ex'));
 		//$this->eaService->adicionarExploracao($input);
 	}
 
-	
-	private function logout()
-	{
-		Auth::logout();
+	 public function showCookie(Request $request) {
+	 	$val = $request->cookie('exploracao');
+	 	dd($val);
+	 	$key = array_search('id', $val);
+	 	dd($key);
+        return $key;
+    } 
+
+    public function showPerfil() {
+	 	Auth::logout();
 		return Redirect::to('/');
-	}
+    }
+
+    public function logout() {
+	 	Auth::logout();
+		return Redirect::to('/');
+    }
+
 }
