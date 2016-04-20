@@ -12,10 +12,20 @@
 }
 .nav-side-menu .brand {
   background-color: #23282e;
-  line-height: 50px;
+  line-height: 40px;
   display: block;
   text-align: center;
   font-size: 14px;
+  border-bottom: 1px solid #e1ffff;
+}
+
+.welcome{
+  background-color: #23282e;
+  line-height: 25px;
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  border-bottom: 1px solid #23282e;
 }
 .nav-side-menu .toggle-btn {
   display: none;

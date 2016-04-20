@@ -30,8 +30,8 @@
        <a href="/register"><button class="btn btn-xs btn-primary " type="submit">Registe-se</button></a>
        <hr>
     </div>
-        <form method="POST" id="loginForm" action="/auth">
-      
+        <form method="POST" id="loginForm" action="/authentication/auth">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
           <div class="form-group input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span></span>
             <input class="form-control" type="text" name='name' placeholder="username"/>          

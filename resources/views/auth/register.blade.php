@@ -25,9 +25,8 @@
       </div>
       <div class="panel-body">
         <div class="col-sm-12 col-md-10 col-md-offset-1">
-
           <form class="form-signin" method="POST" action="/register/registration">
-           <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
            <div id="registerText">
             <span class="form-signin-heading" >Insira os seus dados</span>
             <div class="form-group input-group">

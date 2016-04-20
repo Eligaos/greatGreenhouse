@@ -20,8 +20,12 @@
 	<div class="nav-side-menu ">
     <div class="brand">Great Greenhouse</div>
     <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+    <div class="welcome">Bem-vindo,  
+     @if(Auth::check())
+     <span>{{Auth::getUser()->name}}</span>
+     @endif  </div>
 
-    <div class="menu-list">
+     <div class="menu-list">
 
       <ul id="menu-content" class="menu-content collapse out">
         <li>
@@ -39,39 +43,39 @@
           <a href="#">
             <i class="fa fa-globe fa-lg"></i>
             Gestão Agrícola <span class="arrow"></span>
-            </a>
-          </li> 
-          <ul class="sub-menu collapse" id="MGA">
-           <li><a href="/admin/exploracoes/listar"><i class="fa fa-globe fa-lg"></i> Exploração Agrícola</a></li>
-           <li><a href="/admin/estufas/listar"><i class="fa fa-globe fa-lg"></i> Estufas</a>  </li>
-           <li><a href="#"><i class="fa fa-globe fa-lg"></i> Culturas</a>	</li>
-           <li><a href="#"><i class="fa fa-globe fa-lg"></i> Espécies</a></li>  
-         </ul>   
-         <li data-toggle="collapse" data-target="#consultas" class="collapsed">
-          <a href="#"><a href="#"><i class="fa fa-globe fa-lg"></i> Consultas <span class="arrow"></span></a>
+          </a>
         </li> 
-        <ul class="sub-menu collapse" id="consultas">
-         <li><a href="#"><i class="glyphicon glyphicon-stats"></i> Dados Analíticos </a></li>
-         <li><a href="#"><i class="glyphicon glyphicon-bell"></i> Alarmes </a>	</li>
-       </ul>
+        <ul class="sub-menu collapse" id="MGA">
+         <li><a href="/admin/exploracoes/listar"><i class="fa fa-globe fa-lg"></i> Exploração Agrícola</a></li>
+         <li><a href="/admin/estufas/listar"><i class="fa fa-globe fa-lg"></i> Estufas</a>  </li>
+         <li><a href="#"><i class="fa fa-globe fa-lg"></i> Culturas</a>	</li>
+         <li><a href="#"><i class="fa fa-globe fa-lg"></i> Espécies</a></li>  
+       </ul>   
+       <li data-toggle="collapse" data-target="#consultas" class="collapsed">
+        <a href="#"><a href="#"><i class="fa fa-globe fa-lg"></i> Consultas <span class="arrow"></span></a>
+      </li> 
+      <ul class="sub-menu collapse" id="consultas">
+       <li><a href="#"><i class="glyphicon glyphicon-stats"></i> Dados Analíticos </a></li>
+       <li><a href="#"><i class="glyphicon glyphicon-bell"></i> Alarmes </a>	</li>
+     </ul>
 
-       <li>
-        <a href="#">
-          <i class="fa fa-user fa-lg"></i> Perfil
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <i class="glyphicon glyphicon-transfer"></i> Mudar de Exploração
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <i class="fa fa-door fa-lg"></i> Sair
-        </a>
-      </li>
-    </ul>
-  </div>
+     <li>
+      <a href="#">
+        <i class="fa fa-user fa-lg"></i> Perfil
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class="glyphicon glyphicon-transfer"></i> Mudar de Exploração
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class="fa fa-door fa-lg"></i> Sair
+      </a>
+    </li>
+  </ul>
+</div>
 </div>
 @yield('content')
 </body>

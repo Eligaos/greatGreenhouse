@@ -8,14 +8,15 @@ use App\Http\Requests;
 
 use App\Services\ExploracaoService;
 use Redirect;
-
+use Session;
+use Auth;       
 class ExploracaoController extends Controller
 {
     protected $eaService;
 
     public function __construct(ExploracaoService $eaService)
     {
-    	//$this->middleware('auth'); meter quando login
+        $this->middleware('auth');
     	$this->eaService = $eaService;
     }
 
@@ -23,14 +24,19 @@ class ExploracaoController extends Controller
         $input=Input::except('_token');
         $exists = $this->eaService->adicionarExploracao($input);
         if($exists){
-            return Redirect::to("/admin/exploracoes/adicionar")->with('message', 'Estufa guardada com sucesso!');
+            return Redirect::to("/admin/exploracoes/adicionar")->with('message', 'Exploração guardada com sucesso!');
         }else{
             return Redirect::to("/admin/exploracoes/adicionar")->with('message', 'Já existe um Terreno com esse nome');
         }
     }
 
     public function listarExploracao(){ 
+
+
     	$lista = $this->eaService->listarExploracao();
+                 \Debugbar::info(Auth::check());
+
+
         return view('listagemExploracoes', compact('lista'));
     }
 }

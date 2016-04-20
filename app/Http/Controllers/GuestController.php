@@ -11,8 +11,6 @@ use App\Http\Requests\ClientRegistrationRequest;
 use App\User;
 
 use App\Services\UserService;
-
-
 use Redirect;
 use Session;
 use Auth;
@@ -32,30 +30,18 @@ class GuestController extends Controller
     	return view('auth.login');
     }
 
-    public function cardinal($action)
-    {
-    	switch ($action) {
-    		case 'recovery':
-            return $this->recovery();    		
-            case 'register':
-            return $this->register();
-            case 'authentication':
-            return $this->auth();
-            case 'login':
-            return $this->login();
-            default: 
-            return Redirect::to('/');
-        }
-    }
-
     public function auth()
     {
-        $input = Input::except('_token');
 
-        $user = User::where('name', '=', $input['name'])->first();
+       $input = Input::except('_token');
+       $user = User::where('name', '=', $input['name'])->first();
 
+ 
         if (Auth::attempt(['email' => $user->email, 'password' => $input['password']])) {
+          
+           
             return Redirect::to('/admin/selecionarExploracao');
+
         }
 
             //Session::flash('error', 'Your account have not yet been activated. Please wait 24h for the admin to check it out.');

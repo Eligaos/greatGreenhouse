@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('customStyles')
-<link href="css/addExploracao.css" rel="stylesheet">
+<link href="{{asset('css/addExploracao.css')}}" rel="stylesheet">
 
 @endsection
 @section('content')

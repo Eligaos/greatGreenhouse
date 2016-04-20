@@ -13,6 +13,7 @@ class EstufaController extends Controller
 
     public function __contruct(EstufaService $eService)
     {
+    	$this->middleware('auth');
     	$this->eService = $eService;
     }
 }
