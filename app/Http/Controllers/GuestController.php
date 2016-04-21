@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DebugBar\DebugBar;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Input;
@@ -14,6 +15,7 @@ use App\Services\UserService;
 use Redirect;
 use Session;
 use Auth;
+use Symfony\Component\Debug\Debug;
 
 class GuestController extends Controller
 {
@@ -27,25 +29,39 @@ class GuestController extends Controller
 
     public function login()
     {
-    	return view('auth.login');
+        \Debugbar::info(User::find(1));
+        if(Auth::check()){
+
+            return Redirect::to('/admin/home');
+        }
+
+        return view('auth.login');
     }
 
     public function auth()
     {
 
-       $input = Input::except('_token');
-       $user = User::where('name', '=', $input['name'])->first();
+        $input = Input::except('_token');
+        $user = User::where('name', '=', $input['name'])->first();
+        if($user){
 
- 
-        if (Auth::attempt(['email' => $user->email, 'password' => $input['password']])) {
-          
-           
-            return Redirect::to('/admin/selecionarExploracao');
+            if (Auth::attempt(['email' => $user->email, 'password' => $input['password']])) {
+
+
+                return Redirect::to('/admin/selecionarExploracao');
+
+            }
+            //Session::flash('message',);
+            Session::flash('errors', array('Password Incorreta'));
+            return redirect('/');
 
         }
+        //Session::flash('errors', array('test1', 'test2', 'test3'));
 
-            //Session::flash('error', 'Your account have not yet been activated. Please wait 24h for the admin to check it out.');
-        return Redirect::to('/');
+        Session::flash('errors', array('Utilizador não encontrado'));
+
+        return redirect('/');
+        //return Redirect::to('/');
     }
 
     public function register()
@@ -54,9 +70,9 @@ class GuestController extends Controller
     }
 
     public function registerUser(ClientRegistrationRequest $request)
-    {   
+    {
         $input = Input::except('_token', 'password_confirmation');
-        
+
         $input['password'] = $this->uService->hashPass($input['password']);
         $user = User::create($input);
         $user->save();
@@ -67,13 +83,13 @@ class GuestController extends Controller
             return Redirect::to('/admin/selecionarExploracao');
         }
 
-        return Redirect::to('/register');     
+        return Redirect::to('/register');
     }
 
     public function recovery()
     {
-     return "recovering...";
- }
+        return "recovering...";
+    }
 
 
 }

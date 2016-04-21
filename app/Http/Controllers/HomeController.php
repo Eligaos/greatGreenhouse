@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\UserService;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -15,14 +16,18 @@ use Redirect;
 use Session;
 use Auth;
 
+use App\User;
+
 class HomeController extends Controller
 {
 	protected $hService;
+    protected $uService;
 
-	public function __construct(HomeService $hService)
+	public function __construct(HomeService $hService, UserService $uService)
 	{
 		$this->middleware('auth');
 		$this->hService = $hService;
+        $this->uService = $uService;
 	}
 
 
@@ -72,7 +77,43 @@ class HomeController extends Controller
 	    return view('perfil');
     }
 
-    public function logout() {
+	public function editPerfil() {
+		return view('perfilEditar');
+	}
+
+    public function saveEditPerfil() {
+
+        $user = User::find(Auth::getUser()->id);
+
+        $input = Input::except('_token');
+
+        
+        if($input['password'] == $input['password_confirmation']){
+            $user->name = $input['nome'];
+            $user->email = $input['email'];
+            $user->cellphone = $input['cellphone'];
+
+            $user->save();
+            return Redirect::to('/admin/perfil');
+
+        }
+
+        return dd($input);
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+	public function logout() {
 	 	Auth::logout();
 		return Redirect::to('/');
     }
