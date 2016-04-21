@@ -36,8 +36,7 @@
 
 								<div class="form-group">
 									<div class="input-group-addon">
-										<input type="button" name="cancelar" id="cancelar" value="Editar" class="btn btn-success pull-right">
-									</div>
+										<a href="/admin/perfil/editar" role="button" name="editar" class="btn btn-success pull-right">Editar</a></div>
 								</div>
 							</form>
 						</div>
@@ -46,6 +45,7 @@
 			</div>
 		</div>
 	</div>
+    
 	@endsection
 
 

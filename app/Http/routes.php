@@ -44,7 +44,12 @@ Route::group(['middleware' => ['web']], function ()
 	Route::get('/admin/home', 'HomeController@home');
 
 	Route::get('/admin/cookie', 'HomeController@showCookie');
+
 	Route::get('/admin/perfil', 'HomeController@showPerfil');
+
+	Route::get('/admin/perfil/editar', 'HomeController@editPerfil');
+
+	Route::post('/admin/perfil/editar', 'HomeController@saveEditPerfil');
 
 	Route::post('/admin/home', 'HomeController@home');
 
