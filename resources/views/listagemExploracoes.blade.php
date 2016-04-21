@@ -24,9 +24,7 @@
 						<div class="panel-heading"><h1>Lista de Explorações Agrícolas</h1></div>
 						@foreach($lista as $key => $exploracao)
 						<form class="form-signin" method="POST" action="/admin/home">
-							<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-							<div class="panel-body">
-							</div>
+							<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">							
 							<div class="table-container">
 								<table class="table table-filter table-striped table-bordered table-responsive">
 									<tbody>
@@ -45,28 +43,28 @@
 											</td>
 											<td>
 												<div class="">
-												<!--<a class="btn btn-sm  btn-default glyphicon glyphicon-triangle-right" data-toggle="tooltip" role="button" data-placement="top" title="Entrar nesta Exploração" href="/admin/home"></a>-->
-											
-											<input type="hidden" name="exploracaoID" value="{{$exploracao}}">
-											<button type="submit" class="btn btn-sm  btn-default glyphicon glyphicon-triangle-right" toggle="tooltip" role="button" data-placement="top" title="Entrar nesta Exploração"></button>
-											</div>
-										</td>
-									</tr>													
-								</tbody>
-							</table>									
-						</div>
-					</form> 
-					@endforeach
-					<div class="form-group">
-						<div class="input-group-addon">
-							<a href=" /admin/exploracoes/adicionar" role="button" name="adicionar" id="adicionar exploracao" class="btn btn-success pull-right">Adicionar Exploracao</a>
-						</div>
-					</div>	
+													<!--<a class="btn btn-sm  btn-default glyphicon glyphicon-triangle-right" data-toggle="tooltip" role="button" data-placement="top" title="Entrar nesta Exploração" href="/admin/home"></a>-->
+
+													<input type="hidden" name="exploracaoID" value="{{$exploracao}}">
+													<button type="submit" class="btn btn-sm  btn-default glyphicon glyphicon-triangle-right" toggle="tooltip" role="button" data-placement="top" title="Entrar nesta Exploração"></button>
+												</div>
+											</td>
+										</tr>													
+									</tbody>
+								</table>									
+							</div>
+						</form> 
+						@endforeach
+						<div class="form-group">
+							<div class="input-group-addon">
+								<a href=" /admin/exploracoes/adicionar" role="button" name="adicionar" id="adicionar exploracao" class="btn btn-success pull-right">Adicionar Exploracao</a>
+							</div>
+						</div>	
+					</div>
 				</div>
 			</div>
-		</div>
-	</section>
-</div>
+		</section>
+	</div>
 </div>
 </div>
 </body>

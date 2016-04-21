@@ -61,7 +61,7 @@ Route::group(['middleware' => ['web']], function ()
 
 	Route::get('/admin/selecionarExploracao', 'ExploracaoController@listarExploracao');
 	
-	Route::any('/admin/adicionar/submit', 'ExploracaoController@adicionarExploracao');
+	Route::any('/admin/adicionarExploracao/submit', 'ExploracaoController@adicionarExploracao');
 	
 
 
@@ -72,9 +72,8 @@ Route::group(['middleware' => ['web']], function ()
 		return view("adicionarEstufa");
 
 	});
-
-
-
+	Route::any('/admin/adicionarEstufa/submit', 'EstufaController@adicionarEstufa');
+	
 });
 
 

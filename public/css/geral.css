@@ -10,3 +10,8 @@ body {
     background-repeat: repeat;
 
 } 
+
+.table-sortable tbody tr {
+    cursor: move;
+}
+

@@ -32,8 +32,7 @@
 										<div class="col-xs-12 col-md-12">
 											<label for="nome">Nome do Terreno</label>
 											<div class="input-group">
-												<input type="text" class="form-control" id="nome"  name="nome" placeholder="Insira o nome do terreno" required><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
-											</span>										
+												<input type="text" class="form-control" id="nome"  name="nome" placeholder="Insira o nome do terreno" required><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>		
 										</div>
 										@if( Session::get('message'))
 										<div style="text-align: center">

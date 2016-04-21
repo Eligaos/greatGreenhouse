@@ -1,18 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<title>Greenhouse Control</title>
-	<!-- Bootstrap core CSS -->
-	<link href="{{asset('css/bootstrap.css')}}" rel="stylesheet">
-	<!-- Custom styles for this template -->
-	<link href="{{asset('css/geral.css')}}" rel="stylesheet">
-	<link href="{{asset('css/listagemestufas.css')}}" rel="stylesheet">
+@extends('app')
+
+@section('customStyles')
+
+<link href="{{asset('css/listagemestufas.css')}}" rel="stylesheet">
+@endsection
+
+@section('content')
 
 </head>
 <div class="container">
@@ -22,7 +15,7 @@
 				<div >
 					<div class="panel panel-default">
 						<div class="panel-heading"><h1>Lista de Estufas</h1></div>
-						@foreach($lista as $key => $estufas)
+						@foreach($lista as $key => $estufa)
 						<div class="panel-body">
 						</div>
 						<div class="table-container">
@@ -51,7 +44,7 @@
 					@endforeach
 					<div class="form-group">
 						<div class="input-group-addon">
-							<a href=" /admin/estufa/adicionar" role="button" name="adicionar" id="adicionar estufa" class="btn btn-success pull-right">Adicionar Estufa</a>
+							<a href="/admin/adicionarEstufa" role="button" name="adicionar" id="adicionar estufa" class="btn btn-success pull-right">Adicionar Estufa</a>
 						</div>
 					</div>	
 				</div>
@@ -61,8 +54,10 @@
 </div>
 </div>
 </div>
-</body>
-<script src="{{asset('js/bootstrap.js')}}"></script>
-</html>
+@endsection
+
+@section('customScripts')
+
+@endsection
 
 

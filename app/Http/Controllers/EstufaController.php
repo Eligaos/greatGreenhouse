@@ -11,16 +11,15 @@ class EstufaController extends Controller
 {
 	protected $eService;
 
-    public function __contruct(EstufaService $eService)
+    public function __construct(EstufaService $eService)
     {
     	$this->middleware('auth');
     	$this->eService = $eService;
     }
 
     public function listarEstufas(){ 
-
-
-    	//$lista = $this->eService->listarEstufas();
+    	
+    	$lista = $this->eService->listarEstufas();
                  //\Debugbar::info(Auth::check());
         return view('listagemEstufas', compact('lista'));
     }

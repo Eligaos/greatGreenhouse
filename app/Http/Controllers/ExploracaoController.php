@@ -32,11 +32,7 @@ class ExploracaoController extends Controller
 
     public function listarExploracao(){ 
 
-
     	$lista = $this->eaService->listarExploracao();
-                 //\Debugbar::info(Auth::check());
-
-
         return view('listagemExploracoes', compact('lista'));
     }
 }
