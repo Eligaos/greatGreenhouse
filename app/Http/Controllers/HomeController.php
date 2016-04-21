@@ -69,8 +69,7 @@ class HomeController extends Controller
     } 
 
     public function showPerfil() {
-	 	Auth::logout();
-		return Redirect::to('/');
+	    return view('perfil');
     }
 
     public function logout() {

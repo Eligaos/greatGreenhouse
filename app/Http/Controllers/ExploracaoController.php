@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\Http\Requests;
-
 use App\Services\ExploracaoService;
 use Redirect;
 use Session;
-use Auth;       
+use Auth;
+
 class ExploracaoController extends Controller
 {
     protected $eaService;
@@ -21,7 +21,7 @@ class ExploracaoController extends Controller
     }
 
     public function adicionarExploracao(){ 
-        $input=Input::except('_token');
+        $input = Input::except('_token');
         $exists = $this->eaService->adicionarExploracao($input);
         if($exists){
             return Redirect::to("/admin/exploracoes/adicionar")->with('message', 'Exploração guardada com sucesso!');
