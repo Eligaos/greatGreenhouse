@@ -1,3 +1,4 @@
+"use strict";
 $(document).ready(function() {
     $("#add_row").on("click", function() {
         addDynamicRows($('.tab_logic').eq(0));
@@ -25,6 +26,7 @@ $(document).ready(function() {
     }).disableSelection();
 
     $(".table-sortable thead").disableSelection();
+
 });
 
 function addDynamicRows(table){

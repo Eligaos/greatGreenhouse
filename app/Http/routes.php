@@ -52,7 +52,7 @@ Route::group(['middleware' => ['web']], function ()
 
 	//Route::get('/admin/perfil', 'HomeController@showPerfil');
 
-	Route::get('/admin/exploracoes/adicionar', function () 
+	Route::get('/admin/adicionarExploracao', function () 
 	{
 		return view("adicionarExploracao");
 	});
@@ -72,7 +72,7 @@ Route::group(['middleware' => ['web']], function ()
 		return view("adicionarEstufa");
 
 	});
-	Route::any('/admin/adicionarEstufa/submit', 'EstufaController@adicionarEstufa');
+	Route::post('/admin/adicionarEstufa/submit', 'EstufaController@adicionarEstufa');
 	
 });
 

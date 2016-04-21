@@ -6,12 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 class Setor extends Model
 {
 	protected $table = "setores";
-	protected $fillable = ['nome','largura','comprimento', 'estufa_id'];
+	protected $fillable = ['nome','descricao', 'estufa_id'];
 
 
 	public function estufas()
 	{
-		return $this->hasOne('App\Models\Estufa', 'estufa_id', 'id');
+		return $this->belongsTo('App\Models\Estufa', 'estufa_id', 'id');
+		//return $this->hasOne('App\Models\Estufa', 'estufa_id', 'id');
 	}
 
 	public function culturas()

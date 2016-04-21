@@ -57,7 +57,7 @@
 						@endforeach
 						<div class="form-group">
 							<div class="input-group-addon">
-								<a href=" /admin/exploracoes/adicionar" role="button" name="adicionar" id="adicionar exploracao" class="btn btn-success pull-right">Adicionar Exploracao</a>
+								<a href=" /admin/adicionarExploracao" role="button" name="adicionar" id="adicionar exploracao" class="btn btn-success pull-right">Adicionar Exploracao</a>
 							</div>
 						</div>	
 					</div>
@@ -69,5 +69,6 @@
 </div>
 </body>
 <script src="{{asset('js/bootstrap.js')}}"></script>
+<script src="{{asset('js/errors.js')}}"></script>
 </html>
 

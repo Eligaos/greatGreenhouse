@@ -24,7 +24,7 @@
 							<h3 class="modal-title" id="myModalLabel">Exploração Agrícola</h3>
 						</div>
 						<div class="panel-body">
-							<form id="registerForm" method="POST" action="/admin/adicionar/submit" >
+							<form id="registerForm" method="POST" action="/admin/adicionarExploracao/submit" >
 								<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">		
 								<div class="form-group">
 									<fieldset> 

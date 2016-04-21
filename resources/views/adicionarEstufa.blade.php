@@ -20,42 +20,21 @@
 								<fieldset> 
 									<legend>Dados da Estufa</legend>
 									<div class="col-xs-12 col-md-12">
-
 										<label for="nome">Nome da Estufa</label>
 										<div class="input-group">											
 											<input type="text" class="form-control" id="nome"  name="nome" placeholder="Insira o nome da Estufa" required><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
 										</div>
+										<br/>
+										<label for="nome">Descrição</label>
+										<div class="input-group">											
+											<input type="text" class="form-control" id="descricao"  name="descricao" placeholder="Insira uma descrição para estufa"><span class="input-group-addon"></span>
+										</div>
 
 									</fieldset>
-								</div>
+								</div>								
 								<div class="form-group">
 									<fieldset> 
-										<legend>Dimensões</legend>
-										<div class="col-xs-12 col-md-6">
-
-											<label for="distrito">Largura</label>
-											<div class="input-group">											
-												<input type="text" class="form-control" id="largura" name="largura" placeholder="Insira a largura da estufa" required><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
-											</div>
-											<br>
-											<label for="area">Área</label>
-											<div>
-												<input type="text" class="form-control" id="area" name="area" placeholder="Calculada automaticamente" disabled="">
-											</div><br>
-
-										</div> 
-
-										<div class="col-xs-12 col-md-6"> 
-											<label for="concelho">Comprimento</label>
-											<div class="input-group">											
-												<input type="text" class="form-control" id="comprimento" name="comprimento" placeholder="Insira o comprimento da estufa" required><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
-											</div><br>
-										</div>  
-									</fieldset>
-								</div>    
-								<div class="form-group">
-									<fieldset> 
-										<legend>Zonas</legend> 
+										<legend>Sectores</legend> 
 										<div class="table-container">
 											<div class="row clearfix">
 												<div class="col-md-12 table-responsive">
@@ -63,7 +42,7 @@
 														<thead>
 															<tr >
 																<th class="text-center">
-																	Nome
+																	Sector
 																</th>
 																<th class="text-center">
 																	Descrição
@@ -74,11 +53,11 @@
 														</thead>
 														<tbody>
 															<tr id='addr0' data-id="0" class="hidden">
-																<td data-name="nome">
-																	<input type="text" name='nome'  placeholder='Nome' class="form-control"/>
+																<td data-name="nomeSetor[]">
+																	<input type="text" name='nomeS'  placeholder='Nome' class="form-control"/>
 																</td>
-																<td data-name="descricao">
-																	<input type="text" name='descricao' placeholder='Insira uma descricao' class="form-control"/>
+																<td data-name="descricaoSetor[]">
+																	<input type="text" name='descricaoS' placeholder='Insira uma descricao' class="form-control"/>
 																</td>
 																<td data-name="del">
 																	<button name="del0" class='btn btn-danger glyphicon glyphicon-remove row-remove'></button>
@@ -98,6 +77,7 @@
 										<input type="submit" name="submit" id="submit" value="Gravar" class="btn btn-success pull-right">
 									</div>
 								</div>
+								</div
 							</form>
 						</div>
 					</div>
@@ -107,5 +87,5 @@
 	</div>
 	@endsection
 	@section('customScripts')
-	<script src="{{asset('js/addZona.js')}}"></script>
+	<script src="{{asset('js/addSetor.js')}}"></script>
 	@endsection

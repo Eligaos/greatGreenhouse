@@ -11,7 +11,7 @@ class Cultura extends Model
 
 
 	public function setores()
-		return $this->hasOne('App\Models\Setor', 'setor_id', 'id');
+		return $this->belongsTo('App\Models\Setor', 'setor_id', 'id');
 	}
 
 

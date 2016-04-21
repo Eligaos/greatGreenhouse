@@ -35,7 +35,6 @@ class HomeController extends Controller
 
 
 		$exploracao=Input::except('_token');
-
 		/*$HEY = $request->session()->put('exploracaoSelecionada', $exploracao);
 		dd($HEY);
 		$val = $request->session()->get('exploracaoSelecionada');
@@ -55,7 +54,6 @@ class HomeController extends Controller
 		//dd($request);
 
 		return view("home", compact($exploracao));
-
 		//dd($request('ex'));
 		//$this->eaService->adicionarExploracao($input);
 	}

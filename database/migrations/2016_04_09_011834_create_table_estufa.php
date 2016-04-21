@@ -15,8 +15,7 @@ class CreateTableEstufa extends Migration
         Schema::create('estufas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome')->unique();
-            $table->bigInteger('largura');
-            $table->bigInteger('comprimento');
+            $table->string('descricao');            
             $table->integer('exploracoes_id');
             $table->timestamps();          
         });
