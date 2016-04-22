@@ -48,7 +48,7 @@ class GuestController extends Controller
             if (Auth::attempt(['email' => $user->email, 'password' => $input['password']])) {
 
 
-                return Redirect::to('/admin/selecionarExploracao');
+                return Redirect::to('/admin/exploracoes/listar');
 
             }
             //Session::flash('message',);
@@ -80,7 +80,7 @@ class GuestController extends Controller
         if(is_object($user)) {
             Auth::login($user);
 
-            return Redirect::to('/admin/selecionarExploracao');
+            return Redirect::to('/admin/exploracoes/listar');
         }
 
         return Redirect::to('/register');

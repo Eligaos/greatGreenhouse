@@ -57,27 +57,27 @@ Route::group(['middleware' => ['web']], function ()
 
 	//Route::get('/admin/perfil', 'HomeController@showPerfil');
 
-	Route::get('/admin/adicionarExploracao', function () 
+	Route::get('/admin/exploracoes/adicionar', function () 
 	{
 		return view("adicionarExploracao");
 	});
 
 	Route::get('/admin/exploracoes/detalhes', 'ExploracaoController@listarExploracao');
 
-	Route::get('/admin/selecionarExploracao', 'ExploracaoController@listarExploracao');
+	Route::get('/admin/exploracoes/listar', 'ExploracaoController@listarExploracao');
 	
-	Route::any('/admin/adicionarExploracao/submit', 'ExploracaoController@adicionarExploracao');
+	Route::any('/admin/exploracoes/adicionar/submit', 'ExploracaoController@adicionarExploracao');
 	
 
 
 	Route::get('/admin/estufas/listar', 'EstufaController@listarEstufas');
 
-	Route::get('/admin/adicionarEstufa', function () 
+	Route::get('/admin/estufas/adicionar', function () 
 	{
 		return view("adicionarEstufa");
 
 	});
-	Route::post('/admin/adicionarEstufa/submit', 'EstufaController@adicionarEstufa');
+	Route::post('/admin/estufas/adicionar/submit', 'EstufaController@adicionarEstufa');
 	
 });
 

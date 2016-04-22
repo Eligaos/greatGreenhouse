@@ -22,6 +22,11 @@
 				<div >
 					<div class="panel panel-default">
 						<div class="panel-heading"><h1>Lista de Explorações Agrícolas</h1></div>
+						@if( Session::get('message'))
+						<div style="text-align: center">
+							<span class="alert alert-info"> {{ Session::get('message') }}</span>
+						</div>
+						@endif
 						@foreach($lista as $key => $exploracao)
 						<form class="form-signin" method="POST" action="/admin/home">
 							<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">							
@@ -29,7 +34,7 @@
 								<table class="table table-filter table-striped table-bordered table-responsive">
 									<tbody>
 										<tr>									
-											<td>
+											<td>											
 												<div class="media">
 													<div class="media-body">
 														@if($exploracao->numero>0)
@@ -57,7 +62,7 @@
 						@endforeach
 						<div class="form-group">
 							<div class="input-group-addon">
-								<a href=" /admin/adicionarExploracao" role="button" name="adicionar" id="adicionar exploracao" class="btn btn-success pull-right">Adicionar Exploracao</a>
+								<a href="/admin/exploracoes/adicionar" role="button" name="adicionar" id="adicionar exploracao" class="btn btn-success pull-right">Adicionar Exploracao</a>
 							</div>
 						</div>	
 					</div>

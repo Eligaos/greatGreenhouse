@@ -24,7 +24,7 @@
 							<h3 class="modal-title" id="myModalLabel">Exploração Agrícola</h3>
 						</div>
 						<div class="panel-body">
-							<form id="registerForm" method="POST" action="/admin/adicionarExploracao/submit" >
+							<form id="registerForm" method="POST" action="/admin/exploracoes/adicionar/submit" >
 								<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">		
 								<div class="form-group">
 									<fieldset> 
@@ -78,7 +78,7 @@
 								</div>    
 								<div class="form-group">
 									<div class="input-group-addon">
-										<a href="/admin/selecionarExploracao" role="button" name="cancelar"class="btn btn-default pull-right">Cancelar</a>
+										<a href="/admin/exploracoes/listar" role="button" name="cancelar"class="btn btn-default pull-right">Cancelar</a>
 										<input type="submit" name="submit" id="submit" value="Gravar" class="btn btn-success pull-right">
 									</div>
 								</div>

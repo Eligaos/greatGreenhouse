@@ -14,13 +14,18 @@
 						<h3 class="panel-title" id="myModalLabel">Estufa</h3>
 					</div>
 					<div class="panel-body">
-						<form id="registerForm" method="POST" action="/admin/adicionarEstufa/submit">
+						<form id="registerForm" method="POST" action="/admin/estufas/adicionar/submit">
 							<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">							
 							<div class="form-group">
 								<fieldset> 
 									<legend>Dados da Estufa</legend>
 									<div class="col-xs-12 col-md-12">
 										<label for="nome">Nome da Estufa</label>
+										@if( Session::get('message'))
+										<div style="text-align: center">
+											<span class="alert alert-info"> {{ Session::get('message') }}</span>
+										</div>
+										@endif
 										<div class="input-group">											
 											<input type="text" class="form-control" id="nome"  name="nome" placeholder="Insira o nome da Estufa" required><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
 										</div>
@@ -73,7 +78,7 @@
 								</div>
 								<div class="form-group">
 									<div class="input-group-addon">
-										<input type="button" name="cancelar" id="cancelar" value="Cancelar" class="btn btn-default pull-right">
+										<a href="/admin/estufas/listar" role="button" name="cancelar"class="btn btn-default pull-right">Cancelar</a>
 										<input type="submit" name="submit" id="submit" value="Gravar" class="btn btn-success pull-right">
 									</div>
 								</div>
