@@ -21,6 +21,10 @@ class EstufaController extends Controller
 		$this->eService = $eService;
 	}
 
+	public function adicionar(){
+		return view("adicionarEstufa");		
+	}
+
 	public function listarEstufas(){ 
 		$lista = $this->eService->listarEstufas();
                  //\Debugbar::info(Auth::check());
@@ -37,6 +41,9 @@ class EstufaController extends Controller
 		}
 	}
 
-
-
+	public function detalhesEstufa($id){
+		$lista = $this->eService->detalhesEstufa($id);
+		//$lista[0]-- array de estufa  $lista[1]--array dos setores da estufa
+		return view('detalhesEstufa', compact('lista'));  		
+	}
 }

@@ -21,99 +21,54 @@ use App\User;
 class HomeController extends Controller
 {
 	protected $hService;
-    protected $uService;
+	protected $uService;
 
 	public function __construct(HomeService $hService, UserService $uService)
 	{
 		$this->middleware('auth');
 		$this->hService = $hService;
-        $this->uService = $uService;
+		$this->uService = $uService;
 	}
 
-
-
+	public function inicio(Request $request){
+		$id = Input::except('_token');
+		$request->session()->put('exploracaoSelecionada', $id);
+		return Redirect::to('admin/home');
+	}
 
 	public function home(){
-		$response = new Response;
-		$request = new Request;
-
-
-
-		$exploracao=Input::except('_token');
-		/*$HEY = $request->session()->put('exploracaoSelecionada', $exploracao);
-		dd($HEY);
-		$val = $request->session()->get('exploracaoSelecionada');
-		dd($val);*/
-		//dd(view('home', $input));
-		//return view('home', compact('exploracao'));
-		
-		/*$cookie = Cookie::make('cExploracao', $exploracao);
-
-		$val = Cookie::get('cExploracao');*/
-
-		//dd($val);
-		//$input=Input::except('_token');
-		$response->withCookie(cookie('exploracao', $exploracao , 60));
-		//dd($response);
-		//$request->cookie('exploracao');
-		//dd($request);
-
-		return view("home", compact($exploracao));
-		//dd($request('ex'));
-		//$this->eaService->adicionarExploracao($input);
+		return view("home");
 	}
 
-	 public function showCookie(Request $request) {
-	 	$val = $request->cookie('exploracao');
-	 	dd($val);
-	 	$key = array_search('id', $val);
-	 	dd($key);
-        return $key;
-    } 
+	public function mudarExploracao(Request $request){
+		$request->session()->forget('exploracaoSelecionada');
+		 return Redirect::to('admin/exploracoes/listar');
+	}
 
-    public function showPerfil() {
-	    return view('perfil');
-    }
+	public function showPerfil() {
+		return view('perfil');
+	}
 
 	public function editPerfil() {
 		return view('perfilEditar');
 	}
 
-    public function saveEditPerfil() {
+	public function saveEditPerfil() {
+		$user = User::find(Auth::getUser()->id);
+		$input = Input::except('_token');
+		if($input['password'] == $input['password_confirmation']){
+			$user->name = $input['nome'];
+			$user->email = $input['email'];
+			$user->cellphone = $input['cellphone'];
 
-        $user = User::find(Auth::getUser()->id);
-
-        $input = Input::except('_token');
-
-        
-        if($input['password'] == $input['password_confirmation']){
-            $user->name = $input['nome'];
-            $user->email = $input['email'];
-            $user->cellphone = $input['cellphone'];
-
-            $user->save();
-            return Redirect::to('/admin/perfil');
-
-        }
-
-        return dd($input);
-
-
-
-
-
-
-
-
-    }
-
-
-
-
+			$user->save();
+			return Redirect::to('/admin/perfil');
+		}		
+		return dd($input);
+	}
 
 	public function logout() {
-	 	Auth::logout();
+		Auth::logout();
 		return Redirect::to('/');
-    }
-
+	}
 }

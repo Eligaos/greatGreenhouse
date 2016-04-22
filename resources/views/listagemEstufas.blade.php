@@ -2,7 +2,7 @@
 
 @section('customStyles')
 
-<link href="{{asset('css/listagemestufas.css')}}" rel="stylesheet">
+<link href="{{asset('css/listagemEstufas.css')}}" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -12,7 +12,7 @@
 			<section class="content">
 				<div >
 					<div class="panel panel-default">
-						<div class="panel-heading"><h1>Lista de Estufas</h1></div>
+						<div class="panel-heading"><h2>Lista de Estufas</h2></div>
 						@if( Session::get('message'))
 						<div style="text-align: center">
 							<span class="alert alert-info"> {{ Session::get('message') }}</span>
@@ -30,6 +30,14 @@
 												</div>
 											</div>
 										</td>
+										<td>
+											<div class="">
+												<input type="hidden" name="estufaID" value="">
+												<a class="btn btn-sm  btn-default" href="/admin/estufas/detalhes/{{$estufa->id}}">Ver Detalhes</a>
+												<a class="btn btn-sm  btn-default" href="#">Editar</a>
+												<a class="btn btn-sm  btn-default" href="#">Eliminar</a>
+											</div>
+										</td>
 									</tr>													
 								</tbody>
 							</table>	
@@ -38,7 +46,7 @@
 					@endforeach
 					<div class="form-group">
 						<div class="input-group-addon">
-							<a href="/admin/estufas/adicionar" role="button" name="adicionar" id="adicionar estufa" class="btn btn-success pull-right">Adicionar Estufa</a>
+							<a href="/admin/estufas/adicionar" role="button" name="adicionar" id="adicionar estufa" class="btn btn-success pull-right" toggle="tooltip" data-placement="top" title="Adicionar Estufa">Adicionar</a>
 						</div>
 					</div>	
 				</div>

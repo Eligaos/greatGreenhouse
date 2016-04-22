@@ -5,6 +5,9 @@ body {
 	font-family: 'Open Sans', sans-serif;
 	color: #353535;
 }
+.content h1 {
+	text-align: center;
+}
 .content .content-footer p {
 	color: #6d6d6d;
     font-size: 12px;
@@ -133,6 +136,5 @@ body {
 	color: #d9534f;
 }
 .table-filter .media .summary {
-	text-align: center;
 	font-size: 14px;
 }

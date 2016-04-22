@@ -10,6 +10,9 @@
 		<div class="col-xs-12 col-sm-9 col-md-8  col-sm-offset-3 col-md-offset-3">
 			<div>
 				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title" id="myModalLabel">Estufa</h3>
+					</div>
 					<div class="panel-body">
 						<form id="registerForm" method="POST" action="/admin/estufas/adicionar/submit">
 							<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">							

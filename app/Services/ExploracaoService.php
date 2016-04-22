@@ -21,4 +21,8 @@ class ExploracaoService
 	public function listarExploracao(){ 
 		return Exploracao::get();
 	}
+
+	public function detalhesExploracao($id){ 
+		return Exploracao::find($id);
+	}
 }
