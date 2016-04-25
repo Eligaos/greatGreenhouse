@@ -51,7 +51,6 @@
 													<div class="media">
 														<div class="media-body">
 															<p class="summary">{{$setor->nome}}</p>
-															<p class="summary">{{$setor}}</p>
 														</div>
 													</div>
 												</td>		

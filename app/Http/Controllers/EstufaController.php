@@ -11,12 +11,15 @@ use Redirect;
 
 
 
+
 class EstufaController extends Controller
 {
 	protected $eService;
+	protected $idExp;
 
-	public function __construct(EstufaService $eService)
+	public function __construct(EstufaService $eService, Request $request)
 	{
+		$this->idExp = $request->session()->get('exploracaoSelecionada');
 		$this->middleware('auth');
 		$this->eService = $eService;
 	}
@@ -26,14 +29,14 @@ class EstufaController extends Controller
 	}
 
 	public function listarEstufas(){ 
-		$lista = $this->eService->listarEstufas();
+		$lista = $this->eService->listarEstufas($this->idExp);
                  //\Debugbar::info(Auth::check());
 		return view('listagemEstufas', compact('lista'));
 	}
 
 	public function adicionarEstufa(){     	
 		$input = Input::except('_token');
-		$exists = $this->eService->adicionarEstufa($input);
+		$exists = $this->eService->adicionarEstufa($this->idExp, $input);
 		if($exists){
 			return Redirect::to("admin/estufas/listar")->with('message', 'Estufa guardada com sucesso!');
 		}else{

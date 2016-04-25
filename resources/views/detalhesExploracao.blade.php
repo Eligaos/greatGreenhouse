@@ -38,14 +38,14 @@
 									<div class="col-xs-12 col-md-6">
 										<div>
 											<label for="distrito">Distrito:</label>
-											@if(!isset($exploracao[0]->distrito))
+											@if($exploracao[0]->distrito==true)
 											<span>{{$exploracao[0]->distrito}}</span>
 											@else
 											<label for="distrito">----</label>
 											@endif
 										</div>
 										<label for="concelho">Concelho:</label>
-										@if(!isset($exploracao[0]->concelho))
+										@if($exploracao[0]->concelho==true)
 										<span>{{$exploracao[0]->concelho}}</span>	
 										@else
 										<label for="concelho">----</label>
@@ -54,7 +54,7 @@
 
 									<div class="col-xs-12 col-md-6"> 
 										<label for="freguesia">Freguesia:</label>
-										@if(!isset($exploracao[0]->freguesia))
+										@if($exploracao[0]->freguesia==true)
 										<span>{{$exploracao[0]->freguesia}}</span>	
 										@else
 										<label for="freguesia">----</label>
