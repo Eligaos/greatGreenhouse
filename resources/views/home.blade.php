@@ -2,7 +2,9 @@
 
 @section('customStyles')
 
-<link href="../../css/home.css" rel="stylesheet">
+<link href="{{asset('css/home.css')}}" rel="stylesheet">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+
 @endsection
 
 @section('content')
@@ -11,7 +13,7 @@
 		<div class="row">
 			<div class="container">
 				<div class="row centered-form">
-					<div class="col-xs-12 col-sm-9 col-md-10  col-sm-offset-2 col-md-offset-2">
+					<div class="col-xs-12 col-sm-9 col-md-12 col-sm-offset-3 col-md-offset-1">
 						<section class="content">
 							<!-- item -->
 							<div class="col-md-4 text-center">
@@ -20,6 +22,7 @@
 										<i class="fa fa-leaf"></i>
 										<h3><a class="btn btn-md btn-block btn-danger" href="#">Estufa 1</a></h3>
 									</div>
+									<div id="chart1" style="height: 250px;"></div>
 									<ul class="list-group text-center">
 										<li class="list-group-item"><i class="fa fa-leaf"></i> <a href="#">Cultura A</a> </li>
 										<li class="list-group-item"><i class="fa fa-leaf"></i> <a href="#">Cultura B</a> </li>
@@ -37,6 +40,7 @@
 										<i class="fa fa-leaf"></i>
 										<h3><a class="btn btn-md btn-block btn-warning" href="#">Estufa 2</a></h3>
 									</div>
+										<div id="chart2" style="height: 250px;"></div>
 									<ul class="list-group text-center">
 										<li class="list-group-item"><i class="fa fa-leaf"></i> <a href="#">Cultura A</a> </li>
 										<li class="list-group-item"><i class="fa fa-leaf"></i> <a href="#">Cultura B</a> </li>
@@ -55,6 +59,7 @@
 										<i class="fa fa-leaf"></i>
 										<h3><a class="btn btn-md btn-block btn-success" href="#">Estufa 3</a></h3>
 									</div>
+										<div id="chart3" style="height: 250px;"></div>
 									<ul class="list-group text-center">
 										<li class="list-group-item"><i class="fa fa-leaf"></i> <a href="#">Cultura A</a> </li>
 									</ul>
@@ -70,4 +75,8 @@
 
 			@section('customScripts')
 
+ <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+ <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+ <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+ 			<script src="{{asset('js/home.js')}}"></script>
 			@endsection

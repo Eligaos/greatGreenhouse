@@ -2,13 +2,15 @@
 
 
 #estufas {
-  margin-top: 275px;
+  margin-top: 25px;
 }
+
 .panel-pricing {
   -moz-transition: all .3s ease;
   -o-transition: all .3s ease;
   -webkit-transition: all .3s ease;
 }
+
 .panel-pricing:hover {
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
 }

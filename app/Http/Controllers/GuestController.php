@@ -46,22 +46,13 @@ class GuestController extends Controller
         if($user){
 
             if (Auth::attempt(['email' => $user->email, 'password' => $input['palavra-passe']])) {
-
-
                 return Redirect::to('/admin/exploracoes/listar');
-
             }
-            //Session::flash('message',);
-            Session::flash('errors', array('Password Incorreta'));
-            return redirect('/');
-
         }
-        //Session::flash('errors', array('test1', 'test2', 'test3'));
 
-        Session::flash('errors', array('Utilizador não encontrado'));
+        Session::flash('errors', array('Utilizador não encontrado/password inválida'));
 
         return redirect('/');
-        //return Redirect::to('/');
     }
 
     public function register()
@@ -72,11 +63,8 @@ class GuestController extends Controller
     public function registerUser(ClientRegistrationRequest $request)
     {
         $input = Input::except('_token');
-        $errors = array();
 
-
-
-        $input['password'] = $this->uService->hashPass($input['palavra-passe']);
+        $input['password'] = $this->uService->hashPass($input['password']);
         $user = User::create($input);
 
         if(is_object($user)) {

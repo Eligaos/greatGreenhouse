@@ -32,7 +32,7 @@
                                 <hr>
                                 <div class="form-group input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                    <input class="form-control" type="text" name='nome' placeholder="nome" required/><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+                                    <input class="form-control" type="text" name='name' placeholder="nome" required/><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
                                 </div>
                             </div>
                             <div class="form-group input-group">
@@ -41,16 +41,16 @@
                             </div>
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                                <input class="form-control" type="text" name='telemóvel' placeholder="telemóvel"/>
+                                <input class="form-control" type="text" name='cellphone' placeholder="telemóvel"/>
                             </div>
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                <input class="form-control" type="password" name='palavra-passe' placeholder="palavra-passe" required/><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+                                <input class="form-control" type="password" name='password' placeholder="palavra-passe" required/><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
                             </div>
 
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                <input class="form-control" type="password" name='confirmação da palavra-passe' placeholder="confirmação da palavra-passe" required/><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+                                <input class="form-control" type="password" name='password_confirmation' placeholder="confirmação da palavra-passe" required/><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
                             </div>
                             @if (count($errors) > 0 )
                                 <br>
