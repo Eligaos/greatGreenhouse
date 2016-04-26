@@ -55,6 +55,7 @@ class HomeController extends Controller
 
 	public function saveEditPerfil() {
 		$user = User::find(Auth::getUser()->id);
+		dd($user);
 		$input = Input::except('_token');
 		if($input['password'] == $input['password_confirmation']){
 			$user->name = $input['nome'];

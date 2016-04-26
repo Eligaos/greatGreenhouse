@@ -13,20 +13,23 @@ use Auth;
 class ExploracaoController extends Controller
 {
     protected $eaService;
+    protected $idExp;
 
-    public function __construct(ExploracaoService $eaService)
+    public function __construct(ExploracaoService $eaService, Request $request)
     {
+
         $this->middleware('auth');
         $this->eaService = $eaService;
+        $this->idExp = $request->session()->get('exploracaoSelecionada');
+
     }
 
     public function adicionar(){ 
         return view("adicionarExploracao");
     }
 
-    public function detalhesExploracao(Request $request){
-        $id = $request->session()->get('exploracaoSelecionada');
-        $exploracao = $this->eaService->detalhesExploracao($id);
+    public function detalhesExploracao(){
+        $exploracao = $this->eaService->procurarExploracao($this->idExp);
         /**@todo devolve $exploracao dentro de um objeto 
         */
         return view('detalhesExploracao', compact('exploracao'));        
@@ -43,7 +46,22 @@ class ExploracaoController extends Controller
     }
 
     public function listarExploracao(){ 
-    	$lista = $this->eaService->listarExploracao();
+        $lista = $this->eaService->listarExploracao();
         return view('listagemExploracoes', compact('lista'));
     }
+    public function editarExploracao(){ 
+        $exploracao = $this->eaService->procurarExploracao($this->idExp);
+        return view('editarExploracao', compact('exploracao'));
+    }
+
+    public function saveEditExploracao(){ 
+        $input = Input::except('_token');        
+        $exploracao = $this->eaService->saveEditExploracao($this->idExp, $input);
+        if($exploracao){
+            return Redirect::to("/admin/exploracoes/detalhes")->with('message', 'Exploração guardada com sucesso!');
+        }else{
+            return Redirect::to("/admin/exploracoes/editar")->with('message', 'Já existe um Terreno com esse nome');
+        }
+    }
+    
 }

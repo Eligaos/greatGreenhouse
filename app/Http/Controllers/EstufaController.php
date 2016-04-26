@@ -49,4 +49,10 @@ class EstufaController extends Controller
 		//$lista[0]-- array de estufa  $lista[1]--array dos setores da estufa
 		return view('detalhesEstufa', compact('lista'));  		
 	}
+
+	public function editarEstufa($id){
+		$lista = $this->eService->detalhesEstufa($id);
+		//$lista[0]-- array de estufa  $lista[1]--array dos setores da estufa
+		return view('editarEstufa', compact('lista'));  		
+	}
 }

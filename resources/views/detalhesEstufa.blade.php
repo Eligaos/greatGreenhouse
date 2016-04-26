@@ -72,16 +72,14 @@
 						<div class="form-group">
 							<div class="input-group-addon">
 								<a href="/admin/estufas/listar" role="button" name="cancelar"class="btn btn-default pull-right">Voltar</a>
-								<input type="submit" name="submit" id="submit" value="Editar" class="btn btn-success pull-right">
+								<a class="btn btn-success pull-right" toggle="tooltip" data-placement="top" title="Editar Estufa"  role="button" name="editar" href="/admin/estufas/editar/{{$lista[0]->id}}">Editar</a>
 							</div>
 						</div>
-						</div
-					</form>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 </div>
 @endsection
 @section('customScripts')

@@ -61,9 +61,12 @@ Route::group(['middleware' => ['web']], function ()
 	Route::get('/admin/exploracoes/detalhes', 'ExploracaoController@detalhesExploracao');
 	Route::get('/admin/exploracoes/listar', 'ExploracaoController@listarExploracao');	
 	Route::any('/admin/exploracoes/adicionar/submit', 'ExploracaoController@adicionarExploracao');
+	Route::get('/admin/exploracoes/editar', 'ExploracaoController@editarExploracao');
+	Route::post('/admin/exploracoes/editar/submit', 'ExploracaoController@saveEditExploracao');
 
 	Route::get('/admin/estufas/listar', 'EstufaController@listarEstufas');
 	Route::get('/admin/estufas/detalhes/{id}', 'EstufaController@detalhesEstufa');
+	Route::get('/admin/estufas/editar/{id}', 'EstufaController@editarEstufa');
 	Route::get('/admin/estufas/adicionar', 'EstufaController@adicionar');
 	Route::post('/admin/estufas/adicionar/submit', 'EstufaController@adicionarEstufa');
 	

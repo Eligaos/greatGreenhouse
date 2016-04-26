@@ -72,8 +72,7 @@
 							</div>    
 							<div class="form-group">
 								<div class="input-group-addon">
-									<a href="/exploracoes/listar" role="button" name="cancelar"class="btn btn-default pull-right">Cancelar</a>
-									<input type="submit" name="submit" id="submit" value="Editar" class="btn btn-success pull-right">
+									<a href="/admin/exploracoes/editar" role="button" name="editar" id="editar" value="Editar" class="btn btn-success pull-right" toggle="tooltip" data-placement="top" title="Editar esta Exploração">Editar</a>
 								</div>
 							</div>
 						</form>
