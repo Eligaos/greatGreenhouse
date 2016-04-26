@@ -22,7 +22,7 @@
 										<h3><a class="btn btn-md btn-block btn-danger" href="#">Estufa 1</a></h3>
 									</div>
 									<ul class="list-group text-center">
-										<li class="list-group-item"><i class="fa fa-leaf"></i> <a href="#">Cultura A</a> </li>					
+										<li class="list-group-item"><i class="fa fa-leaf"></i> <a href="#">Cultura A</a> </li>
 										<li class="list-group-item"><i class="fa fa-leaf"></i> <a href="#">Cultura B</a> </li>
 									</ul>
 									<div class="panel-footer">
@@ -39,8 +39,8 @@
 										<h3><a class="btn btn-md btn-block btn-warning" href="#">Estufa 2</a></h3>
 									</div>
 									<ul class="list-group text-center">
-										<li class="list-group-item"><i class="fa fa-leaf"></i> <a href="#">Cultura A</a> </li>					
-										<li class="list-group-item"><i class="fa fa-leaf"></i> <a href="#">Cultura B</a> </li>					
+										<li class="list-group-item"><i class="fa fa-leaf"></i> <a href="#">Cultura A</a> </li>
+										<li class="list-group-item"><i class="fa fa-leaf"></i> <a href="#">Cultura B</a> </li>
 										<li class="list-group-item"><i class="fa fa-leaf"></i> <a href="#">Cultura C</a> </li>
 									</ul>
 									<div class="panel-footer">
@@ -67,10 +67,6 @@
 						</section>
 					</div>
 				</div>
-			</div>
-
-
-
 			@endsection
 
 			@section('customScripts')

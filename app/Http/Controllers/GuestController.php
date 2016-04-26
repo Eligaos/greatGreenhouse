@@ -42,10 +42,10 @@ class GuestController extends Controller
     {
 
         $input = Input::except('_token');
-        $user = User::where('name', '=', $input['name'])->first();
+        $user = User::where('name', '=', $input['nome'])->first();
         if($user){
 
-            if (Auth::attempt(['email' => $user->email, 'password' => $input['password']])) {
+            if (Auth::attempt(['email' => $user->email, 'password' => $input['palavra-passe']])) {
 
 
                 return Redirect::to('/admin/exploracoes/listar');
@@ -71,18 +71,19 @@ class GuestController extends Controller
 
     public function registerUser(ClientRegistrationRequest $request)
     {
-        $input = Input::except('_token', 'password_confirmation');
+        $input = Input::except('_token');
+        $errors = array();
 
-        $input['password'] = $this->uService->hashPass($input['password']);
+
+
+        $input['password'] = $this->uService->hashPass($input['palavra-passe']);
         $user = User::create($input);
-        $user->save();
 
         if(is_object($user)) {
             Auth::login($user);
 
             return Redirect::to('/admin/exploracoes/listar');
         }
-
         return Redirect::to('/register');
     }
 

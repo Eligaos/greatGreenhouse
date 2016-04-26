@@ -46,7 +46,18 @@
                                         </div>
                                     </fieldset>
                                 </div>
+                                @if (Session::has('errors'))
+                                    <br>
+                                    <div class="alert alert-danger">
+                                        <h4>Os dados não foram guardados devido aos seguintes erros:</h4>
+                                        <ul>
+                                            @foreach ($errors as $error)
 
+                                                <li>{{ $error}}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
                                 <div class="form-group">
                                     <div class="input-group-addon">
                                         <a href="/admin/perfil" role="button" name="cancelar"class="btn btn-default pull-right">Cancelar</a>

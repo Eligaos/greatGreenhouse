@@ -84,20 +84,25 @@ class HomeController extends Controller
         $user = User::find(Auth::getUser()->id);
 
         $input = Input::except('_token');
+        $errors = array();
 
         
         if($input['password'] == $input['password_confirmation']){
-            $user->name = $input['nome'];
-            $user->email = $input['email'];
-            $user->cellphone = $input['cellphone'];
 
+
+            if(count($errors) > 0){
+
+                Session::flash('errors', $errors);
+                return Redirect::to('/admin/perfil/editar');
+
+            }
             $user->save();
             return Redirect::to('/admin/perfil');
-
         }
 
-        return dd($input);
 
+        return redirect('/admin/perfil/editar');
+        //  return dd($input);
 
 
 

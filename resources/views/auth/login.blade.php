@@ -37,12 +37,12 @@
 
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span></span>
-                                <input class="form-control" type="text" name='name' placeholder="username"/>
+                                <input class="form-control" type="text" name='nome' placeholder="nome de utilizador"/>
                             </div>
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
 
-                                <input class="form-control" type="password" name='password' placeholder="password"/>
+                                <input class="form-control" type="password" name='palavra-passe' placeholder="palavra-passe"/>
                             </div>
                             <div class="checkbox">
                                 <label>
@@ -55,7 +55,6 @@
                             @if (Session::has('errors'))
                                 <br>
                                 <div class="alert alert-danger">
-                                    <strong>Whoops!</strong> There were some problems with your input.<br><br>
                                     <ul>
                                         @foreach ($errors as $error)
 

@@ -11,16 +11,12 @@
 			<div>
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h3 class="panel-title" id="myModalLabel">Perfil</h3>
+						<h2 id="myModalLabel">Dados do Perfil</h2>
 					</div>
 					<div class="panel-body">
+						<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 
-						<form id="registerForm" method="POST" >
-
-						<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">							
-							<div class="form-group">
-								<fieldset> 
-									<legend>Dados da Estufa</legend>
+								<fieldset>
 									<div class="col-xs-12 col-md-12">
 
 										<label for="nome">Nome:</label>
@@ -32,20 +28,19 @@
 										<label for="nome">Nº Telemóvel: </label>
                                         <span>{{Auth::getUser()->cellphone}}</span>
 									</fieldset>
-								</div>
 
 								<div class="form-group">
 									<div class="input-group-addon">
 										<a href="/admin/perfil/editar" role="button" name="editar" class="btn btn-success pull-right">Editar</a></div>
 								</div>
-							</form>
+
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-    
+
 	@endsection
 
 
