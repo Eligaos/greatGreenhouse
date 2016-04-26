@@ -46,7 +46,7 @@
           </a>
         </li> 
         <ul class="sub-menu collapse" id="MGA">
-         <li><a href="/admin/exploracoes/listar"><i class="fa fa-globe fa-lg"></i> Exploração Agrícola</a></li>
+         <li><a href="/admin/exploracoes/detalhes"><i class="fa fa-globe fa-lg"></i> Exploração Agrícola</a></li>
          <li><a href="/admin/estufas/listar"><i class="fa fa-globe fa-lg"></i> Estufas</a>  </li>
          <li><a href="#"><i class="fa fa-globe fa-lg"></i> Culturas</a>	</li>
          <li><a href="#"><i class="fa fa-globe fa-lg"></i> Espécies</a></li>  
@@ -65,7 +65,7 @@
       </a>
     </li>
     <li>
-      <a href="#">
+      <a href="/admin/exploracoes/mudar">
         <i class="glyphicon glyphicon-transfer"></i> Mudar de Exploração
       </a>
     </li>

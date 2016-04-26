@@ -14,7 +14,6 @@
 					<div class="col-xs-12 col-sm-9 col-md-10  col-sm-offset-2 col-md-offset-2">
 						<section class="content">
 							<!-- item -->
-							<li><a href="/admin/cookie"><i class="fa fa-globe fa-lg"></i> Cookie</a>  </li>
 							<div class="col-md-4 text-center">
 								<div class="panel panel-danger panel-pricing">
 									<div class="panel-heading">

@@ -18,64 +18,69 @@
 							<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">		
 							<div class="form-group">
 								<fieldset> 
-									<legend>Dados do Terreno</legend>
+									<legend>Dados do Terreno:</legend>
 									<div class="col-xs-12 col-md-12">
-										<label for="nome">Nome do Terreno</label>
-										<div class="input-group">
-											<input type="text" class="form-control" id="nome"  name="nome" placeholder="Insira o nome do terreno" required><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
-										</span>										
+										<label for="nome">Nome do Terreno:</label>
+										<span>{{$exploracao[0]->nome}}</span>									
 									</div>
-									<br>
-									<label for="numero">Número do Terreno</label>
-									<div>
-										<input type="number" class="form-control" id="numero"  name="numero" min=0 placeholder="Insira o número de registo do terreno">
-									</span>
-								</div>
+									<label for="numero">Número do Terreno:</label>
+									@if($exploracao[0]->numero>0)
+									<span>{{$exploracao[0]->numero}}</span>		
+									@else
+									<label for="numero">----</label>
+									@endif
 
-							</fieldset>
-						</div>
-						<div class="form-group">
-							<fieldset> 
-								<legend>Localização</legend>
-								<div class="col-xs-12 col-md-6">
-
-									<label for="distrito">Distrito</label>
-									<div>
-										<input type="text" class="form-control" id="distrito" name="distrito" placeholder="Insira o distrito onde se localiza o terreno" >
-									</div>
-									<br>
-									<label for="concelho">Concelho</label>
-									<div>
-										<input type="text" class="form-control" id="concelho" name="concelho" placeholder="Insira o concelho onde se localiza o terreno" >
-									</div><br>
-								</div> 
-
-								<div class="col-xs-12 col-md-6"> 
-									<label for="freguesia">Freguesia</label>
-									<div>
-										<input type="text" class="form-control" id="freguesia"  name="freguesia" placeholder="Insira a freguesia onde se localiza o terreno">
-
-									</div>
-									<br>
-									<label for="area">Área</label>
-									<div>
-										<input type="text" class="form-control" id="area" name="area" placeholder="Insira a área total do terreno">
-									</div><br>
-								</div>  
-							</fieldset>
-						</div>    
-						<div class="form-group">
-							<div class="input-group-addon">
-								<a href="/exploracoes/listar" role="button" name="cancelar"class="btn btn-default pull-right">Cancelar</a>
-								<input type="submit" name="submit" id="submit" value="Gravar" class="btn btn-success pull-right">
+								</fieldset>
 							</div>
-						</div>
-					</form>
+							<div class="form-group">
+								<fieldset> 
+									<legend>Localização</legend>
+									<div class="col-xs-12 col-md-6">
+										<div>
+											<label for="distrito">Distrito:</label>
+											@if($exploracao[0]->distrito==true)
+											<span>{{$exploracao[0]->distrito}}</span>
+											@else
+											<label for="distrito">----</label>
+											@endif
+										</div>
+										<label for="concelho">Concelho:</label>
+										@if($exploracao[0]->concelho==true)
+										<span>{{$exploracao[0]->concelho}}</span>	
+										@else
+										<label for="concelho">----</label>
+										@endif									
+									</div> 
+
+									<div class="col-xs-12 col-md-6"> 
+										<label for="freguesia">Freguesia:</label>
+										@if($exploracao[0]->freguesia==true)
+										<span>{{$exploracao[0]->freguesia}}</span>	
+										@else
+										<label for="freguesia">----</label>
+										@endif		
+										<div>
+											<label for="area">Área:</label>
+											@if($exploracao[0]->area>0)
+											<span>{{$exploracao[0]->area}}</span>		
+											@else
+											<label for="area">----</label>
+											@endif
+										</div>
+									</div>  
+								</fieldset>
+							</div>    
+							<div class="form-group">
+								<div class="input-group-addon">
+									<a href="/admin/exploracoes/editar" role="button" name="editar" id="editar" value="Editar" class="btn btn-success pull-right" toggle="tooltip" data-placement="top" title="Editar esta Exploração">Editar</a>
+								</div>
+							</div>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 </div>
 @endsection
 

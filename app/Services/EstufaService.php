@@ -6,72 +6,61 @@ use App\Models\Estufa;
 use App\Models\Setor;
 use Illuminate\Database\Eloquent\Model;
 
+
+
 class EstufaService 
 {
-	public function listarEstufas(){ 
-		return Estufa::get();
+	public function listarEstufas($idExp){ 
+		return Estufa::where('exploracoes_id', '=', $idExp['id'])->get();
 	}
 
-	public function adicionarEstufa($input){
+	public function adicionarEstufa($idExp, $input){
 		$exists = Estufa::where('nome','=',$input['nome'])->first();
 		if($exists != null){
 			return null;
 		}
-		$estufa = Estufa::create($input);
+		//$estufa = Estufa::create($input);
+		$estufa = Estufa::create($this->criarEstufaArr($idExp,$input));
 		//$estufa->save();
 		if(count($input)>5){
 			$this->adicionarSetor($input,$estufa);
 		}
-		Setor::create($this->criarEstufaArr("Setor0","Setor Geral",$estufa->id));
-
+		Setor::create($this->criarSetorArr("Setor0","Setor Geral",$estufa->id));
 		return $estufa;
 	}
 
 	public function adicionarSetor($input, $estufa){
-		//$estufa = Estufa::where('nome','=',$input['nome'])->first();
-		//$setor = new Setor;
-		//$estufa->id
-		//dd($input['nomeSetor']);
 		$nomeSetor = $input['nomeSetor'];
 		$descricaoSetor = $input['descricaoSetor'];
-
-		//dd($descricaoSetor);
 		foreach($nomeSetor as $key => $n ) 
 		{
-			Setor::create($this->criarEstufaArr($nomeSetor[$key],$descricaoSetor[$key],$estufa->id));
+			Setor::create($this->criarSetorArr($nomeSetor[$key],$descricaoSetor[$key],$estufa->id));
 		}
-		return true;
-		//Setor::create($arrData);
-		//dd($arrData);
-		//dd($input['nomeSetor1']);
-		/*$nome = "nomeSetor";
-		$desc = "descricaoSetor";
-		//dd("as{$a}");
-		$tudo = count($input);
-		$set = count($input)-5;
-		if($set !=0){
-			for($i=1; $i<$set; $i+2){
-				$nome = "nomeSetor{$i}";
-				$desc = "descricaoSetor{$i}";
-				$setor = array(1=> $nome, 2=>$desc, 3=> $estufa->id);
-				dd($input[$setor]);
-				$nome = "nomeSetor";
-				$desc = "descricaoSetor";
-			}
-		}*/
-		//dd($count);
-		//dd(strpos($input, 'nomeSetor'));
-		//dd(strpos($input, 'nomeSetor'));
-		
+		return true;		
 	}
 
-	public function criarEstufaArr($nomeSetor, $desc, $estufaId){
+	public function criarEstufaArr($idExp,$input){
+		$arrData = array( 
+			"nome"     		  => $input['nome'],
+			"descricao"       => $input['descricao'], 
+			"exploracoes_id"   => $idExp['id']         
+			);
+		return $arrData;
+	}
+
+	public function criarSetorArr($nomeSetor, $desc, $estufaId){
 		$arrData = array( 
 			"nome"     		  => $nomeSetor,
 			"descricao"       => $desc, 
 			"estufa_id"       => $estufaId          
 			);
 		return $arrData;
+	}
+
+	public function detalhesEstufa($id){
+		$estufa = Estufa::find($id);
+		$setor = Setor::where('estufa_id', $estufa->id)->where('nome','not like','Setor0')->get();
+		return [$estufa, $setor];
 	}
 
 

@@ -12,12 +12,12 @@
 	<link href="{{asset('css/bootstrap.css')}}" rel="stylesheet">
 	<!-- Custom styles for this template -->
 	<link href="{{asset('css/geral.css')}}" rel="stylesheet">
-	<link href="{{asset('css/listagemexploracaos.css')}}" rel="stylesheet">
+	<link href="{{asset('css/listagemExploracoes.css')}}" rel="stylesheet">
 
 </head>
 <div class="container">
 	<div class="row centered-form">
-		<div class="col-xs-12 col-sm-9 col-md-10  col-sm-offset-2 col-md-offset-2">
+		<div class="col-xs-12 col-sm-9 col-md-10  col-sm-offset-2 col-md-offset-1">
 			<section class="content">
 				<div >
 					<div class="panel panel-default">
@@ -48,10 +48,7 @@
 											</td>
 											<td>
 												<div class="">
-													<!--<a class="btn btn-sm  btn-default glyphicon glyphicon-triangle-right" data-toggle="tooltip" role="button" data-placement="top" title="Entrar nesta Exploração" href="/admin/home"></a>-->
-
-													<input type="hidden" name="exploracaoID" value="{{$exploracao}}">
-													<button type="submit" class="btn btn-sm  btn-default glyphicon glyphicon-triangle-right" toggle="tooltip" role="button" data-placement="top" title="Entrar nesta Exploração"></button>
+													<button type="submit" class="btn btn-sm  btn-default glyphicon glyphicon-triangle-right" toggle="tooltip" name="id" value="{{$exploracao->id}}" role="button" data-placement="top" title="Entrar nesta Exploração"></button>
 												</div>
 											</td>
 										</tr>													

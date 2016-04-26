@@ -41,7 +41,9 @@ Route::group(['middleware' => ['web']], function ()
 
 	Route::post('/authentication/auth', 'GuestController@auth');
 
+	Route::post('/admin/home', 'HomeController@inicio');
 	Route::get('/admin/home', 'HomeController@home');
+
 
 	Route::get('/admin/cookie', 'HomeController@showCookie');
 
@@ -51,32 +53,21 @@ Route::group(['middleware' => ['web']], function ()
 
 	Route::post('/admin/perfil/editar', 'HomeController@saveEditPerfil');
 
-	Route::post('/admin/home', 'HomeController@home');
-
 	Route::get('/admin/logout', 'HomeController@logout');
 
-	//Route::get('/admin/perfil', 'HomeController@showPerfil');
 
-	Route::get('/admin/exploracoes/adicionar', function () 
-	{
-		return view("adicionarExploracao");
-	});
-
-	Route::get('/admin/exploracoes/detalhes', 'ExploracaoController@listarExploracao');
-
-	Route::get('/admin/exploracoes/listar', 'ExploracaoController@listarExploracao');
-	
+	Route::get('/admin/exploracoes/mudar', 'HomeController@mudarExploracao');	
+	Route::get('/admin/exploracoes/adicionar', 'ExploracaoController@adicionar');
+	Route::get('/admin/exploracoes/detalhes', 'ExploracaoController@detalhesExploracao');
+	Route::get('/admin/exploracoes/listar', 'ExploracaoController@listarExploracao');	
 	Route::any('/admin/exploracoes/adicionar/submit', 'ExploracaoController@adicionarExploracao');
-	
-
+	Route::get('/admin/exploracoes/editar', 'ExploracaoController@editarExploracao');
+	Route::post('/admin/exploracoes/editar/submit', 'ExploracaoController@saveEditExploracao');
 
 	Route::get('/admin/estufas/listar', 'EstufaController@listarEstufas');
-
-	Route::get('/admin/estufas/adicionar', function () 
-	{
-		return view("adicionarEstufa");
-
-	});
+	Route::get('/admin/estufas/detalhes/{id}', 'EstufaController@detalhesEstufa');
+	Route::get('/admin/estufas/editar/{id}', 'EstufaController@editarEstufa');
+	Route::get('/admin/estufas/adicionar', 'EstufaController@adicionar');
 	Route::post('/admin/estufas/adicionar/submit', 'EstufaController@adicionarEstufa');
 	
 });

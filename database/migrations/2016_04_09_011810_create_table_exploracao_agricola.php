@@ -19,6 +19,7 @@ class CreateTableExploracaoAgricola extends Migration
            $table->string('distrito');
            $table->string('concelho');
            $table->string('freguesia');
+           //$table->integer('area');
            $table->timestamps();           
         });
     }
