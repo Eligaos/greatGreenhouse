@@ -56,6 +56,12 @@ class HomeController extends Controller
 		return view('perfilEditar');
 	}
 
+
+	public function mudarExploracao(Request $request){
+		$request->session()->forget('exploracaoSelecionada');
+		 return Redirect::to('admin/exploracoes/listar');
+	}
+	
     public function saveEditPerfil() {
 
         $user = User::find(Auth::getUser()->id);
