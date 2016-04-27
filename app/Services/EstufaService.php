@@ -14,6 +14,12 @@ class EstufaService
 		return Estufa::where('exploracoes_id', '=', $idExp['id'])->get();
 	}
 
+
+	public function getEstufas(){ 
+                 //\Debugbar::info(Auth::check());
+		return Estufa::all();
+	}
+
 	public function adicionarEstufa($idExp, $input){
 		$exists = Estufa::where('nome','=',$input['nome'])->first();
 		if($exists != null){

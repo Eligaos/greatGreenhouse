@@ -92,5 +92,9 @@
 	</div>
 	@endsection
 	@section('customScripts')
+	<script>
+    
+  var lista = <?php echo json_encode($lista[1])?>;
+</script>
 	<script src="{{asset('js/addSetor.js')}}"></script>
 	@endsection

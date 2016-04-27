@@ -9,9 +9,6 @@ use App\Services\EstufaService;
 use Illuminate\Support\Facades\Input;
 use Redirect;
 
-
-
-
 class EstufaController extends Controller
 {
 	protected $eService;
@@ -33,6 +30,7 @@ class EstufaController extends Controller
                  //\Debugbar::info(Auth::check());
 		return view('listagemEstufas', compact('lista'));
 	}
+
 
 	public function adicionarEstufa(){     	
 		$input = Input::except('_token');

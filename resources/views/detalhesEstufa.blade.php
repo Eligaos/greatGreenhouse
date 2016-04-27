@@ -83,5 +83,6 @@
 </div>
 @endsection
 @section('customScripts')
+
 <script src="{{asset('js/addSetor.js')}}"></script>
 @endsection
