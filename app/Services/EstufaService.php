@@ -63,5 +63,11 @@ class EstufaService
 		return [$estufa, $setor];
 	}
 
+	public function editarEstufa($id){
+		$estufa = Estufa::find($id);
+		$setor = Setor::where('estufa_id', $estufa->id)->where('nome','not like','Setor0')->get();
+		return [$estufa, $setor];
+	}
+
 
 }
