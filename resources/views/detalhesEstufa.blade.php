@@ -57,12 +57,13 @@
 												<td>
 													<div class="media">
 														<div class="media-body">
+															<p class="summary">{{$setor->descricao}}</p>
 														</div>
 													</div>
 												</td>										
 											</tr>	
-											@endforeach
 										</tbody>
+										@endforeach										
 									</table>	
 								</div>									
 								@endif
@@ -82,5 +83,6 @@
 </div>
 @endsection
 @section('customScripts')
+
 <script src="{{asset('js/addSetor.js')}}"></script>
 @endsection

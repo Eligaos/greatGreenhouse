@@ -27,12 +27,12 @@
 										</div>
 										@endif
 										<div class="input-group">											
-											<input type="text" class="form-control" id="nome"  name="nome" placeholder="Insira o nome da Estufa" required><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+											<input type="text" class="form-control" id="nome"  name="nome" placeholder="Insira o nome da Estufa" value="{{$lista[0]->nome}}" required><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
 										</div>
 										<br/>
 										<label for="nome">Descrição</label>
 										<div class="input-group">											
-											<input type="text" class="form-control" id="descricao"  name="descricao" placeholder="Insira uma descrição para estufa"><span class="input-group-addon"></span>
+											<input type="text" class="form-control" id="descricao"  name="descricao" placeholder="Insira uma descrição para estufa" value="{{$lista[0]->descricao}}" ><span class="input-group-addon"></span>
 										</div>
 
 									</fieldset>
@@ -56,19 +56,21 @@
 																</th>
 															</tr>
 														</thead>
+														@foreach($lista[1] as $key => $setor)
 														<tbody>
 															<tr id='addr0' data-id="0" class="hidden">
 																<td data-name="nomeSetor[]">
-																	<input type="text" name='nomeS'  placeholder='Nome' class="form-control"/>
+																	<input type="text" name='nomeS' class="form-control"  value="{{$setor->nome}}"/>
 																</td>
 																<td data-name="descricaoSetor[]">
-																	<input type="text" name='descricaoS' placeholder='Insira uma descricao' class="form-control"/>
+																	<input type="text" name='descricaoS' placeholder='Insira uma descricao' class="form-control" value="{{$setor->descricao}}"/>
 																</td>
 																<td data-name="del">
 																	<button name="del0" class='btn btn-danger glyphicon glyphicon-remove row-remove'></button>
 																</td>
 															</tr>
 														</tbody>
+														@endforeach											
 													</table>
 												</div>
 											</div>
@@ -81,17 +83,20 @@
 										<a href="/admin/estufa/detalhes" role="button" name="cancelar"class="btn btn-default pull-right">Cancelar</a>
 										<input type="submit" name="submit" id="submit" value="Gravar" class="btn btn-success pull-right">
 									</div>
-									</div>
 								</div>
-								</div
-							</form>
-						</div>
+							</div>
+							</div
+						</form>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	@endsection
-	@section('customScripts')
-	<script src="{{asset('js/addSetor.js')}}"></script>
-	@endsection
+</div>
+@endsection
+@section('customScripts')
+<script>
+    var lista = <?php echo json_encode($lista[1])?>;
+</script>
+<script src="{{asset('js/addSetor.js')}}"></script>
+@endsection

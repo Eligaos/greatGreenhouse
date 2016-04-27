@@ -1,20 +1,13 @@
 "use strict";
 $(document).ready(function() {
-    //console.log(lista);
     $("#add_row").on("click", function() {
         addDynamicRows($('.tab_logic').eq(0));
     });
 
     // add first row
-    $('.tab_logic').each(function(){
-        if(lista===undefined){
-          for(var i=0; i<lista.length; i++){
-            addDynamicRows($(this),i);
-        }
-    }else{
+   /* $('.tab_logic').each(function(){
         addDynamicRows($(this));
-    }
-});
+    });*/
     
     // Sortable Code
     var fixHelperModified = function(e, tr) {
@@ -36,7 +29,7 @@ $(document).ready(function() {
 
 });
 
-function addDynamicRows(table,i){
+function addDynamicRows(table){
     // Dynamic Rows Code
 
     // Get max row id and set new id
@@ -66,15 +59,6 @@ function addDynamicRows(table,i){
             });
 
             var c = $(cur_td).find($(children[0]).prop('tagName')).clone().val("");
-
-            console.log($(cur_td).data("name"));
-
-            if($(cur_td).data("name") == "nomeSetor[]"){
-                c.val(lista[i].nome);
-            }else if($(cur_td).data("name") == "descricaoSetor[]"){
-                c.val(lista[i].descricao);
-            }
-
             c.attr("name", $(cur_td).data("name") + newid);
             c.appendTo($(td));
             td.appendTo($(tr));
@@ -91,9 +75,4 @@ function addDynamicRows(table,i){
     $(tr).find("td button.row-remove").on("click", function() {
         $(this).closest("tr").remove();
     });
-
-
-    function editTable(){
-
-    }
 }
