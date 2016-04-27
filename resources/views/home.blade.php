@@ -13,7 +13,7 @@
 		<div class="row">
 			<div class="container">
 				<div class="row centered-form">
-					<div class="col-xs-12 col-sm-9 col-md-12 col-sm-offset-3 col-md-offset-1">
+					<div class="col-xs-12 col-sm-9 col-md-12 col-lg-10 col-lg-offset-2 col-sm-offset-3 col-md-offset-1">
 						<section class="content">
 							<!-- item -->
 							@foreach($estufas as $key => $estufa)

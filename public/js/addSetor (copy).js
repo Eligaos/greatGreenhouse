@@ -1,33 +1,16 @@
 "use strict";
 $(document).ready(function() {
-
-    console.log(lista);
-
-    //console.log(lista);
-
     $("#add_row").on("click", function() {
         addDynamicRows($('.tab_logic').eq(0));
     });
 
     // add first row
-
-  /**  $('.tab_logic').each(function(){
+   /* $('.tab_logic').each(function(){
         addDynamicRows($(this));
-    });**/
-
-    $('.tab_logic').each(function(){
-        if(lista===undefined){
-          for(var i=0; i<lista.length; i++){
-            addDynamicRows($(this),i);
-        }
-    }else{
-        addDynamicRows($(this));
-    }
-});
-
+    });*/
     
     // Sortable Code
-   /* var fixHelperModified = function(e, tr) {
+    var fixHelperModified = function(e, tr) {
         var $originals = tr.children();
         var $helper = tr.clone();
 
@@ -36,17 +19,17 @@ $(document).ready(function() {
         });
 
         return $helper;
-    };*/
+    };
 
-    /*$(".table-sortable tbody").sortable({
+    $(".table-sortable tbody").sortable({
         helper: fixHelperModified
     }).disableSelection();
 
-    $(".table-sortable thead").disableSelection();*/
+    $(".table-sortable thead").disableSelection();
 
 });
 
-function addDynamicRows(table,i){
+function addDynamicRows(table){
     // Dynamic Rows Code
 
     // Get max row id and set new id
@@ -76,20 +59,7 @@ function addDynamicRows(table,i){
             });
 
             var c = $(cur_td).find($(children[0]).prop('tagName')).clone().val("");
-                   
-                   console.log($(cur_td).data("name"));
-
-                   if($(cur_td).data("name") == "nomeSetor[]"){
-
-                    c.val(lista[0].nome);
-                   }else if($(cur_td).data("name") == "descricaoSetor[]"){
-                        c.val(lista[0].descricao);
-
-                   }
-
-        
             c.attr("name", $(cur_td).data("name") + newid);
-
             c.appendTo($(td));
             td.appendTo($(tr));
         } else {
@@ -105,9 +75,4 @@ function addDynamicRows(table,i){
     $(tr).find("td button.row-remove").on("click", function() {
         $(this).closest("tr").remove();
     });
-
-
-    function editTable(){
-
-    }
 }

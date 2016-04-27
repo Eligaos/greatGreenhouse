@@ -21,11 +21,11 @@
 									<legend>Dados do Terreno:</legend>
 									<div class="col-xs-12 col-md-12">
 										<label for="nome">Nome do Terreno:</label>
-										<span>{{$exploracao[0]->nome}}</span>									
+										<span>{{$exploracao->nome}}</span>									
 									</div>
 									<label for="numero">Número do Terreno:</label>
-									@if($exploracao[0]->numero>0)
-									<span>{{$exploracao[0]->numero}}</span>		
+									@if($exploracao->numero>0)
+									<span>{{$exploracao->numero}}</span>		
 									@else
 									<label for="numero">----</label>
 									@endif
@@ -38,15 +38,15 @@
 									<div class="col-xs-12 col-md-6">
 										<div>
 											<label for="distrito">Distrito:</label>
-											@if($exploracao[0]->distrito==true)
-											<span>{{$exploracao[0]->distrito}}</span>
+											@if($exploracao->distrito==true)
+											<span>{{$exploracao->distrito}}</span>
 											@else
 											<label for="distrito">----</label>
 											@endif
 										</div>
 										<label for="concelho">Concelho:</label>
-										@if($exploracao[0]->concelho==true)
-										<span>{{$exploracao[0]->concelho}}</span>	
+										@if($exploracao->concelho==true)
+										<span>{{$exploracao->concelho}}</span>	
 										@else
 										<label for="concelho">----</label>
 										@endif									
@@ -54,15 +54,15 @@
 
 									<div class="col-xs-12 col-md-6"> 
 										<label for="freguesia">Freguesia:</label>
-										@if($exploracao[0]->freguesia==true)
-										<span>{{$exploracao[0]->freguesia}}</span>	
+										@if($exploracao->freguesia==true)
+										<span>{{$exploracao->freguesia}}</span>	
 										@else
 										<label for="freguesia">----</label>
 										@endif		
 										<div>
 											<label for="area">Área:</label>
-											@if($exploracao[0]->area>0)
-											<span>{{$exploracao[0]->area}}</span>		
+											@if($exploracao->area>0)
+											<span>{{$exploracao->area}}</span>		
 											@else
 											<label for="area">----</label>
 											@endif

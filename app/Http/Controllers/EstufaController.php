@@ -43,14 +43,24 @@ class EstufaController extends Controller
 	}
 
 	public function detalhesEstufa($id){
-		$lista = $this->eService->detalhesEstufa($id);
+		$lista = $this->eService->procurarEstufa($id);
 		//$lista[0]-- array de estufa  $lista[1]--array dos setores da estufa
 		return view('detalhesEstufa', compact('lista'));  		
 	}
 
 	public function editarEstufa($id){
-		$lista = $this->eService->detalhesEstufa($id);
+		$lista = $this->eService->procurarEstufa($id);
 		//$lista[0]-- array de estufa  $lista[1]--array dos setores da estufa
 		return view('editarEstufa', compact('lista'));  		
 	}
+
+	public function saveEditEstufa($id){ 
+        $input = Input::except('_token');        
+        $exploracao = $this->eaService->saveEditExploracao($this->idExp, $input);
+        if($exploracao){
+            return Redirect::to("/admin/exploracoes/detalhes")->with('message', 'Exploração guardada com sucesso!');
+        }else{
+            return Redirect::to("/admin/exploracoes/editar")->with('message', 'Já existe um Terreno com esse nome');
+        }
+    }
 }

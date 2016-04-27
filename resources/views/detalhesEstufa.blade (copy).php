@@ -62,8 +62,8 @@
 													</div>
 												</td>										
 											</tr>	
+											@endforeach
 										</tbody>
-										@endforeach										
 									</table>	
 								</div>									
 								@endif
@@ -83,6 +83,5 @@
 </div>
 @endsection
 @section('customScripts')
-
 <script src="{{asset('js/addSetor.js')}}"></script>
 @endsection

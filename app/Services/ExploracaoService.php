@@ -23,7 +23,7 @@ class ExploracaoService
 	}
 
 	public function procurarExploracao($id){ 
-		return Exploracao::find($id);
+		return Exploracao::find($id)->first();
 	}
 
 	public function saveEditExploracao($id, $input){ 
