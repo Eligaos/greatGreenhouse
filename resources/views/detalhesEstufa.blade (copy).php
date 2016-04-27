@@ -57,6 +57,7 @@
 												<td>
 													<div class="media">
 														<div class="media-body">
+															<p class="summary">{{$setor->descricao}}</p>
 														</div>
 													</div>
 												</td>										

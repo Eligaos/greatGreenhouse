@@ -67,6 +67,7 @@ Route::group(['middleware' => ['web']], function ()
 	Route::get('/admin/estufas/listar', 'EstufaController@listarEstufas');
 	Route::get('/admin/estufas/detalhes/{id}', 'EstufaController@detalhesEstufa');
 	Route::get('/admin/estufas/editar/{id}', 'EstufaController@editarEstufa');
+	Route::get('/admin/estufas/editar/submit/{id}', 'EstufaController@editarEstufa');
 	Route::get('/admin/estufas/adicionar', 'EstufaController@adicionar');
 	Route::post('/admin/estufas/adicionar/submit', 'EstufaController@adicionarEstufa');
 	

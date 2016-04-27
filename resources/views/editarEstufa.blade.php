@@ -14,7 +14,7 @@
 						<h3 class="panel-title" id="myModalLabel">Estufa</h3>
 					</div>
 					<div class="panel-body">
-						<form id="registerForm" method="POST" action="/admin/estufas/adicionar/submit">
+						<form id="registerForm" method="POST" action="/admin/estufas/editar/submit/">
 							<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">							
 							<div class="form-group">
 								<fieldset> 
@@ -78,8 +78,9 @@
 								</div>
 								<div class="form-group">
 									<div class="input-group-addon">
-										<a href="/admin/estufas/listar" role="button" name="cancelar"class="btn btn-default pull-right">Cancelar</a>
+										<a href="/admin/estufa/detalhes" role="button" name="cancelar"class="btn btn-default pull-right">Cancelar</a>
 										<input type="submit" name="submit" id="submit" value="Gravar" class="btn btn-success pull-right">
+									</div>
 									</div>
 								</div>
 								</div
