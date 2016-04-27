@@ -17,6 +17,13 @@ class ClientRegistrationRequest extends Request
         return true;
     }
 
+    public function messages()
+    {
+        return [
+            'password_confirmation.same' => 'A palavra-passe e a sua confirmação devem ser iguais.',
+             'password.min' => 'A palavra-passe deve ter no mínimo :min caracteres.',
+        ];
+    }
     /**
      * Get the validation rules that apply to the request.
      *
