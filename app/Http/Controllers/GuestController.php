@@ -63,10 +63,14 @@ class GuestController extends Controller
     public function registerUser(ClientRegistrationRequest $request)
     {
         $input = Input::except('_token');
-
         $input['password'] = $this->uService->hashPass($input['password']);
+          //return dd($input);
         $user = User::create($input);
+        if($input['cellphone'] != ""){
+            $user->cellphone = $input['cellphone'];
+            $user->save();
 
+        }
         if(is_object($user)) {
             Auth::login($user);
 

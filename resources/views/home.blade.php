@@ -23,6 +23,7 @@
 										<i class="fa fa-leaf"></i>
 										<h3><a class="btn btn-md btn-block btn-danger" href="/admin/estufas/detalhes/{{$estufa->id}}">{{$estufa->nome}}</a></h3>
 									</div>
+	
 									<div id="chart{{$estufa->id}}" style="height: 250px;"></div>
 									<ul class="list-group text-center">
 										<li class="list-group-item"><i class="fa fa-leaf"></i> <a href="#">Cultura A</a> </li>

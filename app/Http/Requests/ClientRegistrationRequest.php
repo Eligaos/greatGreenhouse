@@ -34,6 +34,7 @@ class ClientRegistrationRequest extends Request
         return [
             'name' => 'required|min:2|unique:users',
             'email' => 'required|email|unique:users',
+            'cellphone' => 'unique:users',
             'password' => 'required|min:3',
             'password_confirmation' => 'required|same:password'
         ];
