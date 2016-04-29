@@ -22,7 +22,14 @@ class CulturaController extends Controller
 	}
 
 	public function adicionar(){
-		return view("adicionarCultura");		
+		$lista = $this->cService->getEstufa($this->idExp);
+
+		return view("adicionarCultura", compact('lista'));		
+	}
+
+	public function getSetor($idEstufa){
+		$lista = $this->cService->getSetor($idEstufa);	
+		return $lista;	
 	}
 
 	public function listarCulturas(){ 
@@ -34,7 +41,7 @@ class CulturaController extends Controller
 
 	public function adicionarCultura(){     	
 		$input = Input::except('_token');
-		$exists = $this->cService->adicionarCultura($this->idExp, $input);
+		$exists = $this->cService->adicionarCultura($input);
 		if($exists){
 			return Redirect::to("admin/culturas/listar")->with('message', 'Cultura guardada com sucesso!');
 		}else{

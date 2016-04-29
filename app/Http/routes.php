@@ -72,13 +72,12 @@ Route::group(['middleware' => ['web']], function ()
 	Route::post('/admin/estufas/adicionar/submit', 'EstufaController@adicionarEstufa');
 
 	Route::get('/admin/culturas/listar', 'CulturaController@listarCulturas');
+	Route::get('/admin/culturas/getSetor/{id}', 'CulturaController@getSetor');
 	Route::get('/admin/culturas/detalhes/{id}', 'CulturaController@detalhesCultura');
 	Route::get('/admin/culturas/editar/{id}', 'CulturaController@editarCultura');
 	Route::post('/admin/culturas/editar/submit/{id}', 'CulturaController@saveEditCultura');
 	Route::get('/admin/culturas/adicionar', 'CulturaController@adicionar');
-	Route::post('/admin/culturas/adicionar/submit', 'CulturaController@adicionarCultura');
-
-	
+	Route::post('/admin/culturas/adicionar/submit', 'CulturaController@adicionarCultura');	
 });
 
 

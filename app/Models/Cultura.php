@@ -10,7 +10,7 @@ class Cultura extends Model
 	protected $fillable = ['nome','duracao_ciclo','espaco_entre_linhas','espaco_na_linha','data_inicio_ciclo','data_prevista_fim_ciclo', 'tipo_cultivo','tipo_cultura'];
 
 
-	public function setores()
+	public function setores(){
 		return $this->belongsTo('App\Models\Setor', 'setor_id', 'id');
 	}
 
