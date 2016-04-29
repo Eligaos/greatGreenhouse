@@ -11,10 +11,10 @@
 			<div>
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h3 class="panel-title" id="myModalLabel">Estufa</h3>
+						<h3 class="panel-title" id="myModalLabel">Editar Estufa</h3>
 					</div>
 					<div class="panel-body">
-						<form id="registerForm" method="POST" action="/admin/estufas/editar/submit/">
+						<form id="registerForm" method="POST" action="/admin/estufas/editar/submit/{{$lista[0]->id}}">
 							<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">							
 							<div class="form-group">
 								<fieldset> 
@@ -56,31 +56,47 @@
 																</th>
 															</tr>
 														</thead>
-														@foreach($lista[1] as $key => $setor)
+														@if(count($lista[1])==0)
 														<tbody>
 															<tr id='addr0' data-id="0" class="hidden">
 																<td data-name="nomeSetor[]">
-																	<input type="text" name='nomeS' class="form-control"  value="{{$setor->nome}}"/>
+																	<input type="text" name='nomeS' placeholder='Insira um nome' class="form-control"/>
 																</td>
 																<td data-name="descricaoSetor[]">
-																	<input type="text" name='descricaoS' placeholder='Insira uma descricao' class="form-control" value="{{$setor->descricao}}"/>
+																	<input type="text" name='descricaoS' placeholder='Insira uma descricao' class="form-control"/>
 																</td>
 																<td data-name="del">
 																	<button name="del0" class='btn btn-danger glyphicon glyphicon-remove row-remove'></button>
 																</td>
 															</tr>
 														</tbody>
-														@endforeach											
+														@else
+														@foreach($lista[1] as $key => $setor)
+														<tbody>
+															<tr id='addr0' data-id="0" class="hidden">
+																<td data-name="nomeSetor[]" id="0">
+																	<input type="text" placeholder='Insira um nome' class="form-control"  value="{{$setor->nome}}"/>
+																</td>
+																<td data-name="descricaoSetor[]">
+																	<input type="text" placeholder='Insira uma descricao' class="form-control" value="{{$setor->descricao}}"/>
+																</td>
+																<td data-name="del">
+																	<button name="del0" class='btn btn-danger glyphicon glyphicon-remove row-remove'></button>
+																</td>
+															</tr>
+														</tbody>
+														@endforeach	
+														@endIf										
 													</table>
 												</div>
 											</div>
-											<a id="add_row" class="btn btn-default pull-right">Add Row</a>
+											<a id="add_row" class="btn btn-default pull-right">Adicionar Setor</a>
 										</div>
 									</fieldset>
 								</div>
 								<div class="form-group">
 									<div class="input-group-addon">
-										<a href="/admin/estufa/detalhes" role="button" name="cancelar"class="btn btn-default pull-right">Cancelar</a>
+										<a href="/admin/estufas/detalhes/{{$lista[0]->id}}" role="button" name="cancelar"class="btn btn-default pull-right">Cancelar</a>
 										<input type="submit" name="submit" id="submit" value="Gravar" class="btn btn-success pull-right">
 									</div>
 								</div>
@@ -94,9 +110,8 @@
 	</div>
 	@endsection
 	@section('customScripts')
-	<script>
-    
-  var lista = <?php echo json_encode($lista[1])?>;
-</script>
+	<script>		
+		var lista = <?php echo json_encode($lista[1])?>;
+	</script>
 	<script src="{{asset('js/addSetor.js')}}"></script>
 	@endsection

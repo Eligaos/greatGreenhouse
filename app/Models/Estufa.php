@@ -13,7 +13,8 @@ class Estufa extends Model
 	public function exploracoes()
 	{
 		//return $this->hasOne('App\Models\Exploracao', 'id' , 'exploracoes_id');
-		return $this->belongsTo('App\Models\Exploracao', 'id' , 'exploracoes_id');
+		//estava isto -> return $this->belongsTo('App\Models\Exploracao', 'id' , 'exploracoes_id');
+		return $this->belongsTo('App\Models\Exploracao', 'exploracoes_id' , 'id');
 	}
 
 	public function setores()

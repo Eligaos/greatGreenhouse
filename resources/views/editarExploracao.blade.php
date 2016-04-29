@@ -22,7 +22,7 @@
 									<div class="col-xs-12 col-md-12">
 										<label for="nome">Nome do Terreno</label>
 										<div class="input-group">
-											<input type="text" class="form-control" id="nome"  name="nome" placeholder="Insira o nome do terreno" value="{{$exploracao[0]->nome}}" required><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>		
+											<input type="text" class="form-control" id="nome"  name="nome" placeholder="Insira o nome do terreno" value="{{$exploracao->nome}}" required><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>		
 										</div>
 										@if( Session::get('message'))
 										<div style="text-align: center">
@@ -32,7 +32,7 @@
 										<br>
 										<label for="numero">Número do Terreno</label>
 										<div>
-											<input type="number" class="form-control" id="numero"  name="numero" min=0 placeholder="Insira o número de registo do terreno" value="{{$exploracao[0]->numero}}">
+											<input type="number" class="form-control" id="numero"  name="numero" min=0 placeholder="Insira o número de registo do terreno" value="{{$exploracao->numero}}">
 										</div>
 									</fieldset>
 								</div>
@@ -43,26 +43,20 @@
 
 											<label for="distrito">Distrito</label>
 											<div>
-												<input type="text" class="form-control" id="distrito" name="distrito" placeholder="Insira o distrito onde se localiza o terreno" value="{{$exploracao[0]->distrito}}">
+												<input type="text" class="form-control" id="distrito" name="distrito" placeholder="Insira o distrito onde se localiza o terreno" value="{{$exploracao->distrito}}">
 											</div>
 											<br>
 											<label for="concelho">Concelho</label>
 											<div>
-												<input type="text" class="form-control" id="concelho" name="concelho" placeholder="Insira o concelho onde se localiza o terreno" value="{{$exploracao[0]->concelho}}">
+												<input type="text" class="form-control" id="concelho" name="concelho" placeholder="Insira o concelho onde se localiza o terreno" value="{{$exploracao->concelho}}">
 											</div><br>
 										</div> 
 
 										<div class="col-xs-12 col-md-6"> 
 											<label for="freguesia">Freguesia</label>
 											<div>
-												<input type="text" class="form-control" id="freguesia"  name="freguesia" placeholder="Insira a freguesia onde se localiza o terreno" value="{{$exploracao[0]->freguesia}}">
-
+												<input type="text" class="form-control" id="freguesia"  name="freguesia" placeholder="Insira a freguesia onde se localiza o terreno" value="{{$exploracao->freguesia}}">
 											</div>
-											<br>
-											<label for="area">Área</label>
-											<div>
-												<input type="text" class="form-control" id="area" name="area" placeholder="Insira a área total do terreno" value="{{$exploracao[0]->area}}">
-											</div><br>
 										</div>  
 									</fieldset>
 								</div>    

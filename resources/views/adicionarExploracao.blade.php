@@ -68,11 +68,6 @@
 												<input type="text" class="form-control" id="freguesia"  name="freguesia" placeholder="Insira a freguesia onde se localiza o terreno">
 
 											</div>
-											<br>
-											<label for="area">Área</label>
-											<div>
-												<input type="text" class="form-control" id="area" name="area" placeholder="Insira a área total do terreno">
-											</div><br>
 										</div>  
 									</fieldset>
 								</div>    

@@ -58,15 +58,7 @@
 										<span>{{$exploracao->freguesia}}</span>	
 										@else
 										<label for="freguesia">----</label>
-										@endif		
-										<div>
-											<label for="area">Área:</label>
-											@if($exploracao->area>0)
-											<span>{{$exploracao->area}}</span>		
-											@else
-											<label for="area">----</label>
-											@endif
-										</div>
+										@endif
 									</div>  
 								</fieldset>
 							</div>    

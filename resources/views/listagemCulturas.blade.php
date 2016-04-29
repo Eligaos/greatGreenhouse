@@ -18,7 +18,7 @@
 							<span class="alert alert-info"> {{ Session::get('message') }}</span>
 						</div>
 						@endif
-						@foreach($lista as $key => $estufa)
+						@foreach($lista as $key => $cultura)
 						<div class="table-container">
 							<table class="table table-filter table-striped table-bordered table-responsive">
 								<tbody>
@@ -26,13 +26,13 @@
 										<td>
 											<div class="media">
 												<div class="media-body">
-													<p class="summary">{{$estufa->nome}}</p>
+													<p class="summary">{{$cultura->nome}}</p>
 												</div>
 											</div>
 										</td>
 										<td>
 											<div class="">
-												<a class="btn btn-sm  btn-default" href="/admin/estufas/detalhes/{{$estufa->id}}">Ver Detalhes</a>
+												<a class="btn btn-sm  btn-default" href="/admin/culturas/detalhes/{{$cultura->id}}">Ver Detalhes</a>
 												<a class="btn btn-sm  btn-default" href="#">Eliminar</a>
 											</div>
 										</td>
@@ -44,7 +44,7 @@
 					@endforeach
 					<div class="form-group">
 						<div class="input-group-addon">
-							<a href="/admin/estufas/adicionar" role="button" name="adicionar" id="adicionar estufa" class="btn btn-success pull-right" toggle="tooltip" data-placement="top" title="Adicionar Estufa">Adicionar</a>
+							<a href="/admin/culturas/adicionar" role="button" name="adicionar" id="adicionar cultura" class="btn btn-success pull-right" toggle="tooltip" data-placement="top" title="Adicionar Cultura">Adicionar</a>
 						</div>
 					</div>	
 				</div>

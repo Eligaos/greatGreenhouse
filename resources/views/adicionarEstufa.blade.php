@@ -56,7 +56,7 @@
 														<tbody>
 															<tr id='addr0' data-id="0" class="hidden">
 																<td data-name="nomeSetor[]">
-																	<input type="text" name='nomeS'  placeholder='Nome' class="form-control"/>
+																	<input type="text" name='nomeS' placeholder='Nome' class="form-control"/>
 																</td>
 																<td data-name="descricaoSetor[]">
 																	<input type="text" name='descricaoS' placeholder='Insira uma descricao' class="form-control"/>
@@ -69,7 +69,7 @@
 													</table>
 												</div>
 											</div>
-											<a id="add_row" class="btn btn-default pull-right">Add Row</a>
+											<a id="add_row" class="btn btn-default pull-right">Adicionar Setor</a>
 										</div>
 									</fieldset>
 								</div>

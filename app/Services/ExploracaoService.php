@@ -28,24 +28,24 @@ class ExploracaoService
 
 	public function saveEditExploracao($id, $input){ 
 		$exp = $this->procurarExploracao($id);
-		if($exp[0]->nome == $input['nome']){
-			$exp[0]->numero = $input['numero'];
-			$exp[0]->distrito = $input['distrito'];
-			$exp[0]->concelho = $input['concelho'];
-			$exp[0]->freguesia = $input['freguesia'];
+		if($exp->nome == $input['nome']){
+			$exp->numero = $input['numero'];
+			$exp->distrito = $input['distrito'];
+			$exp->concelho = $input['concelho'];
+			$exp->freguesia = $input['freguesia'];
            // $exp[0]->area = $input['area'];
-			$exp[0]->save();
+			$exp->save();
 			return true;
 		}else{
 			$exists = Exploracao::where("nome",'=', $input['nome'])->get()->first();
 			//dd($exists[0]->id);
 			if($exists==null){
-				$exp[0]->nome = $input['nome'];
-				$exp[0]->numero = $input['numero'];
-				$exp[0]->distrito = $input['distrito'];
-				$exp[0]->concelho = $input['concelho'];
-				$exp[0]->freguesia = $input['freguesia'];
-				$exp[0]->save();
+				$exp->nome = $input['nome'];
+				$exp->numero = $input['numero'];
+				$exp->distrito = $input['distrito'];
+				$exp->concelho = $input['concelho'];
+				$exp->freguesia = $input['freguesia'];
+				$exp->save();
 				return true;
 			}else{
 				return false;				
