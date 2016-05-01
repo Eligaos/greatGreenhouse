@@ -7,7 +7,7 @@
 @section('content')
 <div class="container">
 	<div class="row centered-form">
-		<div class="col-xs-12 col-sm-9 col-md-8  col-sm-offset-3 col-md-offset-3">
+		<div class="col-xs-12 col-sm-9 col-md-8 col-sm-offset-3 col-md-offset-3">
 			<div>
 				<div class="panel panel-default">
 					<div class="panel-heading">
@@ -18,10 +18,10 @@
 							<fieldset> 
 								<legend>Dados da Estufa</legend>
 								<div class="col-xs-12 col-md-12">
-									<label for="nome">Nome da Estufa:</label>
+									<label for="nome">Nome da Estufa: </label>
 									<span>{{$lista[0]->nome}}</span>
 									<br/>
-									<label for="nome">Descrição</label>									
+									<label for="nome">Descrição: </label>									
 									<span>{{$lista[0]->descricao}}</span>
 									<br/>
 								</div>	

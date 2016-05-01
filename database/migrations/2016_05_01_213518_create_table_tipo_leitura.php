@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableSetor extends Migration
+class CreateTableTipoLeitura extends Migration
 {
     /**
      * Run the migrations.
@@ -12,15 +12,13 @@ class CreateTableSetor extends Migration
      */
     public function up()
     {
-        Schema::create('setores', function (Blueprint $table) {
+          Schema::create('tipos_leituras', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('setor_id');
-            $table->foreign('estufa_id')->references('id')->on('estufas');
-            $table->string('nome');
-            $table->string('descricao');
-            $table->integer('estufa_id')->unsigned();
+            $table->integer('sensor_id')->unsigned();
+            $table->foreign('sensor_id')->references('id')->on('sensores');
+            $table->string('parametro');
+            $table->string('unidade');
             $table->timestamps();      
-
         });
     }
 
@@ -31,6 +29,6 @@ class CreateTableSetor extends Migration
      */
     public function down()
     {
-        Schema::drop('setores');
+        Schema::drop('tipos_leituras');
     }
 }
