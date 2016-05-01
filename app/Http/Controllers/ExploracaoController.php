@@ -49,6 +49,7 @@ class ExploracaoController extends Controller
         $lista = $this->eaService->listarExploracao();
         return view('listagemExploracoes', compact('lista'));
     }
+    
     public function editarExploracao(){ 
         $exploracao = $this->eaService->procurarExploracao($this->idExp);
         return view('editarExploracao', compact('exploracao'));

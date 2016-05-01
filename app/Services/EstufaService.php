@@ -5,8 +5,7 @@ namespace App\Services;
 use App\Models\Estufa;
 use App\Models\Setor;
 use Illuminate\Database\Eloquent\Model;
-
-
+use Session;
 
 class EstufaService 
 {
@@ -14,10 +13,9 @@ class EstufaService
 		return Estufa::where('exploracoes_id', '=', $idExp['id'])->get();
 	}
 
-
 	public function getEstufas(){ 
-                 //\Debugbar::info(Auth::check());
-		return Estufa::all();
+		$exploracaoSelecionada = Session::get('exploracaoSelecionada');
+		return Estufa::where('exploracoes_id', '=', $exploracaoSelecionada['id'])->get();
 	}
 
 	public function adicionarEstufa($idExp, $input){
@@ -25,13 +23,16 @@ class EstufaService
 		if($exists != null){
 			return null;
 		}
-		//$estufa = Estufa::create($input);
-		$estufa = Estufa::create($this->criarEstufaArr($idExp,$input));
-		//$estufa->save();
+		$estufa = Estufa::create([
+			"nome"=> $input['nome'],
+			"descricao"       => $input['descricao'], 
+			"exploracoes_id"   => $idExp['id']
+			]);
+
 		if(count($input)>5){
 			$this->adicionarSetor($input,$estufa);
 		}
-		Setor::create($this->criarSetorArr("Setor 0","Setor Geral",$estufa->id,0));
+		Setor::create($this->criarSetorArr("Setor0","Setor Geral",$estufa->id,0));
 		return $estufa;
 	}
 
@@ -43,15 +44,6 @@ class EstufaService
 			Setor::create($this->criarSetorArr($nomeSetor[$key],$descricaoSetor[$key],$estufa->id, $key+1));
 		}
 		return true;		
-	}
-
-	public function criarEstufaArr($idExp,$input){
-		$arrData = array( 
-			"nome"     		  => $input['nome'],
-			"descricao"       => $input['descricao'], 
-			"exploracoes_id"   => $idExp['id'],
-			);
-		return $arrData;
 	}
 
 	public function criarSetorArr($nomeSetor, $desc, $estufaId,$setor_id){
