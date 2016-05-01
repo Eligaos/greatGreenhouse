@@ -39,7 +39,7 @@ class CulturaController extends Controller
 	}
 
 
-	public function adicionarCultura(){     	
+	public function adicionarCultura(CulturaRequest $request){     	
 		$input = Input::except('_token');
 		$exists = $this->cService->adicionarCultura($input);
 		if($exists){
