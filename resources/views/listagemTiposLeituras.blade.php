@@ -15,20 +15,32 @@
 							<div class="table-container">
 								<table class="table table-filter table-striped table-bordered table-responsive">
 									<tbody>
+										@foreach($lista as $key => $exploracao)
+						<form class="form-signin" method="POST" action="/admin/home">
+							<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">							
+							<div class="table-container">
+								<table class="table table-filter table-striped table-bordered table-responsive">
+									<tbody>
 										<tr>									
-											<td>											
-												<div>
-													<div>
-										
+											<td>										
+												<div class="media">
+													<div class="media-body">
+														<span class="media-meta pull-right"></span>
+														<p class="summary"></p>
 													</div>
 												</div>
 											</td>
 											<td>
-												<div>
-											
+												<div class="">
+													<button type="submit" class="btn btn-sm  btn-default glyphicon glyphicon-triangle-right" toggle="tooltip" name="id" role="button" data-placement="top" title="Detalhes"></button>
 												</div>
 											</td>
 										</tr>													
+									</tbody>
+								</table>									
+							</div>
+						</form> 
+						@endforeach
 									</tbody>
 								</table>									
 							</div>

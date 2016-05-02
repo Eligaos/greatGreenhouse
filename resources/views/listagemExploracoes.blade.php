@@ -13,12 +13,12 @@
   <link href="{{asset('css/geral.css')}}" rel="stylesheet">
   <link href="{{asset('css/barraLateral.css')}}" rel="stylesheet">
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<link href="{{asset('css/listagemExploracoes.css')}}" rel="stylesheet">
+  <link href="{{asset('css/listagemExploracoes.css')}}" rel="stylesheet">
 </head>   
 <body>
 <div class="container">
 	<div class="row centered-form">
-		<div class="col-xs-12 col-sm-9 col-md-10  col-sm-offset-2 col-md-offset-1">
+		<div class="col-xs-12 col-sm-9 col-md-10 col-sm-offset-2 col-md-offset-1">
 			<section class="content">
 				<div >
 					<div class="panel panel-default">

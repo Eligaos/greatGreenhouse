@@ -15,8 +15,8 @@ class TipoLeituraController extends Controller
 	}
     public function listarTiposLeituras(){
 	
-		return$lista = $this->tlService->getTiposLeitura();
-		//return view('listagemTiposLeituras'/*, compact('lista')*/);
-		return view('listagemTiposLeituras');
+		$lista = $this->tlService->getTiposLeitura();
+	
+		return view('listagemTiposLeituras', compact('lista'));
     }
 }
