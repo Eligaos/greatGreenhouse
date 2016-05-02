@@ -37,11 +37,11 @@ class CulturaService
 
 	public function adicionarCultura($input){ 
 		dd($input);
-		$exists = Cultura::where('nome','=',$input['nome'])->first();
+		/*$exists = Cultura::where('nome','=',$input['nome'])->first();
 		if($exists != null){
 			return null;
-		}
-		$estufa = Cultura::create($input);
-		return $setor;
+		}*/
+		return $estufa = Cultura::create($input);
+		//return $setor;
 	}
 }

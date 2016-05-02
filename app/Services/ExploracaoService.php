@@ -13,7 +13,7 @@ class ExploracaoService
 			return null;
 		}
 		$exploracao = Exploracao::create($input);
-		$exploracao->save();
+	//	$exploracao->save();
 		return $exploracao;
 	}
 
