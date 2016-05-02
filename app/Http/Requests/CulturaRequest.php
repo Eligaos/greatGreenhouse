@@ -13,7 +13,7 @@ class CulturaRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,8 +24,8 @@ class CulturaRequest extends Request
     public function rules()
     {
         return [
-        'nome' => 'required|min:2|unique:users',
-        'data_inicio_ciclo' => 'date_format:date|unique:users',
+        'nome' => 'required|min:2|unique:culturas',
+        'data_inicio_ciclo' => 'date_format:date',
         'data_prevista_fim_ciclo' => 'date_format:date|after:data_inicio_ciclo'
         ];
     }

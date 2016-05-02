@@ -23,7 +23,9 @@ class CreateTableCultura extends Migration
             $table->string('tipo_cultivo');
             $table->string('tipo_cultura');
             $table->integer('setor_id')->unsigned();
-            $table->foreign('setor_id')->references('id')->on('setores');           
+            $table->foreign('setor_id')->references('id')->on('setores');  
+            $table->integer('especie_id')->unsigned();
+            $table->foreign('especie_id')->references('id')->on('especies');          
             $table->timestamps();      
         });
     }

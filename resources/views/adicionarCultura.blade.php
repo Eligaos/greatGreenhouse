@@ -52,10 +52,10 @@
 														</select>														
 													</div>
 												</div>
-												<div class="col-md-6 pull-right">		
+												<div class="col-md-6 pull-right" id="dOutro" name="dOutro" style="display: none"> 
 													<label for="nome">Outro</label>
 													<div class="input-group">
-														<input type="input" class="form-control" id="dInicio"  name="dInicio" placeholder="Insira outro tipo de Cultivo" required><span class="input-group-addon"></span>
+														<input type="input" class="form-control" id="inpOutro"  name="inpOutro" placeholder="Insira outro tipo de Cultivo"><span class="input-group-addon"></span>
 													</div>
 												</div>
 											</div>
@@ -70,7 +70,7 @@
 										<div class="row">
 											<div class="col-lg-6">	
 												<label for="nome">Data Inicial do Ciclo</label>
-												<div class="input-group">											
+												<div class="input-group">									
 													<input type="date" class="form-control" id="dInicio"  name="dInicio"required><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
 												</div>
 											</div>

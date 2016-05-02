@@ -21,4 +21,16 @@ $(document).ready(function() {
         }
     })
 });
+
+  $("#tCultivo").click(function() {
+    var tCultivo = $( this ).val();
+    if(tCultivo == "outro"){
+        $("#dOutro").show();
+        $("#inpOutro").prop('required',true);      
+
+    }else{
+        $("#dOutro").hide(); 
+        $("#inpOutro").prop('required',false);      
+    }
+});
 });

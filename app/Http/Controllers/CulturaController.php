@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Requests\CulturaRequest;
+
 use App\Services\CulturaService;
 use Illuminate\Support\Facades\Input;
 use Redirect;
@@ -42,11 +44,11 @@ class CulturaController extends Controller
 	public function adicionarCultura(CulturaRequest $request){     	
 		$input = Input::except('_token');
 		$exists = $this->cService->adicionarCultura($input);
-		if($exists){
+		/*if($exists){
 			return Redirect::to("admin/culturas/listar")->with('message', 'Cultura guardada com sucesso!');
 		}else{
 			return Redirect::to("/admin/culturas/adicionar")->with('message', 'Já existe uma Cultura com esse nome');
-		}
+		}*/
 	}
 
 	public function detalhesCultura($id){
