@@ -80,6 +80,11 @@ Route::group(['middleware' => ['web']], function ()
 	Route::post('/admin/culturas/adicionar/submit', 'CulturaController@adicionarCultura');	
 
 	Route::get('/admin/tipos-leituras/listar', 'TipoLeituraController@listarTiposLeituras');
+	Route::get('/admin/tipos-leituras/adicionar', 'TipoLeituraController@tipoLeitura');
+	Route::post('/admin/tipos-leituras/adicionar/submit', 'TipoLeituraController@criarNovoTipoLeitura');
+
+		Route::get('/admin/sensores/listar', 'SensorController@listarSensores');
+
 });
 
 

@@ -3,7 +3,6 @@
 @section('customStyles')
 
 @endsection
-
 @section('content')
 <div class="container">
 	<div class="row centered-form">

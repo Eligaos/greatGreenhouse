@@ -17,16 +17,20 @@
 							<span class="alert alert-info"> {{ Session::get('message') }}</span>
 						</div>
 						@endif
-						@foreach($lista as $key => $estufa)
+				
 						<div class="table-container">
 							<table class="table table-filter table-striped table-bordered table-responsive">
+							<tr>
+									<th>Nome da Estufa</th>
+									<th>Opções</th>
+						
+								 </tr>
 								<tbody>
+									@foreach($lista as $key => $estufa)
 									<tr>									
 										<td>
-											<div class="media">
-												<div class="media-body">
-													<p class="summary">{{$estufa->nome}}</p>
-												</div>
+											<div>
+													<span>{{$estufa->nome}}</span>
 											</div>
 										</td>
 										<td>
@@ -35,12 +39,12 @@
 												<a class="btn btn-sm  btn-default" href="#">Eliminar</a>
 											</div>
 										</td>
-									</tr>													
+									</tr>													@endforeach
 								</tbody>
 							</table>	
 						</div>
 					</form> 
-					@endforeach
+			
 					<div class="form-group">
 						<div class="input-group-addon">
 							<a href="/admin/estufas/adicionar" role="button" name="adicionar" id="adicionar estufa" class="btn btn-success pull-right" toggle="tooltip" data-placement="top" title="Adicionar Estufa">Adicionar</a>

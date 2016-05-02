@@ -7,13 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class SensorService
 {
-
-    public function __construct(SensorService $sService)
-    {
-        $this->middleware('auth');
-        $this->sService = $sService;
-
-    }
-
+    public function getSensores(){ 
+		return Sensor::get();
+	}
 }
 
