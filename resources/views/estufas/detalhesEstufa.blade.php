@@ -4,6 +4,9 @@
 <link href="{{asset('css/addExploracao.css')}}" rel="stylesheet">
 
 @endsection
+@section('title', ' - Detalhes da Estufa')
+
+
 @section('content')
 <div class="container">
 	<div class="row centered-form">

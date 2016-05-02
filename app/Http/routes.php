@@ -30,15 +30,10 @@ Route::group(['middleware' => ['web']], function ()
 	Route::get('/', 'GuestController@login');
 
 	Route::get('/recovery', 'GuestController@recovery');
-
 	Route::get('/login', 'GuestController@login');
-
 	Route::get('/register', 'GuestController@register');
-
 	Route::post('/authentication', 'GuestController@login');
-
 	Route::any('/register/registration', 'GuestController@registerUser');
-
 	Route::post('/authentication/auth', 'GuestController@auth');
 
 	Route::post('/admin/home', 'HomeController@inicio');
@@ -47,11 +42,11 @@ Route::group(['middleware' => ['web']], function ()
 
 	Route::get('/admin/cookie', 'HomeController@showCookie');
 
+
 	Route::get('/admin/perfil', 'HomeController@showPerfil');
-
 	Route::get('/admin/perfil/editar', 'HomeController@editPerfil');
-
 	Route::post('/admin/perfil/editar', 'HomeController@saveEditPerfil');
+
 
 	Route::get('/admin/logout', 'HomeController@logout');
 
@@ -83,8 +78,15 @@ Route::group(['middleware' => ['web']], function ()
 	Route::get('/admin/tipos-leituras/adicionar', 'TipoLeituraController@tipoLeitura');
 	Route::post('/admin/tipos-leituras/adicionar/submit', 'TipoLeituraController@criarNovoTipoLeitura');
 
-		Route::get('/admin/sensores/listar', 'SensorController@listarSensores');
+
+	Route::get('/admin/associacoes-tipos-leituras/listar', 'SetorTiposLeiturasAssociadosController@listarAssociacoes');
+	Route::get('/admin/associacoes-tipos-leituras/associar', 'SetorTiposLeiturasAssociadosController@associar');
+
+	Route::get('/admin/sensores/listar', 'SensorController@listarSensores');
+
+	Route::get('/admin/leituras/listar', 'LeiturasController@listarLeituras');
 
 });
+
 
 

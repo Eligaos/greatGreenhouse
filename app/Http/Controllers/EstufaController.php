@@ -3,38 +3,40 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Services\EstufaService;
 use Illuminate\Support\Facades\Input;
 use Redirect;
+use Session;
 
 class EstufaController extends Controller
 {
 	protected $eService;
-	protected $idExp;
+	protected $exploracaoSelecionada;
 
-	public function __construct(EstufaService $eService, Request $request)
+	public function __construct(EstufaService $eService)
 	{
-		$this->idExp = $request->session()->get('exploracaoSelecionada');
 		$this->middleware('auth');
 		$this->eService = $eService;
+		
 	}
 
 	public function adicionar(){
-		return view("adicionarEstufa");		
+		return view("estufas.adicionarEstufa");		
 	}
 
 	public function listarEstufas(){ 
-		$lista = $this->eService->listarEstufas($this->idExp);
+		$lista = $this->eService->getEstufas();
                  //\Debugbar::info(Auth::check());
-		return view('listagemEstufas', compact('lista'));
+
+		return view('estufas.listagemEstufas', compact('lista'));
 	}
 
 
 	public function adicionarEstufa(){     	
 		$input = Input::except('_token');
-		$exists = $this->eService->adicionarEstufa($this->idExp, $input);
+		$exploracaoSelecionada = Session::get('exploracaoSelecionada');
+		$exists = $this->eService->adicionarEstufa($exploracaoSelecionada, $input);
 		if($exists){
 			return Redirect::to("admin/estufas/listar")->with('message', 'Estufa guardada com sucesso!');
 		}else{
@@ -45,18 +47,19 @@ class EstufaController extends Controller
 	public function detalhesEstufa($id){
 		$lista = $this->eService->procurarEstufa($id);
 		//$lista[0]-- array de estufa  $lista[1]--array dos setores da estufa
-		return view('detalhesEstufa', compact('lista'));  		
+		return view('estufas.detalhesEstufa', compact('lista'));  		
 	}
 
 	public function editarEstufa($id){
 		$lista = $this->eService->procurarEstufa($id);
 		//$lista[0]-- array de estufa  $lista[1]--array dos setores da estufa
-		return view('editarEstufa', compact('lista'));  		
+		return view('estufas.editarEstufa', compact('lista'));  		
 	}
 
 	public function saveEditEstufa($idE){ 
-        $input = Input::except('_token');        
-        $estufa = $this->eService->saveEditEstufa($this->idExp, $input, $idE);
+        $input = Input::except('_token');    
+           $exploracaoSelecionada = Session::get('exploracaoSelecionada');
+        $estufa = $this->eService->saveEditEstufa($exploracaoSelecionada, $input, $idE);
         if($estufa){
             return Redirect::to("/admin/estufas/detalhes/{$estufa->id}")->with('message', 'Estufa guardada com sucesso!');
         }else{

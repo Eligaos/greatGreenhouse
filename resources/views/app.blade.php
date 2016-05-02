@@ -8,6 +8,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<!-- Bootstrap core CSS -->
+  <title>Great Greenhouse @yield('title')</title>
 	<link href="{{asset('css/bootstrap.css')}}" rel="stylesheet">
 
   <link href="{{asset('css/geral.css')}}" rel="stylesheet">
@@ -55,33 +56,38 @@
         <a href="#"><a href="#"><i class="fa fa-globe fa-lg"></i> Consultas <span class="arrow"></span></a>
       </li> 
       <ul class="sub-menu collapse" id="consultas">
-       <li><a href="#"><i class="glyphicon glyphicon-stats"></i> Dados Analíticos </a></li>
+       <li><a href="/admin/leituras/listar"><i class="glyphicon glyphicon-stats"></i> Dados Analíticos </a></li>
        <li><a href="#"><i class="glyphicon glyphicon-bell"></i> Alarmes </a>	</li>
      </ul>
-       <li data-toggle="collapse" data-target="#leituras" class="collapsed">
-        <a href="#"><a href="#"><i class="fa fa-globe fa-lg"></i> Leituras/Sensores <span class="arrow"></span></a>
-      </li> 
-      <ul class="sub-menu collapse" id="leituras">
-       <li><a href="/admin/tipos-leituras/listar"><i class="glyphicon glyphicon-globe"></i> Tipos de Leituras</a></li>
-       <li><a href="/admin/sensores/listar"><i class="glyphicon glyphicon-globe"></i> Sensores </a>  </li>
-        <li><a href="#"><i class="glyphicon glyphicon-globe"></i> Registar Leitura Manual </a>  </li>
-     </ul>
-     <li>
-      <a href="/admin/perfil">
-        <i class="fa fa-user fa-lg"></i> Perfil
-      </a>
-    </li>
+     <li data-toggle="collapse" data-target="#leituras" class="collapsed">
+      <a href="#"><a href="#"><i class="fa fa-globe fa-lg"></i> Leituras/Sensores <span class="arrow"></span></a>
+    </li> 
+    <ul class="sub-menu collapse" id="leituras">
+     <li><a href="/admin/tipos-leituras/listar"><i class="glyphicon glyphicon-globe"></i> Tipos de Leituras</a></li>
+     <li><a href="/admin/sensores/listar"><i class="glyphicon glyphicon-globe"></i> Sensores </a></li>
+     <li><a href="#"><i class="glyphicon glyphicon-globe"></i> Registar Leitura Manual </a></li>
+   </ul>
     <li>
-      <a href="/admin/exploracoes/mudar">
-        <i class="glyphicon glyphicon-transfer"></i> Mudar de Exploração
-      </a>
-    </li>
-    <li>
-      <a href="/admin/logout">
-        <i class="fa fa-door fa-lg"></i> Sair
-      </a>
-    </li>
-  </ul>
+    <a href="/admin/associacoes-tipos-leituras/listar">
+      <i class="fa fa-globe fa-lg"></i> Associar Tipos de Leituras
+    </a>
+  </li>
+   <li>
+    <a href="/admin/perfil">
+      <i class="fa fa-user fa-lg"></i> Perfil
+    </a>
+  </li>
+  <li>
+    <a href="/admin/exploracoes/mudar">
+      <i class="glyphicon glyphicon-transfer"></i>Mudar de Exploração
+    </a>
+  </li>
+  <li>
+    <a href="/admin/logout">
+      <i class="fa fa-door fa-lg"></i> Sair
+    </a>
+  </li>
+</ul>
 </div>
 </div>
 @yield('content')

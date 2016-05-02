@@ -3,6 +3,7 @@
 @section('customStyles')
 
 @endsection
+@section('title', ' - Lista de Associacoes')
 
 @section('content')
 <div class="container">
@@ -11,7 +12,7 @@
 			<section class="content">
 				<div >
 					<div class="panel panel-default">
-						<div class="panel-heading"><h1>Lista de Tipos de Leituras</h1></div>
+						<div class="panel-heading"><h1>Lista de Associacoes</h1></div>
 						<form class="form-signin" method="POST" action="/admin/home">
 							<div class="table-container">
 								<table class="table table-filter table-striped table-bordered table-responsive">
@@ -21,20 +22,39 @@
 							<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">							
 							<div class="table-container">
 								<table class="table table-filter table-striped table-bordered table-responsive">							 <tr>
-									<th>Parâmetro</th>
+									<th>Valor</th>
 									<th>Unidade</th>
+									<th>Tipo</th>
+									<th>Origem</th>
+									<th>Localização</th>
 									<th>Opções</th>
 								 </tr>	
 								<tbody>		
-							@foreach($lista as $key => $tipoLeitura)
+							@foreach($lista as $key => $leitura)
 										<tr>									
 											<td>		
-											<span>{{$tipoLeitura->parametro}}</span>
+											<span>{{$leitura->valor}}</span>
+										
+											</td>
+											<td>		
+											<span>{{$leitura->unidade}}</span>
+										
+											</td>
+											<td>		
+											<span>{{$leitura->tipo}}</span>
+										
+											</td>
+											<td>		
+											<span>{{$leitura->origem}}</span>
+										
+											</td>	
+											<td>		
+											<span>{{$leitura->localizacao}}</span>
 										
 											</td>
 											<td>
 												
-											<span>{{$tipoLeitura->unidade}}</span>
+											<span>{{$leitura->manual}}</span>
 										
 											</td>
 											<td>

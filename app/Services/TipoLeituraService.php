@@ -20,5 +20,8 @@ class TipoLeituraService
         $tipoLeitura = TipoLeitura::create($input);
         return $tipoLeitura;
     }
+
+
+ 
 }
 

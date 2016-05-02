@@ -9,10 +9,6 @@ use Session;
 
 class EstufaService 
 {
-	public function listarEstufas($idExp){ 
-		return Estufa::where('exploracoes_id', '=', $idExp['id'])->get();
-	}
-
 	public function getEstufas(){ 
 		$exploracaoSelecionada = Session::get('exploracaoSelecionada');
 		return Estufa::where('exploracoes_id', '=', $exploracaoSelecionada['id'])->get();

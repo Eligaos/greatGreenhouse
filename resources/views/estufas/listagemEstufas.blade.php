@@ -3,6 +3,7 @@
 @section('customStyles')
 <link href="{{asset('css/listagemEstufas.css')}}" rel="stylesheet">
 @endsection
+@section('title', ' - Lista de Estufas')
 
 @section('content')
 <div class="container">

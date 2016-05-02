@@ -52,11 +52,11 @@ class HomeController extends Controller
     } 
 
 	public function showPerfil() {
-		return view('perfil');
+		return view('perfil.perfil');
 	}
 
 	public function editPerfil() {
-		return view('perfilEditar');
+		return view('perfil.perfilEditar');
 	}
 
 

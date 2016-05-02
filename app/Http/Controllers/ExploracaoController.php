@@ -25,14 +25,14 @@ class ExploracaoController extends Controller
     }
 
     public function adicionar(){ 
-        return view("adicionarExploracao");
+        return view("exploracoes.adicionarExploracao");
     }
 
     public function detalhesExploracao(){
         $exploracao = $this->eaService->procurarExploracao($this->idExp);
         /**@todo devolve $exploracao dentro de um objeto 
         */
-        return view('detalhesExploracao', compact('exploracao'));        
+        return view('exploracoes.detalhesExploracao', compact('exploracao'));        
     }
 
     public function adicionarExploracao(){ 
@@ -47,12 +47,12 @@ class ExploracaoController extends Controller
 
     public function listarExploracao(){ 
         $lista = $this->eaService->listarExploracao();
-        return view('listagemExploracoes', compact('lista'));
+        return view('exploracoes.listagemExploracoes', compact('lista'));
     }
     
     public function editarExploracao(){ 
         $exploracao = $this->eaService->procurarExploracao($this->idExp);
-        return view('editarExploracao', compact('exploracao'));
+        return view('exploracoes.editarExploracao', compact('exploracao'));
     }
 
     public function saveEditExploracao(){ 

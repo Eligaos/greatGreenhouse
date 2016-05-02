@@ -3,6 +3,9 @@
 <link href="{{asset('css/addExploracao.css')}}" rel="stylesheet">
 <link href="{{asset('../../css/addExploracao.css')}}" rel="stylesheet">
 @endsection
+
+@section('title', ' - Adicionar Exploração')
+
 @section('content')
 <body>
 	<div class="container">

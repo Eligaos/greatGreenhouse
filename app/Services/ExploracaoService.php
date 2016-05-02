@@ -13,7 +13,6 @@ class ExploracaoService
 			return null;
 		}
 		$exploracao = Exploracao::create($input);
-	//	$exploracao->save();
 		return $exploracao;
 	}
 
@@ -33,12 +32,12 @@ class ExploracaoService
 			$exp->distrito = $input['distrito'];
 			$exp->concelho = $input['concelho'];
 			$exp->freguesia = $input['freguesia'];
-           // $exp[0]->area = $input['area'];
+
 			$exp->save();
 			return true;
 		}else{
 			$exists = Exploracao::where("nome",'=', $input['nome'])->get()->first();
-			//dd($exists[0]->id);
+			
 			if($exists==null){
 				$exp->nome = $input['nome'];
 				$exp->numero = $input['numero'];

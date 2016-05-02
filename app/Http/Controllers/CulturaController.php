@@ -26,7 +26,7 @@ class CulturaController extends Controller
 	public function adicionar(){
 		$lista = $this->cService->getEstufa($this->idExp);
 
-		return view("adicionarCultura", compact('lista'));		
+		return view("culturas.adicionarCultura", compact('lista'));		
 	}
 
 	public function getSetor($idEstufa){
@@ -37,7 +37,7 @@ class CulturaController extends Controller
 	public function listarCulturas(){ 
 		$lista = $this->cService->listarCulturas($this->idExp);
                  //\Debugbar::info(Auth::check());
-		return view('listagemCulturas', compact('lista'));
+		return view('culturas.listagemCulturas', compact('lista'));
 	}
 
 
@@ -54,13 +54,13 @@ class CulturaController extends Controller
 	public function detalhesCultura($id){
 		$lista = $this->cService->procurarCultura($id);
 		//$lista[0]-- array de estufa  $lista[1]--array dos setores da estufa
-		return view('detalhesCultura', compact('lista'));  		
+		return view('culturas.detalhesCultura', compact('lista'));  		
 	}
 
 	public function editarCultura($id){
 		$lista = $this->cService->procurarCultura($id);
 		//$lista[0]-- array de estufa  $lista[1]--array dos setores da estufa
-		return view('editarCultura', compact('lista'));  		
+		return view('culturas.editarCultura', compact('lista'));  		
 	}
 
 	public function saveEditCultura($idE){ 

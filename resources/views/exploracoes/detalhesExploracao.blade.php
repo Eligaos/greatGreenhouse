@@ -4,6 +4,9 @@
 <link href="{{asset('css/addExploracao.css')}}" rel="stylesheet">
 
 @endsection
+
+@section('title', ' - Detalhes da Exploração')
+
 @section('content')
 <div class="container">
 	<div class="row centered-form">

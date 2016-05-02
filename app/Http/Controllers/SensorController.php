@@ -21,7 +21,7 @@ class SensorController extends Controller
 	public function listarSensores(){
 		$lista = $this->sService->getSensores();
 		
-		return view('listagemSensores', compact('lista'));
+		return view('sensores.listagemSensores', compact('lista'));
 	}
 
 }

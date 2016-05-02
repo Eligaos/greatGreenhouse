@@ -7,7 +7,6 @@ use Redirect;
 
 class TipoLeituraController extends Controller
 {
-
 	protected $tlService;
 
 	public function __construct(TipoLeituraService $tlService)
@@ -15,10 +14,9 @@ class TipoLeituraController extends Controller
 		$this->middleware('auth');
 		$this->tlService = $tlService;
 	}
+	
 	public function listarTiposLeituras(){
-
 		$lista = $this->tlService->getTiposLeitura();
-
 		return view('listagemTiposLeituras', compact('lista'));
 	}
 
@@ -28,7 +26,6 @@ class TipoLeituraController extends Controller
 	}
 
 	public function criarNovoTipoLeitura(){
-
         $exists = $this->tlService->adicionarTipoLeitura(Input::except('_token'));
 
 		if($exists){
@@ -38,5 +35,4 @@ class TipoLeituraController extends Controller
 		}
 
 	}
-
 }
