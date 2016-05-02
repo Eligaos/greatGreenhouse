@@ -1,10 +1,8 @@
 @extends('app')
 
 @section('customStyles')
-
 <link href="{{asset('css/home.css')}}" rel="stylesheet">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
-
 @endsection
 
 @section('content')

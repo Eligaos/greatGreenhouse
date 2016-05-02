@@ -1,10 +1,9 @@
 @extends('app')
 
 @section('customStyles')
-	<link href="{{asset('css/listagemExploracoes.css')}}" rel="stylesheet">
-@endsection
+	<link href="{{asset('css/addExploracao.css')}}" rel="stylesheet">
 
-@section('content')
+@endsection
 <div class="container">
 	<div class="row centered-form">
 		<div class="col-xs-12 col-sm-9 col-md-10  col-sm-offset-2 col-md-offset-1">
@@ -59,9 +58,8 @@
 	</div>
 </div>
 </div>
-@endsection
-
-@section('customScripts')
+</body>
 <script src="{{asset('js/bootstrap.js')}}"></script>
 <script src="{{asset('js/errors.js')}}"></script>
-@endsection
+</html>
+

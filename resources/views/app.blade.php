@@ -58,7 +58,14 @@
        <li><a href="#"><i class="glyphicon glyphicon-stats"></i> Dados Analíticos </a></li>
        <li><a href="#"><i class="glyphicon glyphicon-bell"></i> Alarmes </a>	</li>
      </ul>
-
+       <li data-toggle="collapse" data-target="#leituras" class="collapsed">
+        <a href="#"><a href="#"><i class="fa fa-globe fa-lg"></i> Leituras/Sensores <span class="arrow"></span></a>
+      </li> 
+      <ul class="sub-menu collapse" id="leituras">
+       <li><a href="#"><i class="glyphicon glyphicon-globe"></i> Tipos de Leituras</a></li>
+       <li><a href="#"><i class="glyphicon glyphicon-globe"></i> Sensores </a>  </li>
+        <li><a href="#"><i class="glyphicon glyphicon-globe"></i> Registar Leitura Manual </a>  </li>
+     </ul>
      <li>
       <a href="/admin/perfil">
         <i class="fa fa-user fa-lg"></i> Perfil

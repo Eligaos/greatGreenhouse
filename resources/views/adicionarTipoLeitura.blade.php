@@ -1,10 +1,10 @@
 @extends('app')
+
 @section('customStyles')
-<link href="{{asset('css/addExploracao.css')}}" rel="stylesheet">
-<link href="{{asset('../../css/addExploracao.css')}}" rel="stylesheet">
+	<link href="{{asset('css/addExploracao.css')}}" rel="stylesheet">
+
 @endsection
 @section('content')
-<body>
 	<div class="container">
 		<div class="row centered-form">
 			<div class="col-xs-12 col-sm-9 col-md-8  col-sm-offset-3 col-md-offset-2">
@@ -76,7 +76,6 @@
 	</div>
 	@endsection
 	@section('customScripts')
-
+	<script src="{{asset('js/adicionarCultura.js')}}"></script>
 	@endsection
-
 

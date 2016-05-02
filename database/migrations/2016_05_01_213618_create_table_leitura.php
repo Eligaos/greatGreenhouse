@@ -14,7 +14,8 @@ class CreateTableLeitura extends Migration
     {
         Schema::create('leituras', function (Blueprint $table) {
             $table->increments('id');
-            $table->float('valor');       
+            $table->float('valor'); 
+            $table->boolean('manual'); //0 - nao 1 -sim
             $table->integer('tipo_id')->unsigned();
             $table->foreign('tipo_id')->references('id')->on('tipos_leituras');
             $table->timestamps();      

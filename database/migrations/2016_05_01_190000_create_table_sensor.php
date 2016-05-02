@@ -17,7 +17,7 @@ class CreateTableSensor extends Migration
             $table->string('nome');
             $table->string('modelo');
             $table->float('area_alcance');
-            $table->boolean('estado');
+            $table->boolean('estado'); // 0 inativo ; 1 - ativo
             $table->timestamps();  
           });
     }
