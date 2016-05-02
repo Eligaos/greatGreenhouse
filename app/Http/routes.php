@@ -78,6 +78,8 @@ Route::group(['middleware' => ['web']], function ()
 	Route::post('/admin/culturas/editar/submit/{id}', 'CulturaController@saveEditCultura');
 	Route::get('/admin/culturas/adicionar', 'CulturaController@adicionar');
 	Route::post('/admin/culturas/adicionar/submit', 'CulturaController@adicionarCultura');	
+
+	Route::get('/admin/tipos-leituras/listar', 'TipoLeituraController@listarTiposLeituras');
 });
 
 

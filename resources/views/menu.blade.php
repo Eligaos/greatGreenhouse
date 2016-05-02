@@ -1,21 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<!-- Bootstrap core CSS -->
-	<link href="{{asset('css/bootstrap.css')}}" rel="stylesheet">
 
-  <link href="{{asset('css/geral.css')}}" rel="stylesheet">
-  <link href="{{asset('css/barraLateral.css')}}" rel="stylesheet">
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-  <!-- Custom styles for this template -->
-  @yield('customStyles')
-</head>   
+@extends('app')
+
+@section('customStyles')
+
+@endsection
+@section('content')
 <body>
 	<div class="nav-side-menu ">
     <div class="brand">Great Greenhouse</div>
@@ -84,10 +73,5 @@
   </ul>
 </div>
 </div>
-@yield('content')
+@yield('page')
 </body>
-<script src="{{asset('js/jquery-2.1.4.js')}}"></script>
-<script src="{{asset('js/angular.js')}}"></script>
-<script src="{{asset('js/bootstrap.js')}}"></script>
-@yield('customScripts')
-</html>

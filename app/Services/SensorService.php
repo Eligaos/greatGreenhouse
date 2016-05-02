@@ -2,12 +2,11 @@
 
 namespace App\Services;
 
-use App\Models\Exploracao;
+use App\Models\Sensor;
 use Illuminate\Database\Eloquent\Model;
 
 class SensorService
 {
-    protected $sService;
 
     public function __construct(SensorService $sService)
     {

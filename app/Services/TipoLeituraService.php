@@ -2,19 +2,13 @@
 
 namespace App\Services;
 
-use App\Models\Exploracao;
+use App\Models\TipoLeitura;
 use Illuminate\Database\Eloquent\Model;
 
 class TipoLeituraService
 {
-    protected $tlService;
-
-    public function __construct(TipoLeituraService $tlService)
-    {
-        $this->middleware('auth');
-        $this->tlService = $tlService;
-
-    }
-
+    public function getTiposLeitura(){ 
+		return TipoLeitura::all();
+	}
 }
 

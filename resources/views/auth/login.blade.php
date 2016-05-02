@@ -65,7 +65,7 @@
                             @endif
                             <div class="form-group text-center">
                                 <hr>
-                                <a href="#">Esquecer Password</a>
+                                <a href="#">Esqueceu-se da Password?</a>
                             </div>
                         </form>
                     </div>

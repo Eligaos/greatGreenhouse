@@ -14,11 +14,11 @@ class CreateTableSetor extends Migration
     {
         Schema::create('setores', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('setor_id');
+            $table->integer('setor_id');       
+            $table->integer('estufa_id')->unsigned();
             $table->foreign('estufa_id')->references('id')->on('estufas');
             $table->string('nome');
             $table->string('descricao');
-            $table->integer('estufa_id')->unsigned();
             $table->timestamps();      
 
         });
@@ -31,6 +31,12 @@ class CreateTableSetor extends Migration
      */
     public function down()
     {
+        Schema::table('setores', function(Blueprint $table) {
+            $table->dropForeign('estufa_id');
+        });
+
         Schema::drop('setores');
     }
+    
 }
+

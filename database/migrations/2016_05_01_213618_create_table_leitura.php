@@ -17,7 +17,7 @@ class CreateTableLeitura extends Migration
             $table->float('valor'); 
             $table->boolean('manual'); //0 - nao 1 -sim
             $table->integer('tipo_id')->unsigned();
-            $table->foreign('tipo_id')->references('id')->on('tipos_leituras');
+            $table->foreign('tipo_id')->references('id')->on('tipo_leitura');
             $table->timestamps();      
         });
     }
@@ -28,7 +28,14 @@ class CreateTableLeitura extends Migration
      * @return void
      */
     public function down()
-    {
-         Schema::drop('leituras');
+
+    {  
+     Schema::table('leituras', function(Blueprint $table) {
+        $table->dropForeign('sensor_id');
+       });
+
+      Schema::drop('tipo_id');
+       }
+       
     }
-}
+

@@ -12,7 +12,7 @@ class CreateTableTipoLeitura extends Migration
      */
     public function up()
     {
-          Schema::create('tipos_leituras', function (Blueprint $table) {
+          Schema::create('tipo_leitura', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('sensor_id')->unsigned();
             $table->foreign('sensor_id')->references('id')->on('sensores');
@@ -29,6 +29,10 @@ class CreateTableTipoLeitura extends Migration
      */
     public function down()
     {
-        Schema::drop('tipos_leituras');
-    }
+      Schema::table('tipo_leitura', function(Blueprint $table) {
+        $table->dropForeign('sensor_id');
+       });
+
+      Schema::drop('tipo_leitura');
+       }
 }

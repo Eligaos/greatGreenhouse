@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\Models\Exploracao;
+use App\Models\Leitura;
 use Illuminate\Database\Eloquent\Model;
 
 class LeituraService

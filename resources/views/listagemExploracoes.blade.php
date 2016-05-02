@@ -1,10 +1,21 @@
-@extends('app')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<!-- Bootstrap core CSS -->
+	<link href="{{asset('css/bootstrap.css')}}" rel="stylesheet">
 
-@section('customStyles')
-	<link href="{{asset('css/listagemExploracoes.css')}}" rel="stylesheet">
-@endsection
-
-@section('content')
+  <link href="{{asset('css/geral.css')}}" rel="stylesheet">
+  <link href="{{asset('css/barraLateral.css')}}" rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="{{asset('css/listagemExploracoes.css')}}" rel="stylesheet">
+</head>   
+<body>
 <div class="container">
 	<div class="row centered-form">
 		<div class="col-xs-12 col-sm-9 col-md-10  col-sm-offset-2 col-md-offset-1">
@@ -59,9 +70,10 @@
 	</div>
 </div>
 </div>
-@endsection
-
-@section('customScripts')
+</body>
+<script src="{{asset('js/jquery-2.1.4.js')}}"></script>
 <script src="{{asset('js/bootstrap.js')}}"></script>
 <script src="{{asset('js/errors.js')}}"></script>
-@endsection
+<script src="{{asset('js/bootstrap.js')}}"></script>
+
+</html>
