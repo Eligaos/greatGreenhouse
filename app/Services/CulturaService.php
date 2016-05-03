@@ -36,12 +36,20 @@ class CulturaService
 	}
 
 	public function adicionarCultura($input){ 
-		dd($input);
+		if($input["tCultivo"]=="outro"){
+			$input["tCultivo"] = $input["inpOutro"];
+			unset($input["tCultivo"]);
+			dd($input);
+		}
+		unset($input["inpOutro"]);
+		unset($input["ddEstufa"]);
+
+
 		/*$exists = Cultura::where('nome','=',$input['nome'])->first();
 		if($exists != null){
 			return null;
 		}*/
-		return $estufa = Cultura::create($input);
+		return Cultura::create($input);
 		//return $setor;
 	}
 }

@@ -23,10 +23,16 @@ class CreateTableCultura extends Migration
             $table->string('tipo_cultivo');
             $table->string('tipo_cultura');
             $table->integer('setor_id')->unsigned();
-            $table->foreign('setor_id')->references('id')->on('setores');  
             $table->integer('especie_id')->unsigned();
-            $table->foreign('especie_id')->references('id')->on('especies');          
             $table->timestamps();      
+        });
+
+        Schema::table('culturas', function($table)
+        {
+            $table->foreign('setor_id')->references('id')->on('setores')->onDelete('cascade');              
+            $table->foreign('especie_id')->references('id')->on('especies')->onDelete('cascade');
+
+          //  $table->foreign('especie_id')->references('id')->on('especies')->onDelete('cascade');
         });
     }
 
@@ -37,6 +43,12 @@ class CreateTableCultura extends Migration
      */
     public function down()
     {
+        Schema::table('culturas', function(Blueprint $table) {
+            /*$table->dropForeign('culturas_setor_id_foreign');
+            $table->dropForeign('culturas_especie_id_foreign');*/
+            $table->dropForeign(['setor_id']);
+            $table->dropForeign(['especie_id']);
+        });
         Schema::drop('culturas');
     }
 }

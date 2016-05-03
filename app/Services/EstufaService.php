@@ -28,7 +28,7 @@ class EstufaService
 		if(count($input)>5){
 			$this->adicionarSetor($input,$estufa);
 		}
-		Setor::create($this->criarSetorArr("Setor0","Setor Geral",$estufa->id,0));
+		Setor::create($this->criarSetorArr("Setor 0","Setor Geral",$estufa->id,0));
 		return $estufa;
 	}
 
@@ -54,7 +54,7 @@ class EstufaService
 
 	public function procurarEstufa($id){ 
 		$estufa = Estufa::find($id);
-		$setor = Setor::where('estufa_id', $estufa->id)->where('nome','not like','Setor0')->get();
+		$setor = Setor::where('estufa_id', $estufa->id)->where('nome','not like','Setor 0')->get();
 		return [$estufa, $setor];
 	}
 

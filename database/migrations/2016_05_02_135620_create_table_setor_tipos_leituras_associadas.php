@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class SetorTiposLeiturasAssociadas extends Migration
+class CreateTableSetorTiposLeiturasAssociadas extends Migration
 {
     /**
      * Run the migrations.

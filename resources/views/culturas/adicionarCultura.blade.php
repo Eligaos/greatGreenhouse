@@ -86,7 +86,7 @@
 										<br/>
 										<label for="nome">Duração do Ciclo</label>
 										<div class="input-group">											
-											<input type="number" class="form-control" id="dCiclo"  name="dCiclo" placeholder="Insira a duração do ciclo"><span class="input-group-addon"></span>
+											<input type="number" class="form-control" id="dCiclo"  name="dCiclo" placeholder="Insira a duração do ciclo"><span class="input-group-addon">dias</span>
 										</div>
 									</div>				
 								</div>	
@@ -99,13 +99,13 @@
 											<div class="col-lg-6">	
 												<label for="nome">Espaço na Linha</label>
 												<div class="input-group">											
-													<input type="number" class="form-control" id="enL"  name="enL" placeholder="Insira o espaçamento na Linha"><span class="input-group-addon"></span>
+													<input type="number" class="form-control" id="enL"  name="enL" placeholder="Insira o espaçamento na Linha"><span class="input-group-addon">metros</span>
 												</div>
 											</div>
 											<div class="col-lg-6">												
 												<label for="nome">Espaço entre Linhas</label>
 												<div class="input-group">											
-													<input type="number" class="form-control" id="eeL"  name="eeL" placeholder="Insira o espaçamento entre as Linhas"><span class="input-group-addon"></span>
+													<input type="number" class="form-control" id="eeL"  name="eeL" placeholder="Insira o espaçamento entre as Linhas"><span class="input-group-addon">metros</span>
 												</div>
 											</div>
 										</div>

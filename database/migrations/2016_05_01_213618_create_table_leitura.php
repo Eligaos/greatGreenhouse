@@ -30,12 +30,12 @@ class CreateTableLeitura extends Migration
     public function down()
 
     {  
-     Schema::table('leituras', function(Blueprint $table) {
+       Schema::table('leituras', function(Blueprint $table) {
         $table->dropForeign('sensor_id');
-       });
+    });
 
-      Schema::drop('tipo_id');
-       }
-       
-    }
+       Schema::drop('tipo_id');
+   }
+   
+}
 

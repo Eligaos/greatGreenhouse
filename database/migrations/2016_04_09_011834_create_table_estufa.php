@@ -15,11 +15,15 @@ class CreateTableEstufa extends Migration
         Schema::create('estufas', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('exploracoes_id')->unsigned();
-            $table->foreign('exploracoes_id')->references('id')->on('exploracoes');
+            
             $table->string('nome')->unique();
             $table->string('descricao');            
             $table->timestamps();          
         });
+
+        Schema::table('estufas', function($table){
+         $table->foreign('exploracoes_id')->references('id')->on('exploracoes')->onDelete('cascade');
+     });
     }
 
     /**
@@ -29,10 +33,10 @@ class CreateTableEstufa extends Migration
      */
     public function down()
     {
-       Schema::table('estufas', function(Blueprint $table) {
+     Schema::table('estufas', function(Blueprint $table) {
         $table->dropForeign('exploracoes_id');
     });
 
-       Schema::drop('estufas');
-   }
+     Schema::drop('estufas');
+ }
 }

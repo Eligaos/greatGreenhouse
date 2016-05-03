@@ -28,11 +28,6 @@ class CreateTableEspecie extends Migration
             $table->float('condutividade_electrica_solo_ideal');
             $table->timestamps();  
         });
-
-        /*Schema::create('especies_culturas', function (Blueprint $table) { 
-           $table->integer('especie_id');
-           $table->integer('cultura_id');
-       });*/
     }
 
     /**
