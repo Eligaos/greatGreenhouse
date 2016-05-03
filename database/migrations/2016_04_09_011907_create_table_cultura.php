@@ -18,8 +18,8 @@ class CreateTableCultura extends Migration
             $table->bigInteger('duracao_ciclo');
             $table->bigInteger('espaco_entre_linhas');
             $table->bigInteger('espaco_na_linha');
-            $table->date('data_inicio_ciclo');
-            $table->date('data_prevista_fim_ciclo');
+            $table->date('data_inicio_ciclo')->nullable();
+            $table->date('data_prevista_fim_ciclo')->nullable();
             $table->string('tipo_cultivo');
             $table->string('tipo_cultura');
             $table->integer('setor_id')->unsigned();
@@ -42,8 +42,6 @@ class CreateTableCultura extends Migration
     public function down()
     {
         Schema::table('culturas', function(Blueprint $table) {
-            /*$table->dropForeign('culturas_setor_id_foreign');
-            $table->dropForeign('culturas_especie_id_foreign');*/
             $table->dropForeign(['setor_id']);
             $table->dropForeign(['especie_id']);
         });

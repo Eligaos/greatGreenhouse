@@ -25,8 +25,8 @@ class CulturaRequest extends Request
     {
         return [
         'nome' => 'required|min:2|unique:culturas',
-        'data_inicio_ciclo' => 'date_format:date',
-        'data_prevista_fim_ciclo' => 'date_format:date|after:data_inicio_ciclo'
+       /* 'data_inicio_ciclo' => 'date_format:date',
+        'data_prevista_fim_ciclo' => 'date_format:date|after:data_inicio_ciclo'*/
         ];
     }
 }

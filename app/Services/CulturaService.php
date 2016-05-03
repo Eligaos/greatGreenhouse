@@ -13,13 +13,17 @@ class CulturaService
 {
 	public function listarCulturas($idExp){ 
 		$estufa = Estufa::where("exploracoes_id", "LIKE", $idExp)->get();
-		for($i=0; $i<count($estufa);$i++){
-			$setor = Setor::where("estufa_id", "LIKE", $estufa[$i]->id)->get();
+		if(count($estufa)!=0){
+			for($i=0; $i<count($estufa);$i++){
+				$setor = Setor::where("estufa_id", "LIKE", $estufa[$i]->id)->get();
+			}
+			for($i=0; $i<count($setor);$i++){
+				$cultura = Cultura::where("setor_id", "LIKE", $setor[$i]->id)->get();
+			}
+			return $cultura;
+		}else{
+			return $estufa;
 		}
-		for($i=0; $i<count($setor);$i++){
-			$cultura = Cultura::where("setor_id", "LIKE", $setor[$i]->id)->get();
-		}
-		return $cultura;
 	}
 
 
@@ -42,7 +46,9 @@ class CulturaService
 		}
 		unset($input["inpOutro"]);
 		unset($input["ddEstufa"]);
+
+		$input["especie_id"] =null; // por agora o valor é inserido a null porque não existem especies
+
 		return Cultura::create($input);
-		//return $setor;
 	}
 }

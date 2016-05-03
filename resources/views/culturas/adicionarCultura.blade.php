@@ -73,7 +73,7 @@
 											<div class="col-lg-6">	
 												<label for="nome">Data Inicial do Ciclo</label>
 												<div class="input-group">									
-													<input type="date" class="form-control" id="data_inicio_ciclo"  name="data_inicio_ciclo"required><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+													<input type="date" class="form-control" id="data_inicio_ciclo"  name="data_inicio_ciclo"><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
 												</div>
 											</div>
 											<div class="col-lg-6">												
@@ -165,5 +165,5 @@
 	</div>
 	@endsection
 	@section('customScripts')
-	<!--<script src="{{asset('js/adicionarCultura.js')}}"></script>-->
+	<script src="{{asset('js/adicionarCultura.js')}}"></script>
 	@endsection
