@@ -6,7 +6,7 @@ $(document).ready(function() {
 });
 
   $( "#ddEstufa" ).click(function() {
-    $("#ddSetor").children().remove();
+    $("#setor_id").children().remove();
     var estufaId = $( this ).val();
     $.get( "/admin/culturas/getSetor/"+ estufaId, function( data ) {
 
@@ -14,7 +14,7 @@ $(document).ready(function() {
         console.log(data.length);
 
         for(var i=0; i < data.length; i++){
-            $('#ddSetor').append($('<option>', {
+            $('#setor_id').append($('<option>', {
                 value: data[i].id,
                 text: data[i].nome
             }));
@@ -22,7 +22,7 @@ $(document).ready(function() {
     })
 });
 
-  $("#tCultivo").click(function() {
+  $("#tipo_cultivo").click(function() {
     var tCultivo = $( this ).val();
     if(tCultivo == "outro"){
         $("#dOutro").show();
