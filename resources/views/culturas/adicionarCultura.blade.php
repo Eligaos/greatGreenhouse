@@ -17,7 +17,7 @@
 					</div>
 					<div class="panel-body">
 						<form id="registerForm" method="POST" action="/admin/culturas/adicionar/submit">
-							<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">							
+							<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">	
 							<div class="form-group">
 								<fieldset> 
 									<legend>Dados da Cultura</legend>
@@ -37,7 +37,7 @@
 												<div class="col-md-4">										
 													<label for="nome">Tipo Cultura</label>
 													<div>
-														<select class="form-control" id="tCultura" name="tCultura">
+														<select class="form-control" id="tipo_cultura" name="tipo_cultura">
 															<option value="temporaria">Temporária</option>
 															<option value="permanente">Permanente</option>
 														</select>
@@ -46,7 +46,7 @@
 												<div class="col-md-2 pull-left">		
 													<label for="nome">Tipo Cultivo</label>
 													<div>
-														<select  class="form-control" id="tCultivo" name="tCultivo">
+														<select  class="form-control" id="tipo_cultivo" name="tipo_cultivo">
 															<option value="tradicional">Tradicional</option>
 															<option value="hidroponia">Hidroponia</option>
 															<option value="aeroponia">Aeroponia</option>
@@ -73,20 +73,20 @@
 											<div class="col-lg-6">	
 												<label for="nome">Data Inicial do Ciclo</label>
 												<div class="input-group">									
-													<input type="date" class="form-control" id="dInicio"  name="dInicio"required><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+													<input type="date" class="form-control" id="data_inicio_ciclo"  name="data_inicio_ciclo"required><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
 												</div>
 											</div>
-											<div class="col-lg-6">												
+											<div class="col-lg-6">		
 												<label for="nome">Data de Fim do Ciclo</label>
 												<div class="input-group">											
-													<input type="date" class="form-control" id="dFim"  name="dFim"><span class="input-group-addon"></span>
+													<input type="date" class="form-control" id="data_prevista_fim_ciclo"  name="data_prevista_fim_ciclo"><span class="input-group-addon"></span>
 												</div>
 											</div>
 										</div>
 										<br/>
 										<label for="nome">Duração do Ciclo</label>
 										<div class="input-group">											
-											<input type="number" class="form-control" id="dCiclo"  name="dCiclo" placeholder="Insira a duração do ciclo"><span class="input-group-addon">dias</span>
+											<input type="number" class="form-control" id="duracao_ciclo"  name="duracao_ciclo" placeholder="Insira a duração do ciclo"><span class="input-group-addon">dias</span>
 										</div>
 									</div>				
 								</div>	
@@ -99,13 +99,13 @@
 											<div class="col-lg-6">	
 												<label for="nome">Espaço na Linha</label>
 												<div class="input-group">											
-													<input type="number" class="form-control" id="enL"  name="enL" placeholder="Insira o espaçamento na Linha"><span class="input-group-addon">metros</span>
+													<input type="number" class="form-control" id="espaco_na_linha"  name="espaco_na_linha" placeholder="Insira o espaçamento na Linha"><span class="input-group-addon">metros</span>
 												</div>
 											</div>
 											<div class="col-lg-6">												
 												<label for="nome">Espaço entre Linhas</label>
 												<div class="input-group">											
-													<input type="number" class="form-control" id="eeL"  name="eeL" placeholder="Insira o espaçamento entre as Linhas"><span class="input-group-addon">metros</span>
+													<input type="number" class="form-control" id="espaco_entre_linhas"  name="espaco_entre_linhas" placeholder="Insira o espaçamento entre as Linhas"><span class="input-group-addon">metros</span>
 												</div>
 											</div>
 										</div>
@@ -134,7 +134,7 @@
 											<div class="btn-group">
 												<label>Escolha um Setor</label>
 												<div>
-													<select id="ddSetor" name="ddSetor" class="form-control">
+													<select id="setor_id" name="setor_id" class="form-control">
 													</select>
 												</div>
 											</div>
@@ -143,7 +143,7 @@
 											<div class="btn-group">
 												<label>Especie</label>
 												<div class="input-group">											
-													<input type="text" name="especie" placeholder="Insira uma Especie" class="form-control"></input><span class="input-group-addon"></span>
+													<input type="text" name="especie_id" placeholder="Insira uma Especie" class="form-control"></input><span class="input-group-addon"></span>
 												</div>
 											</div>
 										</div>
@@ -156,7 +156,6 @@
 									<input type="submit" id="submit" class="btn btn-success pull-right">
 								</div>
 							</div>
-							</div
 						</form>
 					</div>
 				</div>

@@ -42,6 +42,7 @@ class CulturaController extends Controller
 
 
 	public function adicionarCultura(CulturaRequest $request){     	
+		dd($request);		
 		$input = Input::except('_token');
 		$exists = $this->cService->adicionarCultura($input);
 		/*if($exists){
@@ -66,10 +67,10 @@ class CulturaController extends Controller
 	public function saveEditCultura($idE){ 
 		$input = Input::except('_token');        
 		$estufa = $this->cService->saveEditCultura($this->idExp, $input, $idE);
-		if($estufa){
+	/*	if($estufa){
 			return Redirect::to("/admin/culturas/detalhes/{$estufa->id}")->with('message', 'Cultura guardada com sucesso!');
 		}else{
 			return Redirect::to("/admin/culturas/editar/{$estufa->id}")->with('message', 'Já existe um Terreno com esse nome');
-		}
+		}*/
 	}
 }
