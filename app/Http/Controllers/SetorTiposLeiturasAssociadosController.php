@@ -20,7 +20,8 @@ class SetorTiposLeiturasAssociadosController extends Controller
 		return view('associacoesSetorTiposLeituras.listagemAssociacoes', compact('lista'));
 	}
 
-	public function adicionarAssociacao(){
+	public function associar(){
+		return view('associacoesSetorTiposLeituras.adicionarAssociacao');
 
 	}
 	

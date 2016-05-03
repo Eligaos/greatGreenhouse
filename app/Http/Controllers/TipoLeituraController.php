@@ -17,12 +17,12 @@ class TipoLeituraController extends Controller
 	
 	public function listarTiposLeituras(){
 		$lista = $this->tlService->getTiposLeitura();
-		return view('listagemTiposLeituras', compact('lista'));
+		return view('tiposLeituras.listagemTiposLeituras', compact('lista'));
 	}
 
 	public function tipoLeitura(){
 
-		return view('adicionarTipoLeitura');
+		return view('tiposLeituras.adicionarTipoLeitura');
 	}
 
 	public function criarNovoTipoLeitura(){

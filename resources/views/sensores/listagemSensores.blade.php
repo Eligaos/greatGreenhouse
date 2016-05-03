@@ -10,7 +10,7 @@
 			<section class="content">
 				<div >
 					<div class="panel panel-default">
-						<div class="panel-heading"><h1>Lista de Tipos de Leituras</h1></div>
+						<div class="panel-heading"><h1>Lista de Sensores</h1></div>
 						<form class="form-signin" method="POST" action="/admin/home">
 							<div class="table-container">
 								<table class="table table-filter table-striped table-bordered table-responsive">
