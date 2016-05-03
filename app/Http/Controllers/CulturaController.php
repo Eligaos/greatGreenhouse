@@ -6,6 +6,7 @@ use App\Http\Requests\CulturaRequest;
 use App\Services\CulturaService;
 use Illuminate\Support\Facades\Input;
 use Redirect;
+
 class CulturaController extends Controller
 {
 	protected $cService;
@@ -16,7 +17,7 @@ class CulturaController extends Controller
 		$this->cService = $cService;
 	}
 	public function adicionar(){
-		$lista = $this->cService->getEstufa($this->idExp);
+		$lista = $this->cService->getEstufa();
 		return view("culturas.adicionarCultura", compact('lista'));		
 	}
 	public function getSetor($idEstufa){

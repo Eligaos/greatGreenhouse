@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('customStyles')
-<link href="{{asset('css/addExploracao.css')}}" rel="stylesheet">
+<link href="{{asset('css/adicionarAssociacao.css')}}" rel="stylesheet">
 
 @endsection
 @section('title', ' - Nova Associação')
@@ -35,61 +35,60 @@
 										</div>
 
 									</fieldset>
-								</div>								
-								<div class="form-group">
-									<fieldset> 
-										<legend>Sectores</legend> 
-										<div class="table-container">
-											<div class="row clearfix">
-												<div class="col-md-12 table-responsive">
-													<table class="table table-bordered table-hover table-sortable tab_logic">
-														<thead>
-															<tr >
-																<th class="text-center">
-																	Sector
-																</th>
-																<th class="text-center">
-																	Descrição
-																</th>
-																<th class="text-center" style="border-top: 1px solid #ffffff; border-right: 1px solid #ffffff;">
-																</th>
-															</tr>
-														</thead>
-														<tbody>
-															<tr id='addr0' data-id="0" class="hidden">
-																<td data-name="nomeSetor[]">
-																	<input type="text" name='nomeS' placeholder='Nome' class="form-control"/>
-																</td>
-																<td data-name="descricaoSetor[]">
-																	<input type="text" name='descricaoS' placeholder='Insira uma descricao' class="form-control"/>
-																</td>
-																<td data-name="del">
-																	<button name="del0" class='btn btn-danger glyphicon glyphicon-remove row-remove'></button>
-																</td>
-															</tr>
-														</tbody>
-													</table>
-												</div>
-											</div>
-											<a id="add_row" class="btn btn-default pull-right">Adicionar Setor</a>
+								</div>			
+								<div class="col-lg-3">	
+									<div class="btn-group">
+										<label>Escolha uma Estufa</label>
+										<div>
+											<select id="dropdownEstufas" name="dropdownEstufas" class="form-control">
+												@foreach($lista as $key => $estufa)
+
+												<option value="{{$estufa->id}}">{{$estufa->nome}}</option>
+												@endforeach											
+
+											</select>
 										</div>
-									</fieldset>
-								</div>
-								<div class="form-group">
-									<div class="input-group-addon">
-										<a href="/admin/estufas/listar" role="button" name="cancelar"class="btn btn-default pull-right">Cancelar</a>
-										<input type="submit" name="submit" id="submit" value="Gravar" class="btn btn-success pull-right">
 									</div>
 								</div>
-								</div
-							</form>
+								<div class="col-lg-3">										
+									<div class="btn-group">
+										<label>Escolha um Setor</label>
+										<div>
+											<select id="dropdownSetores" name="dropdownSetores" class="form-control">
+											</select>
+										</div>
+									</div>
+								</div>	
+							
+						<div class="form-group">
+								<div class="btn-group">
+								<label>Escolha os tipos de leituras a associar</label>
+								<div class="bs-docs-example">
+									<select class="selectpicker" multiple="" style="display: none;">
+										<option>Mustard</option>
+										<option>Ketchup</option>
+										<option>Relish</option>
+									</select>
+								</div>				
+							</div>
+						</div>	
+
 						</div>
-					</div>
+						<div class="form-group">
+							<div class="input-group-addon">
+								<a href="/admin/estufas/listar" role="button" name="cancelar"class="btn btn-default pull-right">Cancelar</a>
+								<input type="submit" name="submit" id="submit" value="Gravar" class="btn btn-success pull-right">
+							</div>
+						</div>
+						</div
+					</form>
 				</div>
 			</div>
 		</div>
 	</div>
-	@endsection
-	@section('customScripts')
-	<script src="{{asset('js/addSetor.js')}}"></script>
-	@endsection
+</div>
+</div>
+@endsection
+@section('customScripts')
+<script src="{{asset('js/adicionarAssociacao.js')}}"></script>
+@endsection

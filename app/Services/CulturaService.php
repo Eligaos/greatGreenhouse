@@ -4,6 +4,8 @@ use App\Models\Estufa;
 use App\Models\Cultura;
 use App\Models\Setor;
 use Illuminate\Database\Eloquent\Model;
+use Session;
+
 class CulturaService 
 {
 	public function listarCulturas($idExp){ 
@@ -20,8 +22,9 @@ class CulturaService
 			return $estufa;
 		}
 	}
-	public function getEstufa($idExp){ 
-		$estufa = Estufa::where("exploracoes_id", "LIKE", $idExp)->get();
+	public function getEstufa(){ 
+		$exploracaoSelecionada = Session::get('exploracaoSelecionada');
+		$estufa = Estufa::where("exploracoes_id", "LIKE", $exploracaoSelecionada['id'])->get();
 		return $estufa;
 	}
 	public function getSetor($idEstufa){ 
