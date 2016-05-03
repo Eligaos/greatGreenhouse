@@ -1,9 +1,6 @@
 <?php
-
 namespace App\Http\Requests;
-
 use App\Http\Requests\Request;
-
 class CulturaRequest extends Request
 {
     /**
@@ -15,7 +12,6 @@ class CulturaRequest extends Request
     {
         return true;
     }
-
     /**
      * Get the validation rules that apply to the request.
      *

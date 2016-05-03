@@ -1,6 +1,7 @@
+$(function() {
 new Morris.Line({
   // ID of the element in which to draw the chart.
-  element: 'chart1',
+  element: 'monitor2',
   // Chart data records -- each entry in this array corresponds to a point on
   // the chart.
   data: [
@@ -18,7 +19,7 @@ new Morris.Line({
   // chart.
   labels: ['Value']
 });
-
+/*
 new Morris.Line({
   // ID of the element in which to draw the chart.
   element: 'chart2',
@@ -59,4 +60,5 @@ new Morris.Line({
   // Labels for the ykeys -- will be displayed when you hover over the
   // chart.
   labels: ['Value']
+});*/
 });
