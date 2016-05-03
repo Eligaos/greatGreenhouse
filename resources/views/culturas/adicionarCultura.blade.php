@@ -17,7 +17,7 @@
 					</div>
 					<div class="panel-body">
 						<form id="registerForm" method="POST" action="/admin/culturas/adicionar/submit">
-							<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">	
+							<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">							
 							<div class="form-group">
 								<fieldset> 
 									<legend>Dados da Cultura</legend>
@@ -76,7 +76,7 @@
 													<input type="date" class="form-control" id="data_inicio_ciclo"  name="data_inicio_ciclo"required><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
 												</div>
 											</div>
-											<div class="col-lg-6">		
+											<div class="col-lg-6">												
 												<label for="nome">Data de Fim do Ciclo</label>
 												<div class="input-group">											
 													<input type="date" class="form-control" id="data_prevista_fim_ciclo"  name="data_prevista_fim_ciclo"><span class="input-group-addon"></span>
@@ -156,6 +156,7 @@
 									<input type="submit" id="submit" class="btn btn-success pull-right">
 								</div>
 							</div>
+							</div
 						</form>
 					</div>
 				</div>
@@ -164,5 +165,5 @@
 	</div>
 	@endsection
 	@section('customScripts')
-	<script src="{{asset('js/adicionarCultura.js')}}"></script>
+	<!--<script src="{{asset('js/adicionarCultura.js')}}"></script>-->
 	@endsection
