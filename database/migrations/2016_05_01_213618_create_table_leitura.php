@@ -31,11 +31,11 @@ class CreateTableLeitura extends Migration
 
     {  
        Schema::table('leituras', function(Blueprint $table) {
-        $table->dropForeign('sensor_id');
+        $table->dropForeign('leituras_tipo_id_foreign');
     });
 
-       Schema::drop('tipo_id');
+       Schema::drop('leituras');
    }
-   
+
 }
 

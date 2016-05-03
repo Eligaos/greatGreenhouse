@@ -29,7 +29,6 @@ class CreateTableSensor extends Migration
      */
     public function down()
     {       
-
-    
+        Schema::drop('sensores');    
     }
 }

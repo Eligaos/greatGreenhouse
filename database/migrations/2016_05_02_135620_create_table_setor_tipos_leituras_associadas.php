@@ -30,11 +30,11 @@ class CreateTableSetorTiposLeiturasAssociadas extends Migration
     public function down()
     {
        Schema::table('setor_tipos_leituras_associadas', function(Blueprint $table) {
-        $table->dropForeign('leitura_id');
-        $table->dropForeign('setor_id');
+        $table->dropForeign(['leitura_id']);        
+        $table->dropForeign(['setor_id']);
     });
 
-       Schema::drop('tipo_leitura');
+       Schema::drop('setor_tipos_leituras_associadas');
    }
 }
 

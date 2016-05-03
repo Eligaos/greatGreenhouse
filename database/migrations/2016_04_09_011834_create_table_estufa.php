@@ -34,7 +34,7 @@ class CreateTableEstufa extends Migration
     public function down()
     {
      Schema::table('estufas', function(Blueprint $table) {
-        $table->dropForeign('exploracoes_id');
+        $table->dropForeign('estufas_exploracoes_id_foreign');
     });
 
      Schema::drop('estufas');
