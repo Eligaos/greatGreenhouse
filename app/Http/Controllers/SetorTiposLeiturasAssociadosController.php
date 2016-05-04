@@ -16,16 +16,18 @@ class SetorTiposLeiturasAssociadosController extends Controller
 		$this->stlaService = $stlaService;
 		$this->cService = $cService;
 	}
-		
+	
 	public function listarAssociacoes(){
 		$lista = $this->stlaService->getAssociacoes();
 		return view('associacoesSetorTiposLeituras.listagemAssociacoes', compact('lista'));
 	}
 
 	public function associar(){
-		$lista = $this->cService->getEstufa();
-		return view('associacoesSetorTiposLeituras.adicionarAssociacao', compact('lista'));
+		$estufas = $this->cService->getEstufa();
+		$tiposLeituras = $this->stlaService->getTiposLeitura();
+		return view('associacoesSetorTiposLeituras.adicionarAssociacao', compact('estufas', 'tiposLeituras'));
 
 	}
+
 	
 }
