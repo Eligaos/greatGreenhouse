@@ -25,9 +25,13 @@ class CulturaController extends Controller
 		return $lista;	
 	}
 	public function listarCulturas(){ 
-		$lista = $this->cService->listarCulturas($this->idExp);
+		$lista = [];
+		$estufas = $this->cService->getEstufa($this->idExp);
+		if(count($estufas)!=0){
+			$lista = $this->cService->listarCulturas($estufas);
                  //\Debugbar::info(Auth::check());
-		return view('culturas.listagemCulturas', compact('lista'));
+		}
+		return view('culturas.listagemCulturas', compact('lista', 'estufas'));
 	}
 	public function adicionarCultura(CulturaRequest $request){   
 		$input = Input::except('_token');

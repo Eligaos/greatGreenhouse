@@ -18,20 +18,20 @@
 							<span class="alert alert-info"> {{ Session::get('message') }}</span>
 						</div>
 						@endif
-				
+						@if(count($lista)!=0)
 						<div class="table-container">
 							<table class="table table-filter table-striped table-bordered table-responsive">
-							<tr>
+								<tr>
 									<th>Nome da Estufa</th>
 									<th>Opções</th>
-						
-								 </tr>
+
+								</tr>
 								<tbody>
 									@foreach($lista as $key => $estufa)
 									<tr>									
 										<td>
 											<div>
-													<span>{{$estufa->nome}}</span>
+												<span>{{$estufa->nome}}</span>
 											</div>
 										</td>
 										<td>
@@ -44,8 +44,11 @@
 								</tbody>
 							</table>	
 						</div>
+						@else
+						<div style="text-align: center" >Não existem estufas nesta exploração</div>
+						@endif
 					</form> 
-			
+
 					<div class="form-group">
 						<div class="input-group-addon">
 							<a href="/admin/estufas/adicionar" role="button" name="adicionar" id="adicionar estufa" class="btn btn-success pull-right" toggle="tooltip" data-placement="top" title="Adicionar Estufa">Adicionar</a>

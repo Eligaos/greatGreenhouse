@@ -1,36 +1,44 @@
 "use strict";
 $(document).ready(function() {
 
-  $.ajaxSetup({
-    headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
-});
+    $( "#dInic" ).datepicker();
+    $( "#dFim" ).datepicker();
 
-  $( "#ddEstufa" ).click(function() {
-    $("#setor_id").children().remove();
-    var estufaId = $( this ).val();
-    $.get( "/admin/culturas/getSetor/"+ estufaId, function( data ) {
+    $.ajaxSetup({
+        headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
+    });
 
-    }).done(function(data){
-        console.log(data.length);
+    $( "#ddEstufa" ).click(function() {
 
-        for(var i=0; i < data.length; i++){
-            $('#setor_id').append($('<option>', {
-                value: data[i].id,
-                text: data[i].nome
-            }));
+        $("#setor_id").children().remove();
+        var estufaId = $( this ).val();
+        $.get( "/admin/culturas/getSetor/"+ estufaId, function( data ) {
+
+        }).done(function(data){
+            console.log(data.length);
+
+            for(var i=0; i < data.length; i++){
+                $('#setor_id').append($('<option>', {
+                    value: data[i].id,
+                    text: data[i].nome
+                }));
+            }
+        })
+    });
+
+    $("#tipo_cultivo").click(function() {
+        var tCultivo = $( this ).val();
+        if(tCultivo == "outro"){
+            $("#dOutro").show();
+            $("#inpOutro").prop('required',true);      
+
+        }else{
+            $("#dOutro").hide(); 
+            $("#inpOutro").prop('required',false);      
         }
-    })
-});
+    });
 
-  $("#tipo_cultivo").click(function() {
-    var tCultivo = $( this ).val();
-    if(tCultivo == "outro"){
-        $("#dOutro").show();
-        $("#inpOutro").prop('required',true);      
 
-    }else{
-        $("#dOutro").hide(); 
-        $("#inpOutro").prop('required',false);      
-    }
-});
+
+
 });

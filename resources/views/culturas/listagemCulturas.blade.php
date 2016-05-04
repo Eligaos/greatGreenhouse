@@ -18,10 +18,15 @@
 							<span class="alert alert-info"> {{ Session::get('message') }}</span>
 						</div>
 						@endif
-						@foreach($lista as $key => $cultura)
 						<div class="table-container">
 							<table class="table table-filter table-striped table-bordered table-responsive">
+								<tr>
+									<th>Nome da Cultura</th>
+									<th>Nome do Setor</th>
+									<th>Nome da Estufa</th>
+								</tr>
 								<tbody>
+									@foreach($lista as $key => $cultura)									
 									<tr>									
 										<td>
 											<div class="media">
@@ -36,15 +41,19 @@
 												<a class="btn btn-sm  btn-default" href="#">Eliminar</a>
 											</div>
 										</td>
-									</tr>													
+									</tr>	
+									@endforeach									
 								</tbody>
 							</table>	
 						</div>
 					</form> 
-					@endforeach
 					<div class="form-group">
 						<div class="input-group-addon">
+							@if(count($estufas)!=0)
 							<a href="/admin/culturas/adicionar" role="button" name="adicionar" id="adicionar cultura" class="btn btn-success pull-right" toggle="tooltip" data-placement="top" title="Adicionar Cultura">Adicionar</a>
+							@else
+							<a role="button" name="adicionar" id="adicionar cultura" class="btn btn-success pull-right" toggle="tooltip" data-placement="top" title="Adicione uma Estufa primeiro" disabled>Adicionar</a>
+							@endif
 						</div>
 					</div>	
 				</div>

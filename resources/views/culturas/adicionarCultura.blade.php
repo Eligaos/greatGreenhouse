@@ -2,6 +2,7 @@
 
 @section('customStyles')
 <link href="{{asset('css/addExploracao.css')}}" rel="stylesheet">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 
 @endsection
 @section('title', ' - Adicionar Cultura')
@@ -73,13 +74,13 @@
 											<div class="col-lg-6">	
 												<label for="nome">Data Inicial do Ciclo</label>
 												<div class="input-group">									
-													<input type="date" class="form-control" id="data_inicio_ciclo"  name="data_inicio_ciclo"><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+													<input type="text" class="form-control" id="dInic"  name="data_inicio_ciclo"><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
 												</div>
 											</div>
 											<div class="col-lg-6">												
 												<label for="nome">Data de Fim do Ciclo</label>
-												<div class="input-group">											
-													<input type="date" class="form-control" id="data_prevista_fim_ciclo"  name="data_prevista_fim_ciclo"><span class="input-group-addon"></span>
+												<div class="input-group">									
+													<input type="text" class="form-control" id="dFim"  name="data_prevista_fim_ciclo"><span class="input-group-addon"></span>
 												</div>
 											</div>
 										</div>
@@ -164,6 +165,9 @@
 		</div>
 	</div>
 	@endsection
-	@section('customScripts')
+	@section('customScripts')	
 	<script src="{{asset('js/adicionarCultura.js')}}"></script>
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	@endsection
+
