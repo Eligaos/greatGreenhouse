@@ -59,17 +59,26 @@ $(document).ready(function() {
         $("#error").text("");
         var dInic = $('#dInic').datepicker("getDate");
         var dFim = $('#dFim').datepicker("getDate");
+        var dC = $('#duracao_ciclo').val();        
         if(dFim!=null){            
-            ciclo(dInic,dFim);
-        }else{
+            ciclo(dInic,dFim);        
+        }else if(dC!=null){
+            fim(dInic,dC);
             //dInic = $('#dInic').datepicker('setDate', new Date());
 
         }
 
     });
+    /*var date2 = $('.pickupDate').datepicker('getDate');
+    var nextDayDate = new Date();
+    nextDayDate.setDate(date2.getDate() + 1);
+    $('input').val(nextDayDate);*/
 
-    var fim = function(dInic,ciclo){
-        
+    var fim = function(dInic,dC){
+        var fim = new Date();
+        fim.setDate(dInic.getDate() + dC);
+        console.log(fim);
+        $('#dFim').datepicker('setDate', fim);        
     }
 
     var ciclo = function(dInic,dFim){
