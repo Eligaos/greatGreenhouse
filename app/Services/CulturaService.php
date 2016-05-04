@@ -9,20 +9,21 @@ use Session;
 class CulturaService 
 {
 	public function listarCulturas($estufas){ 
-			for($i=0; $i<count($estufas);$i++){
-				$setor = Setor::where("estufa_id", "LIKE", $estufas[$i]->id)->get();
-			}
-			for($i=0; $i<count($setor);$i++){
-				$cultura = Cultura::where("setor_id", "LIKE", $setor[$i]->id)->get();
-			}
-			return $cultura;
+		for($i=0; $i<count($estufas);$i++){
+			$setor = Setor::where("estufa_id", "LIKE", $estufas[$i]->id)->get();
 		}
-
+		for($i=0; $i<count($setor);$i++){
+			$cultura = Cultura::where("setor_id", "LIKE", $setor[$i]->id)->get();
+		}
+		return $cultura;
 	}
+
+
 	public function getEstufa(){ 
 		$exploracaoSelecionada = Session::get('exploracaoSelecionada');
 		$estufa = Estufa::where("exploracoes_id", "LIKE", $exploracaoSelecionada['id'])->get();
-
+	return $estufa;
+	}
 
 	/*public function getEstufa($idExp){ 
 		$estufa = Estufa::where("exploracoes_id", "LIKE", $idExp)->get();
@@ -44,3 +45,4 @@ class CulturaService
 		return Cultura::create($input);
 	}
 }
+
