@@ -21,7 +21,8 @@
 						<form class="form-signin" method="POST" action="/admin/home">
 							<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">							
 							<div class="table-container">
-								<table class="table table-filter table-striped table-bordered table-responsive">							 <tr>
+								<table class="table table-filter table-striped table-bordered table-responsive">							 
+								<tr>
 									<th>Valor</th>
 									<th>Unidade</th>
 									<th>Tipo</th>
