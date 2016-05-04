@@ -16,31 +16,31 @@ class CulturaController extends Controller
 		$this->cService = $cService;
 	}
 	public function adicionar(){
-		$lista = $this->cService->getEstufa($this->idExp);
+		$lista = $this->cService->getEstufas($this->idExp);
 		return view("culturas.adicionarCultura", compact('lista'));		
 	}
-	public function getSetor($idEstufa){
-		$lista = $this->cService->getSetor($idEstufa);	
+	public function getSetorByEstufa($idEstufa){
+		$lista = $this->cService->getSetorByEstufa($idEstufa);	
 		return $lista;	
 	}
 	public function listarCulturas(){ 
 		$lista = [];
-		$estufas = $this->cService->getEstufa($this->idExp);
+		$estufas = $this->cService->getEstufas($this->idExp);
 		if(count($estufas)!=0){
-			$lista = $this->cService->listarCulturas($estufas);
-                 //\Debugbar::info(Auth::check());
+			$lista = $this->cService->listarCulturas($estufas); //collection	
 		}
 		return view('culturas.listagemCulturas', compact('lista', 'estufas'));
 	}
 	public function adicionarCultura(CulturaRequest $request){   
 		$input = Input::except('_token');
+		//dd($input);
 		$exists = $this->cService->adicionarCultura($input);
-		/*if($exists){
-			return Redirect::to("admin/culturas/listar")->with('message', 'Cultura guardada com sucesso!');
-		}else{
-			return Redirect::to("/admin/culturas/adicionar")->with('message', 'Já existe uma Cultura com esse nome');
-		}*/
+		return Redirect::to("admin/culturas/listar")->with('message', 'Cultura guardada com sucesso!');
 	}
+
+
+
+
 	public function detalhesCultura($id){
 		$lista = $this->cService->procurarCultura($id);
 		//$lista[0]-- array de estufa  $lista[1]--array dos setores da estufa

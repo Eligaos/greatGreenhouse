@@ -80,14 +80,14 @@
 											<div class="col-lg-6">												
 												<label for="nome">Data de Fim do Ciclo</label>
 												<div class="input-group">									
-													<input type="text" class="form-control" id="dFim"  name="data_prevista_fim_ciclo"><span class="input-group-addon"></span>
+													<input type="text" class="form-control" id="dFim"  name="data_prevista_fim_ciclo"><span class="input-group-addon" id="error"></span>
 												</div>
 											</div>
 										</div>
 										<br/>
 										<label for="nome">Duração do Ciclo</label>
 										<div class="input-group">											
-											<input type="number" class="form-control" id="duracao_ciclo"  name="duracao_ciclo" placeholder="Insira a duração do ciclo"><span class="input-group-addon">dias</span>
+											<input type="number" class="form-control" id="duracao_ciclo"  name="duracao_ciclo" placeholder="Insira a duração do ciclo" min=0 ><span class="input-group-addon">dias</span>
 										</div>
 									</div>				
 								</div>	
@@ -167,7 +167,7 @@
 	@endsection
 	@section('customScripts')	
 	<script src="{{asset('js/adicionarCultura.js')}}"></script>
-	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script> <!--meter em file-->
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	@endsection
 
