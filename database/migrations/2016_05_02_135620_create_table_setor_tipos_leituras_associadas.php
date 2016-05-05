@@ -14,8 +14,9 @@ class CreateTableSetorTiposLeiturasAssociadas extends Migration
     {
        Schema::create('setor_tipos_leituras_associadas', function (Blueprint $table) {
         $table->increments('id');
-        $table->integer('leitura_id')->unsigned();
-        $table->integer('setor_id')->unsigned();
+        $table->integer('tipo_id')->unsigned();
+        $table->integer('leitura_id')->unsigned()->nullable();
+        $table->integer('setor_id')->unsigned()->nullable();
         $table->foreign('leitura_id')->references('id')->on('leituras');
         $table->foreign('setor_id')->references('id')->on('setores');
         $table->timestamps();      

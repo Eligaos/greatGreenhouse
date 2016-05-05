@@ -53,14 +53,14 @@
          <li><a href="#"><i class="fa fa-globe fa-lg"></i> Espécies</a></li>  
        </ul>   
        <li data-toggle="collapse" data-target="#consultas" class="collapsed">
-        <a href="#"><a href="#"><i class="fa fa-globe fa-lg"></i> Consultas <span class="arrow"></span></a>
+        <a href="#"><i class="fa fa-globe fa-lg"></i> Consultas <span class="arrow"></span></a>
       </li> 
       <ul class="sub-menu collapse" id="consultas">
        <li><a href="/admin/leituras/listar"><i class="glyphicon glyphicon-stats"></i> Dados Analíticos </a></li>
        <li><a href="#"><i class="glyphicon glyphicon-bell"></i> Alarmes </a>	</li>
      </ul>
      <li data-toggle="collapse" data-target="#leituras" class="collapsed">
-      <a href="#"><a href="#"><i class="fa fa-globe fa-lg"></i> Leituras/Sensores <span class="arrow"></span></a>
+      <a href="#"><i class="fa fa-globe fa-lg"></i> Leituras/Sensores <span class="arrow"></span></a>
     </li> 
     <ul class="sub-menu collapse" id="leituras">
      <li><a href="/admin/tipos-leituras/listar"><i class="glyphicon glyphicon-globe"></i> Tipos de Leituras</a></li>
