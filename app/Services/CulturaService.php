@@ -4,8 +4,6 @@ use App\Models\Estufa;
 use App\Models\Cultura;
 use App\Models\Setor;
 use Illuminate\Database\Eloquent\Model;
-use Session;
-
 class CulturaService 
 {
 	public function listarCulturas($estufas){ 
@@ -22,47 +20,20 @@ class CulturaService
 		}
 		return $setores;
 	}
-
-
-
 	public function getEstufas($idExp){ 
 		$estufa = Estufa::where("exploracoes_id", "LIKE", $idExp)->get();
 		return $estufa;
 	}
 	public function getSetorByEstufa($idEstufa){ 
-		for($i=0; $i<count($estufas);$i++){
-			$setor = Setor::where("estufa_id", "LIKE", $estufas[$i]->id)->get();
-		}
-		for($i=0; $i<count($setor);$i++){
-			$cultura = Cultura::where("setor_id", "LIKE", $setor[$i]->id)->get();
-		}
-		return $cultura;
-	}
-
-
-	public function getEstufa(){ 
-		$exploracaoSelecionada = Session::get('exploracaoSelecionada');
-		$estufa = Estufa::where("exploracoes_id", "LIKE", $exploracaoSelecionada['id'])->get();
-	return $estufa;
-	}
-
-	/*public function getEstufa($idExp){ 
-		$estufa = Estufa::where("exploracoes_id", "LIKE", $idExp)->get();
-		return $estufa;
-	}*/
-	public function getSetor($idEstufa){ 
 		$estufa = Estufa::find($idEstufa);
-		$setor = Setor::where("estufa_id", "LIKE", $estufa->id)->where('nome','not like','Setor 0')->get();
+		$setor = Setor::where("estufa_id", "LIKE", $estufa->id)->get();
+		//$setor = Setor::where("estufa_id", "LIKE", $estufa->id)->where('nome','not like','Setor 0')->get();
 		return $setor;
 	}
-
 /*	public function getSetorByCultura($idSetor){ 
 		$setor = Setor::find($idSetor);
 		return $setor;
 	}*/
-
-
-
 	public function adicionarCultura($input){ 
 		if($input["tipo_cultivo"]=="outro"){
 			$input["tipo_cultivo"] = $input["inpOutro"];
@@ -73,5 +44,12 @@ class CulturaService
 		$input["especie_id"] =null; // por agora o valor é inserido a null porque não existem especies
 		return Cultura::create($input);
 	}
-}
 
+	public function procurarCultura($id){ 
+		$cultura = Cultura::find($id);
+		$setor = Setor::where('id','=', $cultura->setor_id)->select('nome','id','estufa_id')->first();
+		$estufa = Estufa::where('id','=', $setor->estufa_id)->select('nome','id')->first();
+
+		return [$cultura,$setor,$estufa];
+	}
+}

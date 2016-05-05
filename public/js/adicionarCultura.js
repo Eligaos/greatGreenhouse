@@ -1,94 +1,133 @@
 "use strict";
 $(document).ready(function() {
+   // $("#tipo_cultura").selectpicker('render');
 
-    $('#dInic').datepicker({
-      dateFormat: 'yy-mm-dd'
+   var tC = $("#tipo_cultura").val();
+   console.log(tC);
+   $("#tipo_cultura").selectpicker( tC);
+   $("#tipo_cultura").selectpicker('render');
+   $("#tipo_cultura").selectpicker('refresh');
+
+
+
+
+
+
+   $('#dInic').datepicker({
+    dateFormat: 'yy-mm-dd',
+    minDate: 0
   });
-    $('#dFim').datepicker({
-      dateFormat: 'yy-mm-dd'
+   $('#dFim').datepicker({
+    dateFormat: 'yy-mm-dd',
+    minDate: 0
+
   });
 
-    $.ajaxSetup({
-        headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
-    });
+   $.ajaxSetup({
+    headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
+  });
 
-    $( "#ddEstufa" ).click(function() {
-        console.log( $( "#dInic" ).val());
+   $( "#ddEstufa" ).on('changed.bs.select',function() {
+    var t = $("#tipo_cultura").prop("selected");
+    console.log(t);
+    $("#setor_id").children().remove();
+    var estufaId = $( this ).selectpicker('val');
+    $.get( "/admin/culturas/getSetorByEstufa/"+ estufaId, function( data ) {
 
-        $("#setor_id").children().remove();
-        var estufaId = $( this ).val();
-        $.get( "/admin/culturas/getSetorByEstufa/"+ estufaId, function( data ) {
+    }).done(function(data){
+     if(data.length > 0){
 
-        }).done(function(data){
-            for(var i=0; i < data.length; i++){
-                $('#setor_id').append($('<option>', {
-                    value: data[i].id,
-                    text: data[i].nome
-                }));
-            }
-        })
-    });
+      for(var i=0; i < data.length; i++){
+        $('#setor_id').prepend($('<option>', {
+          value: data[i].id,
+          text: data[i].nome
+        }));
+      }
+      $('#divdropdownSetores').show();
+      $('#divAssociacoesSetores').show();
+      $('.selectpicker').selectpicker('refresh');
+    }else{
+     $("#dropdownSetores").children().remove();
+     $('#divdropdownSetores').hide();
+     $('#divAssociacoesSetores').hide();
+   }
+ })
+  });
 
-    $("#tipo_cultivo").click(function() {
-        var tCultivo = $( this ).val();
-        if(tCultivo == "outro"){
-            $("#dOutro").show();
-            $("#inpOutro").prop('required',true);      
+   $("#tipo_cultivo").on('changed.bs.select', function() {
+    var tCultivo = $( this ).selectpicker('val');
+    if(tCultivo == "outro"){
+      $("#dOutro").show();
+      $("#inpOutro").prop('required',true);      
 
-        }else{
-            $("#dOutro").hide(); 
-            $("#inpOutro").prop('required',false);      
-        }
-    });
+    }else{
+      $("#dOutro").hide(); 
+      $("#inpOutro").prop('required',false);      
+    }
+  });
 
-    $('#dFim').change(function() {
-        $("#error").text("");
-        var dInic = $('#dInic').datepicker("getDate");
-        var dFim = $('#dFim').datepicker("getDate");
-        if(dInic!=null){            
-            ciclo(dInic,dFim);
-        }else{
-            dInic = $('#dInic').datepicker('setDate', new Date());
-            ciclo(dInic,dFim);            
+   $('#dFim').change(function() {
+    $("#error").text("");
+    var dInic = $('#dInic').datepicker("getDate");
+    var dFim = $('#dFim').datepicker("getDate");
+    if(dInic!=null){            
+      ciclo(dInic,dFim);
+    }else{
+      dInic = $('#dInic').datepicker('setDate', new Date());
+      ciclo(dInic,dFim);   
+    }
 
-        }
+  });
 
-    });
 
-    $('#dInic').change(function() {
-        $("#error").text("");
-        var dInic = $('#dInic').datepicker("getDate");
-        var dFim = $('#dFim').datepicker("getDate");
-        var dC = $('#duracao_ciclo').val();        
-        if(dFim!=null){            
-            ciclo(dInic,dFim);        
-        }else if(dC!=null){
-            fim(dInic,dC);
+   $('#duracao_ciclo').change(function() {
+    var dC = $('#duracao_ciclo').val();
+    var dInic = $('#dInic').datepicker("getDate");        
+    $("#error").text("");
+    if(dInic!=null){            
+      fim(dInic,dC); 
+    }else{
+     dInic = $('#dInic').datepicker('setDate', new Date());
+     dInic = $('#dInic').datepicker("getDate"); 
+     fim(dInic,dC);  
+   }
+ });
+
+   $('#dInic').change(function() {
+    $("#error").text("");
+    var dInic = $('#dInic').datepicker("getDate");
+    var dFim = $('#dFim').datepicker("getDate");
+    var dC = $('#duracao_ciclo').val();
+    if(dFim!=null){            
+      ciclo(dInic,dFim);        
+    }else if(dC!=""){
+      fim(dInic,dC);
             //dInic = $('#dInic').datepicker('setDate', new Date());
 
-        }
+          }
 
-    });
+        });
     /*var date2 = $('.pickupDate').datepicker('getDate');
     var nextDayDate = new Date();
     nextDayDate.setDate(date2.getDate() + 1);
     $('input').val(nextDayDate);*/
 
     var fim = function(dInic,dC){
-        var fim = new Date();
-        fim.setDate(dInic.getDate() + dC);
-        console.log(fim);
-        $('#dFim').datepicker('setDate', fim);        
+      var c = parseInt(dC);
+      var fim = new Date(dInic.getFullYear(), dInic.getMonth(), dInic.getDate() + c);
+       // fim.setDate(dInic.getDate() + dC);
+       $('#dFim').datepicker('setDate', fim);        
+     }
+
+     var ciclo = function(dInic,dFim){
+      var duracao= ((dFim - dInic) / (86400000));
+      if(duracao > 0){
+        $("#duracao_ciclo").val(duracao);
+      }else{
+        $("#duracao_ciclo").val("");
+        $('#dFim').val("");
+        $("#error").text("Data de fim tem de ser superior à inicial").css({ 'color': 'red', 'font-size': '100%' });
+      }
     }
 
-    var ciclo = function(dInic,dFim){
-        var duracao= ((dFim - dInic) / (86400000));
-        if(duracao > 0){
-            $("#duracao_ciclo").val(duracao);
-        }else{
-            $("#duracao_ciclo").val("");
-            $("#error").text("Data de fim tem de ser superior à inicial").css({ 'color': 'red', 'font-size': '100%' });
-        }
-    }
-
-});
+  });

@@ -53,7 +53,7 @@
 									</th>
 									<td>
 										<div  style="text-align: center">
-											<a class="btn btn-sm  btn-default" href="/admin/culturas/detalhes/{{$cultura->id}}">Ver Detalhes</a>
+											<a class="btn btn-sm  btn-default" href="/admin/culturas/detalhes/{{$cultura->cultura_id}}">Ver Detalhes</a>
 											<a class="btn btn-sm  btn-default" href="#">Eliminar</a>
 										</div>
 									</td>

@@ -24,7 +24,7 @@
 									<label for="nome">Nome da Estufa: </label>
 									<span>{{$lista[0]->nome}}</span>
 									<br/>
-									<label for="nome">Descrição: </label>									
+									<label for="desc">Descrição: </label>									
 									<span>{{$lista[0]->descricao}}</span>
 									<br/>
 								</div>	
