@@ -29,7 +29,7 @@ class CulturaController extends Controller
 		$lista = [];
 		$estufas = $this->cService->getEstufas($this->idExp);
 		if(count($estufas)!=0){
-			$lista = $this->cService->listarCulturas($estufas); //collection	
+			$lista = $this->cService->listarCulturas($estufas); //collection
 		}
 		return view('culturas.listagemCulturas', compact('lista', 'estufas'));
 	}
@@ -40,26 +40,24 @@ class CulturaController extends Controller
 		return Redirect::to("admin/culturas/listar")->with('message', 'Cultura guardada com sucesso!');
 	}
 
-
-
-
 	public function detalhesCultura($id){
 		$lista = $this->cService->procurarCultura($id);
-		//$lista[0]-- array de estufa  $lista[1]--array dos setores da estufa
+		//$lista[0]-- array de culturas  $lista[1]--array dos setores de setores $lista[2]--array de estufas		
 		return view('culturas.detalhesCultura', compact('lista'));  		
 	}
 	public function editarCultura($id){
 		$lista = $this->cService->procurarCultura($id);
 		//$lista[0]-- array de estufa  $lista[1]--array dos setores da estufa
-		return view('culturas.editarCultura', compact('lista'));  		
+		$estufas = $this->cService->getEstufas($this->idExp); //todas as estufas da exploracao
+		return view('culturas.editarCultura', compact('lista', 'estufas'));  		
 	}
-	public function saveEditCultura($idE){ 
-		$input = Input::except('_token');        
-		$estufa = $this->cService->saveEditCultura($this->idExp, $input, $idE);
-	/*	if($estufa){
-			return Redirect::to("/admin/culturas/detalhes/{$estufa->id}")->with('message', 'Cultura guardada com sucesso!');
+	public function saveEditCultura($idC){ 
+		$input = Input::except('_token');    
+		$cultura = $this->cService->saveEditCultura($input, $idC);
+		if($cultura){
+			return Redirect::to("/admin/culturas/detalhes/$idC")->with('message', 'Cultura guardada com sucesso!');
 		}else{
-			return Redirect::to("/admin/culturas/editar/{$estufa->id}")->with('message', 'Já existe um Terreno com esse nome');
-		}*/
+			return Redirect::to("/admin/culturas/editar/$idC")->with('message', 'Já existe um Terreno com esse nome');
+		}
 	}
 }
