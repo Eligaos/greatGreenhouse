@@ -31,11 +31,11 @@
 										</select>
 									</div>
 								</div>
-								<div class="btn-group" id="divdropdownSetores">
+								<!--<div class="btn-group" id="divdropdownSetores">
 									<label>Escolha um Setor</label>
 									<select title="Selecione um Setor" class="selectpicker form-control" id="dropdownSetores" data-live-search="true">
 									</select>
-								</div>
+								</div>-->
 							</div>
 							<div class="col-lg-6" id="divdropdowntiposLeiturasEstufas">	
 								<div class="btn-group" >
@@ -47,14 +47,14 @@
 											@endforeach
 										</select>
 									</div>
-									<div class="btn-group" id="divAssociacoesSetores">
+									<!--<div class="btn-group" id="divAssociacoesSetores">
 										<label>Tipos Leitura a Associar ao Setor</label>
 										<select class="selectpicker" id="dropdowntiposLeiturasSetores" data-live-search="true" title="Selecione" multiple>
 											@foreach($tiposLeituras as $key => $tipoLeitura)
 											<option value="{{$tipoLeitura->id}}">{{$tipoLeitura->parametro}} - Unidade: {{$tipoLeitura->unidade}}</option>
 											@endforeach
 										</select>
-									</div>
+									</div>-->
 								</div>	
 	
 							</div>	
