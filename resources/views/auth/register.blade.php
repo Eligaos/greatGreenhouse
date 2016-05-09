@@ -9,10 +9,10 @@
     <meta name="author" content="">
     <title>Great Greenhouse - Register</title>
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="{{asset('css/bootstrap/bootstrap.css')}}" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="css/geral.css" rel="stylesheet">
-    <link href="css/register.css" rel="stylesheet">
+    <link href="{{asset('css/home/geral.css')}}" rel="stylesheet">
+    <link href="{{asset('css/home/register.css')}}" rel="stylesheet">
 </head>
 <body>
 <div class="container-fluid">
@@ -75,7 +75,7 @@
         </div>
     </div>
 </body>
-<script src="js/jquery-2.1.4.js"></script>
-<script src="js/angular.js"></script>
-<script src="js/bootstrap.js"></script>
+<script src="{{asset('js/jquery/jquery-2.1.4.js')}}"></script>
+<script src="{{asset('js/angular/angular.js')}}"></script>
+<script src="{{asset('js/bootstrap/bootstrap.js')}}"></script>
 </html>

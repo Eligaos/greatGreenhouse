@@ -25,12 +25,12 @@ $(document).ready(function() {
         return $helper;
     };
 
-    $(".table-sortable tbody").sortable({
+ /*   $(".table-sortable tbody").sortable({
         helper: fixHelperModified
     }).disableSelection();
 
     $(".table-sortable thead").disableSelection();
-
+*/
 });
 
 function addDynamicRows(table,i){

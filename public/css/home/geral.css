@@ -5,7 +5,7 @@
 body {
    /* background-image: url("../tree_barkv2.png");*/
    /* background-image: url("../congruent_pentagon.png");*/
-    background-image: url("../img/congruent_pentagon.png");
+    background-image: url("/img/congruent_pentagon.png");
     background-repeat: repeat;
 
 } 

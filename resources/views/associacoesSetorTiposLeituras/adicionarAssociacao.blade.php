@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('customStyles')
-<link href="{{asset('css/adicionarAssociacao.css')}}" rel="stylesheet">
+<link href="{{asset('css/associacoesTipoLeitura/adicionarAssociacao.css')}}" rel="stylesheet">
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
 
@@ -83,5 +83,5 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
 
-<script src="{{asset('js/adicionarAssociacao.js')}}"></script>
+<script src="{{asset('js/associacoesTiposLeitura/adicionarAssociacao.js')}}"></script>
 @endsection

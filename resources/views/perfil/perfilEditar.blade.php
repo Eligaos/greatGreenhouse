@@ -1,7 +1,6 @@
 @extends('app')
 
 @section('customStyles')
-    <link href="{{asset('css/addExploracao.css')}}" rel="stylesheet">
 
 @endsection
 @section('content')
@@ -31,17 +30,17 @@
                                         </div><br>
                                         <label for="cellphone">Telemóvel</label>
                                         <div>
-                                            <input type="text" class="form-control" id="cellphone" name="cellphone" value="{{Auth::getUser()->cellphone}}" >
+                                            <input type="text" class="form-control" id="cellphone" name="cellphone" placeholder="insira um nº de telemóvel" value="{{Auth::getUser()->cellphone}}" >
                                         </div><br>
                                         <label for="email">Password</label>
                                         <div class="form-group input-group">
                                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                            <input class="form-control" type="password" name='password' placeholder="password" required/><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+                                            <input class="form-control" type="password" name='password' placeholder="palavra-passe" required/><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
                                         </div>
                                         <label for="email">Confirmar Password</label>
                                         <div class="form-group input-group">
                                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                            <input class="form-control" type="password" name='password_confirmation' placeholder="password confirmation" required/>
+                                            <input class="form-control" type="password" name='password_confirmation' placeholder="confirmação da palavra-passe" required/>
                                             <span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
                                         </div>
                                     </fieldset>

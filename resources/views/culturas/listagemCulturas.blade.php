@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('customStyles')
-<link href="{{asset('css/listagemEstufas.css')}}" rel="stylesheet">
+
 @endsection
 @section('title', ' - Lista de Culturas')
 
@@ -80,7 +80,7 @@
 @endsection
 
 @section('customScripts')
-<script src="{{asset('js/listagemCultura.js')}}"></script>
+<script src="{{asset('js/culturas/listagemCultura.js')}}"></script>
 @endsection
 
 

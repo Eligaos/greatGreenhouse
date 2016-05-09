@@ -9,10 +9,10 @@
 	<meta name="author" content="">
 	<title>Adicionar Exploração</title>
 	<!-- Bootstrap core CSS -->
-	<link href="{{asset('css/bootstrap.css')}}" rel="stylesheet">
+	<link href="{{asset('css/bootstrap/bootstrap.css')}}" rel="stylesheet">
 	<!-- Custom styles for this template -->
-	<link href="{{asset('css/geral.css')}}" rel="stylesheet">
-	<link href="{{asset('../../css/addExploracao.css')}}" rel="stylesheet">
+	<link href="{{asset('css/home/geral.css')}}" rel="stylesheet">
+	<link href="{{asset('css/exploracoes/addExploracao.css')}}" rel="stylesheet">
 </head>
 <body>
 	<div class="container">
@@ -85,7 +85,7 @@
 		</div>
 	</div>
 </body>
-<script src="{{asset('js/jquery-2.1.4.js')}}"></script>
-<script src="{{asset('js/angular.js')}}"></script>
-<script src="{{asset('js/bootstrap.js')}}"></script>
+<script src="{{asset('js/jquery/jquery-2.1.4.js')}}"></script>
+<script src="{{asset('js/jquery/angular.js')}}"></script>
+<script src="{{asset('js/jquery/bootstrap.js')}}"></script>
 </html>

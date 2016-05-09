@@ -9,10 +9,10 @@
 	<meta name="author" content="">
 	<!-- Bootstrap core CSS -->
   <title>Great Greenhouse @yield('title')</title>
-	<link href="{{asset('css/bootstrap.css')}}" rel="stylesheet">
+  <link href="{{asset('css/bootstrap/bootstrap.css')}}" rel="stylesheet">
 
-  <link href="{{asset('css/geral.css')}}" rel="stylesheet">
-  <link href="{{asset('css/barraLateral.css')}}" rel="stylesheet">
+  <link href="{{asset('css/home/geral.css')}}" rel="stylesheet">
+  <link href="{{asset('css/home/barraLateral.css')}}" rel="stylesheet">
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <!-- Custom styles for this template -->
   @yield('customStyles')
@@ -67,12 +67,12 @@
      <li><a href="/admin/sensores/listar"><i class="glyphicon glyphicon-globe"></i> Sensores </a></li>
      <li><a href="#"><i class="glyphicon glyphicon-globe"></i> Registar Leitura Manual </a></li>
    </ul>
-    <li>
+   <li>
     <a href="/admin/associacoes-tipos-leituras/listar">
       <i class="fa fa-globe fa-lg"></i> Associar Tipos de Leituras
     </a>
   </li>
-   <li>
+  <li>
     <a href="/admin/perfil">
       <i class="fa fa-user fa-lg"></i> Perfil
     </a>
@@ -92,8 +92,8 @@
 </div>
 @yield('content')
 </body>
-<script src="{{asset('js/jquery-2.1.4.js')}}"></script>
-<script src="{{asset('js/angular.js')}}"></script>
-<script src="{{asset('js/bootstrap.js')}}"></script>
+<script src="{{asset('js/jquery/jquery-2.1.4.js')}}"></script>
+<script src="{{asset('js/angular/angular.js')}}"></script>
+<script src="{{asset('js/bootstrap/bootstrap.js')}}"></script>
 @yield('customScripts')
 </html>

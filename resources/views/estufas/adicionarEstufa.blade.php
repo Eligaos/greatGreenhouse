@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('customStyles')
-<link href="{{asset('css/addExploracao.css')}}" rel="stylesheet">
+">
 
 @endsection
 @section('title', ' - Adicionar Estufa')
@@ -91,5 +91,5 @@
 	</div>
 	@endsection
 	@section('customScripts')
-	<script src="{{asset('js/addSetor.js')}}"></script>
+	<script src="{{asset('js/estufas/addSetor.js')}}"></script>
 	@endsection

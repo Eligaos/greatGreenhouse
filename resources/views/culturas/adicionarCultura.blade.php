@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('customStyles')
-<link href="{{asset('css/addExploracao.css')}}" rel="stylesheet">
+<link href="{{asset('css/exploracoes/addExploracao.css')}}" rel="stylesheet">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
 
@@ -179,7 +179,7 @@
 	</div>
 	@endsection
 	@section('customScripts')	
-	<script src="{{asset('js/adicionarCultura.js')}}"></script>
+	<script src="{{asset('js/culturas/adicionarCultura.js')}}"></script>
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
 

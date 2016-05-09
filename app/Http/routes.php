@@ -27,37 +27,54 @@
 
 Route::group(['middleware' => ['web']], function () 
 {
-	Route::get('/', 'GuestController@login');
 
+
+	/**********GUEST**********/
+	Route::get('/', 'GuestController@login');
 	Route::get('/recovery', 'GuestController@recovery');
 	Route::get('/login', 'GuestController@login');
 	Route::get('/register', 'GuestController@register');
 	Route::post('/authentication', 'GuestController@login');
-	Route::any('/register/registration', 'GuestController@registerUser');
 	Route::post('/authentication/auth', 'GuestController@auth');
+	Route::post('/register/registration', 'GuestController@registerUser');
 
-	Route::post('/admin/home', 'HomeController@inicio');
+	/********SELECCIONAR EXPLORACAO**********/
+	Route::get('/admin/exploracoes/adicionar', 'ExploracaoController@adicionar');
+	Route::get('/admin/exploracoes/listar', 'ExploracaoController@listarExploracao');	
+	Route::post('/admin/exploracoes/adicionar/submit', 'ExploracaoController@adicionarExploracao');
+
+	Route::get('/admin/exploracoes/mudar', 'HomeController@mudarExploracao');	
+		Route::post('/admin/home', 'HomeController@inicio');
+	Route::group(['middleware' => ['select.exploration']], function () 
+{
+
+
+	/**********HOME**********/
+
 	Route::get('/admin/home', 'HomeController@home');
-
+	Route::get('/admin/logout', 'HomeController@logout');
 
 	Route::get('/admin/cookie', 'HomeController@showCookie');
 
+	/**********PERFIL**********/
 
 	Route::get('/admin/perfil', 'HomeController@showPerfil');
 	Route::get('/admin/perfil/editar', 'HomeController@editPerfil');
 	Route::post('/admin/perfil/editar', 'HomeController@saveEditPerfil');
 
 
-	Route::get('/admin/logout', 'HomeController@logout');
+	/**********EXPLORACOES**********/
 
 
-	Route::get('/admin/exploracoes/mudar', 'HomeController@mudarExploracao');	
-	Route::get('/admin/exploracoes/adicionar', 'ExploracaoController@adicionar');
+
 	Route::get('/admin/exploracoes/detalhes', 'ExploracaoController@detalhesExploracao');
-	Route::get('/admin/exploracoes/listar', 'ExploracaoController@listarExploracao');	
-	Route::any('/admin/exploracoes/adicionar/submit', 'ExploracaoController@adicionarExploracao');
+
+
+
 	Route::get('/admin/exploracoes/editar', 'ExploracaoController@editarExploracao');
 	Route::post('/admin/exploracoes/editar/submit', 'ExploracaoController@saveEditExploracao');
+
+	/**********ESTUFAS**********/
 
 	Route::get('/admin/estufas/listar', 'EstufaController@listarEstufas');
 	Route::get('/admin/estufas/detalhes/{id}', 'EstufaController@detalhesEstufa');
@@ -65,6 +82,9 @@ Route::group(['middleware' => ['web']], function ()
 	Route::post('/admin/estufas/editar/submit/{id}', 'EstufaController@saveEditEstufa');
 	Route::get('/admin/estufas/adicionar', 'EstufaController@adicionar');
 	Route::post('/admin/estufas/adicionar/submit', 'EstufaController@adicionarEstufa');
+
+
+	/**********CULTURAS**********/
 
 	Route::get('/admin/culturas/listar', 'CulturaController@listarCulturas');
 	Route::get('/admin/culturas/getSetorByEstufa/{id}', 'CulturaController@getSetorByEstufa');
@@ -74,19 +94,28 @@ Route::group(['middleware' => ['web']], function ()
 	Route::get('/admin/culturas/adicionar', 'CulturaController@adicionar');
 	Route::post('/admin/culturas/adicionar/submit', 'CulturaController@adicionarCultura');	
 
+	/**********TIPOS-LEITURAS**********/
+
 	Route::get('/admin/tipos-leituras/listar', 'TipoLeituraController@listarTiposLeituras');
 	Route::get('/admin/tipos-leituras/adicionar', 'TipoLeituraController@tipoLeitura');
 	Route::post('/admin/tipos-leituras/adicionar/submit', 'TipoLeituraController@criarNovoTipoLeitura');
 
+	/**********ASSOCIACOES-TIPOS-LEITURAS**********/
 
 	Route::get('/admin/associacoes-tipos-leituras/listar', 'SetorTiposLeiturasAssociadosController@listarAssociacoes');
 	Route::get('/admin/associacoes-tipos-leituras/associar', 'SetorTiposLeiturasAssociadosController@associar');
-
 	Route::post('admin/associacoes-tipos-leituras/associar/submit', 'SetorTiposLeiturasAssociadosController@associarSubmit');
+
+
+	/**********SENSORES**********/
 
 	Route::get('/admin/sensores/listar', 'SensorController@listarSensores');
 
+	/**********LEITURAS**********/
+
 	Route::get('/admin/leituras/listar', 'LeiturasController@listarLeituras');
+});
+
 
 });
 

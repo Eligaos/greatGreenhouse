@@ -10,12 +10,12 @@
 
 	<title>Great Greenhouse - Lista de Explorações</title>
 	<!-- Bootstrap core CSS -->
-	<link href="{{asset('css/bootstrap.css')}}" rel="stylesheet">
+	<link href="{{asset('css/bootstrap/bootstrap.css')}}" rel="stylesheet">
 
-	<link href="{{asset('css/geral.css')}}" rel="stylesheet">
-	<link href="{{asset('css/barraLateral.css')}}" rel="stylesheet">
+	<link href="{{asset('css/home/geral.css')}}" rel="stylesheet">
+	<link href="{{asset('css/home/barraLateral.css')}}" rel="stylesheet">
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-	<link href="{{asset('css/listagemExploracoes.css')}}" rel="stylesheet">
+	<link href="{{asset('css/exploracoes/listagemExploracoes.css')}}" rel="stylesheet">
 </head>   
 <body>
 	<div class="container">
@@ -78,9 +78,9 @@
 	</div>
 </div>
 </body>
-<script src="{{asset('js/jquery-2.1.4.js')}}"></script>
-<script src="{{asset('js/bootstrap.js')}}"></script>
+<script src="{{asset('js/jquery/jquery-2.1.4.js')}}"></script>
+<script src="{{asset('js/bootstrap/bootstrap.js')}}"></script>
 <script src="{{asset('js/errors.js')}}"></script>
-<script src="{{asset('js/bootstrap.js')}}"></script>
+
 
 </html>

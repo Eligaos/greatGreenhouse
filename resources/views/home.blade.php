@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('customStyles')
-<link href="{{asset('css/home.css')}}" rel="stylesheet">
+<link href="{{asset('css/home/home.css')}}" rel="stylesheet">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
 @endsection
 @section('title', ' - Home')
@@ -43,5 +43,5 @@
  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
  <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
  <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
- <script src="{{asset('js/home.js')}}"></script>
+ <script src="{{asset('js/home/home.js')}}"></script>
 			@endsection

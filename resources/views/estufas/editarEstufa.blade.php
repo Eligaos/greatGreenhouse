@@ -1,7 +1,6 @@
 	@extends('app')
 
 	@section('customStyles')
-	<link href="{{asset('css/addExploracao.css')}}" rel="stylesheet">
 
 	@endsection
 	@section('title', ' - Editar Estufa')
@@ -115,5 +114,5 @@
 		<script>		
 			var lista = <?php echo json_encode($lista[1])?>;
 		</script>
-		<script src="{{asset('js/addSetor.js')}}"></script>
+		<script src="{{asset('js/estufas/addSetor.js')}}"></script>
 		@endsection

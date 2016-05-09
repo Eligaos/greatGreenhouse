@@ -20,10 +20,10 @@
 										<form class="form-signin" method="POST" action="/admin/home">
 											<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">							
 											<div class="table-container">
-												<table class="table table-filter table-striped table-bordered table-responsive">							 <tr>
+												<table class="table table-filter table-striped table-bordered table-responsive">	
+												<tr>
 													<th>Parâmetro</th>
 													<th>Unidade</th>
-													<th>Opções</th>
 												</tr>	
 												<tbody>		
 													@foreach($lista as $key => $tipoLeitura)
@@ -34,12 +34,7 @@
 														<td>
 															<span>{{$tipoLeitura->unidade}}</span>
 														</td>
-														<td>
-															<div class="">
-																<button type="submit" toggle="tooltip" name="id" class="btn btn-default pull-right" role="button" data-placement="top" title="Detalhes">Detalhes</button>
-															</div>
-														</td>
-													</tr>													
+													</tr>											
 													@endforeach
 												</tbody>
 											</table>									

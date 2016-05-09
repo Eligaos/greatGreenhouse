@@ -25,7 +25,7 @@ class SetorTiposLeiturasAssociadosController extends Controller
 	}
 
 	public function associar(){
-		$estufas = $this->cService->getEstufa();
+		$estufas = $this->cService->getAllEstufas();
 		$tiposLeituras = $this->stlaService->getTiposLeitura();
 		return view('associacoesSetorTiposLeituras.adicionarAssociacao', compact('estufas', 'tiposLeituras'));
 	}
@@ -46,7 +46,7 @@ class SetorTiposLeiturasAssociadosController extends Controller
 				$tp = SetorTiposLeiturasAssociados::create([$j, $estufa[1]]);
 			}
 		}
-		return dd($tp);
+
 	}
 	
 }
