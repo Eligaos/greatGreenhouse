@@ -19,7 +19,7 @@
 						<h3 class="panel-title" id="myModalLabel">Detalhes Cultura</h3>
 					</div>
 					<div class="panel-body">
-						<form id="registerForm" method="POST" action="/admin/culturas/adicionar/submit">
+						<form id="registerForm" method="POST" action="/admin/culturas/editar/submit/{{$lista[0]->id}}">
 							<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">							
 							<div class="form-group">
 								<fieldset> 
@@ -35,7 +35,7 @@
 											@if(old('nome')!=null)											
 											<input type="text" class="form-control" id="nome"  name="nome" value="{{ old('nome') }}" placeholder="Insira o nome da Cultura" required><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
 											@else
-											<input type="text" class="form-control" id="nome"  name="nome" value="{{$lista[0]->nome}} {{ old('nome') }}" placeholder="Insira o nome da Cultura" required><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+											<input type="text" class="form-control" id="nome"  name="nome" value="{{$lista[0]->nome}}" placeholder="Insira o nome da Cultura" required><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
 											@endif
 										</div>
 										<br/>
@@ -80,21 +80,33 @@
 											<div class="row">
 												<div class="col-lg-6">	
 													<label for="nome">Data Inicial do Ciclo</label>
-													<div class="input-group">									
+													<div class="input-group">
+														@if(old('data_inicio_ciclo')!=null)										
 														<input type="text" class="form-control" id="dInic" value="{{ old('data_inicio_ciclo') }}" name="data_inicio_ciclo"><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+														@else
+														<input type="text" class="form-control" id="dInic" value="{{ $lista[0]->data_inicio_ciclo }}" name="data_inicio_ciclo"><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+														@endif
 													</div>
 												</div>
 												<div class="col-lg-6">												
 													<label for="nome">Data de Fim do Ciclo</label>
-													<div class="input-group">									
+													<div class="input-group">
+														@if(old('data_prevista_fim_ciclo')!=null)										
 														<input type="text" class="form-control" id="dFim" value="{{ old('data_prevista_fim_ciclo') }}" name="data_prevista_fim_ciclo"><span class="input-group-addon" id="error"></span>
+														@else
+														<input type="text" class="form-control" id="dFim" value="{{ $lista[0]->data_prevista_fim_ciclo }}" name="data_prevista_fim_ciclo"><span class="input-group-addon" id="error"></span>
+														@endif
 													</div>
 												</div>
 											</div>
 											<br/>
 											<label for="nome">Duração do Ciclo</label>
-											<div class="input-group">											
+											<div class="input-group">	
+												@if(old('duracao_ciclo')!=null)
 												<input type="number" class="form-control" id="duracao_ciclo"  value="{{ old('duracao_ciclo') }}" name="duracao_ciclo" placeholder="Insira a duração do ciclo" min=0 ><span class="input-group-addon">dias</span>
+												@else
+												<input type="number" class="form-control" id="duracao_ciclo"  value="{{ $lista[0]->duracao_ciclo }}" name="duracao_ciclo" placeholder="Insira a duração do ciclo" min=0 ><span class="input-group-addon">dias</span>
+												@endif
 											</div>
 										</div>				
 									</div>	
@@ -108,14 +120,22 @@
 											<div class="row">
 												<div class="col-lg-6">	
 													<label for="nome">Espaço na Linha</label>
-													<div class="input-group">											
+													<div class="input-group">	
+														@if(old('espaco_na_linha')!=null)	
 														<input type="number" class="form-control" id="espaco_na_linha" value="{{ old('espaco_na_linha') }}" name="espaco_na_linha" placeholder="Insira o espaçamento na Linha" min=0><span class="input-group-addon">metros</span>
+														@else
+														<input type="number" class="form-control" id="espaco_na_linha" value="{{ $lista[0]->espaco_na_linha }}" name="espaco_na_linha" placeholder="Insira o espaçamento na Linha" min=0><span class="input-group-addon">metros</span>
+														@endif
 													</div>
 												</div>
 												<div class="col-lg-6">												
 													<label for="nome">Espaço entre Linhas</label>
-													<div class="input-group">											
+													<div class="input-group">	
+														@if(old('espaco_entre_linhas')!=null)	
 														<input type="number" class="form-control" id="espaco_entre_linhas" value="{{ old('espaco_entre_linhas') }}" name="espaco_entre_linhas" placeholder="Insira o espaçamento entre as Linhas" min=0><span class="input-group-addon">metros</span>
+														@else														
+														<input type="number" class="form-control" id="espaco_entre_linhas" value="{{ $lista[0]->espaco_entre_linhas }}" name="espaco_entre_linhas" placeholder="Insira o espaçamento entre as Linhas" min=0><span class="input-group-addon">metros</span>
+														@endif
 													</div>
 												</div>
 											</div>
@@ -133,7 +153,7 @@
 													<label>Escolha uma Estufa</label>
 													<div>
 														<select id="ddEstufa" name="ddEstufa" class="selectpicker form-control" title="Selecione uma Estufa"  data-live-search="true" showTick="true">
-															@foreach($lista as $key => $estufa)
+															@foreach($estufas as $key => $estufa)
 															<option value="{{$estufa->id}}">{{$estufa->nome}}</option>
 															@endforeach	
 														</select>
@@ -150,8 +170,12 @@
 											<div class="col-lg-3">											
 												<div class="btn-group">
 													<label>Espécie</label>
-													<div class="input-group">											
+													<div class="input-group">			
+														@if(old('especie_id')!=null)	
 														<input type="text" name="especie_id" value="{{ old('especie_id') }}" placeholder="Insira uma Especie" class="form-control"></input><span class="input-group-addon"></span>
+														@else
+														<input type="text" name="especie_id" value="{{ $lista[0]->especie_id }}" placeholder="Insira uma Especie" class="form-control"></input><span class="input-group-addon"></span>
+														@endif
 													</div>
 												</div>
 											</div>
@@ -186,6 +210,5 @@
 	<script src="{{asset('js/adicionarCultura.js')}}"></script>
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
-
 	@endsection
 

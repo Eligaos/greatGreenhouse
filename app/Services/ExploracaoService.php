@@ -22,7 +22,7 @@ class ExploracaoService
 	}
 
 	public function procurarExploracao($id){ 
-		return Exploracao::find($id)->first();
+		return Exploracao::find($id);
 	}
 
 	public function saveEditExploracao($id, $input){ 
@@ -32,12 +32,10 @@ class ExploracaoService
 			$exp->distrito = $input['distrito'];
 			$exp->concelho = $input['concelho'];
 			$exp->freguesia = $input['freguesia'];
-
 			$exp->save();
 			return true;
 		}else{
-			$exists = Exploracao::where("nome",'=', $input['nome'])->get()->first();
-			
+			$exists = Exploracao::where("nome",'=', $input['nome'])->where("id",'!=',$idC)->first();			
 			if($exists==null){
 				$exp->nome = $input['nome'];
 				$exp->numero = $input['numero'];

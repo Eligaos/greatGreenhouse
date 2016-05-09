@@ -52,4 +52,38 @@ class CulturaService
 
 		return [$cultura,$setor,$estufa];
 	}
+
+	public function saveEditCultura($input, $idC){
+		$cultura = Cultura::find($idC);
+		$nome = trim($input["nome"], " ");
+		if($nome==$cultura->nome){	
+			return $exists = $this->saveCultura($cultura, $input);
+		}else{
+			$exists = Cultura::where("nome", '=', $nome)->where("id",'!=',$idC)->first();
+			if($exists == null){
+				$cultura->nome = $nome;
+				return $exists = $this->saveCultura($cultura, $input);	
+			}else{
+				return false;
+			}
+		}
+	}
+
+
+	public function saveCultura($cultura, $input){
+		if($input["tipo_cultivo"]=="outro"){
+			$cultura->tipo_cultivo = $input["inpOutro"];
+		}else{
+			$cultura->tipo_cultivo = $input["tipo_cultivo"];
+		}
+		$cultura->tipo_cultura = $input["tipo_cultura"];		
+		$cultura->data_inicio_ciclo = $input["data_inicio_ciclo"];
+		$cultura->data_prevista_fim_ciclo = $input["data_prevista_fim_ciclo"];
+		$cultura->duracao_ciclo = $input["duracao_ciclo"];
+		$cultura->espaco_na_linha = $input["espaco_na_linha"];
+		$cultura->espaco_entre_linhas = $input["espaco_entre_linhas"];
+		$cultura->setor_id = $input["setor_id"];
+		$cultura->save();
+		return true;
+	}
 }

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Services\HomeService;
 use App\Services\EstufaService;
+use App\Services\CulturaService;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Response;
 use Cookie;
@@ -22,13 +23,16 @@ class HomeController extends Controller
 	protected $hService;
 	protected $uService;
 	protected $eService;
+	protected $cService;
+	protected $exploracaoSelecionada;
 
-	public function __construct(HomeService $hService, UserService $uService, EstufaService $eService)
+	public function __construct(HomeService $hService, UserService $uService, EstufaService $eService, CulturaService $cService)
 	{
 		$this->middleware('auth');
 		$this->hService = $hService;
 		$this->uService = $uService;
 		$this->eService = $eService;
+		$this->cService = $cService;
 	}
 
 	public function inicio(Request $request){
@@ -39,17 +43,17 @@ class HomeController extends Controller
 
 	public function home(){
 		$estufas = $this->eService->getEstufas();
-	
-		return view("home" ,compact('estufas'));
+		$culturas = $this->cService->listarCulturas($estufas);
+		return view("home" ,compact('estufas', 'culturas'));
 	}
 
-	 public function showCookie(Request $request) {
-	 	$val = $request->cookie('exploracao');
-	 	dd($val);
-	 	$key = array_search('id', $val);
-	 	dd($key);
-        return $key;
-    } 
+	public function showCookie(Request $request) {
+		$val = $request->cookie('exploracao');
+		dd($val);
+		$key = array_search('id', $val);
+		dd($key);
+		return $key;
+	} 
 
 	public function showPerfil() {
 		return view('perfil.perfil');
@@ -62,31 +66,27 @@ class HomeController extends Controller
 
 	public function mudarExploracao(Request $request){
 		$request->session()->forget('exploracaoSelecionada');
-		 return Redirect::to('admin/exploracoes/listar');
+		return Redirect::to('admin/exploracoes/listar');
 	}
 	
-    public function saveEditPerfil() {
+	public function saveEditPerfil() {
 
-        $user = User::find(Auth::getUser()->id);
+		$user = User::find(Auth::getUser()->id);
 
-        $input = Input::except('_token');
-        $errors = array();
-
-        
-        if($input['password'] == $input['password_confirmation']){
-            if(count($errors) > 0){
-                Session::flash('errors', $errors);
-                return Redirect::to('/admin/perfil/editar');
-            }
-            $user->save();
-            return Redirect::to('/admin/perfil');
-        }
-        return redirect('/admin/perfil/editar');
-    }
+		$input = Input::except('_token');
+		$errors = array();
 
 
-
-
+		if($input['password'] == $input['password_confirmation']){
+			if(count($errors) > 0){
+				Session::flash('errors', $errors);
+				return Redirect::to('/admin/perfil/editar');
+			}
+			$user->save();
+			return Redirect::to('/admin/perfil');
+		}
+		return redirect('/admin/perfil/editar');
+	}
 
 	public function logout() {
 		Auth::logout();
