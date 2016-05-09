@@ -45,7 +45,7 @@ class CulturaController extends Controller
 
 	public function detalhesCultura($id){
 		$lista = $this->cService->procurarCultura($id);
-		//$lista[0]-- array de estufa  $lista[1]--array dos setores da estufa
+		//$lista[0]-- array de culturas  $lista[1]--array dos setores de setores $lista[2]--array de estufas
 		return view('culturas.detalhesCultura', compact('lista'));  		
 	}
 	public function editarCultura($id){

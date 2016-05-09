@@ -31,8 +31,12 @@
 											<span class="alert alert-info"> {{ Session::get('message') }}</span>
 										</div>
 										@endif
-										<div class="input-group">											
+										<div class="input-group">
+											@if(old('nome')!=null)											
 											<input type="text" class="form-control" id="nome"  name="nome" value="{{ old('nome') }}" placeholder="Insira o nome da Cultura" required><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+											@else
+											<input type="text" class="form-control" id="nome"  name="nome" value="{{$lista[0]->nome}} {{ old('nome') }}" placeholder="Insira o nome da Cultura" required><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+											@endif
 										</div>
 										<br/>
 										<div class="col-xs-12 col-md-12">											
