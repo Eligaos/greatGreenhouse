@@ -30,7 +30,7 @@ $(document).ready(function() {
     }).disableSelection();
 
     $(".table-sortable thead").disableSelection();
-*/
+    */
 });
 
 function addDynamicRows(table,i){
@@ -92,6 +92,8 @@ function editTable(i,cur_td,c){
         c.val(lista[i].nome);
     }else if($(cur_td).data("name") == "descricaoSetor[]"){
         c.val(lista[i].descricao);
+    }else if($(cur_td).data("name") == "idSetor[]"){
+        c.val(lista[i].id);
     }
 }
 

@@ -57,7 +57,7 @@ class EstufaController extends Controller
 	}
 
 	public function saveEditEstufa($idE){ 
-        $input = Input::except('_token');    
+        $input = Input::except('_token');            
            $exploracaoSelecionada = Session::get('exploracaoSelecionada');
         $estufa = $this->eService->saveEditEstufa($exploracaoSelecionada, $input, $idE);
         if($estufa){

@@ -26,28 +26,27 @@ class EstufaService
 			]);
 
 		if(count($input)>5){
-			$this->adicionarSetor($input,$estufa);
+			$this->adicionarSetores($input,$estufa);
 		}
 		Setor::create($this->criarSetorArr("Nenhum","Setor Geral",$estufa->id,0));
 		return $estufa;
 	}
 
-	public function adicionarSetor($input, $estufa){
+	public function adicionarSetores($input, $estufa){
 		$nomeSetor = $input['nomeSetor'];
 		$descricaoSetor = $input['descricaoSetor'];
 		foreach($nomeSetor as $key => $n ) 
 		{
-			Setor::create($this->criarSetorArr($nomeSetor[$key],$descricaoSetor[$key],$estufa->id, $key+1));
+			Setor::create($this->criarSetorArr($nomeSetor[$key],$descricaoSetor[$key],$estufa->id));
 		}
 		return true;		
 	}
 
-	public function criarSetorArr($nomeSetor, $desc, $estufaId,$setor_id){
+	public function criarSetorArr($nomeSetor, $desc, $estufaId){
 		$arrData = array( 
 			"nome"     		  => $nomeSetor,
 			"descricao"       => $desc, 
-			"estufa_id"       => $estufaId,
-			"setor_id"        =>$setor_id			          
+			"estufa_id"       => $estufaId
 			);
 		return $arrData;
 	}
@@ -65,20 +64,34 @@ class EstufaService
 	$descricaoSetor = $input['descricaoSetor'];*/
 	if($estufa[0]->nome == $input['nome']){
 		$estufa[0]->descricao = $input['descricao'];
-		if(count($estufa[1])==0){
+		if(count($estufa[1])==0){ //se estufa não tem setores;
 			if(count($input)>5){
-				$this->adicionarSetor($input,$estufa[0]);
+				$this->adicionarSetores($input,$estufa[0]);
 			}
-		}else{
-			for($i=0; $i<count($estufa[1]);$i++){				
-				if($input["nomeSetor"][$i]==$estufa[1][$i]->nome){
-					dd($input);
-
-					dd($estufa[1][$i]->setor_id);
-
+		}else{//quando a estufa tem setores
+			if(count($input)>5){ //se foram enviados setores
+				for($i=0; $i<count($input["nomeSetor"]);$i++){	
+					if(!isset($estufa[1][$i])){
+						if($input["idSetor"][$i] == ""){
+							Setor::create($this->criarSetorArr($input["nomeSetor"][$i],$input['descricaoSetor'][$i],$estufa[0]->id));		
+						}				
+					}else{
+						if($input["idSetor"][$i] == $estufa[1][$i]->id){	
+							$estufa[1][$i]->nome =$input['nomeSetor'][$i];
+							$estufa[1][$i]->descricao =$input['descricaoSetor'][$i];
+							$estufa[1][$i]->save();							
+						}else{//BUG NO ELIMINAR!!	
+							$estufa[1][$i]->destroy($estufa[1][$i]->id);					
+						}
+					}
+				}
+			}else{
+				for($i=0; $i<count($estufa[1]);$i++){ //elimina tudo se guardar sem setores
+					$estufa[1][$i]->destroy($estufa[1][$i]->id);
 				}
 			}
 		}
+
 			//$estufa[0]->save();
 	}
 	return $estufa[0];

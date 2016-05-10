@@ -17,7 +17,7 @@ class ExploracaoService
 	}
 
 
-	public function listarExploracao(){ 
+	public function listarExploracao(){
 		return Exploracao::get();
 	}
 
