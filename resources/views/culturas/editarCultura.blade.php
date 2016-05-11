@@ -195,7 +195,8 @@
 							@endif
 							<div class="form-group">
 								<div class="input-group-addon">
-									<a href="/admin/culturas/listar" role="button" name="cancelar"class="btn btn-default pull-right">Cancelar</a>
+									<!--<a href="/admin/culturas/listar" role="button" name="cancelar"class="btn btn-default pull-right">Cancelar</a>-->
+									<a href="{{ url()->previous() }}" class="btn btn-default pull-right">Cancelar</a>
 									<input type="submit" id="submit" class="btn btn-success pull-right">
 								</div>
 							</div>
@@ -207,7 +208,7 @@
 	</div>
 	@endsection
 	@section('customScripts')	
-	<script src="{{asset('js/adicionarCultura.js')}}"></script>
+	<script src="{{asset('js/culturas/adicionarCultura.js')}}"></script>
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
 	@endsection

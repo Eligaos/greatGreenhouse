@@ -37,6 +37,7 @@
 										<td>
 											<div class="">
 												<a class="btn btn-sm  btn-default" href="/admin/estufas/detalhes/{{$estufa->id}}">Ver Detalhes</a>
+												<a class="btn btn-sm  btn-default" toggle="tooltip" data-placement="top" title="Editar Estufa"  role="button" name="editar" href="/admin/estufas/editar/{{$estufa->id}}">Editar</a>
 												<a class="btn btn-sm  btn-default" href="#">Eliminar</a>
 											</div>
 										</td>

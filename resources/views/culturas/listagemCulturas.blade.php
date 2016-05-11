@@ -54,6 +54,7 @@
 									<td>
 										<div  style="text-align: center">
 											<a class="btn btn-sm  btn-default" href="/admin/culturas/detalhes/{{$cultura->cultura_id}}">Ver Detalhes</a>
+											<a class="btn btn-sm  btn-default" toggle="tooltip" data-placement="top" title="Editar Estufa"  role="button" name="editar" href="/admin/culturas/editar/{{$cultura->cultura_id}}">Editar</a>
 											<a class="btn btn-sm  btn-default" href="#">Eliminar</a>
 										</div>
 									</td>

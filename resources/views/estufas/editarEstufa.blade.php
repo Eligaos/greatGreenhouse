@@ -60,62 +60,62 @@
 															@if(count($lista[1])==0)
 															<tbody>
 																<tr id='addr0' data-id="0" class="hidden">
-																		<td data-name="nomeSetor[]">
-																			<input type="text" name='nomeS' placeholder='Insira um nome' class="form-control"/>
-																		</td>
-																		<td data-name="descricaoSetor[]">
-																			<input type="text" name='descricaoS' placeholder='Insira uma descricao' class="form-control"/>
-																		</td>
-																		<td data-name="del">
-																			<button name="del0" class='btn btn-danger glyphicon glyphicon-remove row-remove'></button>
-																		</td>
-																	</tr>
-																</tbody>
-																@else
-																@foreach($lista[1] as $key => $setor)
-																<tbody>
-																	<tr id='addr0' data-id="0" class="hidden">
-																		<td style="display:none; white-space:nowrap; overflow:hidden;" data-name="idSetor[]" id="0">
-																			<input type="hidden" name="setorID" value="{{$setor->id}}">		
-																		</td>
-																		<td data-name="nomeSetor[]" id="0">
-																			<input type="text" placeholder='Insira um nome' class="form-control"  value="{{$setor->nome}}"/>
-																		</td>
-																		<td data-name="descricaoSetor[]">
-																			<input type="text" placeholder='Insira uma descricao' class="form-control" value="{{$setor->descricao}}"/>
-																		</td>
-																		<td data-name="del">
-																			<button name="del0" class='btn btn-danger glyphicon glyphicon-remove row-remove'></button>
-																		</td>
-																	</tr>
-																</tbody>
-																@endforeach	
-																@endIf										
-															</table>
-														</div>
+																	<td data-name="nomeSetor[]">
+																		<input type="text" name='nomeS' placeholder='Insira um nome' class="form-control"/>
+																	</td>
+																	<td data-name="descricaoSetor[]">
+																		<input type="text" name='descricaoS' placeholder='Insira uma descricao' class="form-control"/>
+																	</td>
+																	<td data-name="del">
+																		<button name="del0" class='btn btn-danger glyphicon glyphicon-remove row-remove'></button>
+																	</td>
+																</tr>
+															</tbody>
+															@else
+															@foreach($lista[1] as $key => $setor)
+															<tbody>
+																<tr id='addr0' data-id="0" class="hidden">
+																	<td style="display:none; white-space:nowrap; overflow:hidden;" data-name="idSetor[]" id="0">
+																		<input type="hidden" name="setorID" value="{{$setor->id}}">		
+																	</td>
+																	<td data-name="nomeSetor[]" id="0">
+																		<input type="text" placeholder='Insira um nome' class="form-control"  value="{{$setor->nome}}"/>
+																	</td>
+																	<td data-name="descricaoSetor[]">
+																		<input type="text" placeholder='Insira uma descricao' class="form-control" value="{{$setor->descricao}}"/>
+																	</td>
+																	<td data-name="del">
+																		<button name="del0" class='btn btn-danger glyphicon glyphicon-remove row-remove'></button>
+																	</td>
+																</tr>
+															</tbody>
+															@endforeach	
+															@endIf										
+														</table>
 													</div>
-													<a id="add_row" class="btn btn-default pull-right">Adicionar Setor</a>
 												</div>
-											</fieldset>
-										</div>
-										<div class="form-group">
-											<div class="input-group-addon">
-												<a href="/admin/estufas/detalhes/{{$lista[0]->id}}" role="button" name="cancelar"class="btn btn-default pull-right">Cancelar</a>
-												<input type="submit" name="submit" id="submit" value="Gravar" class="btn btn-success pull-right">
+												<a id="add_row" class="btn btn-default pull-right">Adicionar Setor</a>
 											</div>
+										</fieldset>
+									</div>
+									<div class="form-group">
+										<div class="input-group-addon">
+											<a href="{{ url()->previous() }}" class="btn btn-default pull-right">Cancelar</a>
+											<input type="submit" name="submit" id="submit" value="Gravar" class="btn btn-success pull-right">
 										</div>
 									</div>
-									</div
-								</form>
-							</div>
+								</div>
+								</div
+							</form>
 						</div>
 					</div>
 				</div>
 			</div>
-			@endsection
-			@section('customScripts')
-			<script>		
-				var lista = <?php echo json_encode($lista[1])?>;
-			</script>
-			<script src="{{asset('js/estufas/addSetor.js')}}"></script>
-			@endsection
+		</div>
+		@endsection
+		@section('customScripts')
+		<script>		
+			var lista = <?php echo json_encode($lista[1])?>;
+		</script>
+		<script src="{{asset('js/estufas/addSetor.js')}}"></script>
+		@endsection

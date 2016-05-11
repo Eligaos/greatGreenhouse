@@ -79,9 +79,9 @@ class EstufaService
 						if($input["idSetor"][$i] == $estufa[1][$i]->id){	
 							$estufa[1][$i]->nome =$input['nomeSetor'][$i];
 							$estufa[1][$i]->descricao =$input['descricaoSetor'][$i];
-							$estufa[1][$i]->save();							
+							$estufa[1][$i]->save();		
 						}else{//BUG NO ELIMINAR!!	
-							$estufa[1][$i]->destroy($estufa[1][$i]->id);					
+							$estufa[1][$i+1]->destroy($estufa[1][$i+1]->id);					
 						}
 					}
 				}
