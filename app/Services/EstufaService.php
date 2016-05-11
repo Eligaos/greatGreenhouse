@@ -9,10 +9,44 @@ use Session;
 
 class EstufaService
 {
-    public function getEstufas(){
-        $exploracaoSelecionada = Session::get('exploracaoSelecionada');
-        return Estufa::where('exploracoes_id', '=', $exploracaoSelecionada['id'])->get();
+
+
+    public function getEstufas($idExp){
+        return Estufa::where('exploracoes_id', '=', $idExp['id'])->get();
     }
+
+
+
+
+    public function criarSetorArr($nomeSetor, $desc, $estufaId){
+        $arrData = array(
+            "nome"     		  => $nomeSetor,
+            "descricao"       => $desc,
+            "estufa_id"       => $estufaId
+        );
+        return $arrData;
+    }
+
+  /*  public function procurarEstufa($id){
+        $estufa = Estufa::find($id);
+        $setor = Setor::where('estufa_id', $estufa->id)->where('nome','not like','Nenhum')->get();
+        return [$estufa, $setor];
+    }
+*/
+
+	public function procurarEstufa($idEstufa){ 
+		$estufa = Estufa::find($idEstufa);
+		$setor = Setor::where("estufa_id", "LIKE", $estufa->id)->get();
+		//$setor = Setor::where("estufa_id", "LIKE", $estufa->id)->where('nome','not like','Setor 0')->get();
+		return [$estufa, $setor];
+	}
+
+	/*public function procurarEstufa($id){ 
+		$estufa = Estufa::find($id);
+		$setor = Setor::where('estufa_id', $estufa->id)->where('nome','not like','Nenhum')->get();
+		return [$estufa, $setor];
+	}*/
+
 
     public function adicionarEstufa($idExp, $input){
         $exists = Estufa::where('nome','=',$input['nome'])->first();
@@ -32,7 +66,36 @@ class EstufaService
         return $estufa;
     }
 
-    public function adicionarSetores($input, $estufa){
+	/*public function adicionarEstufa($idExp, $input){
+		$exists = Estufa::where('nome','=',$input['nome'])->first();
+		if($exists != null){
+			return null;
+		}
+		$estufa = Estufa::create([
+			"nome"=> $input['nome'],
+			"descricao"       => $input['descricao'], 
+			"exploracoes_id"   => $idExp['id']
+			]);
+
+		if(count($input)>5){
+			$this->adicionarSetores($input,$estufa);
+		}
+		Setor::create($this->criarSetorArr("Nenhum","Setor Geral",$estufa->id,0));
+		return $estufa;
+	}*/
+
+	public function adicionarSetores($input, $estufa){
+		$nomeSetor = $input['nomeSetor'];
+		$descricaoSetor = $input['descricaoSetor'];
+		foreach($nomeSetor as $key => $n ) 
+		{
+			Setor::create($this->criarSetorArr($nomeSetor[$key],$descricaoSetor[$key],$estufa->id));
+		}
+		return true;		
+	}
+
+
+    /*public function adicionarSetores($input, $estufa){
         $nomeSetor = $input['nomeSetor'];
         $descricaoSetor = $input['descricaoSetor'];
         foreach($nomeSetor as $key => $n )
@@ -40,22 +103,7 @@ class EstufaService
             Setor::create($this->criarSetorArr($nomeSetor[$key],$descricaoSetor[$key],$estufa->id));
         }
         return true;
-    }
-
-    public function criarSetorArr($nomeSetor, $desc, $estufaId){
-        $arrData = array(
-            "nome"     		  => $nomeSetor,
-            "descricao"       => $desc,
-            "estufa_id"       => $estufaId
-        );
-        return $arrData;
-    }
-
-    public function procurarEstufa($id){
-        $estufa = Estufa::find($id);
-        $setor = Setor::where('estufa_id', $estufa->id)->where('nome','not like','Nenhum')->get();
-        return [$estufa, $setor];
-    }
+    }*/
 
 //Editar Estufa e Sector TODO Setor
     public function saveEditEstufa($input, $idE){

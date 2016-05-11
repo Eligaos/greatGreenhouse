@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class SetorTiposLeiturasAssociadosService
 {
-	public function getAssociacoes(){ 
+	public function getAssociacoes(){ //da exp atual
 		return SetorTiposLeiturasAssociados::get();
 	}
 
