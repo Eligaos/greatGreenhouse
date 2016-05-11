@@ -57,9 +57,8 @@ class EstufaController extends Controller
 	}
 
 	public function saveEditEstufa($idE){ 
-        $input = Input::except('_token');            
-           $exploracaoSelecionada = Session::get('exploracaoSelecionada');
-        $estufa = $this->eService->saveEditEstufa($exploracaoSelecionada, $input, $idE);
+        $input = Input::except('_token');
+        $estufa = $this->eService->saveEditEstufa($input, $idE);
         if($estufa){
             return Redirect::to("/admin/estufas/detalhes/{$estufa->id}")->with('message', 'Estufa guardada com sucesso!');
         }else{
