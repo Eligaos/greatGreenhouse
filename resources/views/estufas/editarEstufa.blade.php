@@ -40,7 +40,7 @@
 									</div>								
 									<div class="form-group">
 										<fieldset> 
-											<legend>Sectores</legend> 
+											<legend>Setores</legend> 
 											<div class="table-container">
 												<div class="row clearfix">
 													<div class="col-md-12 table-responsive">
@@ -48,7 +48,7 @@
 															<thead>
 																<tr >
 																	<th class="text-center">
-																		Sector
+																		Setor
 																	</th>
 																	<th class="text-center">
 																		Descrição

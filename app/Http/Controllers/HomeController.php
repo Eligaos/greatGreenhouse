@@ -33,6 +33,7 @@ class HomeController extends Controller
 		$this->uService = $uService;
 		$this->eService = $eService;
 		$this->cService = $cService;
+		$this->exploracaoSelecionada = Session::get('exploracaoSelecionada');		
 	}
 
 	public function inicio(Request $request){
@@ -42,18 +43,10 @@ class HomeController extends Controller
 	}
 
 	public function home(){
-		$estufas = $this->eService->getEstufas();
+		$estufas = $this->eService->getEstufas($this->exploracaoSelecionada);
 		$culturas = $this->cService->listarCulturas($estufas);
 		return view("home" ,compact('estufas', 'culturas'));
 	}
-
-	public function showCookie(Request $request) {
-		$val = $request->cookie('exploracao');
-		dd($val);
-		$key = array_search('id', $val);
-		dd($key);
-		return $key;
-	} 
 
 	public function showPerfil() {
 		return view('perfil.perfil');

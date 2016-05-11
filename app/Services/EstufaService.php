@@ -9,10 +9,22 @@ use Session;
 
 class EstufaService 
 {
-	public function getEstufas(){ 
-		$exploracaoSelecionada = Session::get('exploracaoSelecionada');
-		return Estufa::where('exploracoes_id', '=', $exploracaoSelecionada['id'])->get();
+	public function getEstufas($idExp){ 		
+		return Estufa::where('exploracoes_id', '=', $idExp['id'])->get();
 	}
+
+	public function procurarEstufa($idEstufa){ 
+		$estufa = Estufa::find($idEstufa);
+		$setor = Setor::where("estufa_id", "LIKE", $estufa->id)->get();
+		//$setor = Setor::where("estufa_id", "LIKE", $estufa->id)->where('nome','not like','Setor 0')->get();
+		return [$estufa, $setor];
+	}
+
+	/*public function procurarEstufa($id){ 
+		$estufa = Estufa::find($id);
+		$setor = Setor::where('estufa_id', $estufa->id)->where('nome','not like','Nenhum')->get();
+		return [$estufa, $setor];
+	}*/
 
 	public function adicionarEstufa($idExp, $input){
 		$exists = Estufa::where('nome','=',$input['nome'])->first();
@@ -49,12 +61,6 @@ class EstufaService
 			"estufa_id"       => $estufaId
 			);
 		return $arrData;
-	}
-
-	public function procurarEstufa($id){ 
-		$estufa = Estufa::find($id);
-		$setor = Setor::where('estufa_id', $estufa->id)->where('nome','not like','Nenhum')->get();
-		return [$estufa, $setor];
 	}
 
 //Editar Estufa e Sector TODO Setor

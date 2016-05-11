@@ -21,25 +21,7 @@ class CulturaService
 		}
 		return $setores;
 	}
-	public function getEstufas($idExp){ 
-		$estufa = Estufa::where("exploracoes_id", "LIKE", $idExp)->get();
-		return $estufa;
-	}
-
-
-	public function getAllEstufas(){ 
-		$exploracaoSelecionada = Session::get('exploracaoSelecionada');
-		$estufa = Estufa::where("exploracoes_id", "LIKE", $exploracaoSelecionada)->get();
-		return $estufa;
-	}
-
 	
-	public function getSetorByEstufa($idEstufa){ 
-		$estufa = Estufa::find($idEstufa);
-		$setor = Setor::where("estufa_id", "LIKE", $estufa->id)->get();
-		//$setor = Setor::where("estufa_id", "LIKE", $estufa->id)->where('nome','not like','Setor 0')->get();
-		return $setor;
-	}
 /*	public function getSetorByCultura($idSetor){ 
 		$setor = Setor::find($idSetor);
 		return $setor;

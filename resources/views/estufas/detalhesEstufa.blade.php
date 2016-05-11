@@ -32,7 +32,7 @@
 						<div class="form-group">
 							<fieldset> 
 								<legend>Setores</legend> 
-								@if(count($lista[1])==0)
+								@if(count($lista[1])==1)
 								<p class="summary">Esta estufa não tem Setores</p>
 								@else	
 								<div class="table-container">
@@ -51,7 +51,8 @@
 										</thead>											
 										@foreach($lista[1] as $key => $setor)											
 										<tbody>
-											<tr>									
+											<tr>
+											@if($setor->nome != "Nenhum")									
 												<td>
 													<div class="media">
 														<div class="media-body">
@@ -65,7 +66,8 @@
 															<p class="summary">{{$setor->descricao}}</p>
 														</div>
 													</div>
-												</td>										
+												</td>
+												@endif										
 											</tr>	
 										</tbody>
 										@endforeach										

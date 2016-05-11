@@ -18,7 +18,7 @@ class EstufaController extends Controller
 	{
 		$this->middleware('auth');
 		$this->eService = $eService;
-		
+		$this->exploracaoSelecionada = Session::get('exploracaoSelecionada');
 	}
 
 	public function adicionar(){
@@ -26,7 +26,7 @@ class EstufaController extends Controller
 	}
 
 	public function listarEstufas(){ 
-		$lista = $this->eService->getEstufas();
+		$lista = $this->eService->getEstufas($this->exploracaoSelecionada);
                  //\Debugbar::info(Auth::check());
 
 		return view('estufas.listagemEstufas', compact('lista'));
@@ -35,8 +35,7 @@ class EstufaController extends Controller
 
 	public function adicionarEstufa(){     	
 		$input = Input::except('_token');
-		$exploracaoSelecionada = Session::get('exploracaoSelecionada');
-		$exists = $this->eService->adicionarEstufa($exploracaoSelecionada, $input);
+		$exists = $this->eService->adicionarEstufa($this->exploracaoSelecionada, $input);
 		if($exists){
 			return Redirect::to("admin/estufas/listar")->with('message', 'Estufa guardada com sucesso!');
 		}else{
@@ -57,13 +56,13 @@ class EstufaController extends Controller
 	}
 
 	public function saveEditEstufa($idE){ 
-        $input = Input::except('_token');            
-           $exploracaoSelecionada = Session::get('exploracaoSelecionada');
-        $estufa = $this->eService->saveEditEstufa($exploracaoSelecionada, $input, $idE);
-        if($estufa){
-            return Redirect::to("/admin/estufas/detalhes/{$estufa->id}")->with('message', 'Estufa guardada com sucesso!');
-        }else{
-            return Redirect::to("/admin/estufas/editar/{$estufa->id}")->with('message', 'Já existe um Terreno com esse nome');
-        }
-    }
+		$input = Input::except('_token');            
+		$exploracaoSelecionada = Session::get('exploracaoSelecionada');
+		$estufa = $this->eService->saveEditEstufa($exploracaoSelecionada, $input, $idE);
+		if($estufa){
+			return Redirect::to("/admin/estufas/detalhes/{$estufa->id}")->with('message', 'Estufa guardada com sucesso!');
+		}else{
+			return Redirect::to("/admin/estufas/editar/{$estufa->id}")->with('message', 'Já existe um Terreno com esse nome');
+		}
+	}
 }

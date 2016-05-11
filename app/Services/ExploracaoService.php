@@ -35,7 +35,7 @@ class ExploracaoService
 			$exp->save();
 			return true;
 		}else{
-			$exists = Exploracao::where("nome",'=', $input['nome'])->where("id",'!=',$idC)->first();			
+			$exists = Exploracao::where("nome",'=', $input['nome'])->where("id",'!=',$id)->first();			
 			if($exists==null){
 				$exp->nome = $input['nome'];
 				$exp->numero = $input['numero'];

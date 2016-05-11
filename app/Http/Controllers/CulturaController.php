@@ -4,30 +4,37 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Requests\CulturaRequest;
 use App\Services\CulturaService;
+use App\Services\EstufaService;
 use Illuminate\Support\Facades\Input;
 use Redirect;
+use Session;
+
 
 class CulturaController extends Controller
 {
 	protected $cService;
-	public function __construct(CulturaService $cService, Request $request)
+	protected $eService;
+	protected $exploracaoSelecionada;
+
+	public function __construct(CulturaService $cService, EstufaService $eService)
 	{
-		$this->idExp = $request->session()->get('exploracaoSelecionada');
 		$this->middleware('auth');
 		$this->cService = $cService;
+		$this->eService = $eService;
+		$this->exploracaoSelecionada = Session::get('exploracaoSelecionada');
 	}
 	public function adicionar(){
-		$lista = $this->cService->getEstufas($this->idExp);
+		$lista = $this->eService->getEstufas($this->exploracaoSelecionada);
 
 		return view("culturas.adicionarCultura", compact('lista'));		
 	}
 	public function getSetorByEstufa($idEstufa){
-		$lista = $this->cService->getSetorByEstufa($idEstufa);	
+		$lista = $this->eService->procurarEstufa($idEstufa);//$estufas[0] --> lista de estufas ; $estufas[1]--> lista de setores da estufa
 		return $lista;	
 	}
 	public function listarCulturas(){ 
 		$lista = [];
-		$estufas = $this->cService->getEstufas($this->idExp);
+		$estufas = $this->eService->getEstufas($this->exploracaoSelecionada);
 		if(count($estufas)!=0){
 			$lista = $this->cService->listarCulturas($estufas); //collection
 		}
@@ -48,7 +55,7 @@ class CulturaController extends Controller
 	public function editarCultura($id){
 		$lista = $this->cService->procurarCultura($id);
 		//$lista[0]-- array de estufa  $lista[1]--array dos setores da estufa
-		$estufas = $this->cService->getEstufas($this->idExp); //todas as estufas da exploracao
+		$estufas = $this->eService->getEstufas($this->exploracaoSelecionada); //todas as estufas da exploracao
 		return view('culturas.editarCultura', compact('lista', 'estufas'));  		
 	}
 	public function saveEditCultura($idC){ 

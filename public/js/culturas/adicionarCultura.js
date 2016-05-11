@@ -3,7 +3,6 @@ $(document).ready(function() {
    // $("#tipo_cultura").selectpicker('render');
 
    var tC = $("#tipo_cultura").val();
-   console.log(tC);
    $("#tipo_cultura").selectpicker( tC);
    $("#tipo_cultura").selectpicker('render');
    $("#tipo_cultura").selectpicker('refresh');
@@ -29,18 +28,17 @@ $(document).ready(function() {
 
    $( "#ddEstufa" ).on('changed.bs.select',function() {
     var t = $("#tipo_cultura").prop("selected");
-    console.log(t);
     $("#setor_id").children().remove();
     var estufaId = $( this ).selectpicker('val');
     $.get( "/admin/culturas/getSetorByEstufa/"+ estufaId, function( data ) {
 
     }).done(function(data){
-     if(data.length > 0){
+     if(data[1].length > 0){
 
-      for(var i=0; i < data.length; i++){
+      for(var i=0; i < data[1].length; i++){
         $('#setor_id').prepend($('<option>', {
-          value: data[i].id,
-          text: data[i].nome
+          value: data[1][i].id,
+          text: data[1][i].nome
         }));
       }
       $('#divdropdownSetores').show();
