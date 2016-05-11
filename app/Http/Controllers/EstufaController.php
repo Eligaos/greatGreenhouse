@@ -56,7 +56,17 @@ class EstufaController extends Controller
 	}
 
 	public function saveEditEstufa($idE){ 
-		$input = Input::except('_token');            
+
+        $input = Input::except('_token');
+        $estufa = $this->eService->saveEditEstufa($input, $idE);
+        if($estufa){
+            return Redirect::to("/admin/estufas/detalhes/{$estufa->id}")->with('message', 'Estufa guardada com sucesso!');
+        }else{
+            return Redirect::to("/admin/estufas/editar/{$estufa->id}")->with('message', 'Já existe um Terreno com esse nome');
+        }
+    }
+
+		/*$input = Input::except('_token');
 		$exploracaoSelecionada = Session::get('exploracaoSelecionada');
 		$estufa = $this->eService->saveEditEstufa($exploracaoSelecionada, $input, $idE);
 		if($estufa){
@@ -64,5 +74,6 @@ class EstufaController extends Controller
 		}else{
 			return Redirect::to("/admin/estufas/editar/{$estufa->id}")->with('message', 'Já existe um Terreno com esse nome');
 		}
-	}
+	}*/
+
 }

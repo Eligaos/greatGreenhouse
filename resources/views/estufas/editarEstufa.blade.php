@@ -1,7 +1,7 @@
 	@extends('app')
 
 	@section('customStyles')
-
+        <link href="{{asset('css/estufas/editarEstufa.css')}}" rel="stylesheet">
 	@endsection
 	@section('title', ' - Editar Estufa')
 
@@ -53,30 +53,17 @@
 																	<th class="text-center">
 																		Descrição
 																	</th>
-																	<th class="text-center" style="border-top: 1px solid #ffffff; border-right: 1px solid #ffffff;">
+																	<th class="text-center">
+																		Opções
 																	</th>
 																</tr>
 															</thead>
-															@if(count($lista[1])==0)
-															<tbody>
-																<tr id='addr0' data-id="0" class="hidden">
-																	<td data-name="nomeSetor[]">
-																		<input type="text" name='nomeS' placeholder='Insira um nome' class="form-control"/>
-																	</td>
-																	<td data-name="descricaoSetor[]">
-																		<input type="text" name='descricaoS' placeholder='Insira uma descricao' class="form-control"/>
-																	</td>
-																	<td data-name="del">
-																		<button name="del0" class='btn btn-danger glyphicon glyphicon-remove row-remove'></button>
-																	</td>
-																</tr>
-															</tbody>
-															@else
-															@foreach($lista[1] as $key => $setor)
-															<tbody>
-																<tr id='addr0' data-id="0" class="hidden">
-																	<td style="display:none; white-space:nowrap; overflow:hidden;" data-name="idSetor[]" id="0">
-																		<input type="hidden" name="setorID" value="{{$setor->id}}">		
+                                                            <tbody>
+
+                                                            @foreach($lista[1] as $key => $setor)
+                                                                <tr id='addr0' data-id="0" class="hidden">
+																	<td  data-name="idSetor[]" id="0">
+																		<input type="hidden" name="idSetor" value="{{$setor->id}}">
 																	</td>
 																	<td data-name="nomeSetor[]" id="0">
 																		<input type="text" placeholder='Insira um nome' class="form-control"  value="{{$setor->nome}}"/>
@@ -88,9 +75,8 @@
 																		<button name="del0" class='btn btn-danger glyphicon glyphicon-remove row-remove'></button>
 																	</td>
 																</tr>
-															</tbody>
-															@endforeach	
-															@endIf										
+															@endforeach
+                                                            </tbody>
 														</table>
 													</div>
 												</div>
@@ -101,7 +87,7 @@
 									<div class="form-group">
 										<div class="input-group-addon">
 											<a href="{{ url()->previous() }}" class="btn btn-default pull-right">Cancelar</a>
-											<input type="submit" name="submit" id="submit" value="Gravar" class="btn btn-success pull-right">
+											<input type="submit" id="submit" value="Gravar" class="btn btn-success pull-right">
 										</div>
 									</div>
 								</div>
