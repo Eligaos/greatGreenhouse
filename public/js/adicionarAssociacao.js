@@ -64,6 +64,7 @@ $(document).ready(function() {
     } 
     var estufaName = $("#dropdownEstufas option[value='"+estufaId+"']").text();
 
+
     if(!$(table).length){
 
      $("<table name='tableAssociadasEstufa"+estufaId+"' id='tableAssociadasEstufa"+estufaId+"' class='table table-filter table-striped table-bordered table-responsive'><caption><h2>"+estufaName +"</h2></caption>" +"<tbody></tbody></table>").appendTo('#containerAssociacoes');
@@ -74,7 +75,7 @@ $(document).ready(function() {
 
   
   $.each(array, function(key, index) {
-    $("<tr><td data-name='"+estufaName.replace(/\s+/g, '')+"[]' value='"+array[key].id+"'>"+"<input type='hidden' name='"+estufaName.replace(/\s+/g, '')+"[]"+key+"' value='"+ array[key].id+ "'>"+array[key].text+"</td><td><input type='button' onclick='remover(this)' class='btn btn-medium' value='Remover'></td></tr>").appendTo(tbody);
+    $("<tr><td data-name='"+estufaName+"[]' value='"+array[key].id+"'>"+"<input type='hidden' name='"+estufaName+"[]"+key+"' value='"+ array[key].id+ "'>"+array[key].text+"</td><td><input type='button' onclick='remover(this)' class='btn btn-medium' value='Remover'></td></tr>").appendTo(tbody);
   });
 
 /*
@@ -91,7 +92,6 @@ $(document).ready(function() {
 });
 
 function remover(elmnt) {
-
   var value = $(elmnt).closest("tr").children().first().attr('value'); 
   $(elmnt).closest("tr").remove();
   $("#dropdowntiposLeiturasEstufas option[value='"+value+"']").prop('selected', false) ;

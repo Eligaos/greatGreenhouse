@@ -74,7 +74,7 @@ $(document).ready(function() {
 
   
   $.each(array, function(key, index) {
-    $("<tr><td data-name='"+estufaName.replace(/\s+/g, '')+"[]' value='"+array[key].id+"'>"+"<input type='hidden' name='"+estufaName.replace(/\s+/g, '')+"[]"+key+"' value='"+ array[key].id+ "'>"+array[key].text+"</td><td><input type='button' onclick='remover(this)' class='btn btn-medium' value='Remover'></td></tr>").appendTo(tbody);
+    $("<tr><td data-name='"+estufaId+"[]' value='"+array[key].id+"'>"+"<input type='hidden' name='"+estufaId+"[]"+key+"' value='"+ array[key].id+ "'>"+array[key].text+"</td><td><input type='button' onclick='remover(this)' class='btn btn-medium' value='Remover'></td></tr>").appendTo(tbody);
   });
 
 /*

@@ -18,6 +18,8 @@ class CreateTableLeitura extends Migration
             $table->boolean('manual'); //0 - nao 1 -sim
             $table->integer('tipo_id')->unsigned();
             $table->foreign('tipo_id')->references('id')->on('tipo_leitura');
+            $table->integer('associacao_id')->unsigned();
+            $table->foreign('associacao_id')->references('id')->on('setor_tipos_leituras_associadas');
             $table->timestamps();      
         });
     }
@@ -32,6 +34,7 @@ class CreateTableLeitura extends Migration
     {  
        Schema::table('leituras', function(Blueprint $table) {
         $table->dropForeign('leituras_tipo_id_foreign');
+        $table->dropForeign('leituras_associacao_id_foreign');
     });
 
        Schema::drop('leituras');

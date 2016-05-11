@@ -13,7 +13,7 @@ class CreateTableExploracaoAgricola extends Migration
     public function up()
     {
         Schema::create('exploracoes', function (Blueprint $table) {
-           $table->increments('id');
+           $table->increments('id')->onDelete('cascade');
            $table->string('nome');
            $table->bigInteger('numero');
            $table->string('distrito');

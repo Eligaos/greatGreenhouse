@@ -12,12 +12,10 @@ class CreateTableSetorTiposLeiturasAssociadas extends Migration
      */
     public function up()
     {
-       Schema::create('setor_tipos_leituras_associadas', function (Blueprint $table) {
+       Schema::create('associacoes', function (Blueprint $table) {
         $table->increments('id');
         $table->integer('tipo_id')->unsigned();
-        $table->integer('leitura_id')->unsigned()->nullable();
         $table->integer('setor_id')->unsigned()->nullable();
-        $table->foreign('leitura_id')->references('id')->on('leituras');
         $table->foreign('setor_id')->references('id')->on('setores');
         $table->timestamps();      
     });
@@ -30,12 +28,11 @@ class CreateTableSetorTiposLeiturasAssociadas extends Migration
      */
     public function down()
     {
-       Schema::table('setor_tipos_leituras_associadas', function(Blueprint $table) {
-        $table->dropForeign(['leitura_id']);        
-        $table->dropForeign(['setor_id']);
+       Schema::table('associacoes', function(Blueprint $table) {
+        $table->dropForeign('associacoes_setor_id_foreign');
     });
 
-       Schema::drop('setor_tipos_leituras_associadas');
+       Schema::drop('associacoes');
    }
 }
 

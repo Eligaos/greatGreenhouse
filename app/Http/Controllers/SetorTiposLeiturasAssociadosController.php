@@ -39,24 +39,8 @@ class SetorTiposLeiturasAssociadosController extends Controller
 	}
 
 	public function associarSubmit(){
-		
 		$input = Input::except('_token');
-
-
-		$array=[];
-		foreach($input as $key => $n ) 
-		{
-			$estufa = Estufa::where('nome', 'like', $key)->first();
-			dd($estufa);
-
-			$setor = Setor::where('estufa_id', '=', $estufa[1]);
-			
-				//$array[$estufa[1]][$k] = $j;
-				// $array[$k] = $j;
-
-			$tp = SetorTiposLeiturasAssociados::create([$j, $estufa[1]]);
-		}
-
+		$associar = $this->stlaService->associarSubmit($input);	
 
 	}
 	
