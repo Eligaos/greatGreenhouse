@@ -19,4 +19,9 @@ class Setor extends Model
 	{
 		return $this->hasMany('App\Models\Cultura', 'setor_id', 'id');
 	}
+
+	public function Associacoes()
+	{
+		return $this->hasMany('App\Models\Associacoes', 'setor_id', 'id');
+	}
 }

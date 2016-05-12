@@ -19,7 +19,7 @@ class CreateTableLeitura extends Migration
             $table->integer('tipo_id')->unsigned();
             $table->foreign('tipo_id')->references('id')->on('tipo_leitura');
             $table->integer('associacao_id')->unsigned();
-            $table->foreign('associacao_id')->references('id')->on('setor_tipos_leituras_associadas');
+            $table->foreign('associacao_id')->references('id')->on('associacoes');
             $table->timestamps();      
         });
     }
