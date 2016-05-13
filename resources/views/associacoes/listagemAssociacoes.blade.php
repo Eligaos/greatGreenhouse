@@ -27,44 +27,30 @@
 											<div class="table-container">
 												<table class="table table-filter table-striped table-bordered table-responsive">							 
 													<tr>
-														<th>Valor</th>
+														<th>Parametro</th>
 														<th>Unidade</th>
-														<th>Tipo</th>
 														<th>Origem</th>
-														<th>Localização</th>
 														<th>Opções</th>
 													</tr>	
 													<tbody>		
-														@foreach($lista as $key => $leitura)
+														@foreach($lista as $key => $associacao)
 														<tr>									
 															<td>		
-																<span>{{$leitura->valor}}</span>
+																<span>{{$associacao->parametro}}</span>
 																
 															</td>
 															<td>		
-																<span>{{$leitura->unidade}}</span>
+																<span>{{$associacao->unidade}}</span>
 																
 															</td>
 															<td>		
-																<span>{{$leitura->tipo}}</span>
-																
-															</td>
-															<td>		
-																<span>{{$leitura->origem}}</span>
-																
-															</td>	
-															<td>		
-																<span>{{$leitura->localizacao}}</span>
+																<span>{{$associacao->estufa_nome}}</span>
 																
 															</td>
 															<td>
-																
-																<span>{{$leitura->manual}}</span>
-																
-															</td>
-															<td>
-																<div class="">
-																	<button type="submit" toggle="tooltip" name="id" class="btn btn-default pull-right" role="button" data-placement="top" title="Detalhes">Detalhes</button>
+																<div  style="text-align: center">
+																	<a class="btn btn-sm  btn-default" toggle="tooltip" data-placement="top" title="Editar Estufa"  role="button" name="editar" href="/admin/culturas/editar/{{$associacao->associacoes_id}}">Editar</a>
+																	<a class="btn btn-sm  btn-default" href="#">Eliminar</a>
 																</div>
 															</td>
 														</tr>													
@@ -75,8 +61,13 @@
 										</form> 
 										<div class="form-group">
 											<div class="input-group-addon">
-												<a href="/admin/associacoes/associar" role="button" name="adicionar" id="adicionar exploracao" class="btn btn-success pull-right">Adicionar Associação</a>
-											</div>
+												@if(count($estufas)!=0)
+												<a href="/admin/associacoes/associar" role="button" name="adicionar" id="adicionarAssociacao" class="btn btn-success pull-right">Adicionar Associação</a>
+												@else
+												<a role="button" name="adicionar" id="adicionar cultura" class="btn btn-success pull-right" toggle="tooltip" data-placement="top" title="Adicione um Estufa primeiro" disabled>Adicionar Associação</a>
+												@endif
+												
+											</div>		
 										</div>	
 									</div>
 								</div>

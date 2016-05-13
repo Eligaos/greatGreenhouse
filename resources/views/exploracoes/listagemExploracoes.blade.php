@@ -67,7 +67,7 @@
 
 							<div class="form-group">
 								<div class="input-group-addon">
-									<a href="/admin/exploracoes/adicionar" role="button" name="adicionar" id="adicionar exploracao" class="btn btn-success pull-right">Adicionar Exploracao</a>
+									<a href="/admin/exploracoes/adicionar" role="button" name="adicionar" id="adicionarExploracao" class="btn btn-success pull-right">Adicionar Exploracao</a>
 								</div>
 							</div>	
 						</div>

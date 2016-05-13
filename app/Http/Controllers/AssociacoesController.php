@@ -11,16 +11,16 @@ use Session;
 
 class AssociacoesController extends Controller
 {
-	protected $stlaService;
+	protected $aService;
 	protected $cService;
 	protected $eService;
 	protected $exploracaoSelecionada;
 
 
-	public function __construct(AssociacoesService $stlaService, CulturaService $cService, EstufaService $eService)
+	public function __construct(AssociacoesService $aService, CulturaService $cService, EstufaService $eService)
 	{
 		$this->middleware('auth');
-		$this->stlaService = $stlaService;
+		$this->aService = $aService;
 		$this->cService = $cService;
 		$this->eService = $eService;
 		$this->exploracaoSelecionada = Session::get('exploracaoSelecionada');
@@ -28,19 +28,23 @@ class AssociacoesController extends Controller
 	}
 	
 	public function listarAssociacoes(){ #todo-- Fazer apenas para a exploracao atual
-		$lista = $this->stlaService->getAssociacoes();
-		return view('associacoes.listagemAssociacoes', compact('lista'));
+		$lista = [];
+		$estufas = $this->eService->getEstufas($this->exploracaoSelecionada);
+		if(count($estufas)!=0){
+			$lista = $this->aService->listarAssociacoes($estufas); //collection
+		}
+		return view('associacoes.listagemAssociacoes', compact('lista', 'estufas'));
 	}
 
 	public function associar(){
 		$estufas = $this->eService->getEstufas($this->exploracaoSelecionada);
-		$tiposLeituras = $this->stlaService->getTiposLeitura();
+		$tiposLeituras = $this->aService->getTiposLeitura();
 		return view('associacoes.adicionarAssociacao', compact('estufas', 'tiposLeituras'));
 	}
 
 	public function associarSubmit(){
 		$input = Input::except('_token');
-		$associar = $this->stlaService->associarSubmit($input);	
+		$associar = $this->aService->associarSubmit($input);	
 		if($associar){
 			return Redirect::to("/admin/associacoes/listar")->with('message', 'Associação guardada com sucesso!');
 		}else{

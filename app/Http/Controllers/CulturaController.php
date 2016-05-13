@@ -38,6 +38,7 @@ class CulturaController extends Controller
 		if(count($estufas)!=0){
 			$lista = $this->cService->listarCulturas($estufas); //collection
 		}
+		
 		return view('culturas.listagemCulturas', compact('lista', 'estufas'));
 	}
 	public function adicionarCultura(CulturaRequest $request){   

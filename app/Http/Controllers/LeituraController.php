@@ -7,7 +7,7 @@ use App\Http\Requests;
 use Illuminate\Support\Facades\Input;
 use Redirect;
 
-class LeiturasController extends Controller
+class LeituraController extends Controller
 {
     protected $lService;
 
@@ -17,10 +17,14 @@ class LeiturasController extends Controller
         $this->lService = $lService;
     }
 
-	public function listarLeituras(){
-		$lista = $this->lService->getLeituras();
-		return view('leituras.listagemLeituras', compact('lista'));
-	}
-    
+    public function listarLeituras(){
+      $lista = $this->lService->getLeituras();
+      return view('leituras.listagemLeituras', compact('lista'));
+  }
+
+  public function adicionarRegistoManual(){
+    return view('leituras.adicionarRegistoManual');
+}
+
 
 }
