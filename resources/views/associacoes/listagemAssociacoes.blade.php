@@ -71,7 +71,7 @@
 						</form> 
 						<div class="form-group">
 							<div class="input-group-addon">
-								<a href="/admin/associacoes-tipos-leituras/associar" role="button" name="adicionar" id="adicionar exploracao" class="btn btn-success pull-right">Adicionar Associação</a>
+								<a href="/admin/associacoes/associar" role="button" name="adicionar" id="adicionar exploracao" class="btn btn-success pull-right">Adicionar Associação</a>
 							</div>
 						</div>	
 					</div>

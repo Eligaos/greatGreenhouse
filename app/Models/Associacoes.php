@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Associacoes extends Model
 {
     
-	protected $table = "setor_tipos_leituras_associadas";
+	protected $table = "associacoes";
 	protected $fillable = ['tipo_id', 'setor_id'];
 
 

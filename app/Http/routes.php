@@ -102,9 +102,9 @@ Route::group(['middleware' => ['web']], function ()
 
 	/**********ASSOCIACOES-TIPOS-LEITURAS**********/
 
-	Route::get('/admin/associacoes-tipos-leituras/listar', 'SetorTiposLeiturasAssociadosController@listarAssociacoes');
-	Route::get('/admin/associacoes-tipos-leituras/associar', 'SetorTiposLeiturasAssociadosController@associar');
-	Route::post('admin/associacoes-tipos-leituras/associar/submit', 'SetorTiposLeiturasAssociadosController@associarSubmit');
+	Route::get('/admin/associacoes/listar', 'AssociacoesController@listarAssociacoes');
+	Route::get('/admin/associacoes/associar', 'AssociacoesController@associar');
+	Route::post('admin/associacoes/associar/submit', 'AssociacoesController@associarSubmit');
 
 
 	/**********SENSORES**********/

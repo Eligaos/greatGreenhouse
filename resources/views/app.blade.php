@@ -68,7 +68,7 @@
      <li><a href="#"><i class="glyphicon glyphicon-globe"></i> Registar Leitura Manual </a></li>
    </ul>
    <li>
-    <a href="/admin/associacoes-tipos-leituras/listar">
+    <a href="/admin/associacoes/listar">
       <i class="fa fa-globe fa-lg"></i> Associar Tipos de Leituras
     </a>
   </li>

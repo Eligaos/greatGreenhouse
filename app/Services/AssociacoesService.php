@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\Models\SetorTiposLeiturasAssociados;
+use App\Models\Associacoes;
 use App\Models\TipoLeitura;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Estufa;
@@ -10,10 +10,10 @@ use App\Models\Setor;
 
 
 
-class SetorTiposLeiturasAssociadosService
+class AssociacoesService
 {
 	public function getAssociacoes(){ //da exp atual
-		return SetorTiposLeiturasAssociados::get();
+		return Associacoes::get();
 	}
 
 	public function getTiposLeitura(){ 
@@ -25,16 +25,12 @@ class SetorTiposLeiturasAssociadosService
 		foreach($input as $key => $n ) 
 		{
 			$estufa = Estufa::find($key);
-			$setor = Setor::where('estufa_id', '=', $estufa->id)->where("nome", "like", "Nenhum")->get();
-
-			
-				//$array[$estufa[1]][$k] = $j;
-				// $array[$k] = $j;
-
-			$tp = SetorTiposLeiturasAssociados::create($setor->id);
+			$setor = Setor::where('estufa_id', '=', $estufa->id)->where("nome", "like", "Nenhum")->first();
+			for($i=0; $i<count($input[$key]); $i++){
+				$tp = Associacoes::create(["setor_id" => $setor->id, 
+					"tipo_id"=> $input[$key][$i]]);
+			}
 		}
-
 	}
-
 }
 
