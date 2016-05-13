@@ -17,73 +17,77 @@
 							<div class="table-container">
 								<table class="table table-filter table-striped table-bordered table-responsive">
 									<tbody>
-					
-						<form class="form-signin" method="POST" action="/admin/home">
-							<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">							
-							<div class="table-container">
-								<table class="table table-filter table-striped table-bordered table-responsive">							 
-								<tr>
-									<th>Valor</th>
-									<th>Unidade</th>
-									<th>Tipo</th>
-									<th>Origem</th>
-									<th>Localização</th>
-									<th>Opções</th>
-								 </tr>	
-								<tbody>		
-							@foreach($lista as $key => $leitura)
-										<tr>									
-											<td>		
-											<span>{{$leitura->valor}}</span>
 										
-											</td>
-											<td>		
-											<span>{{$leitura->unidade}}</span>
-										
-											</td>
-											<td>		
-											<span>{{$leitura->tipo}}</span>
-										
-											</td>
-											<td>		
-											<span>{{$leitura->origem}}</span>
-										
-											</td>	
-											<td>		
-											<span>{{$leitura->localizacao}}</span>
-										
-											</td>
-											<td>
-												
-											<span>{{$leitura->manual}}</span>
-										
-											</td>
-											<td>
-												<div class="">
-													<button type="submit" toggle="tooltip" name="id" class="btn btn-default pull-right" role="button" data-placement="top" title="Detalhes">Detalhes</button>
-												</div>
-											</td>
-										</tr>													
-						@endforeach
-									</tbody>
-								</table>									
+										<form class="form-signin" method="POST" action="/admin/home">
+											<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">								@if( Session::get('message'))
+											<div style="text-align: center">
+												<span class="alert alert-info"> {{ Session::get('message') }}</span>
+											</div>
+											@endif
+											<div class="table-container">
+												<table class="table table-filter table-striped table-bordered table-responsive">							 
+													<tr>
+														<th>Valor</th>
+														<th>Unidade</th>
+														<th>Tipo</th>
+														<th>Origem</th>
+														<th>Localização</th>
+														<th>Opções</th>
+													</tr>	
+													<tbody>		
+														@foreach($lista as $key => $leitura)
+														<tr>									
+															<td>		
+																<span>{{$leitura->valor}}</span>
+																
+															</td>
+															<td>		
+																<span>{{$leitura->unidade}}</span>
+																
+															</td>
+															<td>		
+																<span>{{$leitura->tipo}}</span>
+																
+															</td>
+															<td>		
+																<span>{{$leitura->origem}}</span>
+																
+															</td>	
+															<td>		
+																<span>{{$leitura->localizacao}}</span>
+																
+															</td>
+															<td>
+																
+																<span>{{$leitura->manual}}</span>
+																
+															</td>
+															<td>
+																<div class="">
+																	<button type="submit" toggle="tooltip" name="id" class="btn btn-default pull-right" role="button" data-placement="top" title="Detalhes">Detalhes</button>
+																</div>
+															</td>
+														</tr>													
+														@endforeach
+													</tbody>
+												</table>									
+											</div>
+										</form> 
+										<div class="form-group">
+											<div class="input-group-addon">
+												<a href="/admin/associacoes/associar" role="button" name="adicionar" id="adicionar exploracao" class="btn btn-success pull-right">Adicionar Associação</a>
+											</div>
+										</div>	
+									</div>
+								</div>
 							</div>
-						</form> 
-						<div class="form-group">
-							<div class="input-group-addon">
-								<a href="/admin/associacoes/associar" role="button" name="adicionar" id="adicionar exploracao" class="btn btn-success pull-right">Adicionar Associação</a>
-							</div>
-						</div>	
+						</section>
 					</div>
 				</div>
 			</div>
-		</section>
-	</div>
-</div>
-</div>
-</div>
-@endsection
+		</div>
+		@endsection
 
-@section('customScripts')
+		@section('customScripts')
 
-@endsection
+		@endsection

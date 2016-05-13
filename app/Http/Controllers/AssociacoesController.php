@@ -41,7 +41,11 @@ class AssociacoesController extends Controller
 	public function associarSubmit(){
 		$input = Input::except('_token');
 		$associar = $this->stlaService->associarSubmit($input);	
-
+		if($associar){
+			return Redirect::to("/admin/associacoes/listar")->with('message', 'Associação guardada com sucesso!');
+		}else{
+			return Redirect::to("/admin/associacoes/associar")->with('message', 'Associação Existente');
+		}
 	}
 	
 }

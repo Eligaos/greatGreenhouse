@@ -20,6 +20,11 @@
 							<div class="form-group">
 								<h3>Dados da Estufa</h3><hr>
 							</div>			
+								@if( Session::get('message'))
+										<div style="text-align: center">
+											<span class="alert alert-info"> {{ Session::get('message') }}</span>
+										</div>
+										@endif
 							<div class="col-lg-3">	
 								<div class="btn-group">
 									<label>Escolha uma Estufa</label>

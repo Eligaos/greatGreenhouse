@@ -27,10 +27,16 @@ class AssociacoesService
 			$estufa = Estufa::find($key);
 			$setor = Setor::where('estufa_id', '=', $estufa->id)->where("nome", "like", "Nenhum")->first();
 			for($i=0; $i<count($input[$key]); $i++){
-				$tp = Associacoes::create(["setor_id" => $setor->id, 
-					"tipo_id"=> $input[$key][$i]]);
+				$exists = Associacoes::where('setor_id', '=', $setor->id)->where("tipo_id", '=',$input[$key][$i])->first();
+				if($exists != null){
+					return false;
+				}else{
+					$tp = Associacoes::create(["setor_id" => $setor->id, 
+						"tipo_id"=> $input[$key][$i]]);
+				}
 			}
 		}
+		return true;		
 	}
 }
 
