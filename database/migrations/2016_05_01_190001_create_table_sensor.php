@@ -12,15 +12,17 @@ class CreateTableSensor extends Migration
      */
     public function up()
     {
-         Schema::create('sensores', function (Blueprint $table) {
+       Schema::create('sensores', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome');
             $table->string('modelo');
             $table->float('area_alcance');
             $table->boolean('estado'); // 0 inativo ; 1 - ativo
+            $table->integer('tipo_id')->unsigned();
+            $table->foreign('tipo_id')->references('id')->on('tipo_leitura');
             $table->timestamps();  
-          });
-    }
+        });
+   }
 
     /**
      * Reverse the migrations.
@@ -29,6 +31,9 @@ class CreateTableSensor extends Migration
      */
     public function down()
     {       
+        Schema::table('sensores', function(Blueprint $table) {
+            $table->dropForeign(['tipo_id']);
+        });
         Schema::drop('sensores');    
     }
 }

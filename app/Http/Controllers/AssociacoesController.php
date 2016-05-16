@@ -27,7 +27,7 @@ class AssociacoesController extends Controller
 
 	}
 	
-	public function listarAssociacoes(){ #todo-- Fazer apenas para a exploracao atual
+	public function listarAssociacoes(){
 		$lista = [];
 		$estufas = $this->eService->getEstufas($this->exploracaoSelecionada);
 		if(count($estufas)!=0){

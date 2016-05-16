@@ -114,6 +114,8 @@ Route::group(['middleware' => ['web']], function ()
 	/**********LEITURAS**********/
 
 	Route::get('/admin/leituras/listar', 'LeituraController@listarLeituras');
+	Route::get('/admin/leituras/getAssociacoes/{id}', 'LeituraController@getAssociacoes');
+	
 	Route::get('/admin/leituras/adicionarRegistoManual', 'LeituraController@adicionarRegistoManual');
 });
 

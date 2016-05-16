@@ -7,9 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class LeituraService
 {
-	 public function getLeituras(){ 
+	public function getLeituras(){ 
 		return Leitura::get();
 	}
+
 
 }
 
