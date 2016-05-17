@@ -21,21 +21,41 @@
 							<div class="table-container">
 								<table class="table table-filter table-striped table-bordered table-responsive">							 <tr>
 									<th>Parâmetro</th>
-									<th>Unidade</th>
+									<th>Modelo</th>
+									<th>Parametro</th>
+									<th>Estado</th>
 									<th>Opções</th>
 								 </tr>	
 								<tbody>		
-							@foreach($lista as $key => $tipoLeitura)
+							@foreach($lista as $key => $sensor)
 										<tr>									
 											<td>		
-											<span>{{$tipoLeitura->parametro}}</span>
+											<span>{{$sensor->nome}}</span>
 										
 											</td>
 											<td>
 												
-											<span>{{$tipoLeitura->unidade}}</span>
+											<span>{{$sensor->modelo}}</span>
 										
 											</td>
+											<td>
+												
+											<span>{{$sensor->parametro}}</span>
+										
+											</td>
+											@if($sensor->estado == 0)
+											<td>
+												
+											<span>inativo</span>
+										
+											</td>
+											@else
+											<td>
+												
+											<span>ativo</span>
+										
+											</td>
+											@endif
 											<td>
 												<div class="">
 													<button type="submit" toggle="tooltip" name="id" class="btn btn-default pull-right" role="button" data-placement="top" title="Detalhes">Detalhes</button>
@@ -49,7 +69,7 @@
 						</form> 
 						<div class="form-group">
 							<div class="input-group-addon">
-								<a href="/admin/tipos-leituras/adicionar" role="button" name="adicionar" id="adicionar exploracao" class="btn btn-success pull-right">Adicionar novo Tipo de Leitura</a>
+								<a href="/admin/sensores/adicionar" role="button" name="adicionar" id="adicionar exploracao" class="btn btn-success pull-right">Adicionar novo Sensor</a>
 							</div>
 						</div>	
 					</div>
