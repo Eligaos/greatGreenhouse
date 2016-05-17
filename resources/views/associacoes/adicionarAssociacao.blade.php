@@ -12,13 +12,13 @@
 <div class="container">
 	<div class="row centered-form">
 		<div class="col-xs-12 col-sm-9 col-md-10 col-sm-offset-3 col-md-offset-2">
-			<div>
+			<div class="content">
 				<div class="panel panel-default">
 					<div class="panel-body">
 						<form id="registerForm" method="POST" action="/admin/associacoes/associar/submit">
 							<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">						
 							<div class="form-group">
-								<h3>Dados da Estufa</h3><hr>
+								<h3>Nova Associação</h3><hr>
 							</div>			
 								@if( Session::get('message'))
 										<div style="text-align: center">
