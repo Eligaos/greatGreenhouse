@@ -110,10 +110,14 @@ Route::group(['middleware' => ['web']], function ()
 	/**********SENSORES**********/
 
 	Route::get('/admin/sensores/listar', 'SensorController@listarSensores');
+	Route::get('/admin/sensores/adicionar', 'SensorController@adicionarSensore');
+	Route::post('/admin/sensores/adicionar/submit', 'SensorController@adicionarSensoreSubmit');
 
 	/**********LEITURAS**********/
 
 	Route::get('/admin/leituras/listar', 'LeituraController@listarLeituras');
+	Route::get('/admin/leituras/getAssociacoes/{id}', 'LeituraController@getAssociacoes');
+	
 	Route::get('/admin/leituras/adicionarRegistoManual', 'LeituraController@adicionarRegistoManual');
 });
 

@@ -64,7 +64,7 @@
     </li> 
     <ul class="sub-menu collapse" id="leituras">
      <li><a href="/admin/tipos-leituras/listar"><i class="glyphicon glyphicon-globe"></i> Tipos de Leituras</a></li>
-     <li><a href="/admin/leituras/adicionarRegistoManual"><i class="glyphicon glyphicon-globe"></i> Sensores </a></li>
+     <li><a href="/admin/sensores/listar"><i class="glyphicon glyphicon-globe"></i> Sensores </a></li>
      <li><a href="/admin/leituras/adicionarRegistoManual"><i class="glyphicon glyphicon-globe"></i> Registar Leitura Manual </a></li>
    </ul>
    <li>

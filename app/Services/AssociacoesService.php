@@ -27,6 +27,18 @@ class AssociacoesService
 		return $associacoes;
 	}
 
+	public function getAssociacoes($estufa){
+		for($i=0; $i<count($estufa[1]);$i++){
+			$ass = Associacoes::where('setor_id', '=', $estufa[1][$i]->id)->get();
+		}
+		$tipos = [];
+		for($i=0; $i<count($ass);$i++){
+			$tipo =TipoLeitura::find($ass[$i]->tipo_id);
+			array_push($tipos, $tipo);
+		}
+		return $tipos;
+	}
+
 
 	public function getTiposLeitura(){ 
 		return TipoLeitura::get();
