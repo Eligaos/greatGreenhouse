@@ -46,7 +46,7 @@ class LeituraController extends Controller
     $lista = [];
     $estufas = $this->eService->getEstufas($this->exploracaoSelecionada);
     if(count($estufas)!=0){
-            $lista = $this->aService->listarAssociacoes($estufas); //collection
+          //  $lista = $this->aService->listarAssociacoes($estufas); //collection
         }
         return view('leituras.adicionarRegistoManual' , compact('lista', 'estufas'));
     }

@@ -11,7 +11,7 @@ $(document).ready(function() {
 
     var estufaId  = $('#dropdownEstufas').selectpicker('val');
     $('#dropdowntiposLeiturasEstufas').selectpicker('deselectAll');
-  /* $.get( "/admin/culturas/getSetor/"+ estufaId, function( data ) {
+  /* $.get( "/admin/estufas/setores/"+ estufaId, function( data ) {
 
    }).done(function(data){
        if(data.length > 0){

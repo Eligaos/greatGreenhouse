@@ -66,6 +66,11 @@ class EstufaController extends Controller
         }
     }
 
+    public function getSetores($idEstufa){
+		$setores = $this->eService->getSetores($idEstufa);
+		return $setores;	
+	}
+
 		/*$input = Input::except('_token');
 		$exploracaoSelecionada = Session::get('exploracaoSelecionada');
 		$estufa = $this->eService->saveEditEstufa($exploracaoSelecionada, $input, $idE);

@@ -41,6 +41,13 @@ class EstufaService
 		return [$estufa, $setor];
 	}
 
+
+    public function getSetores($idEstufa){ 
+
+        $setores = Setor::where("estufa_id", "LIKE", $estufa->id)->get();
+        //$setor = Setor::where("estufa_id", "LIKE", $estufa->id)->where('nome','not like','Setor 0')->get();
+        return $setores;
+    }
 	/*public function procurarEstufa($id){ 
 		$estufa = Estufa::find($id);
 		$setor = Setor::where('estufa_id', $estufa->id)->where('nome','not like','Nenhum')->get();

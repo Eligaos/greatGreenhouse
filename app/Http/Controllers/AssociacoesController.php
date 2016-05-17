@@ -38,8 +38,9 @@ class AssociacoesController extends Controller
 
 	public function associar(){
 		$estufas = $this->eService->getEstufas($this->exploracaoSelecionada);
-		$tiposLeituras = $this->aService->getTiposLeitura();
+	//	$tiposLeituras = $this->aService->getTiposLeitura();
 		return view('associacoes.adicionarAssociacao', compact('estufas', 'tiposLeituras'));
+		
 	}
 
 	public function associarSubmit(){

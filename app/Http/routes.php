@@ -82,6 +82,7 @@ Route::group(['middleware' => ['web']], function ()
 	Route::post('/admin/estufas/editar/submit/{id}', 'EstufaController@saveEditEstufa');
 	Route::get('/admin/estufas/adicionar', 'EstufaController@adicionar');
 	Route::post('/admin/estufas/adicionar/submit', 'EstufaController@adicionarEstufa');
+	Route::get('/admin/estufas/setores', 'EstufaController@getSetores');
 
 
 	/**********CULTURAS**********/
@@ -112,6 +113,8 @@ Route::group(['middleware' => ['web']], function ()
 	Route::get('/admin/sensores/listar', 'SensorController@listarSensores');
 	Route::get('/admin/sensores/adicionar', 'SensorController@adicionarSensore');
 	Route::post('/admin/sensores/adicionar/submit', 'SensorController@adicionarSensoreSubmit');
+
+	Route::get('/admin/sensores/get', 'SensorController@getSensores');
 
 	/**********LEITURAS**********/
 
