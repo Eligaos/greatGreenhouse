@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Services\AssociacoesService;
 use App\Services\CulturaService;
 use App\Services\EstufaService;
+use App\Services\SensorService;
 use Illuminate\Support\Facades\Input;
 use App\Models\Associacoes;
 use Redirect;
@@ -14,15 +15,17 @@ class AssociacoesController extends Controller
 	protected $aService;
 	protected $cService;
 	protected $eService;
+	protected $sService;
 	protected $exploracaoSelecionada;
 
 
-	public function __construct(AssociacoesService $aService, CulturaService $cService, EstufaService $eService)
+	public function __construct(AssociacoesService $aService, CulturaService $cService, EstufaService $eService, SensorService $sService)
 	{
 		$this->middleware('auth');
 		$this->aService = $aService;
 		$this->cService = $cService;
 		$this->eService = $eService;
+		$this->sService = $sService;
 		$this->exploracaoSelecionada = Session::get('exploracaoSelecionada');
 
 	}
@@ -38,19 +41,16 @@ class AssociacoesController extends Controller
 
 	public function associar(){
 		$estufas = $this->eService->getEstufas($this->exploracaoSelecionada);
-	//	$tiposLeituras = $this->aService->getTiposLeitura();
-		return view('associacoes.adicionarAssociacao', compact('estufas', 'tiposLeituras'));
+		$sensores = $this->sService->getSensoresInativos();
+		$tiposLeituras = $this->aService->getTiposLeitura();
+		return view('associacoes.adicionarAssociacao', compact('estufas', 'tiposLeituras', 'sensores'));
 		
 	}
 
 	public function associarSubmit(){
 		$input = Input::except('_token');
 		$associar = $this->aService->associarSubmit($input);	
-		if($associar){
-			return Redirect::to("/admin/associacoes/listar")->with('message', 'Associação guardada com sucesso!');
-		}else{
-			return Redirect::to("/admin/associacoes/associar")->with('message', 'Associação Existente');
-		}
+		return Redirect::to("/admin/associacoes/listar")->with('message', 'Associação guardada com sucesso!');
 	}
 	
 }

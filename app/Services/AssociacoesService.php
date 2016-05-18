@@ -7,6 +7,7 @@ use App\Models\TipoLeitura;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Estufa;
 use App\Models\Setor;
+use App\Models\Sensor;
 
 
 
@@ -15,7 +16,7 @@ class AssociacoesService
 	public function listarAssociacoes($estufas){ //da exp atual
 		$tudo = [];
 		for($i=0; $i<count($estufas);$i++){		
-			$join = Estufa::join('setores', 'estufas.id', '=', 'setores.estufa_id')->join('associacoes','setores.id', '=','associacoes.setor_id')->join('sensores', 'associacoes.sensor_id', '=', 'sensores.id')->join('tipo_leitura','sensores.')->select('estufas.id as estufa_id', 'associacoes.id as associacoes_id','sensores.id as sensores_id', 'estufas.nome as estufa_nome', 'tipo_leitura.parametro', 'tipo_leitura.unidade')->where('estufas.id', '=', $estufas[$i]->id)->get();
+			$join = Estufa::join('setores', 'estufas.id', '=', 'setores.estufa_id')->join('associacoes','setores.id', '=','associacoes.setor_id')->join('sensores', 'associacoes.sensor_id', '=', 'sensores.id')->join('tipo_leitura', 'sensores.tipo_id', '=', 'tipo_leitura.id')->select('estufas.id as estufa_id', 'associacoes.id as associacoes_id','sensores.id as sensores_id', 'estufas.nome as estufa_nome', 'tipo_leitura.parametro', 'tipo_leitura.unidade')->where('estufas.id', '=', $estufas[$i]->id)->get();
 			array_push($tudo,$join);
 		}
 		$associacoes = [];
@@ -45,21 +46,11 @@ class AssociacoesService
 	}
 
 	public function associarSubmit($input){
-		$array=[];
-		foreach($input as $key => $n ) 
-		{
-			$estufa = Estufa::find($key);
-			$setor = Setor::where('estufa_id', '=', $estufa->id)->where("nome", "like", "Nenhum")->first();
-			for($i=0; $i<count($input[$key]); $i++){
-				$exists = Associacoes::where('setor_id', '=', $setor->id)->where("tipo_id", '=',$input[$key][$i])->first();
-				if($exists != null){
-					return false;
-				}else{
-					$tp = Associacoes::create(["setor_id" => $setor->id, 
-						"tipo_id"=> $input[$key][$i]]);
-				}
-			}
-		}
+		$tp = Associacoes::create(["setor_id" => $input['setor_id'], 
+						"sensor_id"=> $input['sensor_id']]);
+		$sensor = Sensor::find($input["sensor_id"]);
+		$sensor->estado = 1;
+		$sensor->save();
 		return true;		
 	}
 }
