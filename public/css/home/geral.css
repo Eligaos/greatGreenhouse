@@ -1,19 +1,38 @@
 .centered-form .panel{
-  background: rgb(251, 251, 251);
+	background: rgb(251, 251, 251);
 }
 
 body {
-   /* background-image: url("../tree_barkv2.png");*/
-   /* background-image: url("../congruent_pentagon.png");*/
-    background-image: url("/img/congruent_pentagon.png");
-    background-repeat: repeat;
+	/* background-image: url("../tree_barkv2.png");*/
+	/* background-image: url("../congruent_pentagon.png");*/
+	background-image: url("/img/congruent_pentagon.png");
+	background-repeat: repeat;
 
 } 
 /*tabela adicionar zona: Adicionar Estufa view*/
 .table-sortable tbody tr {
-    cursor: move;
+	cursor: move;
 }
 
 .content{
-	margin-top: 50px;
+	margin-top: 10px;
+}
+
+.border-bottom{
+	border-bottom: 1px solid #e5e5e5;
+}
+.margin-bottom{
+	margin-bottom: 10px;
+}
+
+.lg-margin-bottom{
+	margin-bottom: 20px;
+}
+
+.pagination{
+
+	display: inline;
+	padding-left: 0;
+	margin: 0px;
+	border-radius: 0px;
 }

@@ -19,7 +19,7 @@
 						<h3 class="panel-title" id="myModalLabel">Editar Cultura</h3>
 					</div>
 					<div class="panel-body">
-						<form id="registerForm" method="POST" action="/admin/culturas/editar/submit/{{$lista[0]->id}}">
+						<form id="registerForm" method="POST" action="/admin/especies/editar/submit/{{$lista[0]->id}}">
 							<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">							
 							<div class="form-group">
 								<fieldset> 

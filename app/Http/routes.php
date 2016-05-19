@@ -84,6 +84,14 @@ Route::group(['middleware' => ['web']], function ()
 	Route::post('/admin/estufas/adicionar/submit', 'EstufaController@adicionarEstufa');
 	Route::get('/admin/estufas/setores', 'EstufaController@getSetores');
 
+	/**********ESPÉCIES**********/
+
+	Route::get('/admin/especies/listar', 'EspecieController@listarEspecies');
+	Route::get('/admin/especies/adicionar', 'EspecieController@adicionar');
+	Route::get('/admin/especies/detalhes/{id}', 'EspecieController@detalhesEspecie');
+	Route::post('/admin/especies/adicionar/submit', 'EspecieController@adicionarEspecie');
+	Route::get('/admin/especies/editar/{id}', 'EspecieController@editarEspecie');
+	Route::post('/admin/especies/editar/submit/{id}', 'EspecieController@saveEditEspecie');
 
 	/**********CULTURAS**********/
 

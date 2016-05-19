@@ -1,7 +1,6 @@
 @extends('app')
 
 @section('customStyles')
-<link href="{{asset('css/addExploracao.css')}}" rel="stylesheet">
 
 @endsection
 @section('title', ' - Detalhes da Cultura')
@@ -51,7 +50,7 @@
 									<label for="desc">Data de Fim do Ciclo: </label>									
 									<span>{{$lista[0]->data_prevista_fim_ciclo}}</span>
 									<br/>
-									<label for="desc">Duração do Ciclo: </label>									
+									<label for="desc">Duração do Ciclo: </label>				
 									<span>{{$lista[0]->duracao_ciclo}}</span>
 									<br/>
 								</div>
