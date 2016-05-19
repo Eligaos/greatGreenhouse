@@ -14,7 +14,6 @@ class CreateTableSetor extends Migration
     {
         Schema::create('setores', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('setor_id');       
             $table->integer('estufa_id')->unsigned();            
             $table->string('nome');
             $table->string('descricao');

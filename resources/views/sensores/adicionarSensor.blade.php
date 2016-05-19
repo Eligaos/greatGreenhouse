@@ -1,7 +1,8 @@
 @extends('app')
 
 @section('customStyles')
-<link href="{{asset('css/addExploracao.css')}}" rel="stylesheet">
+<link href="{{asset('css/exploracoes/addExploracao.css')}}" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
 
 @endsection
 @section('content')
@@ -34,14 +35,13 @@
 										</div>
 									</div>
 									<label>Escolha o Tipo</label>
-										<div class="col-xs-12 col-md-12">
-
-											<select id="tipo_id" name="tipo_id" class="selectpicker form-control" title="Selecione um Tipo"  data-live-search="true" showTick="true">
-												@foreach($tiposLeituras as $key => $tipo)
-												<option value="{{$tipo->id}}">{{$tipo->parametro}}</option>
-												@endforeach	
-											</select>
-										</div>
+									<div class="col-xs-12 col-md-12">
+										<select id="tipo_id" name="tipo_id" class="selectpicker form-control" title="Selecione um Tipo"  data-live-search="true" showTick="true">
+											@foreach($tiposLeituras as $key => $tipo)
+											<option value="{{$tipo->id}}">{{$tipo->parametro}}</option>
+											@endforeach	
+										</select>
+									</div>
 								</fieldset>
 							</div>
 
@@ -60,6 +60,6 @@
 </div>
 @endsection
 @section('customScripts')
-<script src="{{asset('js/adicionarCultura.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
 @endsection
 

@@ -28,16 +28,19 @@ class AssociacoesService
 		return $associacoes;
 	}
 
-	public function getAssociacoes($estufa){
+	public function getAssociacoes($estufa){//para registos manuais
+		$tudo = [];
 		for($i=0; $i<count($estufa[1]);$i++){
-			$ass = Associacoes::where('setor_id', '=', $estufa[1][$i]->id)->get();
+			$ass = Associacoes::join('sensores','associacoes.sensor_id','=','sensores.id')->join('tipo_leitura', 'sensores.tipo_id', '=', 'tipo_leitura.id')->where('setor_id', '=', $estufa[1][$i]->id)->select('associacoes.id as associacoes_id','sensores.id as sensores_id','tipo_leitura.parametro', 'tipo_leitura.unidade', 'sensores.nome as sensor_nome')->get();
+			array_push($tudo,$ass);
 		}
-		$tipos = [];
-		for($i=0; $i<count($ass);$i++){
-			$tipo =TipoLeitura::find($ass[$i]->tipo_id);
-			array_push($tipos, $tipo);
+		$associacoes = [];
+		for($i=0; $i<count($tudo);$i++){
+			for($j=0; $j<count($tudo[$i]); $j++){									
+				array_push($associacoes, $tudo[$i][$j]);
+			}
 		}
-		return $tipos;
+		return $associacoes;
 	}
 
 
@@ -47,7 +50,7 @@ class AssociacoesService
 
 	public function associarSubmit($input){
 		$tp = Associacoes::create(["setor_id" => $input['setor_id'], 
-						"sensor_id"=> $input['sensor_id']]);
+			"sensor_id"=> $input['sensor_id']]);
 		$sensor = Sensor::find($input["sensor_id"]);
 		$sensor->estado = 1;
 		$sensor->save();

@@ -42,13 +42,19 @@ class LeituraController extends Controller
         return $tipos;
     }
 
-  public function adicionarRegistoManual(){
-    $lista = [];
-    $estufas = $this->eService->getEstufas($this->exploracaoSelecionada);
-    if(count($estufas)!=0){
+    public function adicionarRegistoManual(){
+        $lista = [];
+        $estufas = $this->eService->getEstufas($this->exploracaoSelecionada);
+        if(count($estufas)!=0){
           //  $lista = $this->aService->listarAssociacoes($estufas); //collection
         }
         return view('leituras.adicionarRegistoManual' , compact('lista', 'estufas'));
+    }
+
+    public function adicionarRegistoManualSubmit(){//fazer request
+        $input = Input::except('_token');
+        $add = $this->lService->adicionarRegistoManualSubmit($input);
+       return Redirect::to("/admin/leituras/listar")->with('message', 'Registo guardado com sucesso!');
     }
 
 

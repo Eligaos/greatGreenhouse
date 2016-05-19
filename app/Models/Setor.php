@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 class Setor extends Model
 {
 	protected $table = "setores";
-	protected $fillable = ['nome','descricao', 'estufa_id', 'setor_id'];
+	protected $fillable = ['nome','descricao', 'estufa_id'];
 
 
 	public function estufas()

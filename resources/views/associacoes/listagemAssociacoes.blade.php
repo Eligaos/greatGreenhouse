@@ -25,6 +25,9 @@
 											</div>
 											@endif
 											<div class="table-container">
+												@if($estufas!=0 && $sensores != 0)							
+												@if(count($lista)!=0)							
+
 												<table class="table table-filter table-striped table-bordered table-responsive">							 
 													<tr>
 														<th>Parametro</th>
@@ -56,15 +59,20 @@
 														</tr>													
 														@endforeach
 													</tbody>
-												</table>									
+												</table>	
+												@else
+												<div style="text-align: center" >Não existem associações</div>
+												@endif	@else
+												<div style="text-align: center" >Não existem estufas nesta exploração ou sensores adicionados</div>
+												@endif									
 											</div>
 										</form> 
 										<div class="form-group">
 											<div class="input-group-addon">
-												@if(count($estufas)!=0)
+												@if($estufas!=0 && $sensores!=0)
 												<a href="/admin/associacoes/associar" role="button" name="adicionar" id="adicionarAssociacao" class="btn btn-success pull-right">Adicionar Associação</a>
 												@else
-												<a role="button" name="adicionar" id="adicionar cultura" class="btn btn-success pull-right" toggle="tooltip" data-placement="top" title="Adicione um Estufa primeiro" disabled>Adicionar Associação</a>
+												<a role="button" name="adicionar" id="adicionar cultura" class="btn btn-success pull-right" toggle="tooltip" data-placement="top" title="Adicione uma Estufa ou Sensores" disabled>Adicionar Associação</a>
 												@endif
 												
 											</div>		

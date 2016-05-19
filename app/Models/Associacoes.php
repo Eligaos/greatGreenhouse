@@ -8,7 +8,7 @@ class Associacoes extends Model
 {
 
 	protected $table = "associacoes";
-	protected $fillable = ['sensor_id', 'setor_id', 'manual'];
+	protected $fillable = ['sensor_id', 'setor_id'];
 
 
 	public function setores(){

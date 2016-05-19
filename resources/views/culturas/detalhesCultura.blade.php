@@ -4,7 +4,7 @@
 <link href="{{asset('css/addExploracao.css')}}" rel="stylesheet">
 
 @endsection
-@section('title', ' - Detalhes da Estufa')
+@section('title', ' - Detalhes da Cultura')
 
 
 @section('content')
@@ -21,7 +21,7 @@
 							<fieldset> 
 								<legend>Dados da Cultura</legend>
 								<div class="col-xs-12 col-md-12">
-									<label for="nome">Nome da Estufa: </label>
+									<label for="nome">Nome da Cultura: </label>
 									<span>{{$lista[0]->nome}}</span>
 									<br/>
 									<label for="desc">Tipo Cultura: </label>

@@ -7,7 +7,7 @@
 
 
 @endsection
-@section('title', ' - Adicionar Cultura')
+@section('title', ' - Registo Manual')
 
 @section('content')
 <div class="container">
@@ -16,19 +16,18 @@
 			<div>
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h3 class="panel-title" id="myModalLabel">Detalhes Cultura</h3>
+						<h3 class="panel-title" id="myModalLabel">Registo Manual</h3>
 					</div>
 					<div class="panel-body">
-						<form id="registerForm" method="POST" action="/admin/culturas/adicionar/submit">
-							<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">							
+						<form id="registerForm" method="POST" action="/admin/leituras/adicionarRegistoManual/submit">
+							<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 							<fieldset> 
+								<legend>Origem</legend>								
 								<div class="col-xs-12 col-sm-9 col-md-8 ">
 									<div class="row">
-
-
 										<div class="col-xs-12 col-sm-9 col-md-8 ">		
 											<div class="btn-group">
-												<h4>Escolha uma Estufa</h4>
+												<label>Escolha uma Estufa</label>
 												<div>
 													<select id="ddEstufa" name="ddEstufa" class="selectpicker form-control" title="Selecione uma Estufa"  data-live-search="true" showTick="true">
 														@foreach($estufas as $key => $estufa)
@@ -37,17 +36,33 @@
 													</select>
 												</div>
 											</div>
-
-										</div>
-										
-										<div class="col-xs-12 col-md-12">										<br/>
-											<div class="row">
-										
-
+										</div>										
+										<div class="col-lg-3">											
+											<div class="btn-group" id="divAssociacoes">
+												<label>Escolha uma Associação</label>
+												<select id="ass_id" name="ass_id" class="selectpicker form-control" title="Selecione uma Associação"  data-live-search="true" showTick="true" required>
+												</select>
 											</div>
 										</div>
 									</div>
-								</fieldset>
+								</div>
+							</fieldset>	
+							<div class="form-group">	
+								<fieldset> 
+									<legend>Valor</legend>
+									<div class="col-xs-12 col-md-12">
+										<div class="form-group">
+											<div class="row">
+												<div class="col-lg-6">	
+													<label for="nome">Valor</label>
+													<div class="input-group">	
+														<input type="number" class="form-control" id="valor" value="{{ old('valor') }}" name="valor" placeholder="Insira um valor" min=0><span class="input-group-addon">metros</span>
+													</div>
+												</div>												
+											</div>
+										</div>
+									</div>	
+								</fieldset>				
 							</div>
 							@if (count($errors) > 0 )
 							<div class="alert alert-danger col-lg-3">
@@ -61,7 +76,7 @@
 							@endif
 							<div class="form-group">
 								<div class="input-group-addon">
-									<a href="/admin/culturas/listar" role="button" name="cancelar"class="btn btn-default pull-right">Cancelar</a>
+									<a href="{{ url()->previous() }}" class="btn btn-default pull-right">Cancelar</a>
 									<input type="submit" id="submit" class="btn btn-success pull-right">
 								</div>
 							</div>
@@ -71,11 +86,12 @@
 			</div>
 		</div>
 	</div>
-	@endsection
-	@section('customScripts')	
-	<script src="{{asset('js/adicionarRegistoManual/adicionarRegistoManual.js')}}"></script>
-	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+</div>
+@endsection
+@section('customScripts')	
+<script src="{{asset('js/adicionarRegistoManual/adicionarRegistoManual.js')}}"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
 
-	@endsection
+@endsection
 

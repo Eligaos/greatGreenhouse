@@ -35,8 +35,15 @@ class AssociacoesController extends Controller
 		$estufas = $this->eService->getEstufas($this->exploracaoSelecionada);
 		if(count($estufas)!=0){
 			$lista = $this->aService->listarAssociacoes($estufas); //collection
+			$estufas = 1;
+			$sensores = $this->checkSensores();
+		}else{
+			$estufas = 0;
+			$sensores = $this->checkSensores();
 		}
-		return view('associacoes.listagemAssociacoes', compact('lista', 'estufas'));
+
+
+		return view('associacoes.listagemAssociacoes', compact('lista', 'estufas', 'sensores'));
 	}
 
 	public function associar(){
@@ -51,6 +58,15 @@ class AssociacoesController extends Controller
 		$input = Input::except('_token');
 		$associar = $this->aService->associarSubmit($input);	
 		return Redirect::to("/admin/associacoes/listar")->with('message', 'Associação guardada com sucesso!');
+	}
+
+	public function checkSensores(){
+		$sensores = $this->sService->getSensores();
+		if(count($sensores)!=0){
+			return 1;
+		}else{
+			return 0;
+		}
 	}
 	
 }

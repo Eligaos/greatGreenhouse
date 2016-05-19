@@ -19,6 +19,7 @@
 						</div>
 						@endif
 						<div class="table-container">
+							@if(count($estufas)!=0)							
 							<table id="table" class="table table-filter table-striped table-bordered table-responsive ">
 								<tr>
 									<th id="tEstufa" style="text-align: center" class="col-xs-6 col-sm-5 col-md-2">Nome da Estufa</th>
@@ -49,34 +50,36 @@
 													<p class="summary">{{$cultura->setor_nome}}</p>
 												</div>
 											</div>
-										</td>										
-									</th>
-									<td>
-										<div  style="text-align: center">
-											<a class="btn btn-sm  btn-default" href="/admin/culturas/detalhes/{{$cultura->cultura_id}}">Ver Detalhes</a>
-											<a class="btn btn-sm  btn-default" toggle="tooltip" data-placement="top" title="Editar Estufa"  role="button" name="editar" href="/admin/culturas/editar/{{$cultura->cultura_id}}">Editar</a>
-											<a class="btn btn-sm  btn-default" href="#">Eliminar</a>
-										</div>
-									</td>
-								</tr>	
-								@endforeach									
-							</tbody>
-						</table>	
-					</div>
-				</form> 
-				<div class="form-group">
-					<div class="input-group-addon">
-						@if(count($estufas)!=0)
-						<a href="/admin/culturas/adicionar" role="button" name="adicionar" id="adicionar cultura" class="btn btn-success pull-right" toggle="tooltip" data-placement="top" title="Adicionar Cultura">Adicionar</a>
-						@else
-						<a role="button" name="adicionar" id="adicionar cultura" class="btn btn-success pull-right" toggle="tooltip" data-placement="top" title="Adicione uma Estufa primeiro" disabled>Adicionar</a>
-						@endif
-					</div>
-				</div>	
-			</div>
-		</section>
+										</td>	
+										<td>
+											<div  style="text-align: center">
+												<a class="btn btn-sm  btn-default" href="/admin/culturas/detalhes/{{$cultura->cultura_id}}">Ver Detalhes</a>
+												<a class="btn btn-sm  btn-default" toggle="tooltip" data-placement="top" title="Editar Estufa"  role="button" name="editar" href="/admin/culturas/editar/{{$cultura->cultura_id}}">Editar</a>
+												<a class="btn btn-sm  btn-default" href="#">Eliminar</a>
+											</div>
+										</td>
+									</tr>	
+									@endforeach		
+								</tbody>								
+							</table>	
+							@else
+							<div style="text-align: center" >Não existem estufas nesta exploração</div>
+							@endif	
+						</div>
+					</form> 
+					<div class="form-group">
+						<div class="input-group-addon">
+							@if(count($estufas)!=0)
+							<a href="/admin/culturas/adicionar" role="button" name="adicionar" id="adicionar cultura" class="btn btn-success pull-right" toggle="tooltip" data-placement="top" title="Adicionar Cultura">Adicionar</a>
+							@else
+							<a role="button" name="adicionar" id="adicionar cultura" class="btn btn-success pull-right" toggle="tooltip" data-placement="top" title="Adicione uma Estufa primeiro" disabled>Adicionar</a>
+							@endif
+						</div>
+					</div>	
+				</div>
+			</section>
+		</div>
 	</div>
-</div>
 </div>
 @endsection
 

@@ -104,13 +104,13 @@
 											<div class="row">
 												<div class="col-lg-6">	
 													<label for="nome">Espaço na Linha</label>
-													<div class="input-group">											
+													<div class="input-group">									
 														<input type="number" class="form-control" id="espaco_na_linha" value="{{ old('espaco_na_linha') }}" name="espaco_na_linha" placeholder="Insira o espaçamento na Linha" min=0><span class="input-group-addon">metros</span>
 													</div>
 												</div>
-												<div class="col-lg-6">												
+												<div class="col-lg-6">											
 													<label for="nome">Espaço entre Linhas</label>
-													<div class="input-group">											
+													<div class="input-group">									
 														<input type="number" class="form-control" id="espaco_entre_linhas" value="{{ old('espaco_entre_linhas') }}" name="espaco_entre_linhas" placeholder="Insira o espaçamento entre as Linhas" min=0><span class="input-group-addon">metros</span>
 													</div>
 												</div>
