@@ -61,7 +61,7 @@ class AssociacoesController extends Controller
 	}
 
 	public function checkSensores(){
-		$sensores = $this->sService->getSensores();
+		$sensores = $this->sService->getSensores($this->exploracaoSelecionada);
 		if(count($sensores)!=0){
 			return 1;
 		}else{

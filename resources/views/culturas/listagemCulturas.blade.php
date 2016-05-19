@@ -53,9 +53,9 @@
 										</td>	
 										<td>
 											<div  style="text-align: center">
-												<a class="btn btn-sm  btn-default" href="/admin/culturas/detalhes/{{$cultura->cultura_id}}">Ver Detalhes</a>
-												<a class="btn btn-sm  btn-default" toggle="tooltip" data-placement="top" title="Editar Estufa"  role="button" name="editar" href="/admin/culturas/editar/{{$cultura->cultura_id}}">Editar</a>
-												<a class="btn btn-sm  btn-default" href="#">Eliminar</a>
+												<a class="btn btn-sm  btn-default" href="/admin/culturas/detalhes/{{$cultura->cultura_id}}" toggle="tooltip" data-placement="top" title="Ver Detalhes da Cultura">Ver Detalhes</a>
+												<a class="btn btn-sm  btn-default" toggle="tooltip" data-placement="top" title="Editar Cultura"  role="button" name="editar" href="/admin/culturas/editar/{{$cultura->cultura_id}}">Editar</a>
+												<a class="btn btn-sm  btn-default" data-placement="top" title="Eliminar Cultura" href="#">Eliminar</a>
 											</div>
 										</td>
 									</tr>	

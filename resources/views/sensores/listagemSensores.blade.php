@@ -21,9 +21,9 @@
 											<div class="table-container">
 												@if(count($lista)!=0)	
 												<table class="table table-filter table-striped table-bordered table-responsive">							 <tr>
-													<th>Parâmetro</th>
+													<th>Nome</th>
 													<th>Modelo</th>
-													<th>Parametro</th>
+													<th>Parâmetro</th>
 													<th>Estado</th>
 													<th>Opções</th>
 												</tr>	
@@ -32,34 +32,27 @@
 													<tr>									
 														<td>		
 															<span>{{$sensor->nome}}</span>
-
 														</td>
 														<td>
-
 															<span>{{$sensor->modelo}}</span>
-
 														</td>
 														<td>
-
 															<span>{{$sensor->parametro}}</span>
-
 														</td>
 														@if($sensor->estado == 0)
 														<td>
-
 															<span>inativo</span>
-
 														</td>
 														@else
 														<td>
-
 															<span>ativo</span>
-
 														</td>
 														@endif
 														<td>
 															<div class="">
-																<button type="submit" toggle="tooltip" name="id" class="btn btn-default pull-right" role="button" data-placement="top" title="Detalhes">Detalhes</button>
+																<a class="btn btn-sm  btn-default" href="/admin/sensores/detalhes/{{$sensor->sensor_id}}" data-placement="top" title="Editar Sensor">Ver Detalhes</a>
+																<a class="btn btn-sm  btn-default" toggle="tooltip" data-placement="top" title="Editar Sensor"  role="button" name="editar" href="/admin/sensores/editar/{{$sensor->sensor_id}}">Editar</a>
+																<a class="btn btn-sm  btn-default" data-placement="top" title="Eliminar Sensor" href="#">Eliminar</a>
 															</div>
 														</td>
 													</tr>													
@@ -73,7 +66,7 @@
 									</form> 
 									<div class="form-group">
 										<div class="input-group-addon">
-											<a href="/admin/sensores/adicionar" role="button" name="adicionar" id="adicionar exploracao" class="btn btn-success pull-right">Adicionar novo Sensor</a>
+											<a href="/admin/sensores/adicionar" role="button" name="adicionar" id="adicionar exploracao" class="btn btn-success pull-right" toggle="tooltip" data-placement="top" title="Adicionar novo Sensor">Adicionar novo Sensor</a>
 										</div>
 									</div>	
 								</div>

@@ -1,7 +1,6 @@
 @extends('app')
 
 @section('customStyles')
-<link href="{{asset('css/addExploracao.css')}}" rel="stylesheet">
 
 @endsection
 @section('title', ' - Detalhes da Cultura')
@@ -11,19 +10,20 @@
 <div class="container">
 	<div class="row centered-form">
 		<div class="col-xs-12 col-sm-9 col-md-8 col-sm-offset-3 col-md-offset-3">
-			<div>
+			<div class="content">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h3 class="panel-title" id="myModalLabel">Detalhes Cultura</h3>
+						<h3 class="modal-title" id="myModalLabel">Detalhes Cultura</h3>
 					</div>
 					<div class="panel-body">				
 						<div class="form-group">
 							<fieldset> 
-								<legend>Dados da Cultura</legend>
+								<h4>Dados da Cultura</h4>
 								<div class="col-xs-12 col-md-12">
-									<label for="nome">Nome da Cultura: </label>
-									<span>{{$lista[0]->nome}}</span>
-									<br/>
+									<p>
+										<label for="nome">Nome da Cultura: </label>
+										<span>{{$lista[0]->nome}}</span>
+									</p>
 									<label for="desc">Tipo Cultura: </label>
 									@if($lista[0]->tipo_cultura != "")									
 									<span>{{$lista[0]->tipo_cultura}}</span>
@@ -104,7 +104,7 @@
 						<div class="form-group">
 							<div class="input-group-addon">
 								<a href="/admin/culturas/listar" role="button" name="cancelar"class="btn btn-default pull-right">Voltar</a>
-								<a class="btn btn-success pull-right" toggle="tooltip" data-placement="top" title="Editar Estufa"  role="button" name="editar" href="/admin/culturas/editar/{{$lista[0]->id}}">Editar</a>
+								<a class="btn btn-success pull-right" toggle="tooltip" data-placement="top" title="Editar Cultura"  role="button" name="editar" href="/admin/culturas/editar/{{$lista[0]->id}}">Editar</a>
 							</div>
 						</div>
 					</div>

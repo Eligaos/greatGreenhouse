@@ -12,7 +12,7 @@ class LeituraService
 	}
 
 	public function adicionarRegistoManualSubmit($input){
-		return Leitura::create(["valor" => $input['valor'], "associacao_id"=>$input['ass_id'], "manual"=>1]);
+		return Leitura::create(["valor" => $input['valor'], "associacao_id"=>$input['ass_id'], "manual"=>1, "data"=>$input['data']]);
 	}
 
 }

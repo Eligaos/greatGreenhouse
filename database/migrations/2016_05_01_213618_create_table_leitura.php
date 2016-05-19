@@ -18,6 +18,7 @@ class CreateTableLeitura extends Migration
             $table->integer('associacao_id')->unsigned();
             $table->foreign('associacao_id')->references('id')->on('associacoes');
             $table->boolean('manual'); //0 - nao 1 -sim
+            $table->dateTime('data'); //0 - nao 1 -sim
             $table->timestamps();      
         });
     }

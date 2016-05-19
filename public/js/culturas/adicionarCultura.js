@@ -26,7 +26,7 @@ $(document).ready(function() {
     headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
   });
 
-   $( "#tipo_id" ).on('changed.bs.select',function() {
+   $( "#ddEstufa" ).on('changed.bs.select',function() {
     var t = $("#tipo_cultura").prop("selected");
     $("#setor_id").children().remove();
     var estufaId = $( this ).selectpicker('val');
@@ -43,7 +43,8 @@ $(document).ready(function() {
       }
       $('#divAssociacoesSetores').show();
       $('.selectpicker').selectpicker('refresh');
-    }else{  
+    }else{
+     $("#dropdownSetores").children().remove();
      $('#divAssociacoesSetores').hide();
    }
  })
