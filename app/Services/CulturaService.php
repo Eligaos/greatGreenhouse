@@ -5,6 +5,7 @@ use App\Models\Cultura;
 use App\Models\Setor;
 use Illuminate\Database\Eloquent\Model;
 use Session;
+
 class CulturaService 
 {
 	public function listarCulturas($estufas){ 

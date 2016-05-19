@@ -50,7 +50,7 @@
          <li><a href="/admin/exploracoes/detalhes"><i class="fa fa-globe fa-lg"></i> Exploração Agrícola</a></li>
          <li><a href="/admin/estufas/listar"><i class="fa fa-globe fa-lg"></i> Estufas</a>  </li>
          <li><a href="/admin/culturas/listar"><i class="fa fa-globe fa-lg"></i> Culturas</a>	</li>
-         <li><a href="#"><i class="fa fa-globe fa-lg"></i> Espécies</a></li>  
+         <li><a href="/admin/especies/listar"><i class="fa fa-globe fa-lg"></i> Espécies</a></li>  
        </ul>   
        <li data-toggle="collapse" data-target="#consultas" class="collapsed">
         <a href="#"><i class="fa fa-globe fa-lg"></i> Consultas <span class="arrow"></span></a>

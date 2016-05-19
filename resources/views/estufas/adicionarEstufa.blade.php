@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('customStyles')
-">
+
 
 @endsection
 @section('title', ' - Adicionar Estufa')
