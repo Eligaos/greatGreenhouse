@@ -1,7 +1,6 @@
 @extends('app')
 
 @section('customStyles')
-<link href="{{asset('css/exploracoes/addExploracao.css')}}" rel="stylesheet">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
 
@@ -13,10 +12,10 @@
 <div class="container">
 	<div class="row centered-form">
 		<div class="col-xs-12 col-sm-9 col-md-8  col-sm-offset-3 col-md-offset-3">
-			<div>
+			<div class="content">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h3 class="panel-title" id="myModalLabel">Adicionar Cultura</h3>
+						<h3 class="modal-title" id="myModalLabel">Adicionar Cultura</h3>
 					</div>
 					<div class="panel-body">
 						<form id="registerForm" method="POST" action="/admin/culturas/adicionar/submit">
@@ -31,13 +30,13 @@
 											<span class="alert alert-info"> {{ Session::get('message') }}</span>
 										</div>
 										@endif
-										<div class="input-group">											
+										<div class="input-group">				
 											<input type="text" class="form-control" id="nome"  name="nome" value="{{ old('nome') }}" placeholder="Insira o nome da Cultura" required><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
 										</div>
 										<br/>
 										<div class="col-xs-12 col-md-12">											
 											<div class="row">
-												<div class="col-md-4">										
+												<div class="col-md-6">										
 													<label for="nome">Tipo Cultura</label>
 													<div>
 														<select id="tipo_cultura" name="tipo_cultura" class="selectpicker form-control" title="Selecione um Tipo de Cultura" value="{{ old('tipo_cultura') }}" selected="{{ old('tipo_cultura') }}" data-live-search="true" showTick="true">
@@ -46,7 +45,7 @@
 														</select>
 													</div>
 												</div>
-												<div class="col-md-2 pull-left">		
+												<div class="col-md-6 pull-left">		
 													<label for="nome">Tipo Cultivo</label>
 													<div>
 														<select id="tipo_cultivo" name="tipo_cultivo" class="selectpicker form-control" title="Selecione um Tipo de Cultura" value="{{ old('tipo_cultivo') }}" selected="{{ old('tipo_cultivo') }}"  data-live-search="true" showTick="true">

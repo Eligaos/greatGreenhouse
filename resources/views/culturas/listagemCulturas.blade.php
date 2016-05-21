@@ -8,41 +8,33 @@
 @section('content')
 <div class="container">
 	<div class="row centered-form">
-		<div class="col-xs-12 col-sm-9 col-md-10  col-sm-offset-2 col-md-offset-2">
+		<div class="col-xs-12 col-sm-9 col-md-10 col-sm-offset-2 col-md-offset-2">
 			<section class="content">
-				<div >
-					<div class="panel panel-default">
-						<div class="panel-heading"><h2>Lista de Culturas</h2></div>
-						@if( Session::get('message'))
-						<div style="text-align: center">
-							<span class="alert alert-info"> {{ Session::get('message') }}</span>
-						</div>
-						@endif
-						<div class="table-container">
-							@if(count($estufas)!=0)							
-							<table id="table" class="table table-filter table-striped table-bordered table-responsive ">
-								<tr>
-									<th id="tEstufa" style="text-align: center" class="col-xs-6 col-sm-5 col-md-2">Nome da Estufa</th>
-									<th style="text-align: center" class="col-xs-6 col-sm-5 col-md-2">Nome da Cultura</th>
-									<th style="text-align: center" class="col-xs-6 col-sm-5 col-md-2">Nome do Setor</th>
-									<th style="text-align: center" class="col-xs-6 col-sm-5 col-md-1">Opções</th>
-								</tr>
-								<tbody>
-									@foreach($lista as $key => $cultura)									
-									<tr>				
-										<td id="tdN">
-											<div class="media">
-												<div class="media-body">
-													<p id="pN" class="summary">{{$cultura->estufa_nome}}</p>
-												</div>
-											</div>
-										</td>					
-										<td>
-											<div class="media">
-												<div class="media-body">
-													<p class="summary">{{$cultura->cultura_nome}}</p>
-												</div>
-											</div>
+				<div class="panel panel-default">
+					<div class="panel-heading"><h2>Lista de Culturas</h2></div>
+					@if( Session::get('message'))
+					<div style="text-align: center">
+						<span class="alert alert-info"> {{ Session::get('message') }}</span>
+					</div>
+					@endif
+					<div class="table-container">
+						@if(count($estufas)!=0)							
+						<table id="table" class="table table-filter table-striped table-bordered table-responsive ">
+							<tr>
+								<th id="tEstufa" class="col-xs-6 col-sm-5 col-md-2 text-center">Nome da Estufa</th>
+								<th class="col-xs-6 col-sm-5 col-md-2 text-center">Nome da Cultura</th>
+								<th class="col-xs-6 col-sm-5 col-md-2 text-center">Nome do Setor</th>
+								<th class="col-xs-6 col-sm-5 col-md-2 text-center">Opções</th>
+							</tr>
+							<tbody>
+								@foreach($lista as $key => $cultura)	
+								<tr>				
+									<td id="tdN" class="text-center">
+										<p id="pN">{{$cultura->estufa_nome}}</p>
+									</td>					
+									<td>
+										<div class="text-center">
+											{{$cultura->cultura_nome}}
 										</td>
 										<td>
 											<div class="media">
@@ -77,9 +69,11 @@
 						</div>
 					</div>	
 				</div>
-			</section>
+			</div>	
 		</div>
-	</div>
+	</section>
+</div>
+</div>
 </div>
 @endsection
 
