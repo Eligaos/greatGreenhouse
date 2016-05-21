@@ -8,78 +8,68 @@
 @section('content')
 <div class="container">
 	<div class="row centered-form">
-		<div class="col-xs-12 col-sm-9 col-md-10  col-sm-offset-2 col-md-offset-2">
+		<div class="col-xs-12 col-sm-9 col-md-10 col-sm-offset-2 col-md-offset-2">
 			<section class="content">
-				<div >
-					<div class="panel panel-default">
-						<div class="panel-heading"><h2>Lista de Culturas</h2></div>
-						@if( Session::get('message'))
-						<div style="text-align: center">
-							<span class="alert alert-info"> {{ Session::get('message') }}</span>
-						</div>
-						@endif
-						<div class="table-container">
-							@if(count($estufas)!=0)							
-							<table id="table" class="table table-filter table-striped table-bordered table-responsive ">
-								<tr>
-									<th id="tEstufa" style="text-align: center" class="col-xs-6 col-sm-5 col-md-2">Nome da Estufa</th>
-									<th style="text-align: center" class="col-xs-6 col-sm-5 col-md-2">Nome da Cultura</th>
-									<th style="text-align: center" class="col-xs-6 col-sm-5 col-md-2">Nome do Setor</th>
-									<th style="text-align: center" class="col-xs-6 col-sm-5 col-md-1">Opções</th>
-								</tr>
-								<tbody>
-									@foreach($lista as $key => $cultura)									
-									<tr>				
-										<td id="tdN">
-											<div class="media">
-												<div class="media-body">
-													<p id="pN" class="summary">{{$cultura->estufa_nome}}</p>
-												</div>
-											</div>
-										</td>					
-										<td>
-											<div class="media">
-												<div class="media-body">
-													<p class="summary">{{$cultura->cultura_nome}}</p>
-												</div>
-											</div>
+				<div class="panel panel-default">
+					<div class="panel-heading"><h2>Lista de Culturas</h2></div>
+					@if( Session::get('message'))
+					<div style="text-align: center">
+						<span class="alert alert-info"> {{ Session::get('message') }}</span>
+					</div>
+					@endif
+					<div class="table-container">
+						@if(count($estufas)!=0)							
+						<table id="table" class="table table-filter table-striped table-bordered table-responsive ">
+							<tr>
+								<th id="tEstufa" class="col-xs-6 col-sm-5 col-md-2 text-center">Nome da Estufa</th>
+								<th class="col-xs-6 col-sm-5 col-md-2 text-center">Nome da Cultura</th>
+								<th class="col-xs-6 col-sm-5 col-md-2 text-center">Nome do Setor</th>
+								<th class="col-xs-6 col-sm-5 col-md-2 text-center">Opções</th>
+							</tr>
+							<tbody>
+								@foreach($lista as $key => $cultura)	
+								<tr>				
+									<td id="tdN" class="text-center">
+										<p id="pN">{{$cultura->estufa_nome}}</p>
+									</td>					
+									<td>
+										<div class="text-center">
+											{{$cultura->cultura_nome}}
 										</td>
-										<td>
-											<div class="media">
-												<div class="media-body">
-													<p class="summary">{{$cultura->setor_nome}}</p>
-												</div>
-											</div>
-										</td>	
-										<td>
-											<div  style="text-align: center">
-												<a class="btn btn-sm  btn-default" href="/admin/culturas/detalhes/{{$cultura->cultura_id}}">Ver Detalhes</a>
-												<a class="btn btn-sm  btn-default" toggle="tooltip" data-placement="top" title="Editar Estufa"  role="button" name="editar" href="/admin/culturas/editar/{{$cultura->cultura_id}}">Editar</a>
-												<a class="btn btn-sm  btn-default" href="#">Eliminar</a>
-											</div>
-										</td>
-									</tr>	
-									@endforeach		
-								</tbody>								
-							</table>	
-							@else
-							<div style="text-align: center" >Não existem estufas nesta exploração</div>
-							@endif	
-						</div>
-					</form> 
-					<div class="form-group">
-						<div class="input-group-addon">
-							@if(count($estufas)!=0)
-							<a href="/admin/culturas/adicionar" role="button" name="adicionar" id="adicionar cultura" class="btn btn-success pull-right" toggle="tooltip" data-placement="top" title="Adicionar Cultura">Adicionar</a>
-							@else
-							<a role="button" name="adicionar" id="adicionar cultura" class="btn btn-success pull-right" toggle="tooltip" data-placement="top" title="Adicione uma Estufa primeiro" disabled>Adicionar</a>
-							@endif
-						</div>
-					</div>	
+										<td class="text-center">
+											{{$cultura->setor_nome}}
+										</div>
+									</div>
+								</td>	
+								<td>
+									<div  style="text-align: center">
+										<a class="btn btn-sm  btn-default" href="/admin/culturas/detalhes/{{$cultura->cultura_id}}">Ver Detalhes</a>
+										<a class="btn btn-sm  btn-default" toggle="tooltip" data-placement="top" title="Editar Estufa"  role="button" name="editar" href="/admin/culturas/editar/{{$cultura->cultura_id}}">Editar</a>
+										<a class="btn btn-sm  btn-default" href="#">Eliminar</a>
+									</div>
+								</td>
+							</tr>	
+							@endforeach		
+						</tbody>								
+					</table>	
+					@else
+					<div class="text-center" > <span>Não existem estufas nesta exploração. Para adicionar clique</span> <a href="/admin/estufas/adicionar">aqui</a></div>
+					@endif	
 				</div>
-			</section>
+			</form> 
+			<div class="form-group">
+				<div class="input-group-addon">
+					@if(count($estufas)!=0)
+					<a href="/admin/culturas/adicionar" role="button" name="adicionar" class="btn btn-success pull-right" toggle="tooltip" data-placement="top" title="Adicionar Cultura">Adicionar</a>
+					@else
+					<a role="button" name="adicionar" class="btn btn-success pull-right" toggle="tooltip" data-placement="top" title="Adicione uma Estufa primeiro" disabled>Adicionar</a>
+					@endif
+				</div>
+			</div>	
 		</div>
-	</div>
+	</section>
+</div>
+</div>
 </div>
 @endsection
 

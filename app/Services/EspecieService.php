@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class EspecieService 
 {
 	public function getEspecies(){ 
-		return Especie::paginate(5);
+		return Especie::paginate(15);
 	}
 	
 
