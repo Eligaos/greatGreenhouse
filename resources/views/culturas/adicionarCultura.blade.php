@@ -48,7 +48,7 @@
 												<div class="col-md-6 pull-left">		
 													<label for="nome">Tipo Cultivo</label>
 													<div>
-														<select id="tipo_cultivo" name="tipo_cultivo" class="selectpicker form-control" title="Selecione um Tipo de Cultura" value="{{ old('tipo_cultivo') }}" selected="{{ old('tipo_cultivo') }}"  data-live-search="true" showTick="true">
+														<select id="tipo_cultivo" name="tipo_cultivo" class="selectpicker form-control" title="Selecione um Tipo de Cultivo" value="{{ old('tipo_cultivo') }}" selected="{{ old('tipo_cultivo') }}"  data-live-search="true" showTick="true">
 															<option value="tradicional">Tradicional</option>
 															<option value="hidroponia">Hidroponia</option>
 															<option value="aeroponia">Aeroponia</option>

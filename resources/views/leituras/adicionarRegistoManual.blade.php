@@ -77,7 +77,7 @@
 													<div class="col-lg-6">	
 														<label for="nome">Valor</label>
 														<div class="input-group">	
-															<input type="number" class="form-control" id="valor" value="{{ old('valor') }}" name="valor" placeholder="Insira um valor" min=0><span id="valor_span"class="input-group-addon" required></span>
+															<input type="number"  step="0.01" class="form-control" id="valor" value="{{ old('valor') }}" name="valor" placeholder="Insira um valor" min=0><span id="valor_span"class="input-group-addon" required></span>
 														</div>
 													</div>												
 												</div>

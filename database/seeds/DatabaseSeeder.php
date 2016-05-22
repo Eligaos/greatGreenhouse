@@ -17,5 +17,8 @@ class DatabaseSeeder extends Seeder
     	$this->call('UserTableSeeder');
     	$this->call('TiposLeituraSeeder');
         $this->call('ExploracaoTableSeeder');
+        $this->call('EstufaTableSeeder');   
+        $this->call('SensorTableSeeder'); 
+        $this->call('LeiturasSeed');
     }
 }
