@@ -54,7 +54,13 @@ class LeituraController extends Controller
     public function adicionarRegistoManualSubmit(){//fazer request
         $input = Input::except('_token');
         $add = $this->lService->adicionarRegistoManualSubmit($input);
-       return Redirect::to("/admin/leituras/listar")->with('message', 'Registo guardado com sucesso!');
+        return Redirect::to("/admin/leituras/listar")->with('message', 'Registo guardado com sucesso!');
+    }
+
+    public function getLastHoursLeituras(){
+
+     return $this->lService->getLastHoursLeituras();
+       
     }
 
 

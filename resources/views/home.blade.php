@@ -15,23 +15,20 @@
 						<section class="content">
 							<!-- item -->
 							@foreach($estufas as $key => $estufa)
-							<div class="col-md-4 text-center">
+							<div class=" text-center">
 								<div class="panel panel-success panel-pricing">
 									<div class="panel-heading">
 										<i class="fa fa-leaf"></i>
 										<h3><a class="btn btn-md btn-block btn-success" href="/admin/estufas/detalhes/{{$estufa->id}}">{{$estufa->nome}}</a></h3>
 									</div>
-									<div id="monitor{{$estufa->id}}" style="height: 250px;"></div>
+									<div id="monitor{{$estufa->id}}" style="height: 250px;" class="margin-bottom"></div>
 									@foreach($culturas as $key => $cultura)
 									<ul class="list-group text-center">
 										@if($cultura->estufa_id == $estufa->id)
-
 										<li class="list-group-item"><i class="fa fa-leaf"></i> <a href="/admin/culturas/detalhes/{{$cultura->cultura_id}}">{{$cultura->cultura_nome}}</a> </li>
 										@endif
 									</ul>
 									@endforeach
-									<div class="panel-footer">
-									</div>
 								</div>
 							</div>
 							@endforeach

@@ -58,16 +58,16 @@
 														{{$leitura->estufa_nome}}
 
 													</td>
-														<td>		
+													<td>		
 														{{$leitura->setor_nome}}
 
 													</td>
 													<td>
-													@if($leitura->manual == 0)
+														@if($leitura->manual == 0)
 														Sim
-													@else
+														@else
 														Manual
-													@endif
+														@endif
 													</td>
 
 
