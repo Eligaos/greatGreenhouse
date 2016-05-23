@@ -1,7 +1,7 @@
 	@extends('app')
 
 	@section('customStyles')
-        <link href="{{asset('css/estufas/editarEstufa.css')}}" rel="stylesheet">
+	<!--<link href="{{asset('css/estufas/editarEstufa.css')}}" rel="stylesheet">-->
 	@endsection
 	@section('title', ' - Editar Estufa')
 
@@ -58,10 +58,10 @@
 																	</th>
 																</tr>
 															</thead>
-                                                            <tbody>
-
-                                                            @foreach($lista[1] as $key => $setor)
-                                                                <tr id='addr0' data-id="0" class="hidden">
+															<tbody>
+																@if(count($lista[1])!=0)
+																@foreach($lista[1] as $key => $setor)
+																<tr id='addr0' data-id="0" class="hidden">
 																	<td  data-name="idSetor[]" id="0">
 																		<input type="hidden" name="idSetor" value="{{$setor->id}}">
 																	</td>
@@ -75,8 +75,25 @@
 																		<button name="del0" class='btn btn-danger glyphicon glyphicon-remove row-remove'></button>
 																	</td>
 																</tr>
-															@endforeach
-                                                            </tbody>
+																@endforeach
+
+																@else
+																<tr id='addr0' data-id="0" class="hidden">
+																	<td  data-name="idSetor[]" id="0">
+																		<input type="hidden" name="idSetor">
+																	</td>
+																	<td data-name="nomeSetor[]">
+																		<input type="text" name='nomeS' placeholder='Nome' class="form-control"/>
+																	</td>
+																	<td data-name="descricaoSetor[]">
+																		<input type="text" name='descricaoS' placeholder='Insira uma descricao' class="form-control"/>
+																	</td>
+																	<td data-name="del">
+																		<button name="del0" class='btn btn-danger glyphicon glyphicon-remove row-remove'></button>
+																	</td>
+																</tr>
+																@endif
+															</tbody>
 														</table>
 													</div>
 												</div>

@@ -32,7 +32,7 @@
 						<div class="form-group">
 							<fieldset> 
 								<legend>Setores</legend> 
-								@if(count($lista[1])==1)
+								@if(count($lista[1])==1 && $lista[1][0]->nome == "Nenhum")
 								<p class="summary">Esta estufa não tem Setores</p>
 								@else	
 								<div class="table-container">
