@@ -17,69 +17,84 @@
 							<div class="table-container">
 								<table class="table table-filter table-striped table-bordered table-responsive">
 									<tbody>
-					
-						<form class="form-signin" method="POST" action="/admin/home">
-							<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">							
-							<div class="table-container">
-								<table class="table table-filter table-striped table-bordered table-responsive">							 <tr>
-									<th>Valor</th>
-									<th>Unidade</th>
-									<th>Tipo</th>
-									<th>Origem</th>
-									<th>Localização</th>
-									<th>Opções</th>
-								 </tr>	
-								<tbody>		
-							@foreach($lista as $key => $leitura)
-										<tr>									
-											<td>		
-											<span>{{$leitura->valor}}</span>
-										
-											</td>
-											<td>		
-											<span>{{$leitura->unidade}}</span>
-										
-											</td>
-											<td>		
-											<span>{{$leitura->tipo}}</span>
-										
-											</td>
-											<td>		
-											<span>{{$leitura->origem}}</span>
-										
-											</td>	
-											<td>		
-											<span>{{$leitura->localizacao}}</span>
-										
-											</td>
-											<td>
-												
-											<span>{{$leitura->manual}}</span>
-										
-											</td>
-											<td>
-												<div class="">
-													<button type="submit" toggle="tooltip" name="id" class="btn btn-default pull-right" role="button" data-placement="top" title="Detalhes">Detalhes</button>
-												</div>
-											</td>
-										</tr>													
-						@endforeach
-									</tbody>
-								</table>									
+
+										<form class="form-signin" method="POST" action="/admin/home">
+											<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">							
+											<div class="table-container">
+												<table class="table table-filter table-striped table-bordered table-responsive">							 <tr>
+													<th>Data</th>
+													<th>Valor</th>
+													<th>Unidade</th>
+													<th>Tipo</th>
+													<th>Sensor</th>
+													<th>Estufa</th>
+													<th>Setor</th>
+													<th>Automático?</th>
+												</tr>	
+												<tbody>		
+													@foreach($lista as $key => $leitura)
+													<tr>										<td>
+
+														{{$leitura->data}}
+
+													</td>
+													<td>		
+														{{$leitura->valor}}
+
+													</td>
+													<td>		
+														{{$leitura->unidade}}
+
+													</td>
+													<td>		
+														{{$leitura->parametro}}
+
+													</td>
+													<td>		
+														{{$leitura->sensor_nome}}
+
+													</td>	
+													<td>		
+														{{$leitura->estufa_nome}}
+
+													</td>
+														<td>		
+														{{$leitura->setor_nome}}
+
+													</td>
+													<td>
+													@if($leitura->manual == 0)
+														Sim
+													@else
+														Manual
+													@endif
+													</td>
+
+
+												</tr>													
+												@endforeach
+											</tbody>
+										</table>									
+									</div>
+								</form> 
+								<div class="form-group">
+
+									<div class="input-group-addon" >
+
+										<a  href="/admin/leituras/adicionarRegistoManual" role="button" name="adicionar" class="btn btn-success center-block pull-left" toggle="tooltip" data-placement="top" title="Registar Leitura Manual" >Registar Leitura Manual</a>
+
+										<div class="pull-right"> {!! $lista->links() !!}</div>
+
+
+									</div>
+								</div>		
 							</div>
-						</form> 
-						<div class="form-group">
-							<div class="input-group-addon">
-								<a href="/admin/tipos-leituras/adicionar" role="button" name="adicionar" id="adicionar exploracao" class="btn btn-success pull-right">Adicionar novo Tipo de Leitura</a>
-							</div>
-						</div>	
+						</div>
 					</div>
-				</div>
+				</section>
 			</div>
-		</section>
+		</div>
 	</div>
-</div>
-</div>
 </div>
 @endsection
 
