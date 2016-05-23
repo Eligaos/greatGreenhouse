@@ -50,7 +50,7 @@ class EstufaController extends Controller
 	}
 
 	public function editarEstufa($id){
-		$lista = $this->eService->procurarEstufa($id);
+		$lista = $this->eService->procurarEstufaSemSetorGeral($id);
 		//$lista[0]-- array de estufa  $lista[1]--array dos setores da estufa
 		return view('estufas.editarEstufa', compact('lista'));  		
 	}
