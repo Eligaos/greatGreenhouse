@@ -77,7 +77,7 @@
 								</div>
 								<div class="form-group">
 									<div class="input-group-addon">
-										<a href="/admin/estufas/listar" role="button" name="cancelar"class="btn btn-default pull-right">Cancelar</a>
+										<a href="{{ url()->previous() }}" role="button" name="cancelar"class="btn btn-default pull-right">Cancelar</a>
 										<input type="submit" name="submit" id="submit" value="Gravar" class="btn btn-success pull-right">
 									</div>
 								</div>

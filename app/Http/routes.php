@@ -67,16 +67,14 @@ Route::group(['middleware' => ['web']], function ()
 
 
 
-	Route::get('/admin/exploracoes/detalhes', 'ExploracaoController@detalhesExploracao');
+	Route::get('/admin/exploracao', 'ExploracaoController@detalhesExploracao');
 
-
-
-	Route::get('/admin/exploracoes/editar', 'ExploracaoController@editarExploracao');
-	Route::post('/admin/exploracoes/editar/submit', 'ExploracaoController@saveEditExploracao');
+	Route::get('/admin/exploracao/editar', 'ExploracaoController@editarExploracao');
+	Route::post('/admin/exploracao/editar/submit', 'ExploracaoController@saveEditExploracao');
 
 	/**********ESTUFAS**********/
 
-	Route::get('/admin/estufas/listar', 'EstufaController@listarEstufas');
+	Route::get('/admin/estufas', 'EstufaController@listarEstufas');
 	Route::get('/admin/estufas/detalhes/{id}', 'EstufaController@detalhesEstufa');
 	Route::get('/admin/estufas/editar/{id}', 'EstufaController@editarEstufa');
 	Route::post('/admin/estufas/editar/submit/{id}', 'EstufaController@saveEditEstufa');
@@ -86,7 +84,7 @@ Route::group(['middleware' => ['web']], function ()
 
 	/**********ESPÉCIES**********/
 
-	Route::get('/admin/especies/listar', 'EspecieController@listarEspecies');
+	Route::get('/admin/especies', 'EspecieController@listarEspecies');
 	Route::get('/admin/especies/adicionar', 'EspecieController@adicionar');
 	Route::get('/admin/especies/detalhes/{id}', 'EspecieController@detalhesEspecie');
 	Route::post('/admin/especies/adicionar/submit', 'EspecieController@adicionarEspecie');
@@ -95,7 +93,7 @@ Route::group(['middleware' => ['web']], function ()
 
 	/**********CULTURAS**********/
 
-	Route::get('/admin/culturas/listar', 'CulturaController@listarCulturas');
+	Route::get('/admin/culturas', 'CulturaController@listarCulturas');
 	Route::get('/admin/culturas/getSetorByEstufa/{id}', 'CulturaController@getSetorByEstufa');
 	Route::get('/admin/culturas/detalhes/{id}', 'CulturaController@detalhesCultura');
 	Route::get('/admin/culturas/editar/{id}', 'CulturaController@editarCultura');
@@ -105,20 +103,20 @@ Route::group(['middleware' => ['web']], function ()
 
 	/**********TIPOS-LEITURAS**********/
 
-	Route::get('/admin/tipos-leituras/listar', 'TipoLeituraController@listarTiposLeituras');
+	Route::get('/admin/tipos-leituras', 'TipoLeituraController@listarTiposLeituras');
 	Route::get('/admin/tipos-leituras/adicionar', 'TipoLeituraController@tipoLeitura');
 	Route::post('/admin/tipos-leituras/adicionar/submit', 'TipoLeituraController@criarNovoTipoLeitura');
 
 	/**********ASSOCIACOES-TIPOS-LEITURAS**********/
 
-	Route::get('/admin/associacoes/listar', 'AssociacoesController@listarAssociacoes');
+	Route::get('/admin/associacoes', 'AssociacoesController@listarAssociacoes');
 	Route::get('/admin/associacoes/associar', 'AssociacoesController@associar');
 	Route::post('admin/associacoes/associar/submit', 'AssociacoesController@associarSubmit');
 
 
 	/**********SENSORES**********/
 
-	Route::get('/admin/sensores/listar', 'SensorController@listarSensores');
+	Route::get('/admin/sensores', 'SensorController@listarSensores');
 	Route::get('/admin/sensores/adicionar', 'SensorController@adicionarSensor');
 	Route::get('/admin/sensores/detalhes/{id}', 'SensorController@detalhesSensor');
 	Route::get('/admin/sensores/editar/{id}', 'SensorController@editarSensor');
@@ -127,7 +125,7 @@ Route::group(['middleware' => ['web']], function ()
 
 	/**********LEITURAS**********/
 
-	Route::get('/admin/leituras/listar', 'LeituraController@listarLeituras');
+	Route::get('/admin/leituras', 'LeituraController@listarLeituras');
 	Route::get('/admin/leituras/getAssociacoes/{id}', 'LeituraController@getAssociacoes');
 	
 	Route::get('/admin/leituras/adicionarRegistoManual', 'LeituraController@adicionarRegistoManual');
@@ -139,15 +137,15 @@ Route::group(['middleware' => ['web']], function ()
 
 
 	/**********GRAFICOS**********/
-	Route::get('/admin/graficos/listar', 'LeituraController@listarLeituras');
+	Route::get('/admin/graficos', 'LeituraController@listarLeituras');
 
 
 
 	/**********ALARMES**********/
-	Route::get('/admin/alarmes/listar', 'LeituraController@listarLeituras');
+	Route::get('/admin/alarmes', 'LeituraController@listarLeituras');
 
 	/**********COLABORADORES**********/
-	Route::get('/admin/colaboradores/listar', 'LeituraController@listarLeituras');
+	Route::get('/admin/colaboradores', 'LeituraController@listarLeituras');
 });
 
 

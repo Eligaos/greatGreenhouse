@@ -67,7 +67,7 @@
 							</div>    
 							<div class="form-group">
 								<div class="input-group-addon">
-									<a href="/admin/exploracoes/editar" role="button" name="editar" id="editar" value="Editar" class="btn btn-success pull-right" toggle="tooltip" data-placement="top" title="Editar esta Exploração">Editar</a>
+									<a href="/admin/exploracao/editar" role="button" name="editar" id="editar" value="Editar" class="btn btn-success pull-right" toggle="tooltip" data-placement="top" title="Editar esta Exploração">Editar</a>
 								</div>
 							</div>
 						</form>

@@ -6,8 +6,9 @@
    		var res = pgurl.split("#");
    		pgurl = res[0];
    }
-
      $("#menu-content a").each(function(){
+
+      console.log(pgurl  + " ----" + $(this).attr("href"));
           if($(this).attr("href") == pgurl || pgurl.startsWith($(this).attr("href")) ==true)
           $(this).addClass("active");
      })
