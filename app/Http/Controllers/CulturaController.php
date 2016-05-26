@@ -33,7 +33,7 @@ class CulturaController extends Controller
 		return $lista;	
 	}
 	public function listarCulturas(){ 
-		$lista = [];
+		
 		$estufas = $this->eService->getEstufas($this->exploracaoSelecionada);
 		if(count($estufas)!=0){
 			$lista = $this->cService->listarCulturas($estufas); //collection
