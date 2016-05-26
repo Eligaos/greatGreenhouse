@@ -7,7 +7,6 @@
 
 @section('content')
 <div class="container">
-	<div class="row centered-form">
 		<div class="col-xs-12 col-sm-9 col-md-10 col-sm-offset-2 col-md-offset-2">
 			<section class="content">
 				<div class="panel panel-default">
@@ -19,8 +18,8 @@
 					@endif
 					<div class="table-container">
 						@if(count($lista)!=0)							
-						<table id="table" class="table table-filter table-striped table-bordered table-responsive ">
-							<tr>
+						<table id="table" class="table table-filter table-striped table-bordered table-responsive">
+							<tr class="success">
 								<th id="tEstufa" class="col-xs-6 col-sm-5 col-md-2 text-center">Nome da Estufa</th>
 
 								<th class="col-xs-6 col-sm-5 col-md-2 text-center">Opções</th>
@@ -63,8 +62,7 @@
 					</div>	
 				</div>
 			</section>
-		</div>
-	</div>	
+		</div>	
 </div>
 @endsection
 @section('customScripts')

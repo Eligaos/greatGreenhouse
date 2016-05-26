@@ -8,7 +8,11 @@ body {
 	background-image: url("/img/congruent_pentagon.png");
 	background-repeat: repeat;
 
-} 
+}
+.main{
+	padding-left: 0px;
+	padding-right: 0px;
+}
 /*tabela adicionar zona: Adicionar Estufa view*/
 .table-sortable tbody tr {
 	cursor: move;

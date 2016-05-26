@@ -7,8 +7,8 @@
 
 @section('content')
 <div class="container">
-	<div class="row centered-form">
-		<div class="col-xs-12 col-sm-9 col-md-10  col-sm-offset-2 col-md-offset-2">
+
+		<div class="col-xs-12 col-sm-9 col-md-10 col-sm-offset-2 col-md-offset-2">
 			<section class="content">
 				<div class="panel panel-default">
 					<div class="panel-heading"><h2>Lista de Espécies</h2></div>
@@ -77,7 +77,7 @@
 					</div>	
 				</div>
 			</section>
-		</div>
+	
 	</div>	
 
 </div>

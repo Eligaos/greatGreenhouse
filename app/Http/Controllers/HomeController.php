@@ -39,6 +39,9 @@ class HomeController extends Controller
 	public function inicio(Request $request){
 		$id = Input::except('_token');
 		$request->session()->put('exploracaoSelecionada', $id);
+
+
+
 		return Redirect::to('admin/home');
 	}
 

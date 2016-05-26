@@ -136,6 +136,18 @@ Route::group(['middleware' => ['web']], function ()
 
 
 	Route::get('/admin/leituras/getLastHoursLeituras', 'LeituraController@getLastHoursLeituras');
+
+
+	/**********GRAFICOS**********/
+	Route::get('/admin/graficos/listar', 'LeituraController@listarLeituras');
+
+
+
+	/**********ALARMES**********/
+	Route::get('/admin/alarmes/listar', 'LeituraController@listarLeituras');
+
+	/**********COLABORADORES**********/
+	Route::get('/admin/colaboradores/listar', 'LeituraController@listarLeituras');
 });
 
 

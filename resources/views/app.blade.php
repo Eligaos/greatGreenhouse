@@ -17,8 +17,9 @@
   <!-- Custom styles for this template -->
   @yield('customStyles')
 </head>   
-<body>
-	<div class="nav-side-menu ">
+<body >
+  <div class="main col-sm-2 col-md-2 col-lg-2">
+   <div class="nav-side-menu ">
     <div class="brand">Great Greenhouse</div>
     <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
     <div class="welcome">Bem-vindo,  
@@ -33,61 +34,62 @@
           <a href="/admin/home">
             <i class="fa fa-home fa-lg"></i> Início</a>
           </li>
+           <li><a href="/admin/exploracoes/detalhes"><i class="glyphicon glyphicon-map-marker fa-lg"></i> Exploração Agrícola</a></li>
+           <li><a href="/admin/estufas/listar"><i class="glyphicon glyphicon-leaf fa-lg"></i> Estufas</a>  </li>
+           <li><a href="/admin/culturas/listar"><i class="  glyphicon glyphicon-tree-deciduous fa-lg"></i> Culturas</a>	</li>
+         
 
-          <li>
-           <a href="#">
-             <i class="fa fa-users fa-lg"></i> Colaboradores 
-           </a>
-         </li>
-
-         <li data-toggle="collapse" data-target="#MGA" class="collapsed">
-          <a href="#">
-            <i class="fa fa-globe fa-lg"></i>
-            Gestão Agrícola <span class="arrow"></span>
-          </a>
-        </li> 
-        <ul class="sub-menu collapse" id="MGA">
-         <li><a href="/admin/exploracoes/detalhes"><i class="fa fa-globe fa-lg"></i> Exploração Agrícola</a></li>
-         <li><a href="/admin/estufas/listar"><i class="fa fa-globe fa-lg"></i> Estufas</a>  </li>
-         <li><a href="/admin/culturas/listar"><i class="fa fa-globe fa-lg"></i> Culturas</a>	</li>
-         <li><a href="/admin/especies/listar"><i class="fa fa-globe fa-lg"></i> Espécies</a></li>  
-       </ul>   
-       <li data-toggle="collapse" data-target="#consultas" class="collapsed">
-        <a href="#"><i class="fa fa-globe fa-lg"></i> Consultas <span class="arrow"></span></a>
+     <li>
+       <a href="/admin/leituras/listar">
+         <i class="glyphicon glyphicon-tasks fa-lg"></i> Leituras 
+       </a>
+     </li>
+        <li>
+       <a href="/admin/graficos/listar">
+         <i class="glyphicon glyphicon-stats fa-lg"></i> Gráficos 
+       </a>
+     </li>
+     <li>
+       <a href="/admin/alarmes/listar">
+         <i class="glyphicon glyphicon-time fa-lg"></i> Alarmes 
+       </a>
+     </li>   
+  
+       <li data-toggle="collapse" data-target="#sensores" class="collapsed">
+        <a href="#"><i class="glyphicon glyphicon-wrench fa-lg"></i> Sensores <span class="arrow"></span></a>
       </li> 
-      <ul class="sub-menu collapse" id="consultas">
-       <li><a href="/admin/leituras/listar"><i class="glyphicon glyphicon-stats"></i> Dados Analíticos </a></li>
-       <li><a href="#"><i class="glyphicon glyphicon-bell"></i> Alarmes </a>	</li>
+      <ul class="sub-menu collapse" id="sensores">
+  
+       <li><a href="/admin/sensores/listar"><i class="glyphicon glyphicon-scale fa-lg"></i> Lista de Sensores </a></li>
+       <li><a href="/admin/associacoes/listar"><i class="glyphicon glyphicon-retweet fa-lg"></i> Associar Sensores</a></li>
+            <li><a href="/admin/tipos-leituras/listar"><i class="glyphicon glyphicon-link fa-lg"></i> Tipos de Leituras</a></li>
+       <li><a href="/admin/leituras/adicionarRegistoManual"><i class="  glyphicon glyphicon-pencil fa-lg"></i> Registar Leitura Manual </a></li>
      </ul>
-     <li data-toggle="collapse" data-target="#leituras" class="collapsed">
-      <a href="#"><i class="fa fa-globe fa-lg"></i> Leituras/Sensores <span class="arrow"></span></a>
-    </li> 
-    <ul class="sub-menu collapse" id="leituras">
-     <li><a href="/admin/tipos-leituras/listar"><i class="glyphicon glyphicon-globe"></i> Tipos de Leituras</a></li>
-     <li><a href="/admin/sensores/listar"><i class="glyphicon glyphicon-globe"></i> Sensores </a></li>
-     <li><a href="/admin/leituras/adicionarRegistoManual"><i class="glyphicon glyphicon-globe"></i> Registar Leitura Manual </a></li>
-   </ul>
-   <li>
-    <a href="/admin/associacoes/listar">
-      <i class="fa fa-globe fa-lg"></i> Associar Tipos de Leituras
-    </a>
-  </li>
-  <li>
-    <a href="/admin/perfil">
-      <i class="fa fa-user fa-lg"></i> Perfil
-    </a>
-  </li>
-  <li>
-    <a href="/admin/exploracoes/mudar">
-      <i class="glyphicon glyphicon-transfer"></i>Mudar de Exploração
-    </a>
-  </li>
-  <li>
-    <a href="/admin/logout">
-      <i class="fa fa-door fa-lg"></i> Sair
-    </a>
-  </li>
-</ul>
+
+  <li><a href="/admin/especies/listar"><i class="glyphicon glyphicon-grain fa-lg"></i> Espécies</a></li>  
+        
+     <li>
+       <a href="/admin/colaboradores/listar">
+         <i class="fa fa-users fa-lg"></i> Colaboradores 
+       </a>
+     </li>
+     <li>
+      <a href="/admin/perfil">
+        <i class="fa fa-user fa-lg"></i> Perfil
+      </a>
+    </li>
+    <li>
+      <a href="/admin/exploracoes/mudar">
+        <i class="glyphicon glyphicon-transfer"></i>Mudar de Exploração
+      </a>
+    </li>
+    <li>
+      <a href="/admin/logout">
+        <i class="fa fa-door fa-lg"></i> Sair
+      </a>
+    </li>
+  </ul>
+</div>
 </div>
 </div>
 @yield('content')
@@ -95,5 +97,6 @@
 <script src="{{asset('js/jquery/jquery-2.1.4.js')}}"></script>
 <script src="{{asset('js/angular/angular.js')}}"></script>
 <script src="{{asset('js/bootstrap/bootstrap.js')}}"></script>
+<script src="{{asset('js/geral.js')}}"></script>
 @yield('customScripts')
 </html>

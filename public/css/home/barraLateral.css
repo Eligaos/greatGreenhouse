@@ -100,6 +100,7 @@
   text-decoration: none;
   color: #e1ffff;
   display: block;
+  line-height: 30px;
 }
 .nav-side-menu li a i {
   padding-left: 10px;

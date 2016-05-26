@@ -1,17 +1,10 @@
 $(function() {
-
- $.ajaxSetup({
-  headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
-});
-
  $.get("/admin/leituras/getLastHoursLeituras", function( dados ) {
 
  }).done(function(dados){
   var data = [];
 
   for (var i =0; i < dados.length; i++) {
-    console.log(dados[i].data);
-        console.log(dados[i].valor);
     data.push({
       time: dados[i].data,
       value: dados[i].valor
@@ -40,11 +33,9 @@ $(function() {
       ykeys: ['value'],
       // Labels for the ykeys -- will be displayed when you hover over the
       // chart.
-      labels: ['Value']
+      labels: ['Valor']
     });
 });
- 
-
 
 /*
 new Morris.Line({
@@ -88,4 +79,5 @@ new Morris.Line({
   // chart.
   labels: ['Value']
 });*/
+
 });

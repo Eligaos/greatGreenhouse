@@ -7,7 +7,6 @@
 
 @section('content')
 <div class="container">
-	<div class="row centered-form">
 		<div class="col-xs-12 col-sm-9 col-md-10 col-sm-offset-1 col-md-offset-2 ">
 			<section class="content">
 				<div >
@@ -17,7 +16,6 @@
 							<div class="table-container">
 								<table class="table table-filter table-striped table-bordered table-responsive">
 									<tbody>
-										
 										<form class="form-signin" method="POST" action="/admin/home">
 											<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">								@if( Session::get('message'))
 											<div style="text-align: center">
@@ -82,7 +80,7 @@
 							</div>
 						</section>
 					</div>
-				</div>
+	
 			</div>
 		</div>
 		@endsection
