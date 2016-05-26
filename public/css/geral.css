@@ -17,3 +17,8 @@ body {
 .content{
 	margin-top: 50px;
 }
+
+p{
+
+	margin-bottom: 20px !important; 
+}

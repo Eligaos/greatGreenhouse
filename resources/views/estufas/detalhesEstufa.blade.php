@@ -20,9 +20,11 @@
 							<fieldset> 
 								<legend>Dados da Estufa</legend>
 								<div class="col-xs-12 col-md-12">
-									<label for="nome">Nome da Estufa: </label>
+									<p>
+										<label for="nome">Nome da Estufa: </label>
 									<span>{{$lista[0]->nome}}</span>
-									<br/>
+								
+									</p>
 									<label for="desc">Descrição: </label>									
 									<span>{{$lista[0]->descricao}}</span>
 									<br/>

@@ -17,89 +17,77 @@
 					</div>
 					<div class="panel-body">				
 						<div class="form-group">
-							<fieldset> 
-								<h4>Dados da Cultura</h4>
-								<div class="col-xs-12 col-md-12">
-									<p>
-										<label for="nome">Nome da Cultura: </label>
-										<span>{{$lista[0]->nome}}</span>
-									</p>
-									<label for="desc">Tipo Cultura: </label>
-									@if($lista[0]->tipo_cultura != "")									
-									<span>{{$lista[0]->tipo_cultura}}</span>
-									@else
-									<span>Não Tem</span>
-									@endif
-									<br/>
-									<label for="desc">Tipo Cultivo: </label>	
-									@if($lista[0]->tipo_cultivo != "")		
-									<span>{{$lista[0]->tipo_cultivo}}</span>
-									@else
-									<span>Não Tem</span>
-									@endif
-									<br/>
-								</div>	
-							</fieldset>
-						</div>								
-						<div class="form-group">
-							<fieldset> 
-								<div class="col-xs-12 col-md-12">
-									<legend>Duração</legend> 
-									<label for="nome">Data Inicial do Ciclo: </label>
-									<span>{{$lista[0]->data_inicio_ciclo}}</span>
-									<br/>
-									<label for="desc">Data de Fim do Ciclo: </label>									
-									<span>{{$lista[0]->data_prevista_fim_ciclo}}</span>
-									<br/>
-									<label for="desc">Duração do Ciclo: </label>				
-									<span>{{$lista[0]->duracao_ciclo}}</span>
-									<br/>
-								</div>
-							</fieldset>
-						</div>
+							<h4 class="border-bottom">Dados da Cultura</h4>
+							<p>
+								<label>Nome da Cultura: </label>
+								<span >{{$lista[0]->nome}}</span>
+							</p>
+							<p>
+								<label>Tipo Cultura: </label>
+								@if($lista[0]->tipo_cultura != "")						
+								<span>{{$lista[0]->tipo_cultura}}</span>
+								@else
+								<span>Não Tem</span>
+								@endif
+							</p>
+							
+							<p>
+								<label>Tipo Cultivo: </label>	
+								@if($lista[0]->tipo_cultivo != "")		
+								<span>{{$lista[0]->tipo_cultivo}}</span>
+								@else
+								<span>Não Tem</span>
+								@endif
 
-						<div class="form-group">
-							<fieldset> 
-								<div class="col-xs-12 col-md-12">
-									<legend>Dimensões</legend> 
-									<label for="nome">Espaço na Linha: </label>									
-									@if($lista[0]->espaco_na_linha != 0)
-									<span>{{$lista[0]->espaco_na_linha}}</span>
-									@else
-									<span>Não Tem</span>
-									@endif
-									<br/>
-									<label for="desc">Espaço entre Linhas: </label>									
-									@if($lista[0]->espaco_entre_linhas != 0)	
-									<span>{{$lista[0]->espaco_entre_linhas}}</span>
-									@else
-									<span>Não Tem</span>
-									@endif
-									<br/>
-								</div>
-							</fieldset>
-						</div>
-						<div class="form-group">
-							<fieldset> 
-								<div class="col-xs-12 col-md-12">
-									<legend>Localização</legend> 
-									<label for="nome">Estufa: </label>
-									<span>{{$lista[2]->nome}}</span>
-									<br/>
-									<label for="desc">Setor: </label>									
-									<span>{{$lista[1]->nome}}</span>
-									<br/>
-								</div>								
-							</fieldset>
-						</div>
-						<div class="form-group">
-							<fieldset> 
-								<div class="col-xs-12 col-md-12">
-									<legend>Espécie</legend> 
-									<label for="nome">Espécie: </label>
-									<span>{{$lista[0]->especie}}</span>
-								</div>
-							</fieldset>
+							</p>
+							<h4 class="border-bottom">Duração</h4> 
+
+
+							<p>		
+								<label>Data Inicial do Ciclo: </label>
+								<span>{{$lista[0]->data_inicio_ciclo}}</span>
+							</p>
+							<p>
+								<label >Data de Fim do Ciclo: </label>						
+								<span>{{$lista[0]->data_prevista_fim_ciclo}}</span>
+							</p>
+							<p>
+								<label for="desc">Duração do Ciclo: </label>				
+								<span>{{$lista[0]->duracao_ciclo}}</span>
+							</p>
+							
+							<h4 class="border-bottom">Dimensões</h4> 
+
+							<label >Espaço na Linha: </label>									
+							@if($lista[0]->espaco_na_linha != 0)
+							<span>{{$lista[0]->espaco_na_linha}}</span>
+							@else
+							<span>Não Tem</span>
+							@endif
+							<br/>
+							<label >Espaço entre Linhas: </label>									
+							@if($lista[0]->espaco_entre_linhas != 0)	
+							<span>{{$lista[0]->espaco_entre_linhas}}</span>
+							@else
+							<span>Não Tem</span>
+							@endif
+							<h4 class="border-bottom">Localização</h4> 
+
+							
+							<p>
+								<label>Estufa: </label>
+								<span>{{$lista[2]->nome}}</span>
+							</p>
+							<p>
+								<label >Setor: </label>									
+								<span>{{$lista[1]->nome}}</span>
+							</p>
+							<h4 class="border-bottom">Espécie</h4>
+							<p>
+								<label for="nome">Espécie: </label>
+								<span>{{$lista[0]->especie}}</span>
+							</p>
+
 						</div>
 						<div class="form-group">
 							<div class="input-group-addon">
