@@ -50,7 +50,7 @@
 															</td>
 															<td>
 																<div  style="text-align: center">
-																	<a class="btn btn-sm  btn-default" toggle="tooltip" data-placement="top" title="Editar Estufa"  role="button" name="editar" href="/admin/culturas/editar/{{$associacao->associacoes_id}}">Editar</a>
+																	<a class="btn btn-sm  btn-default" toggle="tooltip" data-placement="top" title="Editar Estufa"  role="button" name="editar" href="/admin/associassoes/editar/{{$associacao->associacoes_id}}" disabled>Editar</a>
 																	<a class="btn btn-sm  btn-default" href="#">Eliminar</a>
 																</div>
 															</td>
@@ -70,7 +70,7 @@
 												@if($estufas!=0 && $sensores!=0)
 												<a href="/admin/associacoes/associar" role="button" name="adicionar" id="adicionarAssociacao" class="btn btn-success pull-right">Adicionar Associação</a>
 												@else
-												<a role="button" name="adicionar" id="adicionar cultura" class="btn btn-success pull-right" toggle="tooltip" data-placement="top" title="Adicione uma Estufa ou Sensores" disabled>Adicionar Associação</a>
+												<a role="button" name="adicionar" id="adicionarAssociacoes" class="btn btn-success pull-right" toggle="tooltip" data-placement="top" title="Adicione uma Estufa ou Sensores" disabled>Adicionar Associação</a>
 												@endif
 												
 											</div>		

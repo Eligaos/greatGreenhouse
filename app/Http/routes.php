@@ -110,6 +110,7 @@ Route::group(['middleware' => ['web']], function ()
 	/**********ASSOCIACOES-TIPOS-LEITURAS**********/
 
 	Route::get('/admin/associacoes', 'AssociacoesController@listarAssociacoes');
+	Route::get('/admin/associacoes/editar/{id}', 'AssociacoesController@editarAssociacoes');
 	Route::get('/admin/associacoes/associar', 'AssociacoesController@associar');
 	Route::post('admin/associacoes/associar/submit', 'AssociacoesController@associarSubmit');
 

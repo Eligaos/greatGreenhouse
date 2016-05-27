@@ -55,9 +55,9 @@ class SensorController extends Controller
 
 	public function editarSensor($id){
 		$lista = $this->sService->getSensor($id);
+		$tiposLeituras = $this->aService->getTiposLeitura();		
 		//$lista[0]-- array de estufa  $lista[1]--array dos setores da estufa
-		$estufas = $this->eService->getEstufas($this->exploracaoSelecionada); //todas as estufas da exploracao
-		return view('sensores.editarSensor', compact('lista', 'estufas'));  		
+		return view('sensores.editarSensor', compact('lista', 'tiposLeituras'));  		
 	}
 
 }

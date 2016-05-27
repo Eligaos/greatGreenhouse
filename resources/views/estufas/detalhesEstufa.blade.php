@@ -80,7 +80,7 @@
 						</div>
 						<div class="form-group">
 							<div class="input-group-addon">
-								<a href="/admin/estufas/listar" role="button" name="cancelar"class="btn btn-default pull-right">Voltar</a>
+								<a href="/admin/estufas" role="button" name="cancelar"class="btn btn-default pull-right">Voltar</a>
 								<a class="btn btn-success pull-right" toggle="tooltip" data-placement="top" title="Editar Estufa"  role="button" name="editar" href="/admin/estufas/editar/{{$lista[0]->id}}">Editar</a>
 							</div>
 						</div>

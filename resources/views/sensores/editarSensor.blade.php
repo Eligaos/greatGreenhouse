@@ -1,41 +1,42 @@
 @extends('app')
 
 @section('customStyles')
-<link href="{{asset('css/exploracoes/addExploracao.css')}}" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
 
 @endsection
+@section('title', ' - Editar Sensor')
+
 @section('content')
 <div class="container">
 	<div class="row centered-form">
 		<div class="col-xs-12 col-sm-9 col-md-8  col-sm-offset-3 col-md-offset-2">
-			<div>
+			<div class="content">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h3 class="modal-title">Adicionar Novo Sensor</h3>
+						<h3 class="panel-title" id="myModalLabel">Editar Sensor</h3>
 					</div>
-					<div class="panel-body">
+					<div class="panel-body">						
 						<form id="registerForm" method="POST" action="/admin/sensores/adicionar/submit" >
 							<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">		
 							<div class="form-group">
 								<fieldset> 
-									<legend>Dados do Novo Sensor</legend>
+									<legend>Dados do Sensor</legend>
 									<div class="col-xs-12 col-md-12">
 										<label for="nome">Nome do Sensor</label>
 										<div class="input-group">
-											<input type="text" class="form-control" id="nome"  name="nome" placeholder="Insira o nome do sensor" required><span class="input-group-addon"></span>		
+											<input type="text" class="form-control" id="nome"  name="nome" placeholder="Insira o nome do sensor" value="{{$lista[0]->nome}}" required><span class="input-group-addon"></span>		
 										</div>
 										<label for="modelo">Modelo</label>
 										<div class="input-group">
-											<input type="text" class="form-control" id="modelo"  name="modelo" placeholder="Insira o modelo do sensor" required=""><span class="input-group-addon"></span>
+											<input type="text" class="form-control" id="modelo"  name="modelo" placeholder="Insira o modelo do sensor" value="{{$lista[0]->modelo}}" required><span class="input-group-addon"></span>
 										</div>
 										<label for="area_alcance">Alcance</label>
 										<div class="input-group">
-											<input type="number" class="form-control" id="area_alcance"  name="area_alcance" placeholder="Insira o alcance do sensor" required="" min=0><span class="input-group-addon"></span>
+											<input type="number" class="form-control" id="area_alcance"  name="area_alcance" placeholder="Insira o alcance do sensor" value="{{$lista[0]->area_alcance}}" required min=0><span class="input-group-addon"></span>
 										</div>
 									</div>
-									<label>Escolha o Tipo</label>
 									<div class="col-xs-12 col-md-12">
+										<label>Escolha o Tipo</label>									
 										<select id="tipo_id" name="tipo_id" class="selectpicker form-control" title="Selecione um Tipo"  data-live-search="true" showTick="true" required>
 											@foreach($tiposLeituras as $key => $tipo)
 											<option value="{{$tipo->id}}">{{$tipo->parametro}}</option>

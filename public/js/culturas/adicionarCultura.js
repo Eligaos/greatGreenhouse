@@ -14,8 +14,9 @@ $(document).ready(function() {
 
    $('#dInic').datepicker({
     dateFormat: 'yy-mm-dd',
-    minDate: 0
-  });
+    minDate: 0    
+  }).datepicker("setDate", new Date());
+
    $('#dFim').datepicker({
     dateFormat: 'yy-mm-dd',
     minDate: 0
