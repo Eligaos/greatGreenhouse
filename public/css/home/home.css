@@ -15,9 +15,9 @@
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
 }
 
-.panel-pricing .panel-heading .fa {
+.panel-heading .fa {
   margin-top: 10px;
-  font-size: 58px;
+  font-size: 48px;
 }
 .panel-pricing .list-group-item {
   color: #777777;
@@ -38,3 +38,26 @@
   padding: 20px;
   margin: 0px;
 }
+
+.monitor{
+  height: 250px;
+}
+#culturas-container{
+  color: #3c763d;
+  background-color: #dff0d8;
+height: auto;
+}
+
+
+#culturas-container ul {
+  list-style-type: none;
+}
+
+#culturas-container ul li{
+  display: inline;
+float:left;
+margin-right: 14px;
+margin-left: 15px;
+margin-bottom: 5px;
+}
+

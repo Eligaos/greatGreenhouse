@@ -1,20 +1,21 @@
 $(function() {
- $.get("/admin/leituras/getLastHoursLeituras", function( dados ) {
+  for (var j = 0; j <  estufas.data.length; j++) {
 
- }).done(function(dados){
-  var data = [];
+   $.get("/admin/leituras/ultimas/"+estufas.data[j].id, function(dados) {
 
-  for (var i =0; i < dados.length; i++) {
-    data.push({
-      time: dados[i].data,
-      value: dados[i].valor
-    });
+   }).done(function(dados){
+    var data = [];
+    for (var i =0; i < dados.length; i++) {
+      data.push({
+        time: dados[i].data,
+        value: dados[i].valor
+      });
 
-  }
+    }
 
-   new Morris.Line({
+    new Morris.Line({
       // ID of the element in which to draw the chart.
-      element: 'monitor1',
+      element: 'monitor'+dados[0].estufa_id,
       // Chart data records -- each entry in this array corresponds to a point on
       // the chart.
 
@@ -35,7 +36,10 @@ $(function() {
       // chart.
       labels: ['Valor']
     });
-});
+    
+  });
+ }
+
 
 /*
 new Morris.Line({

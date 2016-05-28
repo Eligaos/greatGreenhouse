@@ -37,7 +37,7 @@ class EstufaController extends Controller
 		$input = Input::except('_token');
 		$exists = $this->eService->adicionarEstufa($this->exploracaoSelecionada, $input);
 		if($exists){
-			return Redirect::to("admin/estufas/listar")->with('message', 'Estufa guardada com sucesso!');
+			return Redirect::to("admin/estufas")->with('message', 'Estufa guardada com sucesso!');
 		}else{
 			return Redirect::to("/admin/estufas/adicionar")->with('message', 'Já existe uma Estufa com esse nome');
 		}

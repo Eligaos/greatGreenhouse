@@ -129,12 +129,12 @@ Route::group(['middleware' => ['web']], function ()
 	Route::get('/admin/leituras', 'LeituraController@listarLeituras');
 	Route::get('/admin/leituras/getAssociacoes/{id}', 'LeituraController@getAssociacoes');
 	
-	Route::get('/admin/leituras/adicionarRegistoManual', 'LeituraController@adicionarRegistoManual');
-	Route::post('/admin/leituras/adicionarRegistoManual/submit', 'LeituraController@adicionarRegistoManualSubmit');
+	Route::get('/admin/registos/manual', 'LeituraController@adicionarRegistoManual');
+	Route::post('/admin/registos/manual/submit', 'LeituraController@adicionarRegistoManualSubmit');
 
 
 
-	Route::get('/admin/leituras/getLastHoursLeituras', 'LeituraController@getLastHoursLeituras');
+	Route::get('/admin/leituras/ultimas/{id}', 'LeituraController@getLastHoursLeituras');
 
 
 	/**********GRAFICOS**********/

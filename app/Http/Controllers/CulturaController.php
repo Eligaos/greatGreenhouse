@@ -45,7 +45,7 @@ class CulturaController extends Controller
 		$input = Input::except('_token');
 		//dd($input);
 		$exists = $this->cService->adicionarCultura($input);
-		return Redirect::to("admin/culturas/listar")->with('message', 'Cultura guardada com sucesso!');
+		return Redirect::to("admin/culturas")->with('message', 'Cultura guardada com sucesso!');
 	}
 
 	public function detalhesCultura($id){

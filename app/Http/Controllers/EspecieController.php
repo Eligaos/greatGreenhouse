@@ -34,7 +34,7 @@ class EspecieController extends Controller
 		$input = Input::except('_token');
 
 		$exists = $this->espService->criarEspecie($input);
-		return Redirect::to("admin/especies/listar")->with('message', 'Espécie guardada com sucesso!');
+		return Redirect::to("admin/especies")->with('message', 'Espécie guardada com sucesso!');
 	}
 
 

@@ -76,7 +76,7 @@
 
 						<div class="input-group-addon" >
 
-							<a  href="/admin/leituras/adicionarRegistoManual" role="button" name="adicionar" class="btn btn-success center-block pull-left" toggle="tooltip" data-placement="top" title="Registar Leitura Manual" >Registar Leitura Manual</a>
+							<a  href="/admin/registos/manual" role="button" name="adicionar" class="btn btn-success center-block pull-left" toggle="tooltip" data-placement="top" title="Registar Leitura Manual" >Registar Leitura Manual</a>
 
 							<div class="pull-right"> {!! $lista->links() !!}</div>
 						</div>

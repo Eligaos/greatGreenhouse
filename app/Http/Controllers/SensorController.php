@@ -44,7 +44,7 @@ class SensorController extends Controller
 	public function adicionarSensorSubmit(){
 		$input = Input::except('_token');
 		$add = $this->sService->adicionar($input, $this->exploracaoSelecionada);
-		return  Redirect::to("/admin/sensores/listar")->with('message', 'Sensor guardado com sucesso!');
+		return  Redirect::to("/admin/sensores")->with('message', 'Sensor guardado com sucesso!');
 	}
 
 	public function detalhesSensor($id){

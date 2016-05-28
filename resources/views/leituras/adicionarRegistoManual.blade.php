@@ -17,10 +17,10 @@
 			<div>
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h3 class="panel-title" id="myModalLabel">Registo Manual</h3>
+						<h3 class="modal-title" id="myModalLabel">Registo Manual</h3>
 					</div>
 					<div class="panel-body">
-						<form id="registerForm" method="POST" action="/admin/leituras/adicionarRegistoManual/submit">
+						<form id="registerForm" method="POST" action="/admin/registos/manual/submit">
 							<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 							<fieldset> 
 								<legend>Origem</legend>								
