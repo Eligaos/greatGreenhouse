@@ -17,7 +17,8 @@
 				</div>
 				@endif
 				<div class="table-container">
-					@if(count($estufas)!=0)							
+					@if(count($estufas)!=0)	
+					@if(count($lista)!=0)						
 					<table id="table" class="table table-filter table-striped table-bordered table-responsive ">
 						<tr class="success">
 							<th id="tEstufa" class="col-xs-6 col-sm-5 col-md-2 text-center">Nome da Estufa</th>
@@ -56,19 +57,26 @@
 							</tr>	
 							@endforeach		
 						</tbody>								
-					</table>	
+					</table>
 					@else
-					<div class="text-center" >Não existem estufas nesta exploração</div>
+					<div class="text-center" >
+						<h4> Não existem culturas nesta exploração</h4>
+					</div>
+					@endif		
+					@else
+					<div class="text-center" >
+						<h4> Não existem estufas nesta exploração</h4>
+					</div>
 					@endif	
 				</div>
 			</form> 
 			<div class="form-group">
 				<div class="input-group-addon">
 					@if(count($estufas)!=0)
-					<a  href="/admin/culturas/adicionar" role="button" name="adicionar" class="btn btn-success center-block pull-left" toggle="tooltip" data-placement="top" title="Adicionar Cultura" >Adicionar</a>
+					<a  href="/admin/culturas/adicionar" role="button" name="adicionar" class="btn btn-success center-block pull-left" toggle="tooltip" data-placement="top" title="Adicionar Cultura" >Adicionar nova Cultura</a>
 
 					@else
-					<a role="button" name="adicionar" id="adicionar cultura" class="btn btn-success pull-right" toggle="tooltip" data-placement="top" title="Adicione uma Estufa primeiro" disabled>Adicionar</a>
+					<a role="button" name="adicionar" id="adicionar cultura" class="btn btn-success center-block pull-left" toggle="tooltip" data-placement="top" title="Adicione uma Estufa primeiro" disabled>Adicionar nova Cultura</a>
 					@endif
 				</div>
 			</div>	

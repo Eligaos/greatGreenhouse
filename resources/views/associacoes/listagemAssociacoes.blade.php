@@ -65,19 +65,23 @@
 								</tbody>
 							</table>	
 							@else
-							<div class="text-center" >Não existem associações</div>
+							<div class="text-center" >
+								<h4> Não existem associações</h4>
+							</div>
 							@endif	
 							@else
-							<div class="text-center" >Não existem estufas nesta exploração ou sensores adicionados</div>
+							<div class="text-center" >
+								<h4> Não existem estufas nesta exploração ou sensores adicionados</h4>
+							</div>
 							@endif									
 						</div>
 					</form> 
 					<div class="form-group">
 						<div class="input-group-addon">
 							@if($estufas!=0 && $sensores!=0)
-							<a href="/admin/associacoes/associar" role="button" name="adicionar" id="adicionarAssociacao" class="btn btn-success pull-right">Adicionar Associação</a>
+							<a href="/admin/associacoes/associar" role="button" name="adicionar" id="adicionarAssociacao" class="btn btn-success center-block pull-left">Adicionar Associação</a>
 							@else
-							<a role="button" name="adicionar" id="adicionarAssociacoes" class="btn btn-success pull-right" toggle="tooltip" data-placement="top" title="Adicione uma Estufa ou Sensores" disabled>Adicionar Associação</a>
+							<a role="button" name="adicionar" id="adicionarAssociacoes" class="btn btn-success center-block pull-left" toggle="tooltip" data-placement="top" title="Adicione uma Estufa ou Sensores" disabled>Adicionar Associação</a>
 							@endif
 						</div>		
 					</div>	

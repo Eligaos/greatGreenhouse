@@ -13,7 +13,7 @@
 	<link href="{{asset('css/bootstrap/bootstrap.css')}}" rel="stylesheet">
 
 	<link href="{{asset('css/home/geral.css')}}" rel="stylesheet">	
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 	<link href="{{asset('css/exploracoes/listagemExploracoes.css')}}" rel="stylesheet">
 </head>   
 <body>
@@ -33,6 +33,7 @@
 							<form class="form-signin" method="POST" action="/admin/home">
 								<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">							
 								<div class="table-container">
+									@if(count($lista)!=0)	
 									<table class="table table-filter table-striped table-bordered table-responsive">
 										<tr class="success">
 											<th class="col-xs-6 col-sm-5 col-md-2 text-center">Nome</th>
@@ -44,7 +45,7 @@
 											<tr>	
 												<td class="text-center">	
 													{{$exploracao->nome}}
-													 
+
 												</td>								
 												<td class="text-center" >									
 													@if($exploracao->numero>0)
@@ -60,7 +61,10 @@
 												</td>
 											</tr>										@endforeach
 										</tbody>
-									</table>									
+									</table>
+									@else
+									<div class="text-center"><span>Não existem explorações</span></div>
+									@endif										
 								</div>
 							</form> 
 

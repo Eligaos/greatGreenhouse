@@ -13,70 +13,69 @@
 			<div class="content">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h3 class="panel-title" id="myModalLabel">Detalhes Estufa</h3>
+						<h3 class="modal-title">Detalhes Estufa</h3>
 					</div>
+					@if( Session::get('message'))
+					<div class="text-center">
+						<span class="alert alert-info"> {{ Session::get('message') }}</span>
+					</div>
+					@endif
 					<div class="panel-body">				
 						<div class="form-group">
-							<fieldset> 
-								<legend>Dados da Estufa</legend>
-								<div class="col-xs-12 col-md-12">
-									<p>
-										<label for="nome">Nome da Estufa: </label>
+							<h4 class="border-bottom">Dados da Estufa</h4>
+							<div class="col-xs-12 col-md-12">
+								<p>
+									<label for="nome">Nome da Estufa: </label>
 									<span>{{$lista[0]->nome}}</span>
-								
-									</p>
-									<label for="desc">Descrição: </label>									
-									<span>{{$lista[0]->descricao}}</span>
-									<br/>
-								</div>	
-							</fieldset>
+
+								</p>
+								<label for="desc">Descrição: </label>									
+								<span>{{$lista[0]->descricao}}</span>
+								<br/>
+							</div>	
 						</div>								
 						<div class="form-group">
-							<fieldset> 
-								<legend>Setores</legend> 
-								@if(count($lista[1])==1 && $lista[1][0]->nome == "Nenhum")
-								<p class="summary">Esta estufa não tem Setores</p>
-								@else	
-								<div class="table-container">
-									<table class="table table-filter table-striped table-bordered table-responsive">
-										<thead>
-											<tr >
-												<th class="text-center">
-													Setor
-												</th>
-												<th class="text-center">
-													Descrição
-												</th>
-												<th class="text-center" style="border-top: 1px solid #ffffff; border-right: 1px solid #ffffff;">
-												</th>
-											</tr>
-										</thead>											
-										@foreach($lista[1] as $key => $setor)											
-										<tbody>
-											<tr>
+							<h4 class="border-bottom">Setores</h4> 
+							@if(count($lista[1])==1 && $lista[1][0]->nome == "Nenhum")
+							<p class="summary">Esta estufa não tem Setores</p>
+							@else	
+							<div class="table-container">
+								<table class="table table-filter table-striped table-bordered table-responsive">
+									<thead>
+										<tr class="success">
+											<th class="text-center">
+												Setor
+											</th>
+											<th class="text-center">
+												Descrição
+											</th>
+										</tr>
+									</thead>											
+									@foreach($lista[1] as $key => $setor)											
+									<tbody>
+										<tr>
 											@if($setor->nome != "Nenhum")									
-												<td>
-													<div class="media">
-														<div class="media-body">
-															<p class="summary">{{$setor->nome}}</p>
-														</div>
+											<td>
+												<div class="media">
+													<div class="media-body">
+														<p class="summary">{{$setor->nome}}</p>
 													</div>
-												</td>		
-												<td>
-													<div class="media">
-														<div class="media-body">
-															<p class="summary">{{$setor->descricao}}</p>
-														</div>
+												</div>
+											</td>		
+											<td>
+												<div class="media">
+													<div class="media-body">
+														<p class="summary">{{$setor->descricao}}</p>
 													</div>
-												</td>
-												@endif										
-											</tr>	
-										</tbody>
-										@endforeach										
-									</table>	
-								</div>									
-								@endif
-							</fieldset>
+												</div>
+											</td>
+											@endif										
+										</tr>	
+									</tbody>
+									@endforeach										
+								</table>	
+							</div>									
+							@endif
 						</div>
 						<div class="form-group">
 							<div class="input-group-addon">
@@ -92,6 +91,5 @@
 </div>
 @endsection
 @section('customScripts')
-
 <script src="{{asset('js/estufas/addSetor.js')}}"></script>
 @endsection
