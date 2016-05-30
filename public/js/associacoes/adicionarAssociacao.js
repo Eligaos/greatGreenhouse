@@ -1,6 +1,6 @@
-"use strict";
 
 $(document).ready(function() {
+"use strict";
 
 
   $( "#ddEstufa" ).on('changed.bs.select',function() {

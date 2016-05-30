@@ -7,11 +7,6 @@ $(document).ready(function() {
    $("#tipo_cultura").selectpicker('render');
    $("#tipo_cultura").selectpicker('refresh');
 
-
-
-
-
-
    $('#dInic').datepicker({
     dateFormat: 'yy-mm-dd',
     minDate: 0    
@@ -20,9 +15,8 @@ $(document).ready(function() {
    $('#dFim').datepicker({
     dateFormat: 'yy-mm-dd',
     minDate: 0
-
   });
-
+   
    $.ajaxSetup({
     headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
   });

@@ -33,7 +33,9 @@ class LeituraController extends Controller
 
     public function listarLeituras(){
       $lista = $this->lService->getLeituras();
-      return view('leituras.listagemLeituras', compact('lista'));
+    $estufas = $this->eService->getEstufas($this->exploracaoSelecionada);
+    $tiposLeituras = $this->aService->getTiposLeitura();
+      return view('leituras.listagemLeituras', compact('lista','estufas', 'tiposLeituras'));
   }
 
     public function getAssociacoes($estufaID){//para o js do registoManual
