@@ -44,6 +44,7 @@
          <i class="glyphicon glyphicon-tasks fa-lg"></i> Leituras 
        </a>
      </li>
+     <li><a href="/admin/registos/manual"><i class="  glyphicon glyphicon-pencil fa-lg"></i> Registar Leitura Manual </a></li>
         <li>
        <a href="/admin/graficos">
          <i class="glyphicon glyphicon-stats fa-lg"></i> Gráficos 
@@ -63,7 +64,7 @@
        <li><a href="/admin/sensores"><i class="glyphicon glyphicon-scale fa-lg"></i> Lista de Sensores </a></li>
        <li><a href="/admin/associacoes"><i class="glyphicon glyphicon-retweet fa-lg"></i> Associar Sensores</a></li>
             <li><a href="/admin/tipos-leituras"><i class="glyphicon glyphicon-link fa-lg"></i> Tipos de Leituras</a></li>
-       <li><a href="/admin/registos/manual"><i class="  glyphicon glyphicon-pencil fa-lg"></i> Registar Leitura Manual </a></li>
+       
      </ul>
 
   <li><a href="/admin/especies"><i class="glyphicon glyphicon-grain fa-lg"></i> Espécies</a></li>  
