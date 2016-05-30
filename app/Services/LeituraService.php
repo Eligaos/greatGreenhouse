@@ -41,6 +41,10 @@ $lista =  Leitura::join('associacoes', 'leituras.associacao_id', '=', 'associaco
 					
 
 
+
+						$lista4 =  Leitura::join('associacoes', 'leituras.associacao_id', '=', 'associacoes.id')->join('setores','associacoes.setor_id', '=','setores.id')->join('estufas','setores.estufa_id', '=','estufas.id')->join('sensores','associacoes.sensor_id', '=','sensores.id')->join('tipo_leitura','sensores.tipo_id', '=','tipo_leitura.id')->select('sensores.nome as sensor_nome', 'estufas.id as estufa_id' , 'tipo_leitura.parametro', 'tipo_leitura.unidade', 'leituras.valor as valor','leituras.data as data','leituras.manual as manual','setores.nome as setor_nome')->whereIn('tipo_leitura.id', [4])->where('estufas.id','=',$id)->orderBy('data', 'desc')->take(30)->get();
+					
+
 				
 					
 					
@@ -49,7 +53,7 @@ $lista =  Leitura::join('associacoes', 'leituras.associacao_id', '=', 'associaco
 
 
 
-			return [$lista1,$lista2];
+			return [$lista1,$lista2,$lista4,$lista3];
 	}
 
 	public function adicionarRegistoManualSubmit($input){

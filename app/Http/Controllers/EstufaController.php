@@ -39,7 +39,7 @@ class EstufaController extends Controller
 		if($exists){
 			return Redirect::to("admin/estufas")->with('message', 'Estufa guardada com sucesso!');
 		}else{
-			return Redirect::to("/admin/estufas/adicionar")->with('message', 'Já existe uma Estufa com esse nome');
+			return Redirect::to("/admin/estufas/adicionar")->with('message', 'Já existe uma Estufa com esse nome!');
 		}
 	}
 

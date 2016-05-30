@@ -20,17 +20,33 @@
 					<div class="table-container">
 						<table class="table table-filter table-striped table-bordered table-responsive">	
 							<tr class="success">
-								<th>Parâmetro</th>
-								<th>Unidade</th>
+								<th class="col-xs-6 col-sm-5 col-md-2 text-center">Parâmetro</th>
+								<th class="col-xs-6 col-sm-5 col-md-2 text-center">Unidade</th>
+								<th class="col-xs-6 col-sm-5 col-md-2 text-center">Opções</th>
 							</tr>	
 							<tbody>		
 								@foreach($lista as $key => $tipoLeitura)
 								<tr>									
-									<td>		
+									<td class="text-center">		
 										<span>{{$tipoLeitura->parametro}}</span>
 									</td>
-									<td>
+									<td class="text-center">
 										<span>{{$tipoLeitura->unidade}}</span>
+									</td >
+
+									<td >
+										<div class="text-center">
+										<a  toggle="tooltip" data-placement="top" title="Detalhes Tipo de Leitura" role="button" name="detalhes" href="/admin/tipos-leituras/detalhes/{{$tipoLeitura->cultura_id}}">  <button type="button" class="btn btn-default btn-xs">
+												<span class="glyphicon glyphicon-th-list"></span> Detalhes
+											</button></a>
+
+											<a toggle="tooltip" data-placement="top" title="Editar Cultura" role="button" name="editar" href="/admin/tipos-leituras/editar/{{$tipoLeitura->cultura_id}}">  <button type="button" class="btn btn-default btn-xs">
+												<span class="glyphicon glyphicon-edit"></span> Editar
+											</button></a>
+											<a toggle="tooltip" data-placement="top" title="Remover Cultura" role="button" name="detalhes" href="#">  <button type="button" class="btn btn-default btn-xs">
+												<span class="glyphicon glyphicon-remove"></span> Remover
+											</button></a>
+										</div>
 									</td>
 								</tr>											
 								@endforeach

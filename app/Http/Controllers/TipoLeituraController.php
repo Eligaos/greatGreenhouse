@@ -29,9 +29,9 @@ class TipoLeituraController extends Controller
         $exists = $this->tlService->adicionarTipoLeitura(Input::except('_token'));
 
 		if($exists){
-			return Redirect::to("/admin/tipos-leituras")->with('message', 'sucesso!');
+			return Redirect::to("/admin/tipos-leituras")->with('message', 'Tipo de leitura Adicionado com sucesso!');
 		}else{
-			return Redirect::to("/admin/tipos-leituras/adicionar")->with('message', 'nop');
+			return Redirect::to("/admin/tipos-leituras/adicionar")->with('message', 'Já existe um Tipo de Leitura igual ao inserido!');
 		}
 
 	}

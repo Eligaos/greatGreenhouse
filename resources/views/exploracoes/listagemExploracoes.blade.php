@@ -56,7 +56,7 @@
 												</td>
 												<td>
 													<div>
-														<button type="submit" class="btn btn-sm  btn-default glyphicon glyphicon-triangle-right pull-right" toggle="tooltip" name="id" value="{{$exploracao->id}}" role="button" data-placement="top" title="Entrar nesta Exploração"></button>
+														<button type="submit" class="btn btn-sm  btn-default glyphicon glyphicon-triangle-right pull-right" toggle="tooltip" name="id" value="{{$exploracao->id}}" role="button" data-placement="top" title="Entrar nesta Exploração"><span>Entrar</span></button>
 													</div>
 												</td>
 											</tr>										@endforeach
