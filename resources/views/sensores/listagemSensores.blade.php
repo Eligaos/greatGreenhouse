@@ -14,7 +14,7 @@
 
 						<div class="table-container">
 							@if(count($lista)!=0)	
-							<table class="table table-filter table-striped table-bordered table-responsive">							 <tr>
+							<table class="table table-filter table-striped table-bordered table-responsive">							<tr class="success">
 								<th>Nome</th>
 								<th>Modelo</th>
 								<th>Parâmetro</th>
