@@ -1,7 +1,6 @@
 @extends('app')
 
 @section('customStyles')
-<link href="{{asset('css/exploracoes/addExploracao.css')}}" rel="stylesheet">
 <link href="{{asset('css/registoManual/timePicker.css')}}" rel="stylesheet" />
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
@@ -12,9 +11,8 @@
 
 @section('content')
 <div class="container">
-	<div class="row centered-form">
+	<div class="row content">
 		<div class="col-xs-12 col-sm-9 col-md-8  col-sm-offset-3 col-md-offset-3">
-			<div>
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<h3 class="modal-title" id="myModalLabel">Registo Manual</h3>
@@ -104,7 +102,6 @@
 							</form>						
 						</div>
 					</div>
-				</div>
 			</div>
 		</div>
 	</div>

@@ -33,7 +33,8 @@ $(function() {
       resize: true,
       data: data,
       stacked: true,
-      pointSize: 0,
+      pointSize: 3,
+      hideHover: true,
       // The name of the data record attribute that contains x-values.
       xkey: 'time',
       // A list of names of data record attributes that contain y-values.
