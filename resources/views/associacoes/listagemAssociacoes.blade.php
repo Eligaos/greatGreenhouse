@@ -23,7 +23,7 @@
 							@if(count($lista)!=0)							
 
 							<table class="table table-filter table-striped table-bordered table-responsive">							 
-								<tr>
+								<tr class="success">
 									<th>Parametro</th>
 									<th>Unidade</th>
 									<th>Origem</th>

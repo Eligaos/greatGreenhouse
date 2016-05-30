@@ -58,10 +58,6 @@ $(document).ready(function() {
     closeText: 'Guardar'
   });
 
-
-
-
-
 	$( "#ddEstufa" ).on('changed.bs.select',function() {
 		var t = $("#tipo_cultura").prop("selected");
 		$("#setor_id").children().remove();
@@ -90,4 +86,8 @@ $(document).ready(function() {
 			}
 		})
 	});
+
+
+
+
 });

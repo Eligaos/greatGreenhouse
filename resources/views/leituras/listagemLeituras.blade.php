@@ -41,15 +41,15 @@
 						<select id="setor_id" name="setor_id" class="selectpicker form-control " title="Selecione um Setor"  data-live-search="true" showTick="true">
 						</select>
 					</div>
-					<div class="btn-group col-sm-3 margin-bottom">									<label>Data Inicial</label>
+					<div class="btn-group col-sm-3 margin-bottom">							<label>Data Inicial</label>
 						<input type="text" class="form-control" id="dataInicial" name="data_inicial">
 					</div>
 
-					<div class="btn-group col-sm-3 margin-bottom">									<label>Data Final</label>
+					<div class="btn-group col-sm-3 margin-bottom">							<label>Data Final</label>
 						<input type="text" class="form-control" id="dataFinal" name="data_final">
 					</div>
-					<div class="md-margin-top pull-right">											
-						<a  href="/admin/pesquisar" role="button" name="adicionar" class="btn btn-success center-block" toggle="tooltip" data-placement="top" title="Pesquisar" ><i class="glyphicon glyphicon-search fa-lg"></i> Pesquisar</a>
+					<div class="md-margin-top pull-right margin-bottom">											
+						<a  href="/admin/leituras/pesquisar" role="button" name="adicionar" class="btn btn-success center-block" toggle="tooltip" data-placement="top" title="Pesquisar" ><i class="glyphicon glyphicon-search fa-lg"></i> Pesquisar</a>
 					</div>
 
 

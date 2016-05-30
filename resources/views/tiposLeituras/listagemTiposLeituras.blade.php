@@ -13,7 +13,7 @@
 						<div class="panel-heading"><h2>Lista de Tipos de Leituras</h2></div>				
 									<div class="table-container">
 										<table class="table table-filter table-striped table-bordered table-responsive">	
-											<tr>
+											<tr class="success">
 												<th>Parâmetro</th>
 												<th>Unidade</th>
 											</tr>	
