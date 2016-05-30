@@ -10,10 +10,7 @@
 	<div class="col-xs-12 col-sm-9 col-md-10 col-sm-offset-1 col-md-offset-2 ">
 		<section class="content">
 			<div class="panel panel-default">
-				<div class="panel-heading"><h1>Lista de Leituras</h1></div>
-				<form class="form-signin" method="POST" action="/admin/home">
-					<div class="table-container">
-						<tbody>
+				<div class="panel-heading"><h2>Lista de Leituras</h2></div>
 							<form class="form-signin">
 								<div class="table-container">
 									<table class="table table-filter table-striped table-bordered table-responsive">							 <tr class="success">
@@ -64,14 +61,11 @@
 											Manual
 											@endif
 										</td>
-
-
-									</tr>													
+									</tr>												
 									@endforeach
 								</tbody>
 							</table>									
 						</div>
-					</form> 
 					<div class="form-group">
 
 						<div class="input-group-addon" >
@@ -81,7 +75,7 @@
 							<div class="pull-right"> {!! $lista->links() !!}</div>
 						</div>
 					</div>		
-				</div>
+				
 			</div>
 		</section>
 	</div>

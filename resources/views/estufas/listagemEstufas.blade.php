@@ -12,7 +12,7 @@
 				<div class="panel panel-default">
 					<div class="panel-heading"><h2>Lista de Estufas</h2></div>
 					@if( Session::get('message'))
-					<div style="text-align: center">
+					<div class="text-center">
 						<span class="alert alert-info"> {{ Session::get('message') }}</span>
 					</div>
 					@endif

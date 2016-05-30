@@ -19,14 +19,14 @@
 </head>   
 <body>
 	<div class="container">
-		<div class="row centered-form">
+		<div class="row">
 			<div class="col-xs-12 col-sm-9 col-md-10 col-sm-offset-2 col-md-offset-1">
 				<section class="content">
 					<div >
 						<div class="panel panel-default">
-							<div class="panel-heading"><h1>Lista de Explorações Agrícolas</h1></div>
+							<div class="panel-heading"><h2>Lista de Explorações Agrícolas</h2></div>
 							@if( Session::get('message'))
-							<div style="text-align: center">
+							<div class="text-center">
 								<span class="alert alert-info"> {{ Session::get('message') }}</span>
 							</div>
 							@endif
@@ -44,8 +44,8 @@
 											@foreach($lista as $key => $exploracao)
 											<tr>	
 												<td>	
-													<span class="summary">{{$exploracao->nome}}
-													</span> 
+													{{$exploracao->nome}}
+													 
 												</td>								
 												<td>									
 													@if($exploracao->numero>0)
@@ -55,7 +55,7 @@
 													@endif
 												</td>
 												<td>
-													<div class="">
+													<div>
 														<button type="submit" class="btn btn-sm  btn-default glyphicon glyphicon-triangle-right pull-right" toggle="tooltip" name="id" value="{{$exploracao->id}}" role="button" data-placement="top" title="Entrar nesta Exploração"></button>
 													</div>
 												</td>
@@ -67,7 +67,7 @@
 
 							<div class="form-group">
 								<div class="input-group-addon">
-									<a href="/admin/exploracoes/adicionar" role="button" name="adicionar" id="adicionarExploracao" class="btn btn-success pull-right">Adicionar Exploracao</a>
+									<a href="/admin/exploracoes/adicionar" role="button" name="adicionar" id="adicionarExploracao" class="btn btn-success pull-right">Adicionar Exploração</a>
 								</div>
 							</div>	
 						</div>

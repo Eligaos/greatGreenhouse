@@ -4,79 +4,45 @@ $(function() {
    $.get("/admin/leituras/ultimas/"+estufas.data[j].id, function(dados) {
 
    }).done(function(dados){
-    /*var data = [];
 
-    for (var i =0; i < dados.length; i++) {
-      data.push({
-        time: dados[i].data,
-        value: dados[i].valor 
-      });
+    var data = [];
+    var ykeys = [];
+    var labels = [];
+    for (var j = 0; j < dados.length; j++) {
 
-    }*/
-    console.log(dados);
+
+      if (dados[j][0] != null) {
+        ykeys[j]= 'value'+dados[j][0].parametro;
+        labels[j]= dados[j][0].parametro;
+      }
+
+      for (var i =0; i < dados[j].length; i++) {
+        data.push({
+          time: dados[j][i].data,
+          ['value'+dados[j][i].parametro]: dados[j][i].valor 
+        });
+
+      }
+    }
+
     new Morris.Line({
       // ID of the element in which to draw the chart.
-      element: 'monitor'+dados[0].estufa_id,
+      element: 'monitor'+dados[0][0].estufa_id,
       // Chart data records -- each entry in this array corresponds to a point on
       // the chart.
       resize: true,
-      data: dados,
+      data: data,
+      stacked: true,
+      pointSize: 0,
       // The name of the data record attribute that contains x-values.
-      xkey: 'data',
+      xkey: 'time',
       // A list of names of data record attributes that contain y-values.
-      ykeys: ['valor'],
+      ykeys: ykeys,
       // Labels for the ykeys -- will be displayed when you hover over the
       // chart.
-      postUnits: dados[0].unidade,
-      labels: [dados[0].parametro]
-
+      labels: labels,
     });
-    
   });
- }
-
-
-/*
-new Morris.Line({
-  // ID of the element in which to draw the chart.
-  element: 'monitor2',
-  // Chart data records -- each entry in this array corresponds to a point on
-  // the chart.
-  data: [
-    { year: '2008', value: 20 },
-    { year: '2009', value: 10 },
-    { year: '2010', value: 5 },
-    { year: '2011', value: 5 },
-    { year: '2012', value: 20 }
-  ],
-  // The name of the data record attribute that contains x-values.
-  xkey: 'year',
-  // A list of names of data record attributes that contain y-values.
-  ykeys: ['value'],
-  // Labels for the ykeys -- will be displayed when you hover over the
-  // chart.
-  labels: ['Value']
-});
-
-new Morris.Line({
-  // ID of the element in which to draw the chart.
-  element: 'monitor3',
-  // Chart data records -- each entry in this array corresponds to a point on
-  // the chart.
-  data: [
-    { year: '2008', value: 20 },
-    { year: '2009', value: 10 },
-    { year: '2010', value: 5 },
-    { year: '2011', value: 5 },
-    { year: '2012', value: 20 }
-  ],
-  // The name of the data record attribute that contains x-values.
-  xkey: 'year',
-  // A list of names of data record attributes that contain y-values.
-  ykeys: ['value'],
-  // Labels for the ykeys -- will be displayed when you hover over the
-  // chart.
-  labels: ['Value']
-});*/
+ };
 
 });

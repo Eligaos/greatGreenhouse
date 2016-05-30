@@ -15,7 +15,7 @@
 				<i class="fa fa-leaf"></i>
 				<h3><a class="btn btn-md btn-block btn-success" href="/admin/estufas/detalhes/{{$estufa->id}}">{{$estufa->nome}}</a></h3>
 			</div>
-			<div id="monitor{{$estufa->id}}" class="monitor"></div>
+			<div id="monitor{{$estufa->id}}" class="monitor"><div id="monitorLegenda{{$estufa->id}}"></div></div>
 			<div id="culturas-container" class="modal-footer">  
 				<ul>
 					@foreach($culturas as $key => $cultura)
