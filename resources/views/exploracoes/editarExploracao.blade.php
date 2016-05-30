@@ -15,7 +15,7 @@
 			<div>
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h3 class="modal-title" id="myModalLabel">Exploração Agrícola</h3>
+						<h3 class="modal-title" id="myModalLabel">Editar Exploração Agrícola</h3>
 					</div>
 					<div class="panel-body">
 						<form id="registerForm" method="POST" action="/admin/exploracoes/editar/submit" >

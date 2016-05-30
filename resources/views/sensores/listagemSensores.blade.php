@@ -10,11 +10,15 @@
 			<section class="content">
 				<div class="panel panel-default">
 					<div class="panel-heading"><h2>Lista de Sensores</h2></div>
+					@if( Session::get('message'))
+					<div class="text-center">
+						<span class="alert alert-info"> {{ Session::get('message') }}</span>
+					</div>
+					@endif
 					<div class="table-container">
-
-						<div class="table-container">
-							@if(count($lista)!=0)	
-							<table class="table table-filter table-striped table-bordered table-responsive">							<tr class="success">
+						@if(count($lista)!=0)	
+						<table class="table table-filter table-striped table-bordered table-responsive">							
+							<tr class="success">
 								<th>Nome</th>
 								<th>Modelo</th>
 								<th>Parâmetro</th>
@@ -61,22 +65,22 @@
 								@endforeach
 							</tbody>
 						</table>	
-						@else
-						<div class="text-center" >Não existem sensores adicionados</div>
-						@endif								
 					</div>
-					<div class="form-group">
-						<div class="input-group-addon">
-							<a href="/admin/sensores/adicionar" role="button" name="adicionar" id="adicionar exploracao" class="btn btn-success pull-right" toggle="tooltip" data-placement="top" title="Adicionar novo Sensor">Adicionar novo Sensor</a>
-						</div>
-					</div>	
-				</div>
-			</div>
 
-		</section>
+					@else
+					<div class="text-center" >
+						<h4> Não existem sensores adicionados</h4>
+					</div>
+					@endif								
+				</div>
+				<div class="form-group">
+					<div class="input-group-addon">
+						<a href="/admin/sensores/adicionar" role="button" name="adicionar" id="adicionar exploracao" class="btn btn-success center-block pull-left" toggle="tooltip" data-placement="top" title="Adicionar novo Sensor">Adicionar novo Sensor</a>
+					</div>
+				</div>	
+			</section>
+		</div>
 	</div>
-</div>
-</div>
 </div>
 @endsection
 

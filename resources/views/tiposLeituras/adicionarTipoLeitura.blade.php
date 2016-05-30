@@ -1,8 +1,6 @@
 @extends('app')
 
 @section('customStyles')
-	<link href="{{asset('css/addExploracao.css')}}" rel="stylesheet">
-
 @endsection
 @section('content')
 	<div class="container">
@@ -35,7 +33,7 @@
 								<div class="form-group">
 									<div class="input-group-addon">
 										<a href="{{ url()->previous() }}" role="button" name="cancelar"class="btn btn-default pull-right">Cancelar</a>
-										<input type="submit" id="submit" value="Gravar" class="btn btn-success pull-right">
+										<input type="submit" id="submit" value="Guardar" class="btn btn-success pull-right">
 									</div>
 								</div>
 							</form>
@@ -47,6 +45,5 @@
 	</div>
 	@endsection
 	@section('customScripts')
-	<script src="{{asset('js/adicionarCultura.js')}}"></script>
 	@endsection
 
