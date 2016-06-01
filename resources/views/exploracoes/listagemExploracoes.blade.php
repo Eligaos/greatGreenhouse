@@ -55,31 +55,35 @@
 													@endif
 												</td>
 												<td>
-													<div>
-														<button type="submit" class="btn btn-sm  btn-default glyphicon glyphicon-triangle-right pull-right" toggle="tooltip" name="id" value="{{$exploracao->id}}" role="button" data-placement="top" title="Entrar nesta Exploração"><span>Entrar</span></button>
-													</div>
-												</td>
-											</tr>										@endforeach
-										</tbody>
-									</table>
-									@else
-									<div class="text-center"><span>Não existem explorações</span></div>
-									@endif										
-								</div>
-							</form> 
+													<a href="/admin/exploracoes/mudar">
 
-							<div class="form-group">
-								<div class="input-group-addon">
-									<a href="/admin/exploracoes/adicionar" role="button" name="adicionar" id="adicionarExploracao" class="btn btn-success pull-right">Adicionar Exploração</a>
-								</div>
-							</div>	
+
+
+														<button type="submit" class="btn btn-sm  btn-default pull-right" toggle="tooltip" name="id" value="{{$exploracao->id}}" role="button" data-placement="top" title="Entrar nesta Exploração">
+														</a><span>Entrar</span>	<i class="glyphicon glyphicon-triangle-right"></i></button>
+
+													</td>
+												</tr>										@endforeach
+											</tbody>
+										</table>
+										@else
+										<div class="text-center"><span>Não existem explorações</span></div>
+										@endif										
+									</div>
+								</form> 
+
+								<div class="form-group">
+									<div class="input-group-addon">
+										<a href="/admin/exploracoes/adicionar" role="button" name="adicionar" id="adicionarExploracao" class="btn btn-success pull-right">Adicionar Exploração</a>
+									</div>
+								</div>	
+							</div>
 						</div>
 					</div>
-				</div>
-			</section>
+				</section>
+			</div>
 		</div>
 	</div>
-</div>
 </body>
 <script src="{{asset('js/jquery/jquery-2.1.4.js')}}"></script>
 <script src="{{asset('js/bootstrap/bootstrap.js')}}"></script>
