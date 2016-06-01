@@ -16,49 +16,69 @@ use Carbon\Carbon;
 
 class LeituraService
 {
-	public function getLeituras(){ 
+	public function getLeituras($idExp){ 
 
-		return Leitura::join('associacoes', 'leituras.associacao_id', '=', 'associacoes.id')->join('setores','associacoes.setor_id', '=','setores.id')->join('estufas','setores.estufa_id', '=','estufas.id')->join('sensores','associacoes.sensor_id', '=','sensores.id')->join('tipo_leitura','sensores.tipo_id', '=','tipo_leitura.id')->select('sensores.nome as sensor_nome', 'estufas.nome as estufa_nome', 'tipo_leitura.parametro', 'tipo_leitura.unidade', 'leituras.valor as valor','leituras.data as data','leituras.manual as manual','setores.nome as setor_nome')->orderBy('data', 'desc')->paginate(15);
+		return Leitura::join('associacoes', 'leituras.associacao_id', '=', 'associacoes.id')->join('setores','associacoes.setor_id', '=','setores.id')->join('estufas','setores.estufa_id', '=','estufas.id')->join('exploracoes', 'estufas.exploracoes_id','=','exploracoes.id')->join('sensores','associacoes.sensor_id', '=','sensores.id')->join('tipo_leitura','sensores.tipo_id', '=','tipo_leitura.id')->select('sensores.nome as sensor_nome', 'estufas.nome as estufa_nome', 'tipo_leitura.parametro', 'tipo_leitura.unidade', 'leituras.valor as valor','leituras.data as data','leituras.manual as manual','setores.nome as setor_nome')->where('exploracoes.id', '=', $idExp)->orderBy('data', 'desc')->paginate(15);
 	}
 
 	public function getLastHoursLeituras($id){ 
-	          
-		/*  $to = Carbon::now();
-	            $from = $to->subHours(8);
-$lista =  Leitura::join('associacoes', 'leituras.associacao_id', '=', 'associacoes.id')->join('setores','associacoes.setor_id', '=','setores.id')->join('estufas','setores.estufa_id', '=','estufas.id')->join('sensores','associacoes.sensor_id', '=','sensores.id')->join('tipo_leitura','sensores.tipo_id', '=','tipo_leitura.id')->select('sensores.nome as sensor_nome', 'estufas.nome as estufa_nome','estufas.id as estufa_id', 'tipo_leitura.parametro', 'tipo_leitura.unidade', 'leituras.valor as valor','leituras.data as data','leituras.manual as manual','setores.nome as setor_nome')->where('tipo_leitura.id','=','1')->where('estufas.id','=',$id)->whereBetween('leituras.data', array($from, $to))->orderBy('data', 'desc')->get();
+
+			/*  $to = Carbon::now();
+		            $from = $to->subHours(8);
+	$lista =  Leitura::join('associacoes', 'leituras.associacao_id', '=', 'associacoes.id')->join('setores','associacoes.setor_id', '=','setores.id')->join('estufas','setores.estufa_id', '=','estufas.id')->join('sensores','associacoes.sensor_id', '=','sensores.id')->join('tipo_leitura','sensores.tipo_id', '=','tipo_leitura.id')->select('sensores.nome as sensor_nome', 'estufas.nome as estufa_nome','estufas.id as estufa_id', 'tipo_leitura.parametro', 'tipo_leitura.unidade', 'leituras.valor as valor','leituras.data as data','leituras.manual as manual','setores.nome as setor_nome')->where('tipo_leitura.id','=','1')->where('estufas.id','=',$id)->whereBetween('leituras.data', array($from, $to))->orderBy('data', 'desc')->get();
 
 
-			if(count($lista) ==0){*/
+	if(count($lista) ==0){*/
 
-					$lista1 =  Leitura::join('associacoes', 'leituras.associacao_id', '=', 'associacoes.id')->join('setores','associacoes.setor_id', '=','setores.id')->join('estufas','setores.estufa_id', '=','estufas.id')->join('sensores','associacoes.sensor_id', '=','sensores.id')->join('tipo_leitura','sensores.tipo_id', '=','tipo_leitura.id')->select('sensores.nome as sensor_nome', 'estufas.id as estufa_id' , 'tipo_leitura.parametro', 'tipo_leitura.unidade', 'leituras.valor as valor','leituras.data as data','leituras.manual as manual','setores.nome as setor_nome')->whereIn('tipo_leitura.id',  [1])->where('estufas.id','=',$id)->orderBy('data', 'desc')->take(30)->get();
-
-
-
-						$lista2 =  Leitura::join('associacoes', 'leituras.associacao_id', '=', 'associacoes.id')->join('setores','associacoes.setor_id', '=','setores.id')->join('estufas','setores.estufa_id', '=','estufas.id')->join('sensores','associacoes.sensor_id', '=','sensores.id')->join('tipo_leitura','sensores.tipo_id', '=','tipo_leitura.id')->select('sensores.nome as sensor_nome', 'estufas.id as estufa_id' , 'tipo_leitura.parametro', 'tipo_leitura.unidade', 'leituras.valor as valor','leituras.data as data','leituras.manual as manual','setores.nome as setor_nome')->whereIn('tipo_leitura.id', [2])->where('estufas.id','=',$id)->orderBy('data', 'desc')->take(30)->get();
-
-
-						$lista3 =  Leitura::join('associacoes', 'leituras.associacao_id', '=', 'associacoes.id')->join('setores','associacoes.setor_id', '=','setores.id')->join('estufas','setores.estufa_id', '=','estufas.id')->join('sensores','associacoes.sensor_id', '=','sensores.id')->join('tipo_leitura','sensores.tipo_id', '=','tipo_leitura.id')->select('sensores.nome as sensor_nome', 'estufas.id as estufa_id' , 'tipo_leitura.parametro', 'tipo_leitura.unidade', 'leituras.valor as valor','leituras.data as data','leituras.manual as manual','setores.nome as setor_nome')->whereIn('tipo_leitura.id', [3])->where('estufas.id','=',$id)->orderBy('data', 'desc')->take(30)->get();
-					
+		$lista1 =  Leitura::join('associacoes', 'leituras.associacao_id', '=', 'associacoes.id')->join('setores','associacoes.setor_id', '=','setores.id')->join('estufas','setores.estufa_id', '=','estufas.id')->join('exploracoes', 'estufas.exploracoes_id','=','exploracoes.id')->join('sensores','associacoes.sensor_id', '=','sensores.id')->join('tipo_leitura','sensores.tipo_id', '=','tipo_leitura.id')->select('sensores.nome as sensor_nome', 'estufas.id as estufa_id' , 'tipo_leitura.parametro', 'tipo_leitura.unidade', 'leituras.valor as valor','leituras.data as data','leituras.manual as manual','setores.nome as setor_nome')->whereIn('tipo_leitura.id',  [1])->where('estufas.id','=',$id)->where('exploracoes.id', '=', $idExp)->orderBy('data', 'desc')->take(30)->get();
 
 
 
-						$lista4 =  Leitura::join('associacoes', 'leituras.associacao_id', '=', 'associacoes.id')->join('setores','associacoes.setor_id', '=','setores.id')->join('estufas','setores.estufa_id', '=','estufas.id')->join('sensores','associacoes.sensor_id', '=','sensores.id')->join('tipo_leitura','sensores.tipo_id', '=','tipo_leitura.id')->select('sensores.nome as sensor_nome', 'estufas.id as estufa_id' , 'tipo_leitura.parametro', 'tipo_leitura.unidade', 'leituras.valor as valor','leituras.data as data','leituras.manual as manual','setores.nome as setor_nome')->whereIn('tipo_leitura.id', [4])->where('estufas.id','=',$id)->orderBy('data', 'desc')->take(30)->get();
-					
+		$lista2 =  Leitura::join('associacoes', 'leituras.associacao_id', '=', 'associacoes.id')->join('setores','associacoes.setor_id', '=','setores.id')->join('estufas','setores.estufa_id', '=','estufas.id')->join('exploracoes', 'estufas.exploracoes_id','=','exploracoes.id')->join('sensores','associacoes.sensor_id', '=','sensores.id')->join('tipo_leitura','sensores.tipo_id', '=','tipo_leitura.id')->select('sensores.nome as sensor_nome', 'estufas.id as estufa_id' , 'tipo_leitura.parametro', 'tipo_leitura.unidade', 'leituras.valor as valor','leituras.data as data','leituras.manual as manual','setores.nome as setor_nome')->whereIn('tipo_leitura.id', [2])->where('estufas.id','=',$id)->where('exploracoes.id', '=', $idExp)->orderBy('data', 'desc')->take(30)->get();
 
-				
-					
-					
 
-			//}
+		$lista3 =  Leitura::join('associacoes', 'leituras.associacao_id', '=', 'associacoes.id')->join('setores','associacoes.setor_id', '=','setores.id')->join('estufas','setores.estufa_id', '=','estufas.id')->join('exploracoes', 'estufas.exploracoes_id','=','exploracoes.id')->join('sensores','associacoes.sensor_id', '=','sensores.id')->join('tipo_leitura','sensores.tipo_id', '=','tipo_leitura.id')->select('sensores.nome as sensor_nome', 'estufas.id as estufa_id' , 'tipo_leitura.parametro', 'tipo_leitura.unidade', 'leituras.valor as valor','leituras.data as data','leituras.manual as manual','setores.nome as setor_nome')->whereIn('tipo_leitura.id', [3])->where('estufas.id','=',$id)->where('exploracoes.id', '=', $idExp)->orderBy('data', 'desc')->take(30)->get();
 
 
 
-			return [$lista1,$lista2,$lista4,$lista3];
+
+		$lista4 =  Leitura::join('associacoes', 'leituras.associacao_id', '=', 'associacoes.id')->join('setores','associacoes.setor_id', '=','setores.id')->join('estufas','setores.estufa_id', '=','estufas.id')->join('exploracoes', 'estufas.exploracoes_id','=','exploracoes.id')->join('sensores','associacoes.sensor_id', '=','sensores.id')->join('tipo_leitura','sensores.tipo_id', '=','tipo_leitura.id')->select('sensores.nome as sensor_nome', 'estufas.id as estufa_id' , 'tipo_leitura.parametro', 'tipo_leitura.unidade', 'leituras.valor as valor','leituras.data as data','leituras.manual as manual','setores.nome as setor_nome')->whereIn('tipo_leitura.id', [4])->where('estufas.id','=',$id)->where('exploracoes.id', '=', $idExp)->orderBy('data', 'desc')->take(30)->get();
+
+		return [$lista1,$lista2,$lista4,$lista3];
 	}
 
 	public function adicionarRegistoManualSubmit($input){
 		return Leitura::create(["valor" => $input['valor'], "associacao_id"=>$input['ass_id'], "manual"=>1, "data"=>$input['data']]);
 	}
 
+	public function pesquisar($idExp,$input){
+		if($input["tipo_id"] != "" && $input["ddEstufa"] != "" && $input["setor_id"] != "" && $input["data_inicial"] != "" &&  $input["data_final"] != ""){
+			$lista = Leitura::join('associacoes', 'leituras.associacao_id', '=', 'associacoes.id')->join('setores','associacoes.setor_id', '=','setores.id')->join('estufas','setores.estufa_id', '=','estufas.id')->join('exploracoes', 'estufas.exploracoes_id','=','exploracoes.id')->join('sensores','associacoes.sensor_id', '=','sensores.id')->join('tipo_leitura','sensores.tipo_id', '=','tipo_leitura.id')->select('sensores.nome as sensor_nome', 'estufas.nome as estufa_nome', 'tipo_leitura.parametro', 'tipo_leitura.unidade', 'leituras.valor as valor','leituras.data as data','leituras.manual as manual','setores.nome as setor_nome')->where('tipo_leitura.id', '=', $input["tipo_id"])->where('estufas.id', '=', $input["ddEstufa"])->where('setores.id', '=', $input["setor_id"])->where('exploracoes.id', '=', $idExp)->whereBetween("data", array($input["data_inicial"], $input["data_final"]))->orderBy('data', 'desc')->paginate(15);
+			return $lista;
+
+		}else if($input["tipo_id"] != "" && $input["ddEstufa"] != "" && $input["setor_id"] != ""){
+			$lista = Leitura::join('associacoes', 'leituras.associacao_id', '=', 'associacoes.id')->join('setores','associacoes.setor_id', '=','setores.id')->join('estufas','setores.estufa_id', '=','estufas.id')->join('exploracoes', 'estufas.exploracoes_id','=','exploracoes.id')->join('sensores','associacoes.sensor_id', '=','sensores.id')->join('tipo_leitura','sensores.tipo_id', '=','tipo_leitura.id')->select('sensores.nome as sensor_nome', 'estufas.nome as estufa_nome', 'tipo_leitura.parametro', 'tipo_leitura.unidade', 'leituras.valor as valor','leituras.data as data','leituras.manual as manual','setores.nome as setor_nome')->where('tipo_leitura.id', '=', $input["tipo_id"])->where('estufas.id', '=', $input["ddEstufa"])->where('setores.id', '=', $input["setor_id"])->where('exploracoes.id', '=', $idExp)->orderBy('data', 'desc')->paginate(15);
+			return $lista;
+		}else if($input["tipo_id"] != "" && $input["ddEstufa"] != "" && $input["data_inicial"] != "" &&  $input["data_final"] != "" ){
+			$lista = Leitura::join('associacoes', 'leituras.associacao_id', '=', 'associacoes.id')->join('setores','associacoes.setor_id', '=','setores.id')->join('estufas','setores.estufa_id', '=','estufas.id')->join('exploracoes', 'estufas.exploracoes_id','=','exploracoes.id')->join('sensores','associacoes.sensor_id', '=','sensores.id')->join('tipo_leitura','sensores.tipo_id', '=','tipo_leitura.id')->select('sensores.nome as sensor_nome', 'estufas.nome as estufa_nome', 'tipo_leitura.parametro', 'tipo_leitura.unidade', 'leituras.valor as valor','leituras.data as data','leituras.manual as manual','setores.nome as setor_nome')->where('tipo_leitura.id', '=', $input["tipo_id"])->where('estufas.id', '=', $input["ddEstufa"])->whereBetween("data", array($input["data_inicial"], $input["data_final"]))->orderBy('data', 'desc')->where('exploracoes.id', '=', $idExp)->orderBy('data', 'desc')->paginate(15);
+			return $lista;
+
+		}else if($input["tipo_id"] != "" && $input["ddEstufa"] != ""){
+			$lista = Leitura::join('associacoes', 'leituras.associacao_id', '=', 'associacoes.id')->join('setores','associacoes.setor_id', '=','setores.id')->join('estufas','setores.estufa_id', '=','estufas.id')->join('exploracoes', 'estufas.exploracoes_id','=','exploracoes.id')->join('sensores','associacoes.sensor_id', '=','sensores.id')->join('tipo_leitura','sensores.tipo_id', '=','tipo_leitura.id')->select('sensores.nome as sensor_nome', 'estufas.nome as estufa_nome', 'tipo_leitura.parametro', 'tipo_leitura.unidade', 'leituras.valor as valor','leituras.data as data','leituras.manual as manual','setores.nome as setor_nome')->where('tipo_leitura.id', '=', $input["tipo_id"])->where('exploracoes.id', '=', $idExp)->where('estufas.id', '=', $input["ddEstufa"])->paginate(15);
+			return $lista;
+		}else if($input["tipo_id"] != ""){
+			$lista = Leitura::join('associacoes', 'leituras.associacao_id', '=', 'associacoes.id')->join('setores','associacoes.setor_id', '=','setores.id')->join('estufas','setores.estufa_id', '=','estufas.id')->join('exploracoes', 'estufas.exploracoes_id','=','exploracoes.id')->join('sensores','associacoes.sensor_id', '=','sensores.id')->join('tipo_leitura','sensores.tipo_id', '=','tipo_leitura.id')->select('sensores.nome as sensor_nome', 'estufas.nome as estufa_nome', 'tipo_leitura.parametro', 'tipo_leitura.unidade', 'leituras.valor as valor','leituras.data as data','leituras.manual as manual','setores.nome as setor_nome')->where('tipo_leitura.id', '=', $input["tipo_id"])->where('exploracoes.id', '=', $idExp)->paginate(15);
+			return $lista;
+		}
+	}
 }
+
+/*
+array:5 [▼
+  "tipo_id" => "2"
+  "ddEstufa" => ""
+  "setor_id" => ""
+  "data_inicial" => ""
+  "data_final" => ""
+]
 

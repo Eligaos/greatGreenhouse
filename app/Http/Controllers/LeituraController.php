@@ -32,9 +32,9 @@ class LeituraController extends Controller
     }
 
     public function listarLeituras(){
-      $lista = $this->lService->getLeituras();
-    $estufas = $this->eService->getEstufas($this->exploracaoSelecionada);
-    $tiposLeituras = $this->aService->getTiposLeitura();
+      $lista = $this->lService->getLeituras($this->exploracaoSelecionada);
+      $estufas = $this->eService->getEstufas($this->exploracaoSelecionada);
+      $tiposLeituras = $this->aService->getTiposLeitura();
       return view('leituras.listagemLeituras', compact('lista','estufas', 'tiposLeituras'));
   }
 
@@ -60,10 +60,18 @@ class LeituraController extends Controller
     }
 
     public function getLastHoursLeituras($id){
-          
-     return $this->lService->getLastHoursLeituras($id);
+
+       return $this->lService->getLastHoursLeituras($id);
        
-    }
+   }
+
+   public function pesquisar(){
+    $input = Input::except('_token');
+    $lista = $this->lService->pesquisar($this->exploracaoSelecionada, $input);
+    $estufas = $this->eService->getEstufas($this->exploracaoSelecionada);
+    $tiposLeituras = $this->aService->getTiposLeitura();
+    return view('leituras.listagemLeituras', compact('lista','estufas', 'tiposLeituras'));
+}
 
 
 }

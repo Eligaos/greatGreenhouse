@@ -69,23 +69,19 @@
 					</div>
 					@endif	
 				</div>
-			</form> 
-			<div class="form-group">
-				<div class="input-group-addon">
-					@if(count($estufas)!=0)
-					<a  href="/admin/culturas/adicionar" role="button" name="adicionar" class="btn btn-success center-block pull-left" toggle="tooltip" data-placement="top" title="Adicionar Cultura" >Adicionar nova Cultura</a>
+				<div class="form-group">
+					<div class="input-group-addon">
+						@if(count($estufas)!=0)
+						<a  href="/admin/culturas/adicionar" role="button" name="adicionar" class="btn btn-success center-block pull-left" toggle="tooltip" data-placement="top" title="Adicionar Cultura" >Adicionar nova Cultura</a>
 
-					@else
-					<a role="button" name="adicionar" id="adicionar cultura" class="btn btn-success center-block pull-left" toggle="tooltip" data-placement="top" title="Adicione uma Estufa primeiro" disabled>Adicionar nova Cultura</a>
-					@endif
-				</div>
-			</div>	
-		</div>
-	</div>	
-</div>
-</section>
-</div>
-</div>
+						@else
+						<a role="button" name="adicionar" id="adicionar cultura" class="btn btn-success center-block pull-left" toggle="tooltip" data-placement="top" title="Adicione uma Estufa primeiro" disabled>Adicionar nova Cultura</a>
+						@endif
+					</div>
+				</div>	
+			</div>
+		</section>
+	</div>
 </div>
 @endsection
 
