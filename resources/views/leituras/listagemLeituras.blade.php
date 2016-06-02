@@ -69,7 +69,6 @@
 						@foreach($lista as $key => $leitura)
 						<tr>										
 							<td>
-
 								{{$leitura->data}}
 
 							</td>

@@ -33,10 +33,18 @@
 									{{$especie->nome_comum}}
 								</td>					
 								<td class="text-center">
+									@if($especie->especie != "")	
 									{{$especie->especie}}
+									@else
+									Não Definido
+									@endif
 								</td>
 								<td class="text-center">
+									@if($especie->cultivar != "")	
 									{{$especie->cultivar}}
+									@else
+									Não Definido
+									@endif
 								</td>	
 								<td>
 									<div class="text-center">

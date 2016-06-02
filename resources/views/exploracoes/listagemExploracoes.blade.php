@@ -71,7 +71,6 @@
 										@endif										
 									</div>
 								</form> 
-
 								<div class="form-group">
 									<div class="input-group-addon">
 										<a href="/admin/exploracoes/adicionar" role="button" name="adicionar" id="adicionarExploracao" class="btn btn-success pull-right">Adicionar Exploração</a>
