@@ -57,23 +57,23 @@
 							</p>
 							
 							<h4 class="border-bottom">Dimensões</h4> 
-
+							<p>
 							<label >Espaço na Linha: </label>									
 							@if($lista[0]->espaco_na_linha != 0)
 							<span>{{$lista[0]->espaco_na_linha}}</span>
 							@else
 							<span>Não Tem</span>
 							@endif
-							<br/>
+							</p>
+							<p>
 							<label >Espaço entre Linhas: </label>									
 							@if($lista[0]->espaco_entre_linhas != 0)	
 							<span>{{$lista[0]->espaco_entre_linhas}}</span>
 							@else
 							<span>Não Tem</span>
 							@endif
-							<h4 class="border-bottom">Localização</h4> 
-
-							
+							</p>
+							<h4 class="border-bottom">Localização</h4> 							
 							<p>
 								<label>Estufa: </label>
 								<span>{{$lista[2]->nome}}</span>
@@ -85,7 +85,11 @@
 							<h4 class="border-bottom">Espécie</h4>
 							<p>
 								<label for="nome">Espécie: </label>
-								<span>{{$lista[0]->especie}}</span>
+								@if($lista[3] != null)	
+								<span>{{$lista[3]->nome}}</span>
+								@else
+								<span>Não Tem</span>
+								@endif
 							</p>
 
 						</div>

@@ -26,14 +26,16 @@ class HomeController extends Controller
 	protected $cService;
 	protected $exploracaoSelecionada;
 
-	public function __construct(HomeService $hService, UserService $uService, EstufaService $eService, CulturaService $cService)
+	public function __construct(HomeService $hService, UserService $uService, EstufaService $eService, CulturaService $cService, Request $request)
 	{
 		$this->middleware('auth');
 		$this->hService = $hService;
 		$this->uService = $uService;
 		$this->eService = $eService;
 		$this->cService = $cService;
-		$this->exploracaoSelecionada = Session::get('exploracaoSelecionada');		
+		$this->exploracaoSelecionada = Session::get('exploracaoSelecionada');
+		$request->session()->forget('filterPesquisa');
+
 	}
 
 	public function inicio(Request $request){

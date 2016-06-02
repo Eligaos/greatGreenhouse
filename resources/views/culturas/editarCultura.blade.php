@@ -18,7 +18,7 @@
 						<h3 class="modal-title" id="myModalLabel">Editar Cultura</h3>
 					</div>
 					<div class="panel-body">
-						<form id="registerForm" method="POST" action="/admin/especies/editar/submit/{{$lista[0]->id}}">
+						<form id="registerForm" method="POST" action="/admin/culturas/editar/submit/{{$lista[0]->id}}">
 							<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">							
 							<div class="form-group">
 								<fieldset> 
@@ -169,13 +169,11 @@
 											<div class="col-lg-3">											
 												<div class="btn-group">
 													<label>Espécie</label>
-													<div class="input-group">			
-														@if(old('especie_id')!=null)	
-														<input type="text" name="especie_id" value="{{ old('especie_id') }}" placeholder="Insira uma Especie" class="form-control"></input><span class="input-group-addon"></span>
-														@else
-														<input type="text" name="especie_id" value="{{ $lista[0]->especie_id }}" placeholder="Insira uma Especie" class="form-control"></input><span class="input-group-addon"></span>
-														@endif
-													</div>
+													<select id="especie_id" name="especie_id" class="selectpicker form-control" title="Selecione uma Especie"  data-live-search="true" showTick="true">	
+														@foreach($especies as $key => $especie)										
+														<option value="{{$especie->id}}">{{$especie->nome_comum}}</option>
+														@endforeach	
+													</select>														
 												</div>
 											</div>
 										</div>

@@ -27,7 +27,7 @@ class CreateTableCultura extends Migration
         Schema::table('culturas', function($table)
         {
             $table->foreign('setor_id')->references('id')->on('setores')->onDelete('cascade');
-            $table->foreign('especie_id')->references('id')->on('especies')->onDelete('cascade');
+            $table->foreign('especie_id')->references('id')->on('especies');
         });
     }
     /**

@@ -7,6 +7,7 @@ use App\Services\SensorService;
 use App\Services\AssociacoesService;
 use App\Http\Requests;
 use App\Http\Requests\SensorRequest;
+use App\Services\TipoLeituraService;
 use Illuminate\Support\Facades\Input;
 use Redirect;
 use Session;
@@ -16,15 +17,17 @@ class SensorController extends Controller
 {
 	protected $sService;
 	protected $aService;
+    protected $tService;
 	protected $exploracaoSelecionada;
 
 
 
-	public function __construct(SensorService $sService, AssociacoesService $aService)
+	public function __construct(SensorService $sService, AssociacoesService $aService, TipoLeituraService $tService)
 	{
 		$this->middleware('auth');
 		$this->sService = $sService;
 		$this->aService = $aService;
+		$this->tService = $tService;
 		$this->exploracaoSelecionada = Session::get('exploracaoSelecionada');
 
 
@@ -36,7 +39,7 @@ class SensorController extends Controller
 	}
 
 	public function adicionarSensor(SensorRequest $request){
-		$tiposLeituras = $this->aService->getTiposLeitura();		
+		$tiposLeituras = $this->tService->getTiposLeitura();		
 		return view('sensores.adicionarSensor', compact('tiposLeituras'));
 	}
 
@@ -55,7 +58,7 @@ class SensorController extends Controller
 
 	public function editarSensor($id){
 		$lista = $this->sService->getSensor($id);
-		$tiposLeituras = $this->aService->getTiposLeitura();		
+		$tiposLeituras = $this->tService->getTiposLeitura();		
 		//$lista[0]-- array de estufa  $lista[1]--array dos setores da estufa
 		return view('sensores.editarSensor', compact('lista', 'tiposLeituras'));  		
 	}

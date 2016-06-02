@@ -50,9 +50,6 @@
 										<a toggle="tooltip" data-placement="top" title="Remover Espécie" role="button" name="detalhes" href="#">  <button type="button" class="btn btn-default btn-xs">
 											<span class="glyphicon glyphicon-remove"></span> Remover
 										</button></a>
-
-
-										
 									</div>
 								</td>
 							</tr>	
@@ -61,7 +58,7 @@
 					</table>	
 
 					@else
-					<div class="text-center"><span>Não existem espécies</span></div>
+					<div class="text-center"><h4>Não existem espécies</h4></div>
 					@endif	
 				</div>
 				<div class="form-group">

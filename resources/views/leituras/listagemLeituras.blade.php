@@ -17,7 +17,7 @@
 			<div class="panel panel-default">		
 				<div class="panel-heading margin-bottom"><h2>Lista de Leituras</h2></div>
 				<div class="form-group">
-					<form id="registerForm" method="POST" action="/admin/leituras/pesquisar/submit">
+					<form id="registerForm" method="POST" action="/admin/leituras">
 						<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">				
 						<div class="col-sm-3">
 							<label>Escolha o Tipo</label>
@@ -50,6 +50,8 @@
 						<div class="btn-group col-sm-3 margin-bottom">							<label>Data Final</label>
 							<input type="text" class="form-control" id="dataFinal" name="data_final">
 						</div>
+
+
 						<div class="md-margin-top col-sm-3  margin-bottom pull-right">	
 							<button type="submit" id="submit"class="btn btn-success center-block " toggle="tooltip" data-placement="top" title="Pesquisar"><i class="glyphicon glyphicon-search fa-lg"></i>Pesquisar							</button>
 						</div>
@@ -117,7 +119,7 @@
 					</table>
 					<div class="input-group-addon" >
 						<a  href="/admin/registos/manual" role="button" name="adicionar" class="btn btn-success center-block pull-left" toggle="tooltip" data-placement="top" title="Registar Leitura Manual" >Registar Leitura Manual</a>
-						<div class="pull-right"> {!! $lista->links() !!}</div>
+						<div class="pull-right"> {!! $lista->render() !!}</div>
 					</div>
 					@else
 					<div class="btn-group ">

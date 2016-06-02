@@ -3,6 +3,7 @@ namespace App\Services;
 use App\Models\Estufa;
 use App\Models\Cultura;
 use App\Models\Setor;
+use App\Models\Especie;
 use Illuminate\Database\Eloquent\Model;
 use Session;
 
@@ -37,7 +38,9 @@ class CulturaService
 		}
 		unset($input["inpOutro"]);
 		unset($input["ddEstufa"]);
-		$input["especie_id"] =null; // por agora o valor é inserido a null porque não existem especies
+		if($input["especie_id"]==""){
+			$input["especie_id"]=null;
+		}
 		return Cultura::create($input);
 	}
 
@@ -45,8 +48,8 @@ class CulturaService
 		$cultura = Cultura::find($id);
 		$setor = Setor::where('id','=', $cultura->setor_id)->select('nome','id','estufa_id')->first();
 		$estufa = Estufa::where('id','=', $setor->estufa_id)->select('nome','id')->first();
-
-		return [$cultura,$setor,$estufa];
+		$especie = Especie::where('id','=', $cultura->especie_id)->select('nome_comum as nome','id')->first();
+		return [$cultura,$setor,$estufa, $especie];
 	}
 
 	public function saveEditCultura($input, $idC){
@@ -79,6 +82,11 @@ class CulturaService
 		$cultura->espaco_na_linha = $input["espaco_na_linha"];
 		$cultura->espaco_entre_linhas = $input["espaco_entre_linhas"];
 		$cultura->setor_id = $input["setor_id"];
+		if($input["especie_id"]==""){
+			$cultura->especie_id = null;
+		}else{
+			$cultura->especie_id = $input["especie_id"];
+		}
 		$cultura->save();
 		return true;
 	}
