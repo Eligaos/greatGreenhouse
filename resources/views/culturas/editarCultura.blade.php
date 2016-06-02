@@ -1,7 +1,6 @@
 @extends('app')
 
 @section('customStyles')
-<link href="{{asset('css/addExploracao.css')}}" rel="stylesheet">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
 
@@ -170,13 +169,11 @@
 											<div class="col-lg-3">											
 												<div class="btn-group">
 													<label>Espécie</label>
-													<div class="input-group">			
-														@if(old('especie_id')!=null)	
-														<input type="text" name="especie_id" value="{{ old('especie_id') }}" placeholder="Insira uma Especie" class="form-control"></input><span class="input-group-addon"></span>
-														@else
-														<input type="text" name="especie_id" value="{{ $lista[0]->especie_id }}" placeholder="Insira uma Especie" class="form-control"></input><span class="input-group-addon"></span>
-														@endif
-													</div>
+													<select id="especie_id" name="especie_id" class="selectpicker form-control" title="Selecione uma Especie"  data-live-search="true" showTick="true">	
+														@foreach($especies as $key => $especie)										
+														<option value="{{$especie->id}}">{{$especie->nome_comum}}</option>
+														@endforeach	
+													</select>														
 												</div>
 											</div>
 										</div>

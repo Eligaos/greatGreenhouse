@@ -14,48 +14,54 @@
 <div class="container">
 	<div class="col-xs-12 col-sm-9 col-md-10 col-sm-offset-1 col-md-offset-2 ">
 		<section class="content">
-			<div class="panel panel-default">
+			<div class="panel panel-default">		
 				<div class="panel-heading margin-bottom"><h2>Lista de Leituras</h2></div>
-				<div>
-					<div class="col-sm-3">
-						<label>Escolha o Tipo</label>
-						<select id="tipo_id" name="tipo_id" class="selectpicker form-control" title="Selecione um Tipo"  data-live-search="true" showTick="true" required>
-							@foreach($tiposLeituras as $key => $tipo)
-							<option value="{{$tipo->id}}">{{$tipo->parametro}}</option>
-							@endforeach	
-						</select>
-					</div>
-					<div class="col-sm-3 margin-bottom">	
-						<label>Escolha uma Estufa</label>
-						<div>
-							<select id="ddEstufa" name="ddEstufa" class="selectpicker form-control" title="Selecione uma Estufa"  data-live-search="true" showTick="true" >
-								@foreach($estufas as $key => $estufa)
-								<option value="{{$estufa->id}}">{{$estufa->nome}}</option>
+				<div class="form-group">
+					<form id="registerForm" method="POST" action="/admin/leituras">
+						<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">				
+						<div class="col-sm-3">
+							<label>Escolha o Tipo</label>
+							<select id="tipo_id" name="tipo_id" class="selectpicker form-control" title="Selecione um Tipo"  data-live-search="true" showTick="true">
+								@foreach($tiposLeituras as $key => $tipo)
+								<option value="{{$tipo->id}}">{{$tipo->parametro}}</option>
 								@endforeach	
 							</select>
 						</div>
-					</div>	
+						<div class="btn-group col-sm-3 margin-bottom">	
+							<label>Escolha uma Estufa</label>
+							<div>
+								<select id="ddEstufa" name="ddEstufa" class="selectpicker form-control" title="Selecione uma Estufa"  data-live-search="true" showTick="true" >
+									@foreach($estufas as $key => $estufa)
+									<option value="{{$estufa->id}}">{{$estufa->nome}}</option>
+									@endforeach	
+								</select>
+							</div>
+						</div>	
 
-					<div class="btn-group col-sm-3 margin-bottom" id="divAssociacoesSetores">
-						<label>Escolha um Setor</label>
-						<select id="setor_id" name="setor_id" class="selectpicker form-control " title="Selecione um Setor"  data-live-search="true" showTick="true">
-						</select>
-					</div>
-					<div class="btn-group col-sm-3 margin-bottom">							<label>Data Inicial</label>
-						<input type="text" class="form-control" id="dataInicial" name="data_inicial">
-					</div>
+						<div class="btn-group col-sm-3 margin-bottom" id="divAssociacoesSetores">
+							<label>Escolha um Setor</label>
+							<select id="setor_id" name="setor_id" class="selectpicker form-control " title="Selecione um Setor"  data-live-search="true" showTick="true">
+							</select>
+						</div>
+						<div class="btn-group col-sm-3 margin-bottom">							<label>Data Inicial</label>
+							<input type="text" class="form-control" id="dataInicial" name="data_inicial">
+						</div>
 
-					<div class="btn-group col-sm-3 margin-bottom">							<label>Data Final</label>
-						<input type="text" class="form-control" id="dataFinal" name="data_final">
-					</div>
-					<div class="md-margin-top pull-right margin-bottom">											
-						<a  href="/admin/leituras/pesquisar" role="button" name="adicionar" class="btn btn-success center-block" toggle="tooltip" data-placement="top" title="Pesquisar" ><i class="glyphicon glyphicon-search fa-lg"></i> Pesquisar</a>
-					</div>
+						<div class="btn-group col-sm-3 margin-bottom">							<label>Data Final</label>
+							<input type="text" class="form-control" id="dataFinal" name="data_final">
+						</div>
 
 
+						<div class="md-margin-top col-sm-3  margin-bottom pull-right">	
+							<button type="submit" id="submit"class="btn btn-success center-block " toggle="tooltip" data-placement="top" title="Pesquisar"><i class="glyphicon glyphicon-search fa-lg"></i>Pesquisar							</button>
+						</div>
+						<div class="md-margin-top col-sm-3  margin-bottom pull-right">	
+							<button type="limpar" id="limpar" name="limpar" value=1 class="btn btn-success center-block " toggle="tooltip" data-placement="top" title="Limpar Filtros"><i class="glyphicon glyphicon-erase"></i>Limpar							</button>
+						</div>
+					</form>
 				</div>
 				<div class="table-container">
-					<table class="table table-filter table-striped table-bordered table-responsive">							 <tr class="success">
+		<table class="table table-filter table-striped table-bordered table-responsive">							 <tr class="success">
 						<th>Data</th>
 						<th>Valor</th>
 						<th>Tipo</th>
@@ -120,16 +126,15 @@
 </div>
 </div>
 </div>
+
 </div>
 @endsection
 
 @section('customScripts')
 <!-- Latest compiled and minified JavaScript -->
-
 <script src="{{asset('js/leituras/listagemLeituras.js')}}"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script src="{{asset('js/registoManual/timePicker.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
->
 
 @endsection

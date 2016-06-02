@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Services\TipoLeituraService;
 use Illuminate\Support\Facades\Input;
 use Redirect;
+use Session;
 
 class TipoLeituraController extends Controller
 {
@@ -13,6 +14,7 @@ class TipoLeituraController extends Controller
 	{
 		$this->middleware('auth');
 		$this->tlService = $tlService;
+        Session::forget('filterPesquisa');
 	}
 	
 	public function listarTiposLeituras(){

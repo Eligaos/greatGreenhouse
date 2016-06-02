@@ -33,15 +33,16 @@ class HomeController extends Controller
 		$this->uService = $uService;
 		$this->eService = $eService;
 		$this->cService = $cService;
-		$this->exploracaoSelecionada = Session::get('exploracaoSelecionada');		
+		$this->exploracaoSelecionada = Session::get('exploracaoSelecionada');
+		//$request->session()->forget('filterPesquisa');
+        Session::forget('filterPesquisa');
+
+
 	}
 
 	public function inicio(Request $request){
 		$id = Input::except('_token');
 		$request->session()->put('exploracaoSelecionada', $id);
-
-
-
 		return Redirect::to('admin/home');
 	}
 

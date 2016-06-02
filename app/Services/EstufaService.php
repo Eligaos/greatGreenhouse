@@ -15,6 +15,10 @@ class EstufaService
     return Estufa::where('exploracoes_id', '=', $idExp['id'])->paginate(15);
   }
 
+  public function getEstufasPesquisa($idExp){
+    return Estufa::where('exploracoes_id', '=', $idExp['id'])->get();
+  }
+
   public function criarSetorArr($nomeSetor, $desc, $estufaId){
     $arrData = array(
       "nome"     		  => $nomeSetor,

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Services\AssociacoesService;
 use App\Services\CulturaService;
 use App\Services\EstufaService;
+use App\Services\TipoLeituraService;
 use App\Services\SensorService;
 use Illuminate\Support\Facades\Input;
 use App\Models\Associacoes;
@@ -19,15 +20,16 @@ class AssociacoesController extends Controller
 	protected $exploracaoSelecionada;
 
 
-	public function __construct(AssociacoesService $aService, CulturaService $cService, EstufaService $eService, SensorService $sService)
+	public function __construct(AssociacoesService $aService, CulturaService $cService, EstufaService $eService, SensorService $sService, TipoLeituraService $tService)
 	{
 		$this->middleware('auth');
 		$this->aService = $aService;
 		$this->cService = $cService;
 		$this->eService = $eService;
 		$this->sService = $sService;
+		$this->tService = $tService;
 		$this->exploracaoSelecionada = Session::get('exploracaoSelecionada');
-
+        Session::forget('filterPesquisa');
 	}
 	
 	public function listarAssociacoes(){
@@ -49,7 +51,7 @@ class AssociacoesController extends Controller
 	public function associar(){
 		$estufas = $this->eService->getEstufas($this->exploracaoSelecionada);
 		$sensores = $this->sService->getSensoresInativos();
-		$tiposLeituras = $this->aService->getTiposLeitura();
+		$tiposLeituras = $this->tService->getTiposLeitura();
 		return view('associacoes.adicionarAssociacao', compact('estufas', 'tiposLeituras', 'sensores'));
 		
 	}

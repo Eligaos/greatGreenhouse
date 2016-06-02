@@ -133,8 +133,8 @@ Route::group(['middleware' => ['web']], function ()
 	Route::post('/admin/registos/manual/submit', 'LeituraController@adicionarRegistoManualSubmit');
 
 
-
 	Route::get('/admin/leituras/ultimas/{id}', 'LeituraController@getLastHoursLeituras');
+	Route::post('/admin/leituras', 'LeituraController@pesquisar');
 
 
 	/**********GRAFICOS**********/

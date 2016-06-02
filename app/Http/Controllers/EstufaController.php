@@ -19,6 +19,8 @@ class EstufaController extends Controller
 		$this->middleware('auth');
 		$this->eService = $eService;
 		$this->exploracaoSelecionada = Session::get('exploracaoSelecionada');
+        Session::forget('filterPesquisa');
+		
 	}
 
 	public function adicionar(){

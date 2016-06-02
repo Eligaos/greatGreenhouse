@@ -43,11 +43,6 @@ class AssociacoesService
 		return $associacoes;
 	}
 
-
-	public function getTiposLeitura(){ 
-		return TipoLeitura::get();
-	}
-
 	public function associarSubmit($input){
 		$tp = Associacoes::create(["setor_id" => $input['setor_id'], 
 			"sensor_id"=> $input['sensor_id']]);
