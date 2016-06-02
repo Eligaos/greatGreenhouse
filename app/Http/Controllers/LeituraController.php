@@ -33,10 +33,9 @@ class LeituraController extends Controller
         $this->aService = $aService;
         $this->exploracaoSelecionada = Session::get('exploracaoSelecionada');
         $this->filterPesquisa = Session::get('filterPesquisa');
-
     }
 
-    public function listarLeituras(){  
+    public function listarLeituras(){ 
       $estufas = $this->eService->getEstufas($this->exploracaoSelecionada);
       $tiposLeituras = $this->tService->getTiposLeitura();
       if($this->filterPesquisa==null){
@@ -75,12 +74,17 @@ class LeituraController extends Controller
 
    public function pesquisar(Request $request){
     $input = Input::except('_token');
-    $lista = $this->lService->pesquisar($this->exploracaoSelecionada, $input);
     $estufas = $this->eService->getEstufas($this->exploracaoSelecionada);
-
     $tiposLeituras = $this->tService->getTiposLeitura();
-    $request->session()->put('filterPesquisa', $input);
-    return view('leituras.listagemLeituras', compact('lista','estufas', 'tiposLeituras'));
+    if(isset($input["limpar"]) && $input["limpar"] != 0){
+        Session::forget('filterPesquisa');
+        $lista = $this->lService->getLeituras($this->exploracaoSelecionada);        
+        return view('leituras.listagemLeituras', compact('lista','estufas', 'tiposLeituras'));        
+    }else{
+        $lista = $this->lService->pesquisar($this->exploracaoSelecionada, $input);
+        $request->session()->put('filterPesquisa', $input);
+        return view('leituras.listagemLeituras', compact('lista','estufas', 'tiposLeituras'));
+    }
 }
 
 

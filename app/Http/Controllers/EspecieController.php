@@ -7,6 +7,7 @@ use App\Services\EspecieService;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Input;
 use Redirect;
+use Session;
 
 class EspecieController extends Controller
 {
@@ -17,6 +18,8 @@ class EspecieController extends Controller
 	{
 		$this->middleware('auth');
 		$this->espService = $espService;
+        Session::forget('filterPesquisa');
+		
 	}
 	public function listarEspecies(){
 		$especies = $this->espService->getEspecies();

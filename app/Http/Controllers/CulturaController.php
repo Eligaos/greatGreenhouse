@@ -25,6 +25,8 @@ class CulturaController extends Controller
 		$this->eService = $eService;
 		$this->espService = $espService;
 		$this->exploracaoSelecionada = Session::get('exploracaoSelecionada');
+        Session::forget('filterPesquisa');
+		
 	}
 	public function adicionar(){
 		$lista = $this->eService->getEstufas($this->exploracaoSelecionada);

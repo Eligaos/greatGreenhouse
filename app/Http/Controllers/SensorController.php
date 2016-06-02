@@ -29,8 +29,7 @@ class SensorController extends Controller
 		$this->aService = $aService;
 		$this->tService = $tService;
 		$this->exploracaoSelecionada = Session::get('exploracaoSelecionada');
-
-
+        Session::forget('filterPesquisa');
 	}
 
 	public function listarSensores(){

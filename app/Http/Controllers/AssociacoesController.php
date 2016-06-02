@@ -29,7 +29,7 @@ class AssociacoesController extends Controller
 		$this->sService = $sService;
 		$this->tService = $tService;
 		$this->exploracaoSelecionada = Session::get('exploracaoSelecionada');
-
+        Session::forget('filterPesquisa');
 	}
 	
 	public function listarAssociacoes(){

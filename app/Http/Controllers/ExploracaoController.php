@@ -21,6 +21,8 @@ class ExploracaoController extends Controller
         $this->middleware('auth');
         $this->eaService = $eaService;
         $this->idExp = $request->session()->get('exploracaoSelecionada');
+        Session::forget('filterPesquisa');
+        
 
     }
 

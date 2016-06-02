@@ -26,7 +26,7 @@ class HomeController extends Controller
 	protected $cService;
 	protected $exploracaoSelecionada;
 
-	public function __construct(HomeService $hService, UserService $uService, EstufaService $eService, CulturaService $cService, Request $request)
+	public function __construct(HomeService $hService, UserService $uService, EstufaService $eService, CulturaService $cService)
 	{
 		$this->middleware('auth');
 		$this->hService = $hService;
@@ -34,16 +34,15 @@ class HomeController extends Controller
 		$this->eService = $eService;
 		$this->cService = $cService;
 		$this->exploracaoSelecionada = Session::get('exploracaoSelecionada');
-		$request->session()->forget('filterPesquisa');
+		//$request->session()->forget('filterPesquisa');
+        Session::forget('filterPesquisa');
+
 
 	}
 
 	public function inicio(Request $request){
 		$id = Input::except('_token');
 		$request->session()->put('exploracaoSelecionada', $id);
-
-
-
 		return Redirect::to('admin/home');
 	}
 

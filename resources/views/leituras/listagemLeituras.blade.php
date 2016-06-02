@@ -55,6 +55,9 @@
 						<div class="md-margin-top col-sm-3  margin-bottom pull-right">	
 							<button type="submit" id="submit"class="btn btn-success center-block " toggle="tooltip" data-placement="top" title="Pesquisar"><i class="glyphicon glyphicon-search fa-lg"></i>Pesquisar							</button>
 						</div>
+						<div class="md-margin-top col-sm-3  margin-bottom pull-right">	
+							<button type="limpar" id="limpar" name="limpar" value=1 class="btn btn-success center-block " toggle="tooltip" data-placement="top" title="Limpar Filtros"><i class="glyphicon glyphicon-erase"></i>Limpar							</button>
+						</div>
 					</form>
 				</div>
 				<div class="table-container">
@@ -124,7 +127,7 @@
 					@else
 					<div class="btn-group ">
 						<div  class="text-center">
-							<h4> Não existem estufas nesta exploração</h4>
+							<h4>Não foram encontrados quaisquer resultados para a pesquisa efetuada </h4>
 						</div>
 						<div class="input-group-addon" >
 							<a  href="/admin/registos/manual" role="button" name="adicionar" class="btn btn-success center-block pull-left" toggle="tooltip" data-placement="top" title="Registar Leitura Manual" >Registar Leitura Manual</a>
