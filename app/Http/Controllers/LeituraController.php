@@ -56,11 +56,12 @@ class LeituraController extends Controller
 
     public function adicionarRegistoManual(){
         $lista = [];
+        Session::forget('filterPesquisa');
         $estufas = $this->eService->getEstufas($this->exploracaoSelecionada);
         return view('leituras.adicionarRegistoManual' , compact('lista', 'estufas'));
     }
 
-    public function adicionarRegistoManualSubmit(){//fazer request
+    public function adicionarRegistoManualSubmit(){//fazer request para erros
         $input = Input::except('_token');
         $add = $this->lService->adicionarRegistoManualSubmit($input);
         return Redirect::to("/admin/leituras")->with('message', 'Registo guardado com sucesso!');

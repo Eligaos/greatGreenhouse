@@ -5,6 +5,7 @@
 <link href="{{asset('css/registoManual/timePicker.css')}}" rel="stylesheet" />
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
 <link href="{{asset('css/associacoesTiposLeitura/adicionarAssociacao.css')}}" rel="stylesheet">
 
 @endsection
@@ -61,20 +62,24 @@
 					</form>
 				</div>
 				<div class="table-container">
-		<table class="table table-filter table-striped table-bordered table-responsive">							 <tr class="success">
-						<th>Data</th>
-						<th>Valor</th>
-						<th>Tipo</th>
-						<th>Unidade</th>
-						<th>Sensor</th>
-						<th>Estufa</th>
-						<th>Setor</th>
-						<th>Automático?</th>
-					</tr>	
+					@if(count($lista)!=0)	
+					<table id="leituraTable" class="table table-filter table-striped table-bordered table-responsive">							 <thead>
+						<tr class="success">
+							<th>Data</th>
+							<th>Valor</th>
+							<th>Tipo</th>
+							<th>Unidade</th>
+							<th>Sensor</th>
+							<th>Estufa</th>
+							<th>Setor</th>
+							<th>Leitura</th>
+						</tr>	
+					</thead>					
 					<tbody>		
 						@foreach($lista as $key => $leitura)
 						<tr>										
 							<td>
+
 								{{$leitura->data}}
 
 							</td>
@@ -100,12 +105,15 @@
 
 							</td>
 							<td>		
+								@if($leitura->setor_nome == "Nenhum")
+								Geral
+								@else
 								{{$leitura->setor_nome}}
-
+								@endif
 							</td>
 							<td>
 								@if($leitura->manual == 0)
-								Sim
+								Automática
 								@else
 								Manual
 								@endif
@@ -113,20 +121,25 @@
 						</tr>												
 						@endforeach
 					</tbody>
-				</table>									
-			</div>
-
-			<div class="input-group-addon" >
-				<a  href="/admin/registos/manual" role="button" name="adicionar" class="btn btn-success center-block pull-left" toggle="tooltip" data-placement="top" title="Registar Leitura Manual" >Registar Leitura Manual</a>
-
-				<div class="pull-right"> {!! $lista->links() !!}</div>
-			</div>		
-		</div>
+				</table>
+				<div class="input-group-addon" >
+					<a  href="/admin/registos/manual" role="button" name="adicionar" class="btn btn-success center-block pull-left" toggle="tooltip" data-placement="top" title="Registar Leitura Manual" >Registar Leitura Manual</a>
+					<div class="pull-right"> {!! $lista->render() !!}</div>
+				</div>
+				@else
+				<div class="btn-group ">
+					<div  class="text-center">
+						<h4>Não foram encontrados quaisquer resultados para a pesquisa efetuada </h4>
+					</div>
+					<div class="input-group-addon" >
+						<a  href="/admin/registos/manual" role="button" name="adicionar" class="btn btn-success center-block pull-left" toggle="tooltip" data-placement="top" title="Registar Leitura Manual" >Registar Leitura Manual</a>
+					</div>
+				</div>
+				@endif
+			</div>					
+		</div>			
 	</section>
 </div>
-</div>
-</div>
-
 </div>
 @endsection
 
@@ -136,5 +149,7 @@
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script src="{{asset('js/registoManual/timePicker.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
 
 @endsection

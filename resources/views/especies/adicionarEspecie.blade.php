@@ -27,7 +27,7 @@
 									</div>
 									<label for="especie">Espécie</label>
 									<div class="input-group margin-bottom">								
-										<input type="text" class="form-control" id="especie"  name="especie" placeholder="Insira o nome da espécie"><span class="input-group-addon"></span>
+										<input type="text" class="form-control" id="especie"  name="especie" placeholder="Insira o nome da espécie" required><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
 									</div>
 
 									<label for="cultivar">Cultivar</label>
