@@ -1,7 +1,6 @@
 @extends('app')
 
 @section('customStyles')
-<link href="{{asset('css/exploracoes/addExploracao.css')}}" rel="stylesheet">
 
 @endsection
 
@@ -9,9 +8,8 @@
 
 @section('content')
 <div class="container">
-	<div class="row centered-form">
-		<div class="col-xs-12 col-sm-9 col-md-8  col-sm-offset-3 col-md-offset-3">
-			<div>
+		<div class="col-lg-12 col-xs-12 col-sm-10 col-md-11  col-lg-offset-1 col-sm-offset-3 col-md-offset-2">
+			<div class="content">
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<h3 class="modal-title" id="myModalLabel">Exploração Agrícola</h3>
@@ -75,7 +73,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	
 </div>
 @endsection
 

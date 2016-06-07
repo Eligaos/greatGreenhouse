@@ -12,18 +12,19 @@
 @section('content')
 <div class="container">
 	<div class="row content">
-		<div class="col-xs-12 col-sm-9 col-md-8  col-sm-offset-3 col-md-offset-3">
+		<div class="col-lg-10 col-xs-12 col-sm-11 col-md-9 col-lg-offset-2 col-sm-offset-2 col-md-offset-3">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h3 class="modal-title" id="myModalLabel">Registo Manual</h3>
+						<h2 class="modal-title">Registo Manual</h2>
 					</div>
 					<div class="panel-body">
 						<form id="registerForm" method="POST" action="/admin/registos/manual/submit">
 							<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 							<fieldset> 
-								<legend>Origem</legend>								
+							
+								<h3 class="modal-title border-bottom margin-bottom">Origem</h3>							
 								<div class="col-xs-12 col-sm-9 col-md-8 ">
-									<div class="row">
+									<div>
 										<div class="col-xs-12 col-sm-9 col-md-8 ">		
 											<div class="btn-group">
 												<label>Escolha uma Estufa</label>
@@ -36,7 +37,7 @@
 												</div>
 											</div>
 										</div>										
-										<div class="col-lg-3">											
+										<div class="col-lg-3  margin-bottom">											
 											<div class="btn-group" id="divAssociacoes">
 												<label>Escolha uma Associação</label>
 												<select id="ass_id" name="ass_id" class="selectpicker form-control" title="Selecione uma Associação"  data-live-search="true" showTick="true" required>
@@ -48,10 +49,10 @@
 							</fieldset>	
 							<div class="form-group">	
 								<fieldset> 
-									<legend>Hora</legend>
+									<h3 class="modal-title border-bottom margin-bottom">Hora</h3>	
 									<div class="col-xs-12 col-md-12">
 										<div class="form-group">
-											<div class="row">
+											<div>
 												<div class="col-lg-6">	
 													<label for="nome">Hora</label>
 													<div class="input-group">									
@@ -68,10 +69,10 @@
 								</div>							
 								<div class="form-group">	
 									<fieldset> 
-										<legend>Valor</legend>
+										<h3 class="modal-title border-bottom margin-bottom">Valor</h3>
 										<div class="col-xs-12 col-md-12">
 											<div class="form-group">
-												<div class="row">
+												<div >
 													<div class="col-lg-6">	
 														<label for="nome">Valor</label>
 														<div class="input-group">	

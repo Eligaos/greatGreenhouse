@@ -1,13 +1,13 @@
 @extends('app')
 
 @section('customStyles')
-
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
 @endsection
 @section('title', ' - Lista de Culturas')
 
 @section('content')
 <div class="container">
-	<div class="col-xs-12 col-sm-9 col-md-10 col-sm-offset-2 col-md-offset-2">
+	<div class="col-lg-12 col-xs-12 col-sm-10 col-md-11  col-lg-offset-1 col-sm-offset-3 col-md-offset-2">
 		<section class="content">
 			<div class="panel panel-default">
 				<div class="panel-heading"><h2>Lista de Culturas</h2></div>
@@ -19,13 +19,15 @@
 				<div class="table-container">
 					@if(count($estufas)!=0)	
 					@if(count($lista)!=0)						
-					<table id="table" class="table table-filter table-striped table-bordered table-responsive ">
+					<table id="dataTable" class="table table-filter table-striped table-bordered table-responsive ">
+					<thead>
 						<tr class="success">
 							<th id="tEstufa" class="col-xs-6 col-sm-5 col-md-2 text-center">Nome da Estufa</th>
 							<th class="col-xs-6 col-sm-5 col-md-2 text-center">Nome da Cultura</th>
 							<th class="col-xs-6 col-sm-5 col-md-2 text-center">Nome do Setor</th>
-							<th class="col-xs-6 col-sm-5 col-md-2 text-center">Opções</th>
+							<th class="no-sort col-xs-6 col-sm-5 col-md-3 text-center">Opções</th>
 						</tr>
+						</thead>
 						<tbody>
 							@foreach($lista as $key => $cultura)	
 							<tr>				
@@ -87,6 +89,10 @@
 
 @section('customScripts')
 <!--<script src="{{asset('js/culturas/listagemCultura.js')}}"></script>-->
+
+<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+<script src="{{asset('js/dataTable.js')}}"></script>
 @endsection
 
 

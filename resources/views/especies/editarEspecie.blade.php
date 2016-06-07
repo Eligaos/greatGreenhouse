@@ -13,7 +13,7 @@
 			<div class="content">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h3 class="modal-title">Editar Espécie</h3>
+						<h2 class="modal-title">Editar Espécie</h2>
 					</div>
 					<div class="panel-body">
 						<form method="POST" action="/admin/especies/editar/submit/{{$especie->id}}">

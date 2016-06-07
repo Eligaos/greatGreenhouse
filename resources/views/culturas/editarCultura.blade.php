@@ -10,12 +10,12 @@
 
 @section('content')
 <div class="container">
-	<div class="row centered-form">
-		<div class="col-xs-12 col-sm-9 col-md-8  col-sm-offset-3 col-md-offset-3">
+	<div >
+		<div class="col-lg-10 col-xs-12 col-sm-10 col-md-11  col-lg-offset-2 col-sm-offset-3 col-md-offset-2">
 			<div class="content">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h3 class="modal-title" id="myModalLabel">Editar Cultura</h3>
+						<h2 class="modal-title">Editar Cultura</h2>
 					</div>
 					<div class="panel-body">
 						<form id="registerForm" method="POST" action="/admin/culturas/editar/submit/{{$lista[0]->id}}">

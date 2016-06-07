@@ -8,16 +8,16 @@
 
 @section('content')
 <div class="container">
-	<div class="row centered-form">
-		<div class="col-xs-12 col-sm-9 col-md-8  col-sm-offset-3 col-md-offset-3">
+	<div>
+		<div class="col-lg-10 col-xs-12 col-sm-10 col-md-11  col-lg-offset-2 col-sm-offset-3 col-md-offset-2">
 			<div class="content">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h3 class="modal-title">Detalhes Espécie</h3>
+						<h2 class="modal-title">Detalhes Espécie</h2>
 					</div>
 					<div class="panel-body">						
-						<div class="form-group">
-							<h4 class="border-bottom">Dados da Espécie</h4>
+						<div>
+							<h3 class="modal-title border-bottom margin-bottom">Dados da Espécie</h3>
 							<div class="col-xs-12 col-md-12">
 								<p>
 									<label for="nome_comum">Nome da Comum: </label>
@@ -40,8 +40,9 @@
 									@endif
 								</p>
 							</div>			
-							<div class="form-group">
-								<h4 class="border-bottom">Paramêtros Ideiais</h4>
+							<div >
+							
+								<h3 class="modal-title border-bottom margin-bottom">Paramêtros Ideiais</h3>
 								<div class="col-xs-12 col-md-12">
 									<p>
 										<label for="cultivar">Ph do Solo Ideal: </label>
@@ -88,8 +89,8 @@
 
 
 								</div>			
-								<div class="form-group">
-									<h4 class="border-bottom">Informação Adicional</h4>
+								<div >
+										<h3 class="modal-title border-bottom margin-bottom">Informação Adicional</h3>
 									<div class="col-xs-12 col-md-12">
 										<p>
 											<label for="tipo_fisionomico">Tipo Fisionómico: </label>

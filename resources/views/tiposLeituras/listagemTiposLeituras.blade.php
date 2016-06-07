@@ -1,13 +1,14 @@
 @extends('app')
 
 @section('customStyles')
-
+<link href="{{asset('css/associacoesTiposLeitura/adicionarAssociacao.css')}}" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
 @endsection
 
 @section('content')
 <div class="container">
 	<div class="row">
-		<div class="col-xs-12 col-sm-9 col-md-10 col-sm-offset-1 col-md-offset-2 ">
+		<div class="col-lg-12 col-xs-12 col-sm-10 col-md-11  col-lg-offset-1 col-sm-offset-3 col-md-offset-2">
 			<section class="content">
 				<div class="panel panel-default">
 					<div class="panel-heading"><h2>Lista de Tipos de Leituras</h2></div>
@@ -18,12 +19,14 @@
 					@endif
 					@if(count($lista)!=0)						
 					<div class="table-container">
-						<table class="table table-filter table-striped table-bordered table-responsive">	
-							<tr class="success">
-								<th class="col-xs-6 col-sm-5 col-md-2 text-center">Parâmetro</th>
-								<th class="col-xs-6 col-sm-5 col-md-2 text-center">Unidade</th>
-								<th class="col-xs-6 col-sm-5 col-md-2 text-center">Opções</th>
-							</tr>	
+						<table id="dataTable" class="table table-filter table-striped table-bordered table-responsive">	
+							<thead>
+								<tr class="success">
+									<th class="col-xs-6 col-sm-5 col-md-2 text-center">Parâmetro</th>
+									<th class="col-xs-6 col-sm-5 col-md-2 text-center">Unidade</th>
+									<th class="no-sort col-xs-6 col-sm-5 col-md-2 text-center">Opções</th>
+								</tr>	
+							</thead>
 							<tbody>		
 								@foreach($lista as $key => $tipoLeitura)
 								<tr>									
@@ -36,7 +39,7 @@
 
 									<td >
 										<div class="text-center">
-										<a  toggle="tooltip" data-placement="top" title="Detalhes Tipo de Leitura" role="button" name="detalhes" href="/admin/tipos-leituras/detalhes/{{$tipoLeitura->cultura_id}}">  <button type="button" class="btn btn-default btn-xs">
+											<a  toggle="tooltip" data-placement="top" title="Detalhes Tipo de Leitura" role="button" name="detalhes" href="/admin/tipos-leituras/detalhes/{{$tipoLeitura->cultura_id}}">  <button type="button" class="btn btn-default btn-xs">
 												<span class="glyphicon glyphicon-th-list"></span> Detalhes
 											</button></a>
 
@@ -75,5 +78,7 @@
 @endsection
 
 @section('customScripts')
-
+<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+<script src="{{asset('js/dataTable.js')}}"></script>
 @endsection

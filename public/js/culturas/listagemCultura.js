@@ -1,5 +1,7 @@
-  $(function() {
-    var rows = $('table#table >tbody >tr');
+
+
+
+    /* var rows = $('table#table >tbody >tr');
     var rowCount = $('table#table >tbody >tr').length;
     var items = [],
     itemtext = [],
@@ -33,5 +35,4 @@
         row.prepend('<td rowspan="' + rowspan + '">' + this[1] + '</td>');
       }
     });
-
-  });
+    */

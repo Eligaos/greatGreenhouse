@@ -7,9 +7,9 @@
 @endsection
 @section('content')
 <div class="container">
-	<div class="row centered-form">
-		<div class="col-xs-12 col-sm-9 col-md-8  col-sm-offset-3 col-md-offset-2">
-			<div>
+	<div >
+		<div class="col-lg-10 col-xs-12 col-sm-10 col-md-11  col-lg-offset-2 col-sm-offset-3 col-md-offset-2">
+			<div class="content">
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<h3 class="modal-title">Detalhes do Sensor</h3>

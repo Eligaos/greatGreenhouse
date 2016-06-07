@@ -7,18 +7,18 @@
 
 	@section('content')
 	<div class="container">
-		<div class="row centered-form">
-			<div class="col-xs-12 col-sm-9 col-md-8  col-sm-offset-3 col-md-offset-3">
+		<div >
+			<div class="col-lg-10 col-xs-12 col-sm-10 col-md-11  col-lg-offset-2 col-sm-offset-3 col-md-offset-2">
 				<div class="content">
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3 class="modal-title" id="myModalLabel">Editar Estufa</h3>
+							<h2 class="modal-title" >Editar Estufa</h2>
 						</div>
 						<div class="panel-body">
 							<form id="registerForm" method="POST" action="/admin/estufas/editar/submit/{{$lista[0]->id}}">
 								<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">							
 								<div class="form-group">
-									<h3 class="modal-title">Dados da Estufa</h3>
+									<h3 class="modal-title border-bottom margin-bottom">Dados da Estufa</h3>
 									<div class="col-xs-12 col-md-12">
 										<label for="nome">Nome da Estufa</label>
 										@if( Session::get('message'))
@@ -31,18 +31,18 @@
 										</div>
 										<br/>
 										<label for="nome">Descrição</label>
-										<div class="input-group">											
+										<div class="input-group margin-bottom">											
 											<input type="text" class="form-control" id="descricao"  name="descricao" placeholder="Insira uma descrição para estufa" value="{{$lista[0]->descricao}}" ><span class="input-group-addon"></span>
 										</div>
 									</div>								
 									<div class="form-group">
-										<h3 class="modal-title">Setores</h3> 
-										<div class="table-container">
-											<div class="row clearfix">
-												<div class="col-md-12 table-responsive">
-													<table class="table table-bordered table-hover table-sortable tab_logic">
+										<h3 class="modal-title border-bottom margin-bottom">Setores</h3> 
+										<div >
+											<div class="clearfix">
+												<div class="col-md-12">
+													<table class="table-responsive table table-bordered table-hover table-sortable tab_logic">
 														<thead>
-															<tr >
+															<tr>
 
 																<th class="text-center">
 																</th>

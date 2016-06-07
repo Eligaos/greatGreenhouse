@@ -1,4 +1,5 @@
  $(function() {
+    "use strict";
    var pgurl = window.location.href.substr(window.location.href
     .indexOf("/")+1);
    pgurl = pgurl.replace("/"+window.location.hostname, "");
@@ -14,7 +15,6 @@
    if($('.sub-menu li a').hasClass('active') == true){
      $('.sub-menu').toggleClass('in');
    };	
-
-
  });
  
+

@@ -13,7 +13,7 @@
 
 @section('content')
 <div class="container">
-	<div class="col-xs-12 col-sm-9 col-md-10 col-sm-offset-1 col-md-offset-2 ">
+	<div class="col-lg-12 col-xs-12 col-sm-10 col-md-11  col-lg-offset-1 col-sm-offset-3 col-md-offset-2">
 		<section class="content">
 			<div class="panel panel-default">		
 				<div class="panel-heading margin-bottom"><h2>Lista de Leituras</h2></div>
@@ -63,7 +63,8 @@
 				</div>
 				<div class="table-container">
 					@if(count($lista)!=0)	
-					<table id="leituraTable" class="table table-filter table-striped table-bordered table-responsive">							 <thead>
+					<table id="dataTable" class="table table-filter table-striped table-bordered table-responsive">							 
+					<thead>
 						<tr class="success">
 							<th>Data</th>
 							<th>Valor</th>
@@ -151,5 +152,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
-
+<script src="{{asset('js/dataTable.js')}}"></script>
 @endsection

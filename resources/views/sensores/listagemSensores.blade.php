@@ -1,11 +1,11 @@
 @extends('app')
 
 @section('customStyles')
-
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
 @endsection
 @section('content')
 <div class="container">
-	<div class="col-xs-12 col-sm-9 col-md-10 col-sm-offset-1 col-md-offset-2 ">
+	<div class="col-lg-12 col-xs-12 col-sm-10 col-md-11  col-lg-offset-1 col-sm-offset-3 col-md-offset-2">
 		<section class="content">
 			<div class="panel panel-default">
 				<div class="panel-heading"><h2>Lista de Sensores</h2></div>
@@ -16,14 +16,16 @@
 				@endif
 				<div class="table-container">
 					@if(count($lista)!=0)	
-					<table class="table table-filter table-striped table-bordered table-responsive">							
-						<tr class="success">
-							<th>Nome</th>
-							<th>Modelo</th>
-							<th>Parâmetro</th>
-							<th>Estado</th>
-							<th>Opções</th>
-						</tr>	
+					<table id="dataTable" class="table table-filter table-striped table-bordered table-responsive">
+						<thead>						
+							<tr class="success">
+								<th>Nome</th>
+								<th>Modelo</th>
+								<th>Parâmetro</th>
+								<th>Estado</th>
+								<th class="no-sort">Opções</th>
+							</tr>
+						</thead>		
 						<tbody>		
 							@foreach($lista as $key => $sensor)
 							<tr>									
@@ -84,4 +86,7 @@
 
 @section('customScripts')
 
+<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+<script src="{{asset('js/dataTable.js')}}"></script>
 @endsection

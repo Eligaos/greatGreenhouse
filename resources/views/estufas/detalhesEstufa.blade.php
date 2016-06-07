@@ -8,12 +8,12 @@
 
 @section('content')
 <div class="container">
-	<div class="row centered-form">
-		<div class="col-xs-12 col-sm-9 col-md-8 col-sm-offset-3 col-md-offset-3">
+	<div>
+		<div class="col-lg-10 col-xs-12 col-sm-10 col-md-11  col-lg-offset-2 col-sm-offset-3 col-md-offset-2">
 			<div class="content">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h3 class="modal-title">Detalhes Estufa</h3>
+						<h2 class="modal-title">Detalhes Estufa</h2>
 					</div>
 					@if( Session::get('message'))
 					<div class="text-center">
@@ -22,7 +22,7 @@
 					@endif
 					<div class="panel-body">				
 						<div class="form-group">
-							<h4 class="border-bottom">Dados da Estufa</h4>
+							<h3 class="modal-title border-bottom margin-bottom">Dados da Estufa</h3>
 							<div class="col-xs-12 col-md-12">
 								<p>
 									<label for="nome">Nome da Estufa: </label>
@@ -35,7 +35,7 @@
 							</div>	
 						</div>								
 						<div class="form-group">
-							<h4 class="border-bottom">Setores</h4> 
+							<h3 class="modal-title border-bottom margin-bottom">Setores</h3>
 							@if(count($lista[1])==1 && $lista[1][0]->nome == "Nenhum")
 							<p class="summary">Esta estufa não tem Setores</p>
 							@else	

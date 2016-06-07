@@ -1,11 +1,5 @@
 $(document).ready(function() {
 	"use strict";
-  $('#leituraTable').DataTable({
-    "paging":   false,
-    "info":     false,
-    "searching":   false,
-    "order":  [[ 0, 'desc' ]]
-  });
   var myControl=  {
     create: function(tp_inst, obj, unit, val, min, max, step){
       $('<input class="ui-timepicker-input" value="'+val+'" style="width:50%">')
