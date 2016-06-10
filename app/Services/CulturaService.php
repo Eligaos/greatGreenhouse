@@ -9,7 +9,7 @@ use Session;
 
 class CulturaService 
 {
-	public function listarCulturas($estufas){ 
+	public function listarCulturas($idExp){ 
 		/*$tudo = [];
 		for($i=0; $i<count($estufas);$i++){		
 			$join = Estufa::join('setores', 'estufas.id', '=', 'setores.estufa_id')->join('culturas','setores.id', '=','culturas.setor_id')->select('estufas.id as estufa_id', 'setores.id as setor_id', 'culturas.id as cultura_id', 'estufas.nome as estufa_nome', 'setores.nome as setor_nome', 'culturas.nome as cultura_nome')->where('estufas.id', '=', $estufas[$i]->id)->get();
@@ -24,7 +24,7 @@ class CulturaService
 			}
 		}
 		return $setores;*/
-		return Estufa::join('setores', 'estufas.id', '=', 'setores.estufa_id')->join('culturas','setores.id', '=','culturas.setor_id')->select('estufas.id as estufa_id', 'setores.id as setor_id', 'culturas.id as cultura_id', 'estufas.nome as estufa_nome', 'setores.nome as setor_nome', 'culturas.nome as cultura_nome')->get();
+		return Estufa::join('setores', 'estufas.id', '=', 'setores.estufa_id')->join('culturas','setores.id', '=','culturas.setor_id')->where('exploracoes_id', '=', $idExp)->select('estufas.id as estufa_id', 'setores.id as setor_id', 'culturas.id as cultura_id', 'estufas.nome as estufa_nome', 'setores.nome as setor_nome', 'culturas.nome as cultura_nome')->get();
 	}
 	
 /*	public function getSetorByCultura($idSetor){ 

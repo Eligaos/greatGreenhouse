@@ -41,7 +41,7 @@ class CulturaController extends Controller
 		
 		$estufas = $this->eService->getEstufas($this->exploracaoSelecionada);
 		if(count($estufas)!=0){
-			$lista = $this->cService->listarCulturas($estufas); //collection
+			$lista = $this->cService->listarCulturas($this->exploracaoSelecionada); //collection
 		}		
 		return view('culturas.listagemCulturas', compact('lista', 'estufas'));
 	}
