@@ -12,8 +12,12 @@ class CreateTableAlarme extends Migration
      */
     public function up()
     {
-        //
-    }
+     $table->increments('id');
+     $table->integer('setor_id')->unsigned();
+     $table->foreign('setor_id')->references('id')->on('setores')->onDelete('cascade');
+     $table->string('descricao');
+     $table->timestamps();
+ }
 
     /**
      * Reverse the migrations.
@@ -22,6 +26,6 @@ class CreateTableAlarme extends Migration
      */
     public function down()
     {
-        //
-    }
+       Schema::drop('alarme');
+   }
 }

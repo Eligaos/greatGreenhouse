@@ -20,13 +20,13 @@
 					@if(count($estufas)!=0)	
 					@if(count($lista)!=0)						
 					<table id="dataTable" class="table table-filter table-striped table-bordered table-responsive ">
-					<thead>
-						<tr class="success">
-							<th id="tEstufa" class="col-xs-6 col-sm-5 col-md-2 text-center">Nome da Estufa</th>
-							<th class="col-xs-6 col-sm-5 col-md-2 text-center">Nome da Cultura</th>
-							<th class="col-xs-6 col-sm-5 col-md-2 text-center">Nome do Setor</th>
-							<th class="no-sort col-xs-6 col-sm-5 col-md-3 text-center">Opções</th>
-						</tr>
+						<thead>
+							<tr class="success">
+								<th id="tEstufa" class="col-xs-6 col-sm-5 col-md-2 text-center">Nome da Estufa</th>
+								<th class="col-xs-6 col-sm-5 col-md-2 text-center">Nome da Cultura</th>
+								<th class="col-xs-6 col-sm-5 col-md-2 text-center">Nome do Setor</th>
+								<th class="no-sort col-xs-6 col-sm-5 col-md-3 text-center">Opções</th>
+							</tr>
 						</thead>
 						<tbody>
 							@foreach($lista as $key => $cultura)	

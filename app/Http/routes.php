@@ -143,7 +143,10 @@ Route::group(['middleware' => ['web']], function ()
 
 
 	/**********ALARMES**********/
-	Route::get('/admin/alarmes', 'LeituraController@listarLeituras');
+	Route::get('/admin/alarmes', 'AlarmeController@listarAlarmes');
+	Route::get('/admin/alarmes/adicionar', 'AlarmeController@adicionarAlarme');
+	Route::get('/admin/alarmes/adicionar/{id}/submit', 'AlarmeController@adicionarAlarmeSubmit');
+	Route::get('/admin/alarmes/detalhes', 'AlarmeController@detalhesAlarme');
 
 	/**********COLABORADORES**********/
 	Route::get('/admin/colaboradores', 'LeituraController@listarLeituras');

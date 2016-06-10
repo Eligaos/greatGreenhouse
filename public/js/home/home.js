@@ -14,7 +14,6 @@ $(function() {
 
       for (var i =0; i < dados[j].length; i++) {
         var tempo = dados[j][i].data;
-        console.log(j);
         data.push({
           [labels[j]]: dados[j][i].valor,
           [labels[j+1]]: dados[j+1][i].valor,

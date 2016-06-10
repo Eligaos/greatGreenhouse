@@ -14,15 +14,12 @@ class CreateTableSetor extends Migration
     {
         Schema::create('setores', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('estufa_id')->unsigned();            
+            $table->integer('estufa_id')->unsigned();      
+            $table->foreign('estufa_id')->references('id')->on('estufas')->onDelete('cascade');      
             $table->string('nome');
             $table->string('descricao');
             $table->timestamps();      
 
-        });
-
-        Schema::table('setores', function($table){
-            $table->foreign('estufa_id')->references('id')->on('estufas')->onDelete('cascade');
         });
     }
 

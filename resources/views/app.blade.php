@@ -51,7 +51,7 @@
        </a>
      </li>
      <li>
-       <a href="#">
+       <a href="/admin/alarmes">
          <i class="glyphicon glyphicon-time fa-lg"></i> Alarmes 
        </a>
      </li>   
