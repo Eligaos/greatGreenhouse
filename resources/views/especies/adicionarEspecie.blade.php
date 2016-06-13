@@ -34,7 +34,6 @@
 									<div class="input-group lg-margin-bottom">								
 										<input type="text" class="form-control" id="cultivar"  name="cultivar" placeholder="Insira o nome do cultivar"><span class="input-group-addon"></span>
 									</div>
-
 								</div>			
 								<div class="form-group">
 									<h4 class="border-bottom">Paramêtros Ideiais</h4>
