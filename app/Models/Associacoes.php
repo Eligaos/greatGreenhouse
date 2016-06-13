@@ -15,8 +15,11 @@ class Associacoes extends Model
 		return $this->belongsTo('App\Models\Setor', 'setor_id', 'id');
 	}
 
-	public function tipoLeitura(){
+	public function sensor(){
 		return $this->belongsTo('App\Models\Sensor', 'sensor_id', 'id');
 	}
 
+	public function alarme(){
+		return $this->hasOne('App\Models\Alarme', 'sensor_id', 'id');
+	}
 }

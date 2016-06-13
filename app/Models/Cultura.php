@@ -14,5 +14,9 @@ class Cultura extends Model
 		return $this->belongsTo('App\Models\Setor', 'setor_id', 'id');
 	}
 
+	public function especie(){
+		return $this->belongsTo('App\Models\Especie', 'especie_id', 'id');
+	}
+
 
 }

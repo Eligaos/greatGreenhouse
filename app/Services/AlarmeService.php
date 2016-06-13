@@ -11,6 +11,9 @@ use App\Models\Alarme;
 
 class AlarmeService
 {
-	
+	function adicionarAlarmeSubmit($input){
+		dd($input);
+
+	}
 }
 

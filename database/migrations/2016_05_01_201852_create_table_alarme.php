@@ -12,12 +12,16 @@ class CreateTableAlarme extends Migration
      */
     public function up()
     {
-     $table->increments('id');
-     $table->integer('setor_id')->unsigned();
-     $table->foreign('setor_id')->references('id')->on('setores')->onDelete('cascade');
-     $table->string('descricao');
-     $table->timestamps();
- }
+        Schema::create('alarmes', function (Blueprint $table) {
+           $table->increments('id');
+           $table->integer('associacoes_id')->unsigned();
+           $table->foreign('associacoes_id')->references('id')->on('associacoes')->onDelete('cascade');
+           $table->string('regra');
+           $table->float('valor');            
+           $table->string('descricao');
+           $table->timestamps();
+       });
+    }
 
     /**
      * Reverse the migrations.
@@ -26,6 +30,9 @@ class CreateTableAlarme extends Migration
      */
     public function down()
     {
-       Schema::drop('alarme');
-   }
+     Schema::table('alarmes', function(Blueprint $table) {
+        $table->dropForeign(['associacoes_id']);
+    });
+     Schema::drop('alarmes');
+ }
 }

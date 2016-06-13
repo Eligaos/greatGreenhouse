@@ -8,10 +8,15 @@ class Especie extends Model
 {
 	protected $table = "especies";
 	protected $fillable = ['nome_comum','especie',
-							'cultivar','tipo_fisionomico',
-							'habitat','epoca_floracao',
-							'coleccao_termica','ph_solo_ideal',
-							'ph_agua_ideal','temperatura_atmosferica_ideal',
-							'temperatura_solo_ideal','condutividade_electrica_solo_ideal'
-						   ];
+	'cultivar','tipo_fisionomico',
+	'habitat','epoca_floracao',
+	'coleccao_termica','ph_solo_ideal',
+	'ph_agua_ideal','temperatura_atmosferica_ideal',
+	'temperatura_solo_ideal','condutividade_electrica_solo_ideal'
+	];
+
+	public function culturas()
+	{
+		return $this->hasMany('App\Models\Cultura', 'especie_id', 'id');
+	}
 }
