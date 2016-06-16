@@ -96,7 +96,6 @@
 @yield('content')
 </body>
 <script src="{{asset('js/jquery/jquery-2.1.4.js')}}"></script>
-<script src="{{asset('js/angular/angular.js')}}"></script>
 <script src="{{asset('js/bootstrap/bootstrap.js')}}"></script>
 <script src="{{asset('js/geral.js')}}"></script>
 @yield('customScripts')

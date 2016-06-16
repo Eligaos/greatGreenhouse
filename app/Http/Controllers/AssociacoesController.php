@@ -47,7 +47,7 @@ class AssociacoesController extends Controller
 
 		return view('associacoes.listagemAssociacoes', compact('lista', 'estufas', 'sensores'));
 	}
-
+	
 	public function associar(){
 		$estufas = $this->eService->getEstufas($this->exploracaoSelecionada);
 		$sensores = $this->sService->getSensoresInativos();

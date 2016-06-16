@@ -2,13 +2,14 @@
 
 namespace App\Services;
 
+
 use App\Models\Associacoes;
 use App\Models\TipoLeitura;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Estufa;
 use App\Models\Setor;
 use App\Models\Sensor;
-
+use Session;
 
 
 class AssociacoesService
@@ -42,6 +43,20 @@ class AssociacoesService
 		}
 		return $associacoes;
 	}
+
+
+		public function getAssociacoesTipos($estufas){
+
+			$tipos = Associacoes::join('sensores','associacoes.sensor_id','=','sensores.id')->join('tipo_leitura', 'sensores.tipo_id', '=', 'tipo_leitura.id')->join('setores','associacoes.setor_id','=','setores.id')->join('estufas','setores.estufa_id','=', 'estufas.id')->where('estufas.exploracoes_id','=',Session::get('exploracaoSelecionada'))->select('estufa_id', 'parametro', 'unidade')->distinct()->get();
+
+			//$tudo[$estufas[$i]->id]=$ass;
+			//array_push($tudo,$ass);
+	
+
+
+		return $tipos;
+	}
+
 
 	public function associarSubmit($input){
 		$tp = Associacoes::create(["setor_id" => $input['setor_id'], 

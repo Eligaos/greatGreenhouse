@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Services\HomeService;
 use App\Services\EstufaService;
 use App\Services\CulturaService;
+use App\Services\AssociacoesService;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Response;
 use Cookie;
@@ -24,18 +25,21 @@ class HomeController extends Controller
 	protected $uService;
 	protected $eService;
 	protected $cService;
+	protected $aService;
+
 	protected $exploracaoSelecionada;
 
-	public function __construct(HomeService $hService, UserService $uService, EstufaService $eService, CulturaService $cService)
+	public function __construct(HomeService $hService, UserService $uService, EstufaService $eService, CulturaService $cService, AssociacoesService $aService)
 	{
 		$this->middleware('auth');
 		$this->hService = $hService;
 		$this->uService = $uService;
 		$this->eService = $eService;
 		$this->cService = $cService;
+		$this->aService = $aService;
 		$this->exploracaoSelecionada = Session::get('exploracaoSelecionada');
 		//$request->session()->forget('filterPesquisa');
-        Session::forget('filterPesquisa');
+		Session::forget('filterPesquisa');
 
 
 	}
@@ -49,7 +53,9 @@ class HomeController extends Controller
 	public function home(){
 		$estufas = $this->eService->getEstufas($this->exploracaoSelecionada);
 		$culturas = $this->cService->listarCulturas($estufas);
-		return view("home" ,compact('estufas', 'culturas'));
+		$tipos = $this->aService->getAssociacoesTipos($estufas);
+
+		return view("home" ,compact('estufas', 'culturas','tipos'));
 	}
 
 	public function showPerfil() {
