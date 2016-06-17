@@ -3,16 +3,24 @@
 namespace App\Services;
 
 
+use App\Models\Alarme;
 use Illuminate\Database\Eloquent\Model;
 
-use App\Models\Alarme;
 
 
 
 class AlarmeService
 {
-	function adicionarAlarmeSubmit($input){
-		dd($input);
+	function adicionarAlarmeSubmit($input, $associacoes){
+		for($i=0; $i<count($associacoes); $i++){
+			$alarme = array(
+				"associacoes_id" => $associacoes[$i]->associacoes_id,
+				"regra"	=> $input["regra"],
+				"valor" => $input["valor"],
+				"descricao" => $input["descricao"]
+			);
+			$asd = Alarme::create($alarme);
+		}
 
 	}
 }

@@ -51,5 +51,38 @@ class AssociacoesService
 		$sensor->save();
 		return true;		
 	}
+
+	public function getAssociacoesDistinct($estufa){ //da exp atual
+		$tudo = [];
+		for($i=0; $i<count($estufa[1]);$i++){
+			$ass = Associacoes::join('sensores','associacoes.sensor_id','=','sensores.id')->join('tipo_leitura', 'sensores.tipo_id', '=', 'tipo_leitura.id')->where('setor_id', '=', $estufa[1][$i]->id)->select('tipo_leitura.parametro', 'tipo_leitura.unidade')->distinct('tipo_leitura.parametro')->get();
+			array_push($tudo,$ass);
+		}
+		$associacoes = [];
+		for($i=0; $i<count($tudo);$i++){
+			for($j=0; $j<count($tudo[$i]); $j++){									
+				array_push($associacoes, $tudo[$i][$j]);
+			}
+		}
+		return $associacoes;
+	}
+
+	public function getAssociacoesTipo($estufa, $parametro){//para registos manuais
+		$tudo = [];
+		for($i=0; $i<count($estufa[1]);$i++){
+			$ass = Associacoes::join('sensores','associacoes.sensor_id','=','sensores.id')->join('tipo_leitura', 'sensores.tipo_id', '=', 'tipo_leitura.id')->where('setor_id', '=', $estufa[1][$i]->id)->where('tipo_leitura.parametro','like',$parametro)->select('associacoes.id as associacoes_id')->get();
+			array_push($tudo,$ass);
+		}
+		$associacoes = [];
+		for($i=0; $i<count($tudo);$i++){
+			for($j=0; $j<count($tudo[$i]); $j++){									
+				array_push($associacoes, $tudo[$i][$j]);
+			}
+		}
+		return $associacoes;
+	}
+
+
+
 }
 

@@ -27,7 +27,7 @@
 									<div class="input-group margin-bottom">
 										<label for="nome">Escolha uma Estufa</label>
 										<div>
-											<select id="ddEstufa" class="selectpicker form-control" title="Selecione uma Estufa"  data-live-search="true" showTick="true">
+											<select id="ddEstufa" name="ddEstufa" class="selectpicker form-control" title="Selecione uma Estufa"  data-live-search="true" showTick="true">
 												@foreach($estufas as $key => $estufa)
 												<option value="{{$estufa->id}}">{{$estufa->nome}}</option>
 												@endforeach	
@@ -36,8 +36,8 @@
 									</div>
 									<div class="col-lg-3  margin-bottom">											
 										<div class="btn-group" id="divAssociacoes">
-											<label for="associacao">Escolha uma Associação</label>
-											<select id="ass_id" name="ass_id" class="selectpicker form-control" title="Selecione uma Associação"  data-live-search="true" showTick="true" required>
+											<label for="associacao">Escolha um Parâmetro </label>
+											<select id="ass_id" name="ass_id" class="selectpicker form-control" title="Selecione um Parâmetro"  data-live-search="true" showTick="true" required>
 											</select>
 										</div>
 									</div>
@@ -48,9 +48,9 @@
 								<div class="col-xs-12 col-md-12">
 									<div class="input-group margin-bottom">
 										<label for="associacao">Escolha uma Regra</label>
-										<select id="regra_id" name="regra_id" class="selectpicker form-control" title="Selecione uma Regra"  data-live-search="true" showTick="true" required>
-											<option value="<="><=</option>
-											<option value=">=">>=</option>
+										<select id="regra_id" name="regra" class="selectpicker form-control" title="Selecione uma Regra"  data-live-search="true" showTick="true" required>
+											<option value="<" ><</option>
+											<option value=">">></option>
 										</select>
 									</div>
 								</div>

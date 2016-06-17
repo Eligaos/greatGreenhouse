@@ -54,6 +54,12 @@ class LeituraController extends Controller
         return $tipos;
     }
 
+     public function getAssociacoesDistinct($estufaID){//para o js do registoManual
+        $estufa = $this->eService->procurarEstufa($estufaID);
+        $tipos = $this->aService->getAssociacoesDistinct($estufa);
+        return $tipos;
+    }
+
     public function adicionarRegistoManual(){
         $lista = [];
         Session::forget('filterPesquisa');

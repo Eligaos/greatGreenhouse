@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -8,7 +8,6 @@ class Alarme extends Model
 {
 	protected $table = "alarmes";
 	protected $fillable = ['associacoes_id','regra','valor','descricao'];
-
 
 
 	public function associacoes()

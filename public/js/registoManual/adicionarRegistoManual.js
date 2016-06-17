@@ -70,7 +70,6 @@ $(document).ready(function() {
      if(data.length > 0){
 
       for(var i=0; i < data.length; i++){
-        console.log(data);
         parametroArr[data[i].parametro] = [data[i].unidade];
         $('#ass_id').prepend($('<option>', {
           value: data[i].associacoes_id,

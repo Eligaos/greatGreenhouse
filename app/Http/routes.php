@@ -128,6 +128,7 @@ Route::group(['middleware' => ['web']], function ()
 
 	Route::get('/admin/leituras', 'LeituraController@listarLeituras');
 	Route::get('/admin/leituras/getAssociacoes/{id}', 'LeituraController@getAssociacoes');
+	Route::get('/admin/leituras/getAssociacoesDistinct/{id}', 'LeituraController@getAssociacoesDistinct');
 	
 	Route::get('/admin/registos/manual', 'LeituraController@adicionarRegistoManual');
 	Route::post('/admin/registos/manual/submit', 'LeituraController@adicionarRegistoManualSubmit');
