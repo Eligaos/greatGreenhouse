@@ -17,4 +17,8 @@ class Leitura extends Model
 	public function alarmes(){
 		return $this->belongsToMany('App\Models\Alarme', 'ocorrencia_alarme')->withTimestamps();
 	}
+
+	public function attachLeituraToAlarme($alarmeId){
+		$this->alarmes()->attach( $alarmeId);
+	}
 }

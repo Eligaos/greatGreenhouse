@@ -49,7 +49,7 @@
 									<div class="input-group margin-bottom">
 										<label for="associacao">Escolha uma Regra</label>
 										<select id="regra_id" name="regra" class="selectpicker form-control" title="Selecione uma Regra"  data-live-search="true" showTick="true" required>
-											<option value="<" ><</option>
+											<option value="<"><</option>
 											<option value=">">></option>
 										</select>
 									</div>
@@ -61,7 +61,7 @@
 									<div class="form-group">
 										<label for="valor">Valor</label>
 										<div class="input-group">	
-											<input type="number"  step="0.01" class="form-control" id="valor" value="{{ old('valor') }}" name="valor" placeholder="Insira um valor" min=0 required><span id="valor_span"class="input-group-addon" ></span>
+											<input type="number"  step="0.01" class="form-control" id="valor" value="{{ old('valor') }}" name="valor" placeholder="Insira um valor" required><span id="valor_span"class="input-group-addon" ></span>
 										</div>
 									</div>
 								</div>	
