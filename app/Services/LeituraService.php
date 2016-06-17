@@ -51,36 +51,24 @@ class LeituraService
 
 
 	public function getLastHoursLeiturasFiltered($id, $idExp){ 
+
+
 		$tudo = [];
-		for($i=1; $i < 4; $i++){
-			$res = Leitura::join('associacoes', 'leituras.associacao_id', '=', 'associacoes.id')->join('setores','associacoes.setor_id', '=','setores.id')->join('estufas','setores.estufa_id', '=','estufas.id')->join('exploracoes', 'estufas.exploracoes_id','=','exploracoes.id')->join('sensores','associacoes.sensor_id', '=','sensores.id')->join('tipo_leitura','sensores.tipo_id', '=','tipo_leitura.id')->select('sensores.nome as sensor_nome', 'estufas.id as estufa_id' , 'tipo_leitura.parametro', 'tipo_leitura.unidade', 'leituras.valor as valor','leituras.data as data','leituras.manual as manual','setores.nome as setor_nome')->where('tipo_leitura.id', '=', $i)->where('estufas.id','=',$id)->where('exploracoes.id', '=', $idExp)->orderBy('data', 'desc')->take(24)->get();
+		$tipos = TipoLeitura::get();
+		
+
+		
+		for($i=0; $i < count($tipos); $i++){
+			$res = Leitura::join('associacoes', 'leituras.associacao_id', '=', 'associacoes.id')->join('setores','associacoes.setor_id', '=','setores.id')->join('estufas','setores.estufa_id', '=','estufas.id')->join('exploracoes', 'estufas.exploracoes_id','=','exploracoes.id')->join('sensores','associacoes.sensor_id', '=','sensores.id')->join('tipo_leitura','sensores.tipo_id', '=','tipo_leitura.id')->select('sensores.nome as sensor_nome', 'estufas.id as estufa_id' , 'tipo_leitura.parametro', 'tipo_leitura.unidade', 'leituras.valor as valor','leituras.data as data','leituras.manual as manual','setores.nome as setor_nome')->where('tipo_leitura.id', '=', $tipos[$i]->id)->where('estufas.id','=',$id)->where('exploracoes.id', '=', $idExp)->orderBy('data', 'desc')->take(32)->get();
+
 
 			array_push($tudo,$res);
 
 		}
 
-			$arr = [];
-			foreach($tudo as $key => $item)
-			{
-				for ($i=0; $i < count($tudo[$key]); $i++) { 
+		return $tudo;
 
-						array_push($arr,$tudo[$key][$i]);
-					
-				}
-			}	
-
-		function group_assoc($array, $key) {
-		    $return = array();
-		    foreach($array as $v) {
-		        $return[$v[$key]][] = $v;
-		    }
-		    return $return;
-		}
-		$order = group_assoc($arr, 'data');
-
-
-		return $arr;
-}
+	}
 	
 
 	public function adicionarRegistoManualSubmit($input){
@@ -120,13 +108,3 @@ class LeituraService
 		}
 	}
 }
-
-/*
-array:5 [▼
-  "tipo_id" => "2"
-  "ddEstufa" => ""
-  "setor_id" => ""
-  "data_inicial" => ""
-  "data_final" => ""
-]
-

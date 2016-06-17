@@ -22,6 +22,7 @@ $(function() {
    $.get("/admin/leituras/ultimas/"+estufas.data[j].id, function(dados) {
 
    }).done(function(dados){
+    console.log(dados);
      var elem = "#monitor"+dados[0][0].estufa_id;
 
      var data = [];
