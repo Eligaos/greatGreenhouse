@@ -19,8 +19,10 @@
 					<table id="dataTable" class="table table-filter table-striped table-bordered table-responsive">
 						<thead>						
 							<tr class="success">
+								<th>Estufa</th>
+								<th>Regra</th>
+								<th>Tipo</th>
 								<th>Descricao</th>
-								<th>Sensor</th>
 								<th class="no-sort">Opções</th>
 							</tr>
 						</thead>		
@@ -28,11 +30,22 @@
 							@foreach($lista as $key => $alarme)
 							<tr>									
 								<td>		
-									<span>{{$alarme->descricao}}</span>
+									<span>{{$alarme->estufa_nome}}</span>
 								</td>
-								<td>
-									<span>{{$alarme->alarm}}</span>
-								</td>								
+								@if($alarme->regra == ">")
+								<td>		
+									<span>Valores Superiores a {{$alarme->valor}} {{$alarme->unidade}}</span>
+								</td>
+								@else
+								<td>		
+									<span>Valores Inferiores a {{$alarme->valor}} {{$alarme->unidade}}</span>
+								</td>
+								@endif
+								<td>		
+									<span>{{$alarme->parametro}}</span>
+								</td><td>		
+									<span>{{$alarme->descricao}}</span>
+								</td>							
 								<td>
 									<div class="text-center">
 										<a  toggle="tooltip" data-placement="top" title="Detalhes Alarme" role="button" name="detalhes" href="/admin/alarmes/detalhes/{{$alarme->alarm_id}}">  <button type="button" class="btn btn-default btn-xs">

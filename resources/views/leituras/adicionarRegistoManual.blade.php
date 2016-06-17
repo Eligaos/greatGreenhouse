@@ -47,8 +47,6 @@
 								<div class="input-group">									
 
 									<input type="text" class="form-control" id="hora" name="data" />
-
-
 								</div>
 							</div>
 						</div>
@@ -83,14 +81,17 @@
 			</div>
 		</div>
 	</div>
-</div>
-@endsection
-@section('customScripts')	
 
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<script src="{{asset('js/registoManual/timePicker.js')}}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
 
-<script src="{{asset('js/registoManual/adicionarRegistoManual.js')}}"></script>
-@endsection
+	@endsection
+	@section('customScripts')	
+
+
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<script src="{{asset('js/registoManual/timePicker.js')}}"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+
+	<script src="{{asset('js/registoManual/adicionarRegistoManual.js')}}"></script>
+	
+	@endsection
 

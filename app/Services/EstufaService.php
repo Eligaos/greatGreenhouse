@@ -10,7 +10,6 @@ use Session;
 class EstufaService
 {
 
-
   public function getEstufas($idExp){
     return Estufa::where('exploracoes_id', '=', $idExp['id'])->paginate(15);
   }

@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Input;
 use Session;
 use App\Services\EstufaService;
 use App\Services\AlarmeService;
+use App\Services\AssociacoesService;
+use Redirect; 
 
 
 
@@ -16,18 +18,20 @@ class AlarmeController extends Controller
 {
 	protected $eService;
 	protected $aService;
+	protected $assocService;
 	protected $exploracaoSelecionada;
 
-	public function __construct( EstufaService $eService, AlarmeService $aService)
+	public function __construct( EstufaService $eService, AlarmeService $aService, AssociacoesService $assocService)
 	{
 		$this->middleware('auth');
 		$this->eService = $eService;
 		$this->aService = $aService;
+		$this->assocService = $assocService;
 		$this->exploracaoSelecionada = Session::get('exploracaoSelecionada');
 	}
 
 	function listarAlarmes(){
-		$lista = [];
+		$lista = $this->aService->listarAlarme($this->exploracaoSelecionada); 
 		return view('alarmes.listagemAlarmes', compact('lista'));
 	}
 
@@ -39,7 +43,9 @@ class AlarmeController extends Controller
 
 	function adicionarAlarmeSubmit(){
 		$input = Input::except('_token');
-		$estufa = $this->aService->adicionarAlarmeSubmit($input);
-
+		$estufa = $this->eService->procurarEstufa($input["ddEstufa"]);
+		$assoc =  $this->assocService->getAssociacoesTipo($estufa, $input["ass_id"]);
+		$alarme = $this->aService->adicionarAlarmeSubmit($input, $assoc);
+		return Redirect::to('/admin/alarmes')->with('message', 'Alarme adicionado com sucesso!');
 	}
 }

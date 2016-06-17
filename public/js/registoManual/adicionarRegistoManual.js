@@ -66,7 +66,9 @@ $(document).ready(function() {
 
     }).done(function(data){
      if(data.length > 0){
+
       for(var i=0; i < data.length; i++){;
+
         parametroArr[data[i].parametro] = [data[i].unidade];
         $('#ass_id').prepend($('<option>', {
           value: data[i].associacoes_id,
