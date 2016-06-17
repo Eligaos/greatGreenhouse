@@ -19,6 +19,6 @@ class Leitura extends Model
 	}
 
 	public function attachLeituraToAlarme($alarmeId){
-		$this->alarmes()->attach( $alarmeId);
+		$this->alarmes()->attach($alarmeId);
 	}
 }
