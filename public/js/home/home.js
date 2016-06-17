@@ -60,6 +60,7 @@ $(function() {
             dateTimeLabelFormats: { // don't display the dummy year
             hour: '%H:%M',
             month: '%e/%b',
+            day: '%e/%b',
             year: '%b'
           }
         },

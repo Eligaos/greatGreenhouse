@@ -8,10 +8,10 @@
 @endsection
 @section('title', ' - Home')
 @section('content')
-<section id="estufas" class="col-xs-12 col-sm-10 col-md-10 col-lg-10 ">
+<section id="estufas">
 	<!-- item -->
 	@foreach($estufas as $key => $estufa)
-	<div id="estufa-container" class="col-xs-12 col-sm-11 col-md-10 col-lg-6 text-center col-sm-offset-1 col-lg-offset-0">
+	<div id="estufa-container" class="col-xs-12 col-sm-11 col-md-10 col-lg-6 text-center ">
 		<div class="panel panel-success">
 			<div class="panel-heading">
 				<i class="fa fa-leaf"></i>
@@ -19,20 +19,20 @@
 			</div>
 			<div id="monitor{{$estufa->id}}" class="monitor">
 			</div>
-		<div id="culturas-container" class="modal-footer">  
-			<ul>
-				@foreach($culturas as $key => $cultura)
-				@if($cultura->estufa_id == $estufa->id)
-				<li class=""><i class="glyphicon glyphicon-tree-deciduous"></i> <a href="/admin/culturas/detalhes/{{$cultura->cultura_id}}">{{$cultura->cultura_nome}}</a> </li>
-				@endif
-				@endforeach
-			</ul>
-		</div>
+			<div id="culturas-container" class="modal-footer">  
+				<ul>
+					@foreach($culturas as $key => $cultura)
+					@if($cultura->estufa_id == $estufa->id)
+					<li class=""><i class="glyphicon glyphicon-tree-deciduous"></i> <a href="/admin/culturas/detalhes/{{$cultura->cultura_id}}">{{$cultura->cultura_nome}}</a> </li>
+					@endif
+					@endforeach
+				</ul>
+			</div>
 
+		</div>
 	</div>
-</div>
-@endforeach
-<!-- /item -->
+	@endforeach
+	<!-- /item -->
 </section>
 @endsection
 
