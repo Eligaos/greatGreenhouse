@@ -75,7 +75,7 @@ class LeituraController extends Controller
 
     public function getLastHoursLeituras($id){
 
-       return $this->lService->getLastHoursLeituras($id, $this->exploracaoSelecionada);
+     return $this->lService->getLastHoursLeituras($id, $this->exploracaoSelecionada);
 
    }
 
