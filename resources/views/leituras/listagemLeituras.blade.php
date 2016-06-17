@@ -12,135 +12,135 @@
 @section('title', ' - Lista de Leituras')
 
 @section('content')
-<div class="container">
-	<div class="col-lg-12 col-xs-12 col-sm-10 col-md-11  col-lg-offset-1 col-sm-offset-3 col-md-offset-2">
-		<section class="content">
-			<div class="panel panel-default">		
-				<div class="panel-heading margin-bottom"><h2>Lista de Leituras</h2></div>
-				<div class="form-group">
-					<form id="registerForm" method="POST" action="/admin/leituras">
-						<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">				
-						<div class="col-sm-3">
-							<label>Escolha o Tipo</label>
-							<select id="tipo_id" name="tipo_id" class="selectpicker form-control" title="Selecione um Tipo"  data-live-search="true" showTick="true">
-								@foreach($tiposLeituras as $key => $tipo)
-								<option value="{{$tipo->id}}">{{$tipo->parametro}}</option>
-								@endforeach	
-							</select>
-						</div>
-						<div class="btn-group col-sm-3 margin-bottom">	
-							<label>Escolha uma Estufa</label>
-							<div>
-								<select id="ddEstufa" name="ddEstufa" class="selectpicker form-control" title="Selecione uma Estufa"  data-live-search="true" showTick="true" >
-									@foreach($estufas as $key => $estufa)
-									<option value="{{$estufa->id}}">{{$estufa->nome}}</option>
-									@endforeach	
-								</select>
-							</div>
-						</div>	
 
-						<div class="btn-group col-sm-3 margin-bottom" id="divAssociacoesSetores">
-							<label>Escolha um Setor</label>
-							<select id="setor_id" name="setor_id" class="selectpicker form-control " title="Selecione um Setor"  data-live-search="true" showTick="true">
-							</select>
-						</div>
-						<div class="btn-group col-sm-3 margin-bottom">							<label>Data Inicial</label>
-							<input type="text" class="form-control" id="dataInicial" name="data_inicial">
-						</div>
-
-						<div class="btn-group col-sm-3 margin-bottom">							<label>Data Final</label>
-							<input type="text" class="form-control" id="dataFinal" name="data_final">
-						</div>
-
-
-						<div class="md-margin-top col-sm-3  margin-bottom pull-right">	
-							<button type="submit" id="submit"class="btn btn-success center-block " toggle="tooltip" data-placement="top" title="Pesquisar"><i class="glyphicon glyphicon-search fa-lg"></i>Pesquisar							</button>
-						</div>
-						<div class="md-margin-top col-sm-3  margin-bottom pull-right">	
-							<button type="limpar" id="limpar" name="limpar" value=1 class="btn btn-success center-block " toggle="tooltip" data-placement="top" title="Limpar Filtros"><i class="glyphicon glyphicon-erase"></i>Limpar							</button>
-						</div>
-					</form>
+<div class="col-sm-10 col-sm-offset-2 col-md-offset-1 centered-form">
+	<div class="panel panel-default">		
+		<div class="panel-heading margin-bottom">
+			<h3 class="modal-title" >Lista de Leituras</h3>
+		</div>
+		<div class="form-group margin-bottom">
+			<form id="registerForm" method="POST" action="/admin/leituras">
+				<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">				
+				<div class="col-sm-3">
+					<label>Escolha o Tipo</label>
+					<select id="tipo_id" name="tipo_id" class="selectpicker form-control" title="Selecione um Tipo"  data-live-search="true" showTick="true">
+						@foreach($tiposLeituras as $key => $tipo)
+						<option value="{{$tipo->id}}">{{$tipo->parametro}}</option>
+						@endforeach	
+					</select>
 				</div>
-				<div class="table-container">
-					@if(count($lista)!=0)	
-					<table id="dataTable" class="table table-filter table-striped table-bordered table-responsive">							 
-					<thead>
-						<tr class="success">
-							<th>Data</th>
-							<th>Valor</th>
-							<th>Tipo</th>
-							<th>Unidade</th>
-							<th>Sensor</th>
-							<th>Estufa</th>
-							<th>Setor</th>
-							<th>Leitura</th>
-						</tr>	
-					</thead>					
-					<tbody>		
-						@foreach($lista as $key => $leitura)
-						<tr>										
-							<td>
+				<div class="btn-group col-sm-3 margin-bottom">	
+					<label>Escolha uma Estufa</label>
+					<div>
+						<select id="ddEstufa" name="ddEstufa" class="selectpicker form-control" title="Selecione uma Estufa"  data-live-search="true" showTick="true" >
+							@foreach($estufas as $key => $estufa)
+							<option value="{{$estufa->id}}">{{$estufa->nome}}</option>
+							@endforeach	
+						</select>
+					</div>
+				</div>	
 
-								{{$leitura->data}}
+				<div class="btn-group col-sm-3 margin-bottom" id="divAssociacoesSetores">
+					<label>Escolha um Setor</label>
+					<select id="setor_id" name="setor_id" class="selectpicker form-control " title="Selecione um Setor"  data-live-search="true" showTick="true">
+					</select>
+				</div>
+				<div class="btn-group col-sm-3 margin-bottom">							<label>Data Inicial</label>
+					<input type="text" class="form-control" id="dataInicial" name="data_inicial">
+				</div>
 
-							</td>
-							<td>		
-								{{$leitura->valor}}
+				<div class="btn-group col-sm-3 margin-bottom">							<label>Data Final</label>
+					<input type="text" class="form-control" id="dataFinal" name="data_final">
+				</div>
 
-							</td>
 
-							<td>		
-								{{$leitura->parametro}}
+				<div class="md-margin-top col-sm-3  margin-bottom pull-right">	
+					<button type="submit" id="submit"class="btn btn-success center-block " toggle="tooltip" data-placement="top" title="Pesquisar"><i class="glyphicon glyphicon-search fa-lg"></i>Pesquisar							</button>
+				</div>
+				<div class="md-margin-top col-sm-3  margin-bottom pull-right">	
+					<button type="limpar" id="limpar" name="limpar" value=1 class="btn btn-success center-block " toggle="tooltip" data-placement="top" title="Limpar Filtros"><i class="glyphicon glyphicon-erase"></i>Limpar							</button>
+				</div>
+			</form>
+		</div>
+		<div class="table-container">
+			@if(count($lista)!=0)	
+			<table id="dataTable" class="table table-filter table-striped table-bordered table-responsive">							 
+				<thead>
+					<tr class="success">
+						<th>Data</th>
+						<th>Valor</th>
+						<th>Tipo</th>
+						<th>Unidade</th>
+						<th>Sensor</th>
+						<th>Estufa</th>
+						<th>Setor</th>
+						<th>Leitura</th>
+					</tr>	
+				</thead>					
+				<tbody>		
+					@foreach($lista as $key => $leitura)
+					<tr>										
+						<td>
 
-							</td>
-							<td>		
-								{{$leitura->unidade}}
+							{{$leitura->data}}
 
-							</td>
-							<td>		
-								{{$leitura->sensor_nome}}
+						</td>
+						<td>		
+							{{$leitura->valor}}
 
-							</td>	
-							<td>		
-								{{$leitura->estufa_nome}}
+						</td>
 
-							</td>
-							<td>		
-								@if($leitura->setor_nome == "Nenhum")
-								Geral
-								@else
-								{{$leitura->setor_nome}}
-								@endif
-							</td>
-							<td>
-								@if($leitura->manual == 0)
-								Automática
-								@else
-								Manual
-								@endif
-							</td>
-						</tr>												
-						@endforeach
-					</tbody>
-				</table>
+						<td>		
+							{{$leitura->parametro}}
+
+						</td>
+						<td>		
+							{{$leitura->unidade}}
+
+						</td>
+						<td>		
+							{{$leitura->sensor_nome}}
+
+						</td>	
+						<td>		
+							{{$leitura->estufa_nome}}
+
+						</td>
+						<td>		
+							@if($leitura->setor_nome == "Nenhum")
+							Geral
+							@else
+							{{$leitura->setor_nome}}
+							@endif
+						</td>
+						<td>
+							@if($leitura->manual == 0)
+							Automática
+							@else
+							Manual
+							@endif
+						</td>
+					</tr>												
+					@endforeach
+				</tbody>
+			</table>
+			<div class="input-group-addon" >
+				<a  href="/admin/registos/manual" role="button" name="adicionar" class="btn btn-success center-block pull-left" toggle="tooltip" data-placement="top" title="Registar Leitura Manual" >Registar Leitura Manual</a>
+				<div class="pull-right"> {!! $lista->render() !!}</div>
+			</div>
+			@else
+			<div class="btn-group ">
+				<div  class="text-center">
+					<h4>Não foram encontrados quaisquer resultados para a pesquisa efetuada </h4>
+				</div>
 				<div class="input-group-addon" >
 					<a  href="/admin/registos/manual" role="button" name="adicionar" class="btn btn-success center-block pull-left" toggle="tooltip" data-placement="top" title="Registar Leitura Manual" >Registar Leitura Manual</a>
-					<div class="pull-right"> {!! $lista->render() !!}</div>
 				</div>
-				@else
-				<div class="btn-group ">
-					<div  class="text-center">
-						<h4>Não foram encontrados quaisquer resultados para a pesquisa efetuada </h4>
-					</div>
-					<div class="input-group-addon" >
-						<a  href="/admin/registos/manual" role="button" name="adicionar" class="btn btn-success center-block pull-left" toggle="tooltip" data-placement="top" title="Registar Leitura Manual" >Registar Leitura Manual</a>
-					</div>
-				</div>
-				@endif
-			</div>					
-		</div>			
-	</section>
-</div>
+			</div>
+			@endif
+		</div>					
+	</div>			
+
 </div>
 @endsection
 
