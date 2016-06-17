@@ -8,10 +8,10 @@
 @endsection
 @section('title', ' - Home')
 @section('content')
-<section id="estufas">
+<div id="estufas" class="col-xs-12 col-sm-10 col-md-10 col-lg-10 ">
 	<!-- item -->
 	@foreach($estufas as $key => $estufa)
-	<div id="estufa-container" class="col-xs-12 col-sm-11 col-md-10 col-lg-6 text-center ">
+	<div id="estufa-container" class="col-xs-12 col-sm-11 col-md-10 col-lg-6 text-center col-sm-offset-1 col-lg-offset-0">
 		<div class="panel panel-success">
 			<div class="panel-heading">
 				<i class="fa fa-leaf"></i>
@@ -33,7 +33,7 @@
 	</div>
 	@endforeach
 	<!-- /item -->
-</section>
+</div>
 @endsection
 
 @section('customScripts')
