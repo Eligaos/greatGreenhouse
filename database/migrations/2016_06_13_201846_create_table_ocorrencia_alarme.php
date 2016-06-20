@@ -18,6 +18,7 @@ class CreateTableOcorrenciaAlarme extends Migration
          $table->foreign('alarme_id')->references('id')->on('alarmes');
          $table->integer('leitura_id')->unsigned();
          $table->foreign('leitura_id')->references('id')->on('leituras');
+         $table->boolean('checked');
          $table->timestamps();
      });
     }

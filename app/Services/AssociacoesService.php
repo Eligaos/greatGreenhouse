@@ -45,7 +45,7 @@ class AssociacoesService
 	}
 
 
-		public function getAssociacoesTipos($estufas){
+		public function getAssociacoesTipos(){
 
 			$tipos = Associacoes::join('sensores','associacoes.sensor_id','=','sensores.id')->join('tipo_leitura', 'sensores.tipo_id', '=', 'tipo_leitura.id')->join('setores','associacoes.setor_id','=','setores.id')->join('estufas','setores.estufa_id','=', 'estufas.id')->where('estufas.exploracoes_id','=',Session::get('exploracaoSelecionada'))->select('estufa_id', 'parametro', 'unidade')->distinct()->get();
 

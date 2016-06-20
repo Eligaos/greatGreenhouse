@@ -73,9 +73,10 @@
 	</div>
 	@endif	
 
-	<div class="form-group">
-		<div class="input-group-addon">
+	<div class="form-group ">
+		<div class="input-group-addon ">
 			<a href="/admin/alarmes/adicionar" role="button" name="adicionar" id="adicionar alarme" class="btn btn-success center-block pull-left" toggle="tooltip" data-placement="top" title="Adicionar novo Alarme">Adicionar novo Alarme</a>
+			<a href="#" role="button" name="historico" id="historico alarme" class="btn btn-default center-block pull-left " toggle="tooltip" data-placement="top" title="Histórico Alarmes">Histórico Alarmes</a>
 		</div>
 	</div>	
 </div>			

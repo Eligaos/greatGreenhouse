@@ -9,6 +9,7 @@ use App\Services\HomeService;
 use App\Services\EstufaService;
 use App\Services\CulturaService;
 use App\Services\AssociacoesService;
+use App\Services\AlarmeService;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Response;
 use Cookie;
@@ -26,10 +27,11 @@ class HomeController extends Controller
 	protected $eService;
 	protected $cService;
 	protected $aService;
+	protected $alService;
 
 	protected $exploracaoSelecionada;
 
-	public function __construct(HomeService $hService, UserService $uService, EstufaService $eService, CulturaService $cService, AssociacoesService $aService)
+	public function __construct(HomeService $hService, UserService $uService, EstufaService $eService, CulturaService $cService, AssociacoesService $aService, AlarmeService $alService)
 	{
 		$this->middleware('auth');
 		$this->hService = $hService;
@@ -52,8 +54,9 @@ class HomeController extends Controller
 
 	public function home(){
 		$estufas = $this->eService->getEstufas($this->exploracaoSelecionada);
-		$culturas = $this->cService->listarCulturas($estufas);
-		$tipos = $this->aService->getAssociacoesTipos($estufas);
+		$culturas = $this->cService->listarCulturas($this->exploracaoSelecionada);
+		$tipos = $this->aService->getAssociacoesTipos();
+		//$ocorrencias = $this->alService->getOcorrencias($estufas);
 
 		return view("home" ,compact('estufas', 'culturas','tipos'));
 	}

@@ -56,7 +56,7 @@
 						<div class="col-xs-12 col-md-12">
 							<div class="form-group">
 								<div class="input-group">	
-									<input type="number"  step="0.01" class="form-control" id="valor" value="{{ old('valor') }}" name="valor" placeholder="Insira um valor" min=0 required><span id="valor_span"class="input-group-addon"></span>
+									<input type="number"  step="0.01" class="form-control" id="valor" value="{{ old('valor') }}" name="valor" placeholder="Insira um valor" required><span id="valor_span"class="input-group-addon"></span>
 								</div>
 							</div>
 						</div>	

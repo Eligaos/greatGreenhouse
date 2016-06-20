@@ -15,7 +15,7 @@ class Leitura extends Model
 	}
 
 	public function alarmes(){
-		return $this->belongsToMany('App\Models\Alarme', 'ocorrencia_alarme')->withTimestamps();
+		return $this->belongsToMany('App\Models\Alarme', 'ocorrencia_alarme')->withPivot(['checked'])->withTimestamps();
 	}
 
 	public function attachLeituraToAlarme($alarmeId){

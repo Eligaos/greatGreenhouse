@@ -17,7 +17,32 @@
 				<i class="fa fa-leaf"></i>
 				<h3><a class="btn btn-md btn-block btn-success" href="/admin/estufas/detalhes/{{$estufa->id}}">{{$estufa->nome}}</a></h3>
 			</div>
-			<div id="monitor{{$estufa->id}}" class="monitor">
+			<div>
+				<table id="dataTable" class="table table-filter table-striped table-bordered table-responsive ">
+					<thead>
+						<tr class="success">
+							<th class="col-xs-6 col-sm-5 col-md-2 text-center">Parâmetro</th>
+							<th class="col-xs-6 col-sm-5 col-md-2 text-center">Valor</th>
+							<th class="col-xs-6 col-sm-5 col-md-2 text-center">Visto</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td id="tdN" class="text-center">
+							</td>					
+							<td class="text-center">
+							</td>
+							<td>
+								<span class="button-checkbox">
+									<button type="button" class="btn" data-color="primary">Checked</button>
+									<input type="checkbox" class="hidden" checked />
+								</span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div id="monitor{{$estufa->id}}" class="monitor">	
 			</div>
 			<div id="culturas-container" class="modal-footer">  
 				<ul>
@@ -52,4 +77,5 @@
 
 
 <script src="{{asset('js/home/home.js')}}"></script>
+<script src="{{asset('js/home/checkBox.js')}}"></script>
 @endsection
