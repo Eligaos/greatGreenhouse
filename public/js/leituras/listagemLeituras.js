@@ -59,7 +59,7 @@ $(document).ready(function() {
 
   $( "#ddEstufa" ).on('changed.bs.select',function() {
     var dataInicial = $('#dataInicial').datepicker("getDate");
-    console.log(dataInicial);
+
     var t = $("#tipo_cultura").prop("selected");
     $("#setor_id").children().remove();
     var estufaId = $( this ).selectpicker('val');
@@ -89,6 +89,9 @@ $(document).ready(function() {
   });
 
 //href="/admin/leituras/pesquisar"
+$('#exportar').click(function(){//fazer get para o serviço e devolver as queries
+
+});
 
 $('#pesquisar').click(function(){//fazer get para o serviço e devolver as queries
   var tipoID = $('#tipo_id').selectpicker('val');
@@ -99,17 +102,10 @@ var setorID = $('#setor_id').selectpicker('val');
 var dataInicial = $('#dataInicial').val();
 var dataFinal = $('#dataFinal').val();
 var pesquisa = [tipoID, estufaID, setorID, dataInicial, dataFinal];
-console.log(pesquisa);
-$.get( "/admin/leituras/pesquisar"+ estufaId, function( data ) {
-
-}).done(function(data){
 
 
-
-})
 
 });
-
 
 
 

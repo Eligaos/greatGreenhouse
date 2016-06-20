@@ -54,6 +54,8 @@ class LeituraController extends Controller
         return $tipos;
     }
 
+
+
      public function getAssociacoesDistinct($estufaID){//para o js do registoManual
         $estufa = $this->eService->procurarEstufa($estufaID);
         $tipos = $this->aService->getAssociacoesDistinct($estufa);
@@ -79,7 +81,7 @@ class LeituraController extends Controller
 
    }
 
-   public function pesquisar(Request $request){
+   public function pesquisar(){
     $input = Input::except('_token');
     $estufas = $this->eService->getEstufas($this->exploracaoSelecionada);
     $tiposLeituras = $this->tService->getTiposLeitura();
@@ -89,7 +91,8 @@ class LeituraController extends Controller
         return view('leituras.listagemLeituras', compact('lista','estufas', 'tiposLeituras'));        
     }else{
         $lista = $this->lService->pesquisar($this->exploracaoSelecionada, $input);
-        $request->session()->put('filterPesquisa', $input);
+
+        Session::put('filterPesquisa', $input);
         return view('leituras.listagemLeituras', compact('lista','estufas', 'tiposLeituras'));
     }
 }

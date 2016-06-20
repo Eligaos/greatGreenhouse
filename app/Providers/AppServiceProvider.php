@@ -1,6 +1,5 @@
 <?php
 namespace App\Providers;
-
 use App\Models\Leitura;
 use App\Models\Alarme;
 use Illuminate\Support\ServiceProvider;
@@ -13,7 +12,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
        Leitura::created(function($leitura){
         $ocorrencia = Leitura::join('alarmes', 'leituras.associacao_id', '=', 'alarmes.associacoes_id')->where('leituras.id','=',$leitura->id)->select('leituras.id as id', 'alarmes.associacoes_id','alarmes.regra', 'alarmes.valor as alarme_valor', 'leituras.valor as leituras_valor', 'alarmes.id as alarme_id')->get();
         for($i=0; $i<count($ocorrencia);$i++){

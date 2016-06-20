@@ -9,7 +9,7 @@
 @section('title', ' - Adicionar Cultura')
 
 @section('content')
-<div class="col-sm-10 col-md-10 col-sm-offset-2 col-md-offset-1">
+<div class="col-sm-10 col-md-10 col-sm-offset-2 col-md-offset-1 centered-form">
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<h3 class="modal-title">Adicionar Cultura</h3>

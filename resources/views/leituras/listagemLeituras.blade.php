@@ -19,7 +19,7 @@
 			<h3 class="modal-title" >Lista de Leituras</h3>
 		</div>
 		<div class="form-group margin-bottom">
-			<form id="registerForm" method="POST" action="/admin/leituras">
+			<form method="POST" action="/admin/leituras">
 				<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">				
 				<div class="col-sm-3">
 					<label>Escolha o Tipo</label>
@@ -53,18 +53,19 @@
 					<input type="text" class="form-control" id="dataFinal" name="data_final">
 				</div>
 
+				<div class="row pull-right md-margin-top margin-bottom md-margin-right ">
+					<button  id="pesquisar" class="btn btn-success" toggle="tooltip" data-placement="top" title="Pesquisar"><i class="glyphicon glyphicon-search fa-lg"></i>Pesquisar							</button>
 
-				<div class="md-margin-top col-sm-3  margin-bottom pull-right">	
-					<button type="submit" id="submit"class="btn btn-success center-block " toggle="tooltip" data-placement="top" title="Pesquisar"><i class="glyphicon glyphicon-search fa-lg"></i>Pesquisar							</button>
+					<button  id="limpar" name="limpar" value="1" class="btn btn-success" toggle="tooltip" data-placement="top" title="Limpar Filtros"><i class="glyphicon glyphicon-erase"></i>Limpar							</button>
+
+					<a  role="button" id="exportar" value="2" class="btn btn-success" toggle="tooltip" data-placement="top" title="Exportar"><i class="glyphicon glyphicon-export"></i>Exportar	</a>
+					<button value="3" class="btn btn-success" toggle="tooltip" data-placement="top" title="Gerar Gráfico"><i class="glyphicon glyphicon-stats"></i>Gerar Gráfico							</button>
 				</div>
-				<div class="md-margin-top col-sm-3  margin-bottom pull-right">	
-					<button type="limpar" id="limpar" name="limpar" value=1 class="btn btn-success center-block " toggle="tooltip" data-placement="top" title="Limpar Filtros"><i class="glyphicon glyphicon-erase"></i>Limpar							</button>
-				</div>
-			</form>
-		</div>
-		<div class="table-container">
+				
+			</div>
+
 			@if(count($lista)!=0)	
-			<table id="dataTable" class="table table-filter table-striped table-bordered table-responsive">							 
+			<table id="dataTable" class="table table-container table-filter table-striped table-bordered table-responsive">							 
 				<thead>
 					<tr class="success">
 						<th>Data</th>
@@ -129,7 +130,7 @@
 				<div class="pull-right"> {!! $lista->render() !!}</div>
 			</div>
 			@else
-			<div class="btn-group ">
+			<div class="btn-group">
 				<div  class="text-center">
 					<h4>Não foram encontrados quaisquer resultados para a pesquisa efetuada </h4>
 				</div>
@@ -138,19 +139,30 @@
 				</div>
 			</div>
 			@endif
-		</div>					
-	</div>			
 
-</div>
-@endsection
 
-@section('customScripts')
-<!-- Latest compiled and minified JavaScript -->
-<script src="{{asset('js/leituras/listagemLeituras.js')}}"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<script src="{{asset('js/registoManual/timePicker.js')}}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
-<script src="{{asset('js/dataTable.js')}}"></script>
-@endsection
+		</div>
+		@endsection
+
+		@section('customScripts')
+		<!-- Latest compiled and minified JavaScript -->
+
+
+
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.core.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2014-11-29/FileSaver.min.js"></script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/TableExport/3.2.5/js/tableexport.min.js"></script>
+
+
+
+		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+		<script src="{{asset('js/registoManual/timePicker.js')}}"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+		<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+		<script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+		<script src="{{asset('js/dataTable.js')}}"></script>
+
+		<script src="{{asset('js/leituras/listagemLeituras.js')}}"></script>
+		@endsection
