@@ -7,21 +7,40 @@ use Illuminate\Database\Eloquent\Model;
 
 class TipoLeituraService
 {
-    public function getTiposLeitura(){ 
-		return TipoLeitura::get();
-	}
+    public function getTiposLeitura()
+    { 
+      return TipoLeitura::get();
+  }
 
-    public function adicionarTipoLeitura($input){
-        $exists = TipoLeitura::where('parametro','=',$input['parametro'])->first();
-        if($exists != null){
-            return null;
-        }
-
-        $tipoLeitura = TipoLeitura::create($input);
-        return $tipoLeitura;
-    }
-
-
- 
+  public function adicionarTipoLeitura($input)
+  {
+    return TipoLeitura::create($input);
 }
+
+public function procurarTl($id){
+ return TipoLeitura::find($id);
+}
+
+public function guardarEditarTipoLeitura($input, $id){
+ $tl = $this->procurarTl($id);
+ if($input["parametro"]==$tl->parametro)
+ {   
+    $tl->unidade = $input["unidade"];
+    $tl->save();
+    return $tl;
+}else{
+    $exists = TipoLeitura::where('parametro', '=', $input["parametro"])->where('id', '!=', $tl->id)->first();
+}if($exists == null){
+    $tl->parametro = $input["parametro"];
+    $tl->unidade = $input["unidade"];
+    $tl->save();    
+    return $tl; 
+}else{
+    return false;
+}
+}   
+}
+
+
+
 

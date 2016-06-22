@@ -6,6 +6,7 @@ use App\Services\CulturaService;
 use App\Services\EstufaService;
 use App\Services\TipoLeituraService;
 use App\Services\SensorService;
+use App\Services\AlarmeService;
 use Illuminate\Support\Facades\Input;
 use App\Models\Associacoes;
 use Redirect;
@@ -17,13 +18,15 @@ class AssociacoesController extends Controller
 	protected $cService;
 	protected $eService;
 	protected $sService;
+	protected $alService;
 	protected $exploracaoSelecionada;
 
 
-	public function __construct(AssociacoesService $aService, CulturaService $cService, EstufaService $eService, SensorService $sService, TipoLeituraService $tService)
+	public function __construct(AssociacoesService $aService, CulturaService $cService, EstufaService $eService, SensorService $sService, TipoLeituraService $tService, AlarmeService $alService)
 	{
 		$this->middleware('auth');
 		$this->aService = $aService;
+		$this->alService = $alService;
 		$this->cService = $cService;
 		$this->eService = $eService;
 		$this->sService = $sService;
@@ -58,7 +61,8 @@ class AssociacoesController extends Controller
 
 	public function associarSubmit(){
 		$input = Input::except('_token');
-		$associar = $this->aService->associarSubmit($input);	
+		$alarmes = $this->alService->listarAlarme($this->exploracaoSelecionada);
+		$associar = $this->aService->associarSubmit($input, $alarmes);	
 		return Redirect::to("/admin/associacoes")->with('message', 'Associação guardada com sucesso!');
 	}
 

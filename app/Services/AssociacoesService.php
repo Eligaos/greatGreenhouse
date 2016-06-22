@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Estufa;
 use App\Models\Setor;
 use App\Models\Sensor;
+use App\Models\Alarme;
 use Session;
 
 
@@ -45,25 +46,37 @@ class AssociacoesService
 	}
 
 
-		public function getAssociacoesTipos(){
+	public function getAssociacoesTipos(){
 
-			$tipos = Associacoes::join('sensores','associacoes.sensor_id','=','sensores.id')->join('tipo_leitura', 'sensores.tipo_id', '=', 'tipo_leitura.id')->join('setores','associacoes.setor_id','=','setores.id')->join('estufas','setores.estufa_id','=', 'estufas.id')->where('estufas.exploracoes_id','=',Session::get('exploracaoSelecionada'))->select('estufa_id', 'parametro', 'unidade')->distinct()->get();
+		$tipos = Associacoes::join('sensores','associacoes.sensor_id','=','sensores.id')->join('tipo_leitura', 'sensores.tipo_id', '=', 'tipo_leitura.id')->join('setores','associacoes.setor_id','=','setores.id')->join('estufas','setores.estufa_id','=', 'estufas.id')->where('estufas.exploracoes_id','=',Session::get('exploracaoSelecionada'))->select('estufa_id', 'parametro', 'unidade')->distinct()->get();
 
 			//$tudo[$estufas[$i]->id]=$ass;
 			//array_push($tudo,$ass);
-	
+
 
 
 		return $tipos;
 	}
 
 
-	public function associarSubmit($input){
-		$tp = Associacoes::create(["setor_id" => $input['setor_id'], 
+	public function associarSubmit($input, $alarmes){
+		$associacao = Associacoes::create(["setor_id" => $input['setor_id'], 
 			"sensor_id"=> $input['sensor_id']]);
 		$sensor = Sensor::find($input["sensor_id"]);
 		$sensor->estado = 1;
 		$sensor->save();
+		$tipo = $sensor::join('tipo_leitura', 'sensores.tipo_id', '=', 'tipo_leitura.id')->where('tipo_leitura.id', '=', $sensor->tipo_id)->where('sensores.id','=',$sensor->id)->first();
+		foreach ($alarmes as $alarme) {
+			if($alarme->parametro == $tipo->parametro){
+				$alarmeA = array(
+					"associacoes_id" => $associacao->id,
+					"regra"	=> $alarme->regra,
+					"valor" => $alarme->valor,
+					"descricao" => $alarme->descricao
+					);
+				$saveAlarme = Alarme::create($alarmeA);
+			}
+		}
 		return true;		
 	}
 

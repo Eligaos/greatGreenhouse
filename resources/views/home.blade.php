@@ -31,7 +31,7 @@
 					<tbody>
 						@foreach($ocorrencias as $key => $ocorrencia)	
 						<tr>
-							<td id="tdN" class="text-center">{{$ocorrencia->parametro}}
+							<td id= {{$ocorrencia->alarme_id}} name = alarmeId class="text-center">{{$ocorrencia->parametro}}
 							</td>					
 							<td class="text-center">{{$ocorrencia->nome}}
 							</td>
@@ -39,7 +39,7 @@
 							</td>
 							<td>
 								<span class="button-checkbox">
-									<button type="button" class="btn" data-color="primary">Checked</button>
+									<button type="button" class="btn" data-color="primary">Visto</button>
 									<input type="checkbox" class="hidden" />
 								</span>
 							</td>

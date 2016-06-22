@@ -60,8 +60,6 @@ class LeituraService
 		
 		for($i=0; $i < count($tipos); $i++){
 			$res = Leitura::join('associacoes', 'leituras.associacao_id', '=', 'associacoes.id')->join('setores','associacoes.setor_id', '=','setores.id')->join('estufas','setores.estufa_id', '=','estufas.id')->join('exploracoes', 'estufas.exploracoes_id','=','exploracoes.id')->join('sensores','associacoes.sensor_id', '=','sensores.id')->join('tipo_leitura','sensores.tipo_id', '=','tipo_leitura.id')->select('sensores.nome as sensor_nome', 'estufas.id as estufa_id' , 'tipo_leitura.parametro', 'tipo_leitura.unidade', 'leituras.valor as valor','leituras.data as data','leituras.manual as manual','setores.nome as setor_nome')->where('tipo_leitura.id', '=', $tipos[$i]->id)->where('estufas.id','=',$id)->where('exploracoes.id', '=', $idExp)->orderBy('data', 'desc')->take(32)->get();
-
-
 			array_push($tudo,$res);
 
 		}

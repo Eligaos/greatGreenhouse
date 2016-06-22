@@ -106,6 +106,8 @@ Route::group(['middleware' => ['web']], function ()
 	Route::get('/admin/tipos-leituras', 'TipoLeituraController@listarTiposLeituras');
 	Route::get('/admin/tipos-leituras/adicionar', 'TipoLeituraController@tipoLeitura');
 	Route::post('/admin/tipos-leituras/adicionar/submit', 'TipoLeituraController@criarNovoTipoLeitura');
+	Route::get('/admin/tipos-leituras/editar/{id}', 'TipoLeituraController@editarTipoLeitura');
+	Route::post('/admin/tipos-leituras/editar/submit/{id}', 'TipoLeituraController@guardarEditarTipoLeitura');
 
 	/**********ASSOCIACOES-TIPOS-LEITURAS**********/
 

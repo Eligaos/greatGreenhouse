@@ -19,7 +19,7 @@ class AlarmeService
 				"valor" => $input["valor"],
 				"descricao" => $input["descricao"]
 				);
-			$asd = Alarme::create($alarme);
+			$saveAlarme = Alarme::create($alarme);
 		}
 
 	}
