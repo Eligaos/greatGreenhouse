@@ -18,29 +18,36 @@
 				<h3><a class="btn btn-md btn-block btn-success" href="/admin/estufas/detalhes/{{$estufa->id}}">{{$estufa->nome}}</a></h3>
 			</div>
 			<div>
+			@if(count($ocorrencias)!=0)	
 				<table id="dataTable" class="table table-filter table-striped table-bordered table-responsive ">
 					<thead>
 						<tr class="success">
 							<th class="col-xs-6 col-sm-5 col-md-2 text-center">Parâmetro</th>
+							<th class="col-xs-6 col-sm-5 col-md-2 text-center">Sensor</th>
 							<th class="col-xs-6 col-sm-5 col-md-2 text-center">Valor</th>
 							<th class="col-xs-6 col-sm-5 col-md-2 text-center">Visto</th>
 						</tr>
 					</thead>
 					<tbody>
+						@foreach($ocorrencias as $key => $ocorrencia)	
 						<tr>
-							<td id="tdN" class="text-center">
+							<td id="tdN" class="text-center">{{$ocorrencia->parametro}}
 							</td>					
-							<td class="text-center">
+							<td class="text-center">{{$ocorrencia->nome}}
+							</td>
+							<td class="text-center">{{$ocorrencia->leitura_valor}}
 							</td>
 							<td>
 								<span class="button-checkbox">
 									<button type="button" class="btn" data-color="primary">Checked</button>
-									<input type="checkbox" class="hidden" checked />
+									<input type="checkbox" class="hidden" />
 								</span>
 							</td>
 						</tr>
+						@endforeach
 					</tbody>
 				</table>
+				@endif
 			</div>
 			<div id="monitor{{$estufa->id}}" class="monitor">	
 			</div>

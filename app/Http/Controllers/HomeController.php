@@ -39,6 +39,7 @@ class HomeController extends Controller
 		$this->eService = $eService;
 		$this->cService = $cService;
 		$this->aService = $aService;
+		$this->alService = $alService;
 		$this->exploracaoSelecionada = Session::get('exploracaoSelecionada');
 		//$request->session()->forget('filterPesquisa');
 		Session::forget('filterPesquisa');
@@ -56,9 +57,9 @@ class HomeController extends Controller
 		$estufas = $this->eService->getEstufas($this->exploracaoSelecionada);
 		$culturas = $this->cService->listarCulturas($this->exploracaoSelecionada);
 		$tipos = $this->aService->getAssociacoesTipos();
-		//$ocorrencias = $this->alService->getOcorrencias($estufas);
+		$ocorrencias = $this->alService->getOcorrencias($this->exploracaoSelecionada);
 
-		return view("home" ,compact('estufas', 'culturas','tipos'));
+		return view("home" ,compact('estufas', 'culturas','tipos', 'ocorrencias'));
 	}
 
 	public function showPerfil() {
