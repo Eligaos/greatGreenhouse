@@ -89,7 +89,7 @@
 				@endif
 				<div class="form-group">
 					<div class="input-group-addon">
-						<a href="/admin/alarmes" class="btn btn-default pull-right">Cancelar</a>
+						<a href="/admin/alarmes" class="btnL btn btn-default pull-right">Cancelar</a>
 						<input type="submit" id="submit" value="Guardar" class="btn btn-success pull-right">
 					</div>
 				</div>
