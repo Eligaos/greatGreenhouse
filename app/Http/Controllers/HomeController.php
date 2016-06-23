@@ -58,7 +58,6 @@ class HomeController extends Controller
 		$culturas = $this->cService->listarCulturas($this->exploracaoSelecionada);
 		$tipos = $this->aService->getAssociacoesTipos();
 		$ocorrencias = $this->alService->getOcorrencias($this->exploracaoSelecionada);
-
 		return view("home" ,compact('estufas', 'culturas','tipos', 'ocorrencias'));
 	}
 

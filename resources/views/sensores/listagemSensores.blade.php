@@ -53,7 +53,7 @@
 									<span class="glyphicon glyphicon-th-list"></span> Detalhes
 								</button></a>
 
-								<a toggle="tooltip" data-placement="top" title="Editar Sensor" role="button" name="editar" href="/admin/sensores/detalhes/{{$sensor->sensor_id}}">  <button type="button" class="btn btn-default btn-xs">
+								<a toggle="tooltip" data-placement="top" title="Editar Sensor" role="button" name="editar" href="/admin/sensores/editar/{{$sensor->sensor_id}}">  <button type="button" class="btn btn-default btn-xs">
 									<span class="glyphicon glyphicon-edit"></span> Editar
 								</button></a>
 								<a toggle="tooltip" data-placement="top" title="Remover Sensor" role="button" name="detalhes" href="#">  <button type="button" class="btn btn-default btn-xs">

@@ -2,6 +2,8 @@
 $(document).ready(function() {
   var parametroArr =[];
 
+
+
   var myControl=  {
     create: function(tp_inst, obj, unit, val, min, max, step){
       $('<input class="ui-timepicker-input" value="'+val+'" style="width:50%">')
@@ -75,10 +77,16 @@ $(document).ready(function() {
           text: data[i].sensor_nome + " - " + data[i].parametro 
         }));
       }
+      $('#divListAssociacoes').empty();
       $('#divAssociacoes').show();
       $('.selectpicker').selectpicker('refresh');
     }else{
      $('#divAssociacoes').hide();
+     var html = '<label for="associacao" class="col-xs-12 col-md-12 text-center">Não existem Associações para a Estufa selecionada!</label>' +
+     '<div class="text-center">' +
+     '<a href="/admin/associacoes/associar" class=" btn btn-success">Criar Associação</a>' +
+     '</div>';
+     $('#divListAssociacoes').append(html);
    }
  })
   });

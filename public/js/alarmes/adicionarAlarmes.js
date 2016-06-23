@@ -19,10 +19,16 @@ $(document).ready(function() {
           text: data[i].parametro 
         }));
       }
+      $('#divListAssociacoes').empty();
       $('#divAssociacoes').show();
       $('.selectpicker').selectpicker('refresh');
     }else{
      $('#divAssociacoes').hide();
+     var html = '<label for="associacao" class="col-xs-12 col-md-12 text-center">Não existem Associações para a Estufa selecionada!</label>' +
+     '<div class="text-center">' +
+     '<a href="/admin/associacoes/associar" class=" btn btn-success">Criar Associação</a>' +
+     '</div>';
+     $('#divListAssociacoes').append(html);
    }
  })
   });

@@ -29,7 +29,7 @@
 								<h4 class="border-bottom">Dados do Terreno</h4>
 								<div class="col-xs-12 col-md-12 margin-bottom">
 									<label for="nome">Nome do Terreno</label>
-									<div class="input-group">
+									<div class="input-group margin-bottom">
 										<input type="text" class="form-control" id="nome"  name="nome" placeholder="Insira o nome do terreno" required><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>		
 									</div>
 									<label for="numero">Número do Terreno</label>
@@ -42,9 +42,9 @@
 								<h4 class="border-bottom">Localização</h4>
 								<div class="col-xs-12 col-md-12 margin-bottom">
 									<div class="row">
-										<div class="col-lg-6">	
+										<div class="col-lg-6 ">	
 											<label for="distrito">Distrito</label>
-											<div>
+											<div class="margin-bottom">
 												<input type="text" class="form-control" id="distrito" name="distrito" placeholder="Insira o distrito onde se localiza o terreno" >
 											</div>
 											<label for="concelho">Concelho</label>
@@ -74,7 +74,7 @@
 							</div>
 							<div class="form-group">
 								<div class="input-group-addon">
-									<a href="/admin/exploracoes/listar" role="button" name="cancelar"class="btn btn-default pull-right">Cancelar</a>
+									<a href="/admin/exploracoes/listar" role="button" name="cancelar"class="btnL btn btn-default pull-right">Cancelar</a>
 									<input type="submit" name="submit" id="submit" value="Gravar" class="btn btn-success pull-right">
 								</div>
 							</div>

@@ -56,7 +56,7 @@
                 @endif
                 <div class="form-group">
                     <div class="input-group-addon">
-                        <a href="{{url()->previous()}}" role="button" name="cancelar"class="btn btn-default pull-right">Cancelar</a>
+                        <a href="{{url()->previous()}}" role="button" name="cancelar"class="btnL btn btn-default pull-right">Cancelar</a>
                         <input type="submit" name="gravar" id="gravar" value="Gravar" class="btn btn-success pull-right">
                     </div>
                 </div>

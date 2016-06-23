@@ -171,7 +171,7 @@
 				@endif
 				<div class="form-group">
 					<div class="input-group-addon">
-						<a href="/admin/culturas" class="btn btn-default pull-right">Cancelar</a>
+						<a href="/admin/culturas" class="btnL btn btn-default pull-right">Cancelar</a>
 						<input type="submit" id="submit" value="Gravar" class="btn btn-success pull-right">
 					</div>
 				</div>

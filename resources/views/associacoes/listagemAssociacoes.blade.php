@@ -26,6 +26,7 @@
 				<table id="dataTable" class="table table-filter table-striped table-bordered table-responsive">
 					<thead>						 
 						<tr class="success">
+							<th>Nome Sensor</th>
 							<th>Parâmetro</th>
 							<th>Unidade</th>
 							<th>Origem</th>
@@ -36,6 +37,9 @@
 						@foreach($lista as $key => $associacao)
 						<tr>						
 							<td>		
+								<span>{{$associacao->sensor_nome}}</span>
+
+							</td><td>		
 								<span>{{$associacao->parametro}}</span>
 
 							</td>

@@ -37,7 +37,7 @@
 				</div>							
 				<div class="form-group">
 					<div class="input-group-addon">
-						<a href="/admin/sensores/listar" role="button" name="cancelar"class="btn btn-default pull-right" toggle="tooltip" data-placement="top" title="Cancelar">Voltar</a>
+						<a href="/admin/sensores" role="button" name="cancelar"class="btnL btn btn-default pull-right" toggle="tooltip" data-placement="top" title="Cancelar">Voltar</a>
 						<a class="btn btn-success pull-right" toggle="tooltip" data-placement="top" title="Editar Sensor"  role="button" name="editar" href="/admin/sensores/editar/{{$lista[0]->sensor_id}}">Editar</a>
 					</div>
 				</div>

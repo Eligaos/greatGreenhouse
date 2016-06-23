@@ -37,13 +37,16 @@
 								<select id="ass_id" name="ass_id" class="selectpicker form-control" title="Selecione um Parâmetro"  data-live-search="true" showTick="true" required>
 								</select>
 							</div>
+							<div class="col-xs-12 col-md-12" id="divListAssociacoes">
+								
+							</div>
 						</div>
 					</div>
 				</div>
 				<div class="form-group">	
 					<h4 class="border-bottom">Regra</h4>	
 					<div class="col-xs-12 col-md-12">
-						<div class="input-group margin-bottom">
+						<div class="margin-bottom">
 							<label for="associacao">Escolha uma Regra</label>
 							<select id="regra_id" name="regra" class="selectpicker form-control" title="Selecione uma Regra"  data-live-search="true" showTick="true" required><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
 								<option value="<"><</option>
