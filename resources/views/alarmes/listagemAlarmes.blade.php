@@ -44,42 +44,42 @@
 						@endif
 						<td>		
 							<span>{{$alarme->parametro}}</span>
-						</td><td>		
-						<span>{{$alarme->descricao}}</span>
-					</td>							
-					<td>
-						<div class="text-center">
-							<a  toggle="tooltip" data-placement="top" title="Detalhes Alarme" role="button" name="detalhes" href="/admin/alarmes/detalhes/{{$alarme->alarm_id}}">  <button type="button" class="btn btn-default btn-xs">
-								<span class="glyphicon glyphicon-th-list"></span> Detalhes
-							</button></a>
+						</td>
+						<td>		
+							<span>{{$alarme->descricao}}</span>
+						</td>							
+						<td>
+							<div class="text-center">
+								<a  toggle="tooltip" data-placement="top" title="Detalhes Alarme" role="button" name="detalhes" href="/admin/alarmes/detalhes/{{$alarme->alarm_id}}">  <button type="button" class="btn btn-default btn-xs">
+									<span class="glyphicon glyphicon-th-list"></span> Detalhes
+								</button></a>
 
-							<a toggle="tooltip" data-placement="top" title="Editar Alarme" role="button" name="editar" href="/admin/alarmes/detalhes/{{$alarme->alarm_id}}">  <button type="button" class="btn btn-default btn-xs">
-								<span class="glyphicon glyphicon-edit"></span> Editar
-							</button></a>
-							<a toggle="tooltip" data-placement="top" title="Remover Alarme" role="button" name="detalhes" href="#">  <button type="button" class="btn btn-default btn-xs">
-								<span class="glyphicon glyphicon-remove"></span> Remover
-							</button></a>
-						</div>
-					</td>
-				</tr>													
-				@endforeach
-			</tbody>
-		</table>	
-	</div>
-
-	@else
-	<div class="text-center" >
-		<h4> Não existem alarmes adicionados</h4>
-	</div>
-	@endif	
-
-	<div class="form-group ">
-		<div class="input-group-addon ">
-			<a href="/admin/alarmes/adicionar" role="button" name="adicionar" id="adicionar alarme" class="btn btn-success center-block pull-left" toggle="tooltip" data-placement="top" title="Adicionar novo Alarme">Adicionar novo Alarme</a>
-			<a href="#" role="button" name="historico" id="historico alarme" class="btn btn-default center-block pull-left " toggle="tooltip" data-placement="top" title="Histórico Alarmes">Histórico Alarmes</a>
+								<a toggle="tooltip" data-placement="top" title="Editar Alarme" role="button" name="editar" href="/admin/alarmes/detalhes/{{$alarme->alarm_id}}">  <button type="button" class="btn btn-default btn-xs">
+									<span class="glyphicon glyphicon-edit"></span> Editar
+								</button></a>
+								<a toggle="tooltip" data-placement="top" title="Remover Alarme" role="button" name="detalhes" href="#">  <button type="button" class="btn btn-default btn-xs">
+									<span class="glyphicon glyphicon-remove"></span> Remover
+								</button></a>
+							</div>
+						</td>
+					</tr>													
+					@endforeach
+				</tbody>
+			</table>	
 		</div>
-	</div>	
-</div>			
+		@else
+		<div class="text-center" >
+			<h4> Não existem alarmes adicionados</h4>
+		</div>
+		@endif	
+
+		<div class="form-group ">
+			<div class="input-group-addon ">
+				<a href="/admin/alarmes/adicionar" role="button" name="adicionar" id="adicionar alarme" class="btn btn-success center-block pull-left" toggle="tooltip" data-placement="top" title="Adicionar novo Alarme">Adicionar novo Alarme</a>
+				<a href="/admin/alarmes/historico" role="button" name="historico" id="historico alarme" class="btn btn-default center-block pull-left btnL" toggle="tooltip" data-placement="top" title="Histórico Alarmes">Histórico de Ocorrência de Alarmes</a>
+			</div>
+		</div>	
+	</div>			
 </div>
 @endsection
 

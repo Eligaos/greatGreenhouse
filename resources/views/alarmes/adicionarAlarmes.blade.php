@@ -20,8 +20,8 @@
 				<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 				<div class="form-group">							
 					<h4 class="border-bottom">Origem</h4>							
-					<div class="col-xs-12 col-md-12">		
-						<div class="input-group margin-bottom">
+					<div class="margin-bottom">
+						<div class="btn-group col-xs-12 col-md-12 margin-bottom">
 							<label for="nome">Escolha uma Estufa</label>
 							<div>
 								<select id="ddEstufa" name="ddEstufa" class="selectpicker form-control" title="Selecione uma Estufa"  data-live-search="true" showTick="true">
@@ -31,8 +31,8 @@
 								</select>
 							</div>
 						</div>
-						<div class="col-lg-3  margin-bottom">											
-							<div class="btn-group" id="divAssociacoes">
+						<div class="margin-bottom">											
+							<div class="btn-group col-xs-12 col-md-12 margin-bottom" id="divAssociacoes">
 								<label for="associacao">Escolha um Parâmetro </label>
 								<select id="ass_id" name="ass_id" class="selectpicker form-control" title="Selecione um Parâmetro"  data-live-search="true" showTick="true" required>
 								</select>
@@ -45,7 +45,7 @@
 					<div class="col-xs-12 col-md-12">
 						<div class="input-group margin-bottom">
 							<label for="associacao">Escolha uma Regra</label>
-							<select id="regra_id" name="regra" class="selectpicker form-control" title="Selecione uma Regra"  data-live-search="true" showTick="true" required>
+							<select id="regra_id" name="regra" class="selectpicker form-control" title="Selecione uma Regra"  data-live-search="true" showTick="true" required><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
 								<option value="<"><</option>
 								<option value=">">></option>
 							</select>
@@ -86,7 +86,7 @@
 				@endif
 				<div class="form-group">
 					<div class="input-group-addon">
-						<a href="{{ url()->previous() }}" class="btn btn-default pull-right">Cancelar</a>
+						<a href="/admin/alarmes" class="btn btn-default pull-right">Cancelar</a>
 						<input type="submit" id="submit" value="Guardar" class="btn btn-success pull-right">
 					</div>
 				</div>

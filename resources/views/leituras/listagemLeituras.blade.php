@@ -64,8 +64,8 @@
 				
 			</div>
 
-			@if(count($lista)!=0)	
-			<table id="dataTable" class="table table-container table-filter table-striped table-bordered table-responsive">							 
+			@if(count($lista)!=0)
+			<table id="dataTable" class="table table-container table-filter table-striped table-bordered">							 
 				<thead>
 					<tr class="success">
 						<th>Data</th>

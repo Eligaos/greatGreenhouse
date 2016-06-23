@@ -36,7 +36,7 @@ class LeituraController extends Controller
     }
 
     public function listarLeituras(){ 
-      $estufas = $this->eService->getEstufas($this->exploracaoSelecionada);
+      $estufas = $this->eService->getEstufasPesquisa($this->exploracaoSelecionada);
       $tiposLeituras = $this->tService->getTiposLeitura();
       if($this->filterPesquisa==null){
         $lista = $this->lService->getLeituras($this->exploracaoSelecionada);
@@ -77,7 +77,7 @@ class LeituraController extends Controller
 
     public function getLastHoursLeituras($id){
 
-     return $this->lService->getLastHoursLeiturasFiltered($id, $this->exploracaoSelecionada);
+       return $this->lService->getLastHoursLeiturasFiltered($id, $this->exploracaoSelecionada);
 
    }
 
