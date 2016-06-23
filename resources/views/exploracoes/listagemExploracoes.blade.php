@@ -86,7 +86,4 @@
 </body>
 <script src="{{asset('js/jquery/jquery-2.1.4.js')}}"></script>
 <script src="{{asset('js/bootstrap/bootstrap.js')}}"></script>
-<script src="{{asset('js/errors.js')}}"></script>
-
-
 </html>

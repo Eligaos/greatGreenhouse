@@ -24,18 +24,16 @@
 						</div>
 					</div>
 				</div>
-				@if (count($errors) > 0 )
-				<br>
-				<div class="alert alert-danger">
-					<h4>Por favor corrija os seguintes erros:</h4>
-					<ul>
-						@foreach ($errors->all() as $error)
-
-						<li>{{ $error}}</li>
-						@endforeach
-					</ul>
+				<div>
+					@if (Session::get('message') )
+					<div class="col-xs-12 col-md-12 col-lg-3 alert alert-danger">
+						<h4>Por favor corrija os seguintes erros:</h4>
+						<ul>
+							<li>{{ Session::get('message')}}</li>
+						</ul>
+					</div>
+					@endif
 				</div>
-				@endif
 				<div class="form-group">
 					<div class="input-group-addon">
 						<a href="{{ url()->previous() }}" role="button" name="cancelar"class="btn btn-default pull-right">Cancelar</a>

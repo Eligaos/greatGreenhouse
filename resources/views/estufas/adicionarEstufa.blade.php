@@ -19,20 +19,13 @@
 					<h4 class="border-bottom">Dados da Estufa</h4>
 					<div class="col-xs-12 col-md-12">
 						<label for="nome">Nome da Estufa</label>
-						@if( Session::get('message'))
-						<div class="text-center">
-							<span class="alert alert-info"> {{ Session::get('message') }}</span>
-						</div>
-						@endif
 						<div class="input-group margin-bottom">				
 							<input type="text" class="form-control" id="nome"  name="nome" placeholder="Insira o nome da Estufa" required><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
 						</div>
-
 						<label for="descricao">Descrição</label>
 						<div class="input-group margin-bottom">											
 							<input type="text" class="form-control" id="descricao"  name="descricao" placeholder="Insira uma descrição para estufa"><span class="input-group-addon"></span>
 						</div>
-
 					</div>								
 					<div class="form-group">
 						<h4 class="border-bottom">Setores</h4> 
@@ -72,6 +65,16 @@
 								</div>
 							</div>
 						</div>
+					</div>
+					<div>
+						@if (Session::get('message') )
+						<div class="col-xs-12 col-md-12 col-lg-3 alert alert-danger">
+							<h4>Por favor corrija os seguintes erros:</h4>
+							<ul>
+								<li>{{ Session::get('message')}}</li>
+							</ul>
+						</div>
+						@endif
 					</div>
 					<div class="form-group">
 						<div class="input-group-addon">

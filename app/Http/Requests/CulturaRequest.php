@@ -12,6 +12,13 @@ class CulturaRequest extends Request
     {
         return true;
     }
+
+    public function messages()
+    {
+        return [
+        'nome.unique' => 'Já existe uma Cultura com esse nome!',
+        ];
+    }
     /**
      * Get the validation rules that apply to the request.
      *

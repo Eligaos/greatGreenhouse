@@ -21,11 +21,6 @@
 						<h3 class="modal-title border-bottom margin-bottom">Dados da Estufa</h3>
 						<div class="col-xs-12 col-md-12">
 							<label for="nome">Nome da Estufa</label>
-							@if( Session::get('message'))
-							<div class="text-center">
-								<span class="alert alert-info"> {{ Session::get('message') }}</span>
-							</div>
-							@endif
 							<div class="input-group">											
 								<input type="text" class="form-control" id="nome"  name="nome" placeholder="Insira o nome da Estufa" value="{{$lista[0]->nome}}" required><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
 							</div>
@@ -99,6 +94,16 @@
 								</div>
 
 							</div>
+						</div>
+						<div>
+							@if (Session::get('message') )
+							<div class="col-xs-12 col-md-12 col-lg-3 alert alert-danger">
+								<h4>Por favor corrija os seguintes erros:</h4>
+								<ul>
+									<li>{{ Session::get('message')}}</li>
+								</ul>
+							</div>
+							@endif
 						</div>
 						<div class="form-group">
 							<div class="input-group-addon">

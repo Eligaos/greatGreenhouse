@@ -2,6 +2,7 @@
 
 @section('customStyles')
 @endsection
+@section('title', ' - Editar Tipo Leitura')
 @section('content')
 <div class="col-sm-10 col-md-10 col-sm-offset-2 col-md-offset-1 centered-form">
 	<div class="panel panel-default">
@@ -13,46 +14,42 @@
 				<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">		
 				<div class="form-group">
 					<h4 class="border-bottom">Dados do Novo Tipo</h4>
-					@if( Session::get('message'))
-					<div class="text-center">
-						<span class="alert alert-info"> {{ Session::get('message') }}</span>
-					</div>
-					@endif
 					<div class="col-xs-12 col-md-12">
 						<label for="parâmetro">Nome do Parâmetro</label>
 						<div class="input-group">
 							<input type="text" class="form-control" id="nome"  name="parametro" placeholder="Insira o nome parâmetro" value={{$tipoL->parametro}} required><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>		
 						</div>
-						<br>
-						<label for="unidade">Unidade</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="numero"  name="unidade" placeholder="Insira o unidade do parâmetro"  value={{$tipoL->unidade}} required><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+						<div>
+							<label for="unidade">Unidade</label>
+							<div class="input-group">
+								<input type="text" class="form-control" id="numero"  name="unidade" placeholder="Insira o unidade do parâmetro"  value={{$tipoL->unidade}} required><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+							</div>
 						</div>
 					</div>
-					@if (count($errors) > 0 )
-					<div class="alert alert-danger">
+				</div>
+				<div>
+					@if (Session::get('message') )
+					<div class="col-xs-12 col-md-12 col-lg-3 alert alert-danger">
 						<h4>Por favor corrija os seguintes erros:</h4>
 						<ul>
-							@foreach ($errors->all() as $error)
-
-							<li>{{ $error}}</li>
-							@endforeach
+							<li>{{ Session::get('message')}}</li>
 						</ul>
 					</div>
 					@endif
-					<div class="form-group">
-						<div class="input-group-addon">
-							<a href="{{ url()->previous() }}" role="button" name="cancelar"class="btn btn-default pull-right">Cancelar</a>
-							<input type="submit" id="submit" value="Guardar" class="btn btn-success pull-right">
-						</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group-addon">
+						<a href="{{ url()->previous() }}" role="button" name="cancelar"class="btn btn-default pull-right">Cancelar</a>
+						<input type="submit" id="submit" value="Guardar" class="btn btn-success pull-right">
 					</div>
-				</form>
-			</div>
+				</div>
+			</form>
 		</div>
 	</div>
+</div>
 
 
-	@endsection
-	@section('customScripts')
-	@endsection
+@endsection
+@section('customScripts')
+@endsection
 

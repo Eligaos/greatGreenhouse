@@ -1,7 +1,6 @@
 @extends('app')
 
 @section('customStyles')
-<link href="{{asset('css/exploracoes/addExploracao.css')}}" rel="stylesheet">
 
 @endsection
 
@@ -18,39 +17,31 @@
 			<form id="registerForm" method="POST" action="/admin/exploracao/editar/submit" >
 				<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">		
 				<div class="form-group">
-					<fieldset> 
-						<legend>Dados do Terreno</legend>
-						<div class="col-xs-12 col-md-12">
-							<label for="nome">Nome do Terreno</label>
-							<div class="input-group">
-								<input type="text" class="form-control" id="nome"  name="nome" placeholder="Insira o nome do terreno" value="{{$exploracao->nome}}" required><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>		
-							</div>
-							@if( Session::get('message'))
-							<div class="text-center">
-								<span class="alert alert-info"> {{ Session::get('message') }}</span>
-							</div>
-							@endif
-							<br>
-							<label for="numero">Número do Terreno</label>
-							<div>
-								<input type="number" class="form-control" id="numero"  name="numero" min=0 placeholder="Insira o número de registo do terreno" value="{{$exploracao->numero}}">
-							</div>
-						</fieldset>
+					<h4 class="border-bottom">Dados do Terreno</h4>
+					<div class="col-xs-12 col-md-12 margin-bottom">
+						<label for="nome">Nome do Terreno</label>
+						<div class="input-group">
+							<input type="text" class="form-control" id="nome"  name="nome" placeholder="Insira o nome do terreno" value="{{$exploracao->nome}}" required><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>		
+						</div>
+						<label for="numero">Número do Terreno</label>
+						<div>
+							<input type="number" class="form-control" id="numero"  name="numero" min=0 placeholder="Insira o número de registo do terreno" value="{{$exploracao->numero}}">
+						</div>
 					</div>
-					<div class="form-group">
-						<fieldset> 
-							<legend>Localização</legend>
-							<div class="col-xs-12 col-md-6">
-
+				</div>
+				<div class="form-group">
+					<h4 class="border-bottom">Localização</h4>
+					<div class="col-xs-12 col-md-12 margin-bottom">
+						<div class="row">
+							<div class="col-lg-6 ">	
 								<label for="distrito">Distrito</label>
 								<div>
 									<input type="text" class="form-control" id="distrito" name="distrito" placeholder="Insira o distrito onde se localiza o terreno" value="{{$exploracao->distrito}}">
 								</div>
-								<br>
 								<label for="concelho">Concelho</label>
 								<div>
 									<input type="text" class="form-control" id="concelho" name="concelho" placeholder="Insira o concelho onde se localiza o terreno" value="{{$exploracao->concelho}}">
-								</div><br>
+								</div>
 							</div> 
 
 							<div class="col-xs-12 col-md-6"> 
@@ -59,22 +50,31 @@
 									<input type="text" class="form-control" id="freguesia"  name="freguesia" placeholder="Insira a freguesia onde se localiza o terreno" value="{{$exploracao->freguesia}}">
 								</div>
 							</div>  
-						</fieldset>
+						</div>    
 					</div>    
-					<div class="form-group">
-						<div class="input-group-addon">
-							<a href="{{url()->previous() }}" role="button" name="cancelar"class="btn btn-default pull-right">Cancelar</a>
-							<input type="submit" name="submit" id="submit" value="Gravar" class="btn btn-success pull-right">
-						</div>
+				</div>    
+				@if (Session::get('message') )
+				<div class="col-xs-12 col-md-12 alert alert-danger">
+					<h4>Por favor corrija os seguintes erros:</h4>
+					<ul>
+						<li>{{ Session::get('message')}}</li>
+					</ul>
+				</div>
+				@endif
+				<div class="form-group">
+					<div class="input-group-addon">
+						<a href="/admin/exploracao" role="button" name="cancelar" class="btn btn-default pull-right" >Cancelar</a>
+						<input type="submit" name="submit" id="submit" value="Gravar" class="btn btn-success pull-right">
 					</div>
-				</form>
-			</div>
+				</div>
+			</form>
 		</div>
 	</div>
-	@endsection
+</div>
+@endsection
 
 
-	@section('customScripts')
+@section('customScripts')
 
-	@endsection
+@endsection
 
