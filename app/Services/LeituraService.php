@@ -218,7 +218,7 @@ class LeituraService
 				->join('estufas','setores.estufa_id', '=','estufas.id')
 				->join('exploracoes', 'estufas.exploracoes_id','=','exploracoes.id')
 				->join('sensores','associacoes.sensor_id', '=','sensores.id')
-				->join('tipo_leitura','sensores.tipo_id', '=','tipo_leitura.id')-
+				->join('tipo_leitura','sensores.tipo_id', '=','tipo_leitura.id')
 				->whereIn('tipo_leitura.id', $input["tipo_id"])
 				->where('exploracoes.id', '=', $idExp)
 				->select('leituras.data as Data', 'leituras.valor as Valor', 'tipo_leitura.parametro as Tipo', 'tipo_leitura.unidade as Unidade', 'sensores.nome as Sensor', 'estufas.nome as Estufa','setores.nome as Setor', 'leituras.manual as Leitura')
@@ -257,7 +257,7 @@ class LeituraService
 				->join('estufas','setores.estufa_id', '=','estufas.id')
 				->join('exploracoes', 'estufas.exploracoes_id','=','exploracoes.id')
 				->join('sensores','associacoes.sensor_id', '=','sensores.id')
-				->join('tipo_leitura','sensores.tipo_id', '=','tipo_leitura.id'))
+				->join('tipo_leitura','sensores.tipo_id', '=','tipo_leitura.id')
 				->where('exploracoes.id', '=', $idExp)
 				->where('estufas.id', '=', $input["ddEstufa"])
 				->whereBetween("data", array($input["data_inicial"], $input["data_final"]))
@@ -295,30 +295,32 @@ class LeituraService
 				->get()->toArray();
 
 			}
-				
 
-		for ($i=0; $i < count($data); $i++) { 
-			if($data[$i]["Leitura"] == 0){
-				$data[$i]["Leitura"] = "Automática";
-			}else{
-				$data[$i]["Leitura"] = "Manual";
-			}
 
-			if($data[$i]["Setor"] == "Nenhum"){
-				$data[$i]["Setor"] = "Geral";
+			for ($i=0; $i < count($data); $i++) { 
+				if($data[$i]["Leitura"] == 0){
+					$data[$i]["Leitura"] = "Automática";
+				}else{
+					$data[$i]["Leitura"] = "Manual";
+				}
+
+				if($data[$i]["Setor"] == "Nenhum"){
+					$data[$i]["Setor"] = "Geral";
+				}
 			}
+			$exp = Exploracao::find($idExp);
+
+			return \Excel::create($exp[0]->nome . '_'.Carbon::now()->toDateTimeString(), function($excel) use ($data) {
+
+				$excel->sheet('Folha 1', function($sheet) use ($data)
+				{
+					$sheet->fromArray($data);
+
+				});
+
+			})->download('xlsx');
 		}
-		$exp = Exploracao::find($idExp);
-
-		return \Excel::create($exp[0]->nome . '_'.Carbon::now()->toDateTimeString(), function($excel) use ($data) {
-
-			$excel->sheet('Folha 1', function($sheet) use ($data)
-			{
-				$sheet->fromArray($data);
-
-			});
-
-		})->download('xlsx');
+	}
 
 
 	public function pesquisar($idExp,$input){
@@ -457,4 +459,5 @@ class LeituraService
 			->paginate(15);
 			return $lista;
 		}
+	}
 }
