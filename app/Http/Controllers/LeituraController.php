@@ -84,7 +84,8 @@ class LeituraController extends Controller
  }
 
  public function grafico(){
-     $lista = $this->lService->gerarGrafico($this->exploracaoSelecionada);
+       $input = Input::all();
+     $lista = $this->lService->gerarGrafico($this->exploracaoSelecionada, $input);
      return $lista;
  }
 

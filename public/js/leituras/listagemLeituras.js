@@ -125,6 +125,7 @@ $('#grafico').click(function(){
 
    if(dados != null){
     $('#dataTable').hide();
+    $('#navigation').hide();
     $("#graficoDiv").toggleClass("monitor");
     var data = [];
 
@@ -202,6 +203,8 @@ $('#grafico').click(function(){
 
 $('#pesquisar').click(function(){//fazer get para o serviço e devolver as queries
   $('#dataTable').show();
+$('#navigation').show();
+
 
 //var tipo = $("#tipo_id option:selected").text();
 //var EstufaID = $("#tipo_id option:selected").text();

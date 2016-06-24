@@ -141,7 +141,7 @@
 		<div class="panel-footer"> 
 			<div class="input-group col-sm-12" >
 				<a  href="/admin/registos/manual" role="button" name="adicionar" class="btn btn-success center-block pull-left" toggle="tooltip" data-placement="top" title="Registar Leitura Manual" >Registar Leitura Manual</a>
-				<div class="input-group pull-right"> {!! $lista->render() !!}</div>
+				<div  id="navigation"class="input-group pull-right"> {!! $lista->render() !!}</div>
 			</div>
 		</div>
 		@else
