@@ -13,33 +13,34 @@
 		<div class="panel-heading">
 			<h3 class="modal-title" >Lista de Associações</h3>
 		</div>
-		<div class="table-container">
-			@if( Session::get('message'))
-			<div class="text-center">
-				<span class="alert alert-info"> {{ Session::get('message') }}</span>
-			</div>
-			@endif
+		<div class="panel-body"> 
 			<div class="table-container">
-				@if($estufas!=0 && $sensores != 0)							
-				@if(count($lista)!=0)							
+				@if( Session::get('message'))
+				<div class="text-center">
+					<span class="alert alert-info"> {{ Session::get('message') }}</span>
+				</div>
+				@endif
+				<div class="table-container">
+					@if($estufas!=0 && $sensores != 0)							
+					@if(count($lista)!=0)							
 
-				<table id="dataTable" class="table table-filter table-striped table-bordered table-responsive">
-					<thead>						 
-						<tr class="success">
-							<th>Nome Sensor</th>
-							<th>Parâmetro</th>
-							<th>Unidade</th>
-							<th>Origem</th>
-							<th class="no-sort">Opções</th>
-						</tr>	
-					</thead>
-					<tbody>		
-						@foreach($lista as $key => $associacao)
-						<tr>						
-							<td>		
-								<span>{{$associacao->sensor_nome}}</span>
+					<table id="dataTable" class="table table-filter table-striped table-bordered table-responsive">
+						<thead>						 
+							<tr class="success">
+								<th>Nome Sensor</th>
+								<th>Parâmetro</th>
+								<th>Unidade</th>
+								<th>Origem</th>
+								<th class="no-sort">Opções</th>
+							</tr>	
+						</thead>
+						<tbody>		
+							@foreach($lista as $key => $associacao)
+							<tr>						
+								<td>		
+									<span>{{$associacao->sensor_nome}}</span>
 
-							</td><td>		
+								</td><td>		
 								<span>{{$associacao->parametro}}</span>
 
 							</td>
@@ -83,16 +84,18 @@
 				@endif									
 			</div>
 		</form> 
-		<div class="form-group">
-			<div class="input-group-addon">
-				@if($estufas!=0 && $sensores!=0)
-				<a href="/admin/associacoes/associar" role="button" name="adicionar" id="adicionarAssociacao" class="btn btn-success center-block pull-left">Adicionar Associação</a>
-				@else
-				<a role="button" name="adicionar" id="adicionarAssociacoes" class="btn btn-success center-block pull-left" toggle="tooltip" data-placement="top" title="Adicione uma Estufa ou Sensores" disabled>Adicionar Associação</a>
-				@endif
-			</div>		
-		</div>	
+		
 	</div>
+	<div class="panel-footer"> 
+		<div class="col-sm-12 input-group">
+			@if($estufas!=0 && $sensores!=0)
+			<a href="/admin/associacoes/associar" role="button" name="adicionar" id="adicionarAssociacao" class="btn btn-success center-block pull-left">Adicionar Associação</a>
+			@else
+			<a role="button" name="adicionar" id="adicionarAssociacoes" class="btn btn-success center-block pull-left" toggle="tooltip" data-placement="top" title="Adicione uma Estufa ou Sensores" disabled>Adicionar Associação</a>
+			@endif
+		</div>		
+	</div>	
+</div>
 </div>
 
 </div>

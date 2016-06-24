@@ -17,7 +17,7 @@
 				<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">		
 				<div class="form-group">
 					<fieldset> 
-						<legend>Dados do Sensor</legend>
+						<h4 class="border-bottom sm-margin-left" >Dados do Sensor</h4>
 						<div class="col-xs-12 col-md-12">
 							<label for="nome">Nome do Sensor</label>
 							<div class="input-group">
@@ -29,7 +29,7 @@
 							</div>
 							<label for="area_alcance">Alcance</label>
 							<div class="input-group">
-								<input type="number" class="form-control" id="area_alcance"  name="area_alcance" placeholder="Insira o alcance do sensor" value="{{$lista[0]->area_alcance}}" required min=0><span class="input-group-addon"></span>
+								<input type="number" class="form-control" id="area_alcance"  name="area_alcance" placeholder="Insira o alcance do sensor" value="{{$lista[0]->area_alcance}}" required min=0><span class="input-group-addon">metros</span>
 							</div>
 						</div>
 						<div class="col-xs-12 col-md-12">
@@ -52,15 +52,16 @@
 					</ul>
 				</div>
 				@endif
-				<div class="form-group">
-					<div class="input-group-addon">
-						<a href="{{ url()->previous() }}" role="button" name="cancelar"class="btnL btn btn-default pull-right">Cancelar</a>
-						<input type="submit" id="submit" value="Gravar" class="btn btn-success pull-right">
-					</div>
-				</div>
-			</form>
+			</div>
+			<div class="panel-footer"> 
+				<div class="col-sm-12 input-group">
+				<a href="{{ url()->previous() }}" role="button" name="cancelar"class="btnL btn btn-default pull-right">Cancelar</a>
+				<input type="submit" id="submit" value="Gravar" class="btn btn-success pull-right">
+			</div>
 		</div>
-	</div>
+	</form>
+</div>
+
 </div>
 @endsection
 @section('customScripts')

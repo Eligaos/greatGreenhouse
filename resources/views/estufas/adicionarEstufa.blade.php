@@ -16,7 +16,7 @@
 			<form id="registerForm" method="POST" action="/admin/estufas/adicionar/submit">
 				<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">							
 				<div class="form-group">
-					<h4 class="border-bottom">Dados da Estufa</h4>
+					<h4 class="border-bottom sm-margin-left">Dados da Estufa</h4>
 					<div class="col-xs-12 col-md-12">
 						<label for="nome">Nome da Estufa</label>
 						<div class="input-group margin-bottom">				
@@ -27,9 +27,9 @@
 							<input type="text" class="form-control" id="descricao"  name="descricao" placeholder="Insira uma descrição para estufa"><span class="input-group-addon"></span>
 						</div>
 					</div>								
-					<div class="form-group">
-						<h4 class="border-bottom">Setores</h4> 
-						<div class="table-container">
+					<div class="form-group ">
+						<h4 class="border-bottom sm-margin-left">Setores</h4> 
+						<div class="table-container md-padding">
 							<div class="row clearfix">
 								<div class="col-md-12 table-responsive">
 									<table class="table table-bordered table-hover table-sortable tab_logic">
@@ -76,14 +76,15 @@
 						</div>
 						@endif
 					</div>
-					<div class="form-group">
-						<div class="input-group-addon">
-							<a href="{{ url()->previous() }}" role="button" name="cancelar"class="btnL btn btn-default pull-right">Cancelar</a>
-							<input type="submit" name="submit" id="submit" value="Guardar" class="btn btn-success pull-right">
-						</div>
+				</div>
+				<div class="panel-footer"> 
+				<div class="col-sm-12 input-group">
+						<a href="{{ url()->previous() }}" role="button" name="cancelar"class="btnL btn btn-default pull-right">Cancelar</a>
+						<input type="submit" name="submit" id="submit" value="Guardar" class="btn btn-success pull-right">
 					</div>
-				</form>
-			</div>
+				</div>
+			</form>
+
 		</div>
 	</div>
 	@endsection

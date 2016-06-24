@@ -15,7 +15,7 @@
 			<form id="registerForm" method="POST" action="/admin/sensores/adicionar/submit" >
 				<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">		
 				<div class="form-group">
-					<h4 class="border-bottom">Dados do Sensor</h4>
+					<h4 class="border-bottom sm-margin-left" >Dados do Sensor</h4>
 					<div class="col-xs-12 col-md-12">
 						<p>
 							<label for="nome">Nome do Sensor:</label>
@@ -34,16 +34,17 @@
 							<span>{{$lista[0]->parametro}}</span>	
 						</p>
 					</div>									
-				</div>							
-				<div class="form-group">
-					<div class="input-group-addon">
-						<a href="/admin/sensores" role="button" name="cancelar"class="btnL btn btn-default pull-right" toggle="tooltip" data-placement="top" title="Cancelar">Voltar</a>
-						<a class="btn btn-success pull-right" toggle="tooltip" data-placement="top" title="Editar Sensor"  role="button" name="editar" href="/admin/sensores/editar/{{$lista[0]->sensor_id}}">Editar</a>
-					</div>
+				</div>			
+			</div>				
+			<div class="panel-footer"> 
+				<div class="col-sm-12 input-group">
+					<a href="/admin/sensores" role="button" name="cancelar"class="btnL btn btn-default pull-right" toggle="tooltip" data-placement="top" title="Cancelar">Voltar</a>
+					<a class="btn btn-success pull-right" toggle="tooltip" data-placement="top" title="Editar Sensor"  role="button" name="editar" href="/admin/sensores/editar/{{$lista[0]->sensor_id}}">Editar</a>
 				</div>
-			</form>
-		</div>
+			</div>
+		</form>
 	</div>
+</div>
 
 </div>
 

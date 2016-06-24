@@ -17,7 +17,7 @@
 				<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">		
 				<div class="form-group">
 					<fieldset> 
-						<legend>Dados do Terreno:</legend>
+						<h4 class="border-bottom sm-margin-left">Dados do Terreno</h4>
 						<div class="col-md-12 margin-bottom">
 							<label for="nome">Nome do Terreno:</label>
 							<span>{{$exploracao->nome}}</span>									
@@ -35,8 +35,7 @@
 					</fieldset>
 				</div>
 				<div class="form-group">
-					<fieldset> 
-						<legend>Localização</legend>
+						<h4 class="border-bottom sm-margin-left">Localização</h4>
 						<div class="col-md-6">
 							<div>
 								<label for="distrito">Distrito:</label>
@@ -62,15 +61,15 @@
 							<label for="freguesia">----</label>
 							@endif
 						</div>  
-					</fieldset>
+
 				</div>    
-				<div class="form-group">
-					<div class="input-group-addon">
+				</div>
+				<div class="panel-footer "> 
+				<div class="col-sm-12 input-group">
 						<a href="/admin/exploracao/editar" role="button" name="editar" id="editar" value="Editar" class="btn btn-success pull-right" toggle="tooltip" data-placement="top" title="Editar esta Exploração">Editar</a>
-					</div>
+				</div>
 				</div>
 			</form>
-		</div>
 	</div>
 </div>
 </div>

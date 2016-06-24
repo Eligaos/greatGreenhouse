@@ -12,7 +12,7 @@
 <div class="col-sm-10 col-md-10 col-sm-offset-2 col-md-offset-1 centered-form">
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<h3 class="modal-title" id="myModalLabel">Adicionar Nova Associação</h3>
+			<h3 class="modal-title">Adicionar Nova Associação</h3>
 		</div>
 		<div class="panel-body">
 			<form id="registerForm" method="POST" action="/admin/associacoes/associar/submit">
@@ -22,7 +22,7 @@
 					<span class="alert alert-info"> {{ Session::get('message') }}</span>
 				</div>
 				@endif
-				<h4 class="border-bottom">Sensor</h4>
+				<h4 class="border-bottom sm-margin-left">Sensor</h4>
 				<div class="col-xs-12 col-md-12 margin-bottom">
 					<div class="btn-group">
 						<label>Escolha um Sensor</label>
@@ -36,7 +36,7 @@
 					</div>
 				</div>
 
-				<h4 class="border-bottom">Localização</h4>
+				<h4 class="border-bottom sm-margin-left">Localização</h4>
 				<div class="form-group">
 					<div class="col-xs-12 col-md-12 margin-bottom">
 						<div class="row">
@@ -63,17 +63,17 @@
 						</div>
 					</div>
 				</div>
-
-					<div class="form-group">
-						<div class="input-group-addon">
-							<a href="{{ url()->previous() }}" role="button" class="btnL btn btn-default pull-right">Cancelar</a>
-							<input type="submit" id="submit" value="Gravar" class="btn btn-success pull-right">
-						</div>
-					</div>
+			</div>
+			<div class="panel-footer"> 
+				<div class="col-sm-12 input-group">
+					<a href="{{ url()->previous() }}" role="button" class="btnL btn btn-default pull-right">Cancelar</a>
+					<input type="submit" id="submit" value="Gravar" class="btn btn-success pull-right">
+				</div>
+			</div>
 			
-			</form>
-		</div>
+		</form>
 	</div>
+</div>
 </div>
 
 @endsection

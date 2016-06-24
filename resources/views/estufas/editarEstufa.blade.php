@@ -6,11 +6,8 @@
 	@section('title', ' - Editar Estufa')
 
 	@section('content')
-
 	<div class="col-sm-10 col-md-10 col-sm-offset-2 col-md-offset-1 centered-form">
-
 		<div class="panel panel-default">
-
 			<div class="panel-heading">
 				<h3 class="modal-title">Editar Estufa</h3>
 			</div>
@@ -18,7 +15,7 @@
 				<form id="registerForm" method="POST" action="/admin/estufas/editar/submit/{{$lista[0]->id}}">
 					<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">							
 					<div class="form-group">
-						<h3 class="modal-title border-bottom margin-bottom">Dados da Estufa</h3>
+						<h4 class="border-bottom sm-margin-left">Dados da Estufa</h4>
 						<div class="col-xs-12 col-md-12">
 							<label for="nome">Nome da Estufa</label>
 							<div class="input-group">											
@@ -31,7 +28,7 @@
 							</div>
 						</div>								
 						<div class="form-group">
-							<h3 class="modal-title border-bottom margin-bottom">Setores</h3> 
+							<h4 class="border-bottom sm-margin-left">Setores</h4>
 							<div >
 								<div class="clearfix">
 									<div class="col-md-12">
@@ -105,18 +102,16 @@
 							</div>
 							@endif
 						</div>
-						<div class="form-group">
-							<div class="input-group-addon">
-								<a href="{{ url()->previous() }}" class="btnL btn btn-default pull-right">Cancelar</a>
-								<input type="submit" id="submit" value="Gravar" class="btn btn-success pull-right">
-							</div>
-						</div>
 					</div>
-				</form>
-			</div>
+				</div>
+				<div class="panel-footer"> 
+					<div class="col-sm-12 input-group">
+						<a href="{{ url()->previous() }}" class="btnL btn btn-default pull-right">Cancelar</a>
+						<input type="submit" id="submit" value="Gravar" class="btn btn-success pull-right">
+					</div>
+				</div>
+			</form>
 		</div>
-
-
 		@endsection
 		@section('customScripts')
 		<script>		

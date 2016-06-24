@@ -26,13 +26,21 @@ body {
 	margin-top: 15px;
 }
 
+.md-padding{
+	padding: 15px;
+}
 
+.panel-body {
+    padding: 0px;
+}
 
 .md-margin-right{
 	margin-right: 15px;
 }
 
-
+.sm-margin-left{
+	margin-left: 8px;
+}
 
 .border-bottom{
 	border-bottom: 1px solid #e5e5e5;

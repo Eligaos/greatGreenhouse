@@ -12,7 +12,7 @@
 			<form id="registerForm" method="POST" action="/admin/tipos-leituras/adicionar/submit" >
 				<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">		
 				<div class="form-group ">
-					<h4 class="border-bottom">Dados do Novo Tipo</h4>
+					<h4 class="border-bottom sm-margin-left">Dados do Novo Tipo</h4>
 					<div class="col-xs-12 col-md-12 margin-bottom">
 						<label for="parâmetro">Nome do Parâmetro</label>
 						<div class="input-group margin-bottom">
@@ -34,14 +34,15 @@
 					</div>
 					@endif
 				</div>
-				<div class="form-group">
-					<div class="input-group-addon">
-						<a href="{{ url()->previous() }}" role="button" name="cancelar"class="btnL btn btn-default pull-right">Cancelar</a>
-						<input type="submit" id="submit" value="Guardar" class="btn btn-success pull-right">
-					</div>
+			</div>
+			<div class="panel-footer"> 
+				<div class="col-sm-12 input-group">
+					<a href="{{ url()->previous() }}" role="button" name="cancelar"class="btnL btn btn-default pull-right">Cancelar</a>
+					<input type="submit" id="submit" value="Guardar" class="btn btn-success pull-right">
 				</div>
-			</form>
-		</div>
+			</div>
+		</form>
+		
 	</div>
 </div>
 

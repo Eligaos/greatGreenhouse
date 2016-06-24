@@ -17,7 +17,7 @@
 			<form id="registerForm" method="POST" action="/admin/exploracao/editar/submit" >
 				<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">		
 				<div class="form-group">
-					<h4 class="border-bottom">Dados do Terreno</h4>
+					<h4 class="border-bottom sm-margin-left">Dados do Terreno</h4>
 					<div class="col-xs-12 col-md-12 margin-bottom">
 						<label for="nome">Nome do Terreno</label>
 						<div class="input-group margin-bottom">
@@ -30,7 +30,7 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<h4 class="border-bottom">Localização</h4>
+					<h4 class="border-bottom sm-margin-left">Localização</h4>
 					<div class="col-xs-12 col-md-12 margin-bottom">
 						<div class="row">
 							<div class="col-lg-6 ">	
@@ -61,14 +61,15 @@
 					</ul>
 				</div>
 				@endif
-				<div class="form-group">
-					<div class="input-group-addon">
-						<a href="/admin/exploracao" role="button" name="cancelar" class="btnL btn btn-default pull-right" >Cancelar</a>
-						<input type="submit" name="submit" id="submit" value="Gravar" class=" btn btn-success pull-right">
-					</div>
+			</div>
+			<div class="panel-footer"> 
+				<div class="col-sm-12 input-group">
+					<a href="/admin/exploracao" role="button" name="cancelar" class="btnL btn btn-default pull-right" >Cancelar</a>
+					<input type="submit" name="submit" id="submit" value="Gravar" class=" btn btn-success pull-right">
 				</div>
-			</form>
-		</div>
+			</div>
+		</form>
+		
 	</div>
 </div>
 @endsection

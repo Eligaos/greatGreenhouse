@@ -11,11 +11,13 @@
 		<div class="panel-heading">
 			<h3 class="modal-title" >Lista de Culturas</h3>
 		</div>
+		<div class="panel-body">
 		@if( Session::get('message'))
 		<div class="text-center">
 			<span class="alert alert-info"> {{ Session::get('message') }}</span>
 		</div>
 		@endif
+
 		<div class="table-container">
 			@if(count($estufas)!=0)	
 			@if(count($lista)!=0)						
@@ -71,8 +73,10 @@
 			</div>
 			@endif	
 		</div>
-		<div class="form-group">
-			<div class="input-group-addon">
+		</div>
+		
+		<div class="panel-footer"> 
+			<div class="col-sm-12 input-group">
 				@if(count($estufas)!=0)
 				<a  href="/admin/culturas/adicionar" role="button" name="adicionar" class="btn btn-success center-block pull-left" toggle="tooltip" data-placement="top" title="Adicionar Cultura" >Adicionar nova Cultura</a>
 

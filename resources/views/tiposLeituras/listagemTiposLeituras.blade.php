@@ -13,6 +13,7 @@
 	<div class="panel-heading">
 			<h3 class="modal-title" >Lista de Tipos de Leituras</h3>
 		</div>
+		<div class="panel-body"> 
 		@if( Session::get('message'))
 		<div class="text-center">
 			<span class="alert alert-info"> {{ Session::get('message') }}</span>
@@ -59,12 +60,13 @@
 			</table>									
 		</div>
 		@else
-		<div class="text-center" >
+		<div class="text-center">
 			<h4> Não existem Tipos de Leitura adicionados</h4>
 		</div>
 		@endif
-		<div class="form-group">
-			<div class="input-group-addon">
+	</div>
+	<div class="panel-footer"> 
+		<div class="col-sm-12 input-group">
 				<a href="/admin/tipos-leituras/adicionar" role="button" class="btn btn-success center-block pull-left">Adicionar novo Tipo de Leitura</a>
 			</div>
 		</div>	

@@ -18,10 +18,10 @@
 			<form id="registerForm" method="POST" action="/admin/culturas/editar/submit/{{$lista[0]->id}}">
 				<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">							
 				<div class="form-group">
-					<h4 class="border-bottom">Dados da Cultura</h4>
+					<h4 class="border-bottom sm-margin-left">Dados da Cultura</h4>
 					<div class="col-xs-12 col-md-12 margin-bottom">
 						<label for="nome">Nome da Cultura</label>
-						<div class="input-group">
+						<div class="input-group margin-bottom">
 							@if(old('nome')!=null)											
 							<input type="text" class="form-control" id="nome"  name="nome" value="{{ old('nome') }}" placeholder="Insira o nome da Cultura" required><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
 							@else
@@ -59,7 +59,7 @@
 					</div>
 				</div>
 				<div class="form-group">	
-					<h4 class="border-bottom">Duração</h4>
+					<h4 class="border-bottom sm-margin-left">Duração</h4>
 					<div class="col-xs-12 col-md-12">
 						<div class="form-group">
 							<div class="row">
@@ -97,7 +97,7 @@
 					</div>	
 				</div>	
 				<div class="form-group">	
-					<h4 class="border-bottom">Dimensões</h4>
+					<h4 class="border-bottom sm-margin-left">Dimensões</h4>
 					<div class="col-xs-12 col-md-12">
 						<div class="form-group">
 							<div class="row margin-bottom">
@@ -126,7 +126,7 @@
 					</div>						
 				</div>	
 				<div class="form-group">
-					<h4 class="border-bottom">Localização</h4>
+					<h4 class="border-bottom sm-margin-left">Localização</h4>
 					<div class="col-xs-12 col-md-12">
 						<div class="row margin-bottom">
 							<div class="col-lg-3">	
@@ -169,14 +169,15 @@
 					</ul>
 				</div>
 				@endif
-				<div class="form-group">
-					<div class="input-group-addon">
-						<a href="/admin/culturas" class="btnL btn btn-default pull-right">Cancelar</a>
-						<input type="submit" id="submit" value="Gravar" class="btn btn-success pull-right">
-					</div>
+			</div>
+			<div class="panel-footer"> 
+				<div class="col-sm-12 input-group">
+					<a href="/admin/culturas" class="btnL btn btn-default pull-right">Cancelar</a>
+					<input type="submit" id="submit" value="Gravar" class="btn btn-success pull-right">
 				</div>
-			</form>						
-		</div>
+			</div>
+		</form>						
+		
 	</div>
 </div>
 </div>

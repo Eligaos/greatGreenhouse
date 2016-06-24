@@ -19,7 +19,7 @@
 			<form id="registerForm" method="POST" action="/admin/alarmes/adicionar/submit">
 				<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 				<div class="form-group">							
-					<h4 class="border-bottom">Origem</h4>							
+					<h4 class="border-bottom sm-margin-left">Origem</h4>							
 					<div class="margin-bottom">
 						<div class="btn-group col-xs-12 col-md-12 margin-bottom">
 							<label for="nome">Escolha uma Estufa</label>
@@ -44,7 +44,7 @@
 					</div>
 				</div>
 				<div class="form-group">	
-					<h4 class="border-bottom">Regra</h4>	
+					<h4 class="border-bottom sm-margin-left">Regra</h4>	
 					<div class="col-xs-12 col-md-12">
 						<div class="margin-bottom">
 							<label for="associacao">Escolha uma Regra</label>
@@ -56,7 +56,7 @@
 					</div>
 				</div>
 				<div class="form-group">	
-					<h4 class="border-bottom">Valor</h4>
+					<h4 class="border-bottom sm-margin-left">Valor</h4>
 					<div class="col-xs-12 col-md-12">
 						<div class="form-group">
 							<label for="valor">Valor</label>
@@ -67,7 +67,7 @@
 					</div>	
 				</div>
 				<div class="form-group">	
-					<h4 class="border-bottom">Descrição</h4>
+					<h4 class="border-bottom sm-margin-left">Descrição</h4>
 					<div class="col-xs-12 col-md-12">
 						<div class="form-group">
 							<label for="valor">Descrição</label>
@@ -87,14 +87,15 @@
 					</ul>
 				</div>
 				@endif
-				<div class="form-group">
-					<div class="input-group-addon">
+				</div>
+				<div class="panel-footer"> 
+				<div class="col-sm-12 input-group">
 						<a href="/admin/alarmes" class="btnL btn btn-default pull-right">Cancelar</a>
 						<input type="submit" id="submit" value="Guardar" class="btn btn-success pull-right">
 					</div>
 				</div>
 			</form>						
-		</div>
+		
 	</div>
 </div>
 
