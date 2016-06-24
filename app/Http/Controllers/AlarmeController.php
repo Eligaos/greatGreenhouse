@@ -31,7 +31,7 @@ class AlarmeController extends Controller
 	}
 
 	function listarAlarmes(){
-		$lista = $this->aService->listarAlarme($this->exploracaoSelecionada); 
+		$lista = $this->aService->listarAlarmeDistinct($this->exploracaoSelecionada); 
 		return view('alarmes.listagemAlarmes', compact('lista'));
 	}
 

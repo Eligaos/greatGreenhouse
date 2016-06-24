@@ -58,7 +58,20 @@ class HomeController extends Controller
 		$culturas = $this->cService->listarCulturas($this->exploracaoSelecionada);
 		$tipos = $this->aService->getAssociacoesTipos();
 		$ocorrencias = $this->alService->getOcorrencias($this->exploracaoSelecionada);
-		return view("home" ,compact('estufas', 'culturas','tipos', 'ocorrencias'));
+		$estufasID = [];
+		foreach ($ocorrencias as $ocorrencia) {
+			if(count($estufasID)==0){
+				array_push($estufasID, $ocorrencia->estufa_id);	
+			}else{
+				foreach($estufasID as $id)
+				{
+					if($ocorrencia->estufa_id != $id){
+						array_push($estufasID, $ocorrencia->estufa_id);					
+					}			
+				}
+			}
+		}
+		return view("home" ,compact('estufas', 'culturas','tipos', 'ocorrencias','estufasID'));
 	}
 
 	public function showPerfil() {

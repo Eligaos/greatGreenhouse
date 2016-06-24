@@ -29,14 +29,14 @@ class AlarmeService
 	}
 
 	function listarAlarmeDistinct($expId){
-		return Alarme::join('associacoes', 'alarmes.associacoes_id', '=', 'associacoes.id')->join('setores', 'associacoes.setor_id', '=' ,'setores.id')->join('estufas', 'setores.estufa_id','=', 'estufas.id')->join('sensores','associacoes.sensor_id','=','sensores.id')->join('tipo_leitura','sensores.tipo_id', '=', 'tipo_leitura.id')->where('estufas.exploracoes_id', '=', $expId)->select('estufas.nome as estufa_nome' , 'tipo_leitura.parametro as parametro', 'alarmes.valor', 'alarmes.regra', 'alarmes.descricao' , 'tipo_leitura.unidade as unidade', 'alarmes.id as id', 'estufas.id as estufas_id')->distinct('valor','regra','descricao')->get();
+		return Alarme::join('associacoes', 'alarmes.associacoes_id', '=', 'associacoes.id')->join('setores', 'associacoes.setor_id', '=' ,'setores.id')->join('estufas', 'setores.estufa_id','=', 'estufas.id')->join('sensores','associacoes.sensor_id','=','sensores.id')->join('tipo_leitura','sensores.tipo_id', '=', 'tipo_leitura.id')->where('estufas.exploracoes_id', '=', $expId)->select('estufas.nome as estufa_nome' , 'tipo_leitura.parametro as parametro', 'alarmes.valor', 'alarmes.regra', 'alarmes.descricao' , 'tipo_leitura.unidade as unidade', 'estufas.id as estufas_id')->distinct('valor','regra','descricao')->get();
 	}
 
 	function getOcorrencias($expId){
 		$tudo = [];
 		$alarmes = $this->listarAlarme($expId);
 		foreach ($alarmes as $alarme)
-		{
+		{			
 			foreach ($alarme->leituras as $relation)
 			{
 				//dd($relation);

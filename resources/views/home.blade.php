@@ -17,7 +17,9 @@
 				<h3><a class="btn btn-md btn-block btn-success" href="/admin/estufas/detalhes/{{$estufa->id}}">{{$estufa->nome}}</a></h3>
 			</div>
 			<div>
-			@if(count($ocorrencias)!=0)	
+				@if(count($ocorrencias)!=0)
+				@foreach($estufasID as $key => $id)
+				@if($estufa->id == $id)
 				<table id="dataTable" class="table table-filter table-striped table-bordered table-responsive ">
 					<thead>
 						<tr class="success">
@@ -48,6 +50,8 @@
 						@endforeach
 					</tbody>
 				</table>
+				@endif				
+				@endforeach				
 				@endif
 			</div>
 			<div id="monitor{{$estufa->id}}" class="monitor">	

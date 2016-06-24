@@ -79,14 +79,17 @@ $(document).ready(function() {
       }
       $('#divListAssociacoes').empty();
       $('#divAssociacoes').show();
+      $('#submit').attr("disabled", false).attr('title', "Guardar Registo");
       $('.selectpicker').selectpicker('refresh');
     }else{
      $('#divAssociacoes').hide();
+     $('#divListAssociacoes').empty();
      var html = '<label for="associacao" class="col-xs-12 col-md-12 text-center">Não existem Associações para a Estufa selecionada!</label>' +
      '<div class="text-center">' +
      '<a href="/admin/associacoes/associar" class=" btn btn-success">Criar Associação</a>' +
      '</div>';
      $('#divListAssociacoes').append(html);
+     $('#submit').attr("disabled", true).attr('title', "Insira uma associação para a Estufa selecionada!");
    }
  })
   });

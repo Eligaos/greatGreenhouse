@@ -60,27 +60,26 @@ class AssociacoesService
 
 
 	public function associarSubmit($input, $alarmes){
-		dd($alarmes);
 		$associacao = Associacoes::create(["setor_id" => $input['setor_id'], 
 			"sensor_id"=> $input['sensor_id']]);
 		$sensor = Sensor::find($input["sensor_id"]);
 		$sensor->estado = 1;
-		//$sensor->save();
+		$sensor->save();
 		$tipo = $sensor::join('tipo_leitura', 'sensores.tipo_id', '=', 'tipo_leitura.id')->join('associacoes', 'sensores.id', '=', 'associacoes.sensor_id')->join('setores','associacoes.setor_id','=','setores.id')->where('tipo_leitura.id', '=', $sensor->tipo_id)->where('sensores.id','=',$sensor->id)->first();
-		$count=0;
-		foreach ($alarmes as $alarme) {
-			if($alarme->parametro == $tipo->parametro && $alarme->estufas_id == $tipo->estufa_id){
-				$count++;
-				$alarmeA = array(
-					"associacoes_id" => $associacao->id,
-					"regra"	=> $alarme->regra,
-					"valor" => $alarme->valor,
-					"descricao" => $alarme->descricao
-					);
-				//$saveAlarme = Alarme::create($alarmeA);
+		//dd($tipo);
+		if(count($alarmes)!=0){
+			foreach ($alarmes as $alarme) {
+				if($alarme->parametro == $tipo->parametro && $alarme->estufas_id == $tipo->estufa_id){
+					$alarmeA = array(
+						"associacoes_id" => $associacao->id,
+						"regra"	=> $alarme->regra,
+						"valor" => $alarme->valor,
+						"descricao" => $alarme->descricao
+						);
+					$saveAlarme = Alarme::create($alarmeA);
+				}
 			}
 		}
-		dd($count);
 		return true;		
 	}
 
@@ -89,6 +88,7 @@ class AssociacoesService
 		for($i=0; $i<count($estufa[1]);$i++){
 			$ass = Associacoes::join('sensores','associacoes.sensor_id','=','sensores.id')->join('tipo_leitura', 'sensores.tipo_id', '=', 'tipo_leitura.id')->where('setor_id', '=', $estufa[1][$i]->id)->select('tipo_leitura.parametro', 'tipo_leitura.unidade')->distinct('tipo_leitura.parametro')->get();
 			array_push($tudo,$ass);
+
 		}
 		$associacoes = [];
 		for($i=0; $i<count($tudo);$i++){
@@ -98,6 +98,7 @@ class AssociacoesService
 		}
 		return $associacoes;
 	}
+
 
 	public function getAssociacoesTipo($estufa, $parametro){//para registos manuais
 		$tudo = [];
