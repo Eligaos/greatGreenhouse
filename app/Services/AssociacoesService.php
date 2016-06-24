@@ -18,7 +18,7 @@ class AssociacoesService
 	public function listarAssociacoes($estufas){ //da exp atual
 		$tudo = [];
 		for($i=0; $i<count($estufas);$i++){		
-			$join = Estufa::join('setores', 'estufas.id', '=', 'setores.estufa_id')->join('associacoes','setores.id', '=','associacoes.setor_id')->join('sensores', 'associacoes.sensor_id', '=', 'sensores.id')->join('tipo_leitura', 'sensores.tipo_id', '=', 'tipo_leitura.id')->select('estufas.id as estufa_id', 'associacoes.id as associacoes_id','sensores.id as sensores_id', 'estufas.nome as estufa_nome', 'tipo_leitura.parametro', 'tipo_leitura.unidade')->where('estufas.id', '=', $estufas[$i]->id)->get();
+			$join = Estufa::join('setores', 'estufas.id', '=', 'setores.estufa_id')->join('associacoes','setores.id', '=','associacoes.setor_id')->join('sensores', 'associacoes.sensor_id', '=', 'sensores.id')->join('tipo_leitura', 'sensores.tipo_id', '=', 'tipo_leitura.id')->select('estufas.id as estufa_id', 'associacoes.id as associacoes_id','sensores.id as sensores_id', 'estufas.nome as estufa_nome', 'tipo_leitura.parametro', 'tipo_leitura.unidade', 'sensores.nome as sensor_nome')->where('estufas.id', '=', $estufas[$i]->id)->get();
 			array_push($tudo,$join);
 		}
 		$associacoes = [];
@@ -60,23 +60,27 @@ class AssociacoesService
 
 
 	public function associarSubmit($input, $alarmes){
+		dd($alarmes);
 		$associacao = Associacoes::create(["setor_id" => $input['setor_id'], 
 			"sensor_id"=> $input['sensor_id']]);
 		$sensor = Sensor::find($input["sensor_id"]);
 		$sensor->estado = 1;
-		$sensor->save();
-		$tipo = $sensor::join('tipo_leitura', 'sensores.tipo_id', '=', 'tipo_leitura.id')->where('tipo_leitura.id', '=', $sensor->tipo_id)->where('sensores.id','=',$sensor->id)->first();
+		//$sensor->save();
+		$tipo = $sensor::join('tipo_leitura', 'sensores.tipo_id', '=', 'tipo_leitura.id')->join('associacoes', 'sensores.id', '=', 'associacoes.sensor_id')->join('setores','associacoes.setor_id','=','setores.id')->where('tipo_leitura.id', '=', $sensor->tipo_id)->where('sensores.id','=',$sensor->id)->first();
+		$count=0;
 		foreach ($alarmes as $alarme) {
-			if($alarme->parametro == $tipo->parametro){
+			if($alarme->parametro == $tipo->parametro && $alarme->estufas_id == $tipo->estufa_id){
+				$count++;
 				$alarmeA = array(
 					"associacoes_id" => $associacao->id,
 					"regra"	=> $alarme->regra,
 					"valor" => $alarme->valor,
 					"descricao" => $alarme->descricao
 					);
-				$saveAlarme = Alarme::create($alarmeA);
+				//$saveAlarme = Alarme::create($alarmeA);
 			}
 		}
+		dd($count);
 		return true;		
 	}
 

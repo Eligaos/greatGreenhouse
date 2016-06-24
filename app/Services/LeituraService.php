@@ -74,6 +74,7 @@ class LeituraService
 		return Leitura::create(["valor" => $input['valor'], "associacao_id"=>$input['ass_id'], "manual"=>1, "data"=>$input['data']]);
 	}
 
+
 	public function gerarGrafico($idExp,$input){
 
 		$tudo = [];
@@ -106,7 +107,7 @@ class LeituraService
 			return $tudo;
 
 		}else if(count($input["tipo_id"]) > 0 && $input["ddEstufa"] != ""){
-			
+
 		}
 	}
 

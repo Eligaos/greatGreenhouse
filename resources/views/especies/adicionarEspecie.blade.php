@@ -84,7 +84,7 @@
 							</div>										
 							<div class="form-group">
 								<div class="input-group-addon">
-									<a href="{{ url()->previous() }}" role="button" name="cancelar"class="btn btn-default pull-right">Cancelar</a>
+									<a href="{{ url()->previous() }}" role="button" name="cancelar"class="btnL btn btn-default pull-right">Cancelar</a>
 									<input type="submit" id="submit" value="Guardar" class="btn btn-success pull-right">
 								</div>
 							</div>

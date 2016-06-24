@@ -28,13 +28,14 @@
 						</tr>
 					</thead>
 					<tbody>
-						@foreach($ocorrencias as $key => $ocorrencia)	
+						@foreach($ocorrencias as $key => $ocorrencia)
+						@if($estufa->id == $ocorrencia->estufa_id)	
 						<tr>
 							<td id= {{$ocorrencia->alarme_id}} name = alarmeId class="text-center">{{$ocorrencia->parametro}}
 							</td>					
 							<td class="text-center">{{$ocorrencia->nome}}
 							</td>
-							<td class="text-center">{{$ocorrencia->leitura_valor}}
+							<td class="text-center">{{$ocorrencia->leitura_valor}} {{$ocorrencia->unidade}}
 							</td>
 							<td>
 								<span class="button-checkbox">
@@ -43,6 +44,7 @@
 								</span>
 							</td>
 						</tr>
+						@endif
 						@endforeach
 					</tbody>
 				</table>

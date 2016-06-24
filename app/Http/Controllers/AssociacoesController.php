@@ -61,7 +61,7 @@ class AssociacoesController extends Controller
 
 	public function associarSubmit(){
 		$input = Input::except('_token');
-		$alarmes = $this->alService->listarAlarme($this->exploracaoSelecionada);
+		$alarmes = $this->alService->listarAlarmeDistinct($this->exploracaoSelecionada);
 		$associar = $this->aService->associarSubmit($input, $alarmes);	
 		return Redirect::to("/admin/associacoes")->with('message', 'Associação guardada com sucesso!');
 	}

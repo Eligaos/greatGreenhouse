@@ -48,4 +48,9 @@ class AlarmeController extends Controller
 		$alarme = $this->aService->adicionarAlarmeSubmit($input, $assoc);
 		return Redirect::to('/admin/alarmes')->with('message', 'Alarme adicionado com sucesso!');
 	}
+
+	function historicoAlarmes(){
+		$lista = [];
+		return view('alarmes.historicoAlarmes', compact('lista'));
+	}
 }

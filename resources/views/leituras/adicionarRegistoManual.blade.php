@@ -37,17 +37,17 @@
 								<select id="ass_id" name="ass_id" class="selectpicker form-control" title="Selecione uma Associação"  data-live-search="true" showTick="true" required>
 								</select>
 							</div>
+							<div class="col-xs-12 col-md-12" id="divListAssociacoes">
+								
+							</div>
 						</div>
 					</div>
 					<div class="form-group">	
 						<h4 class="border-bottom">Hora</h4>	
 						<div class="col-xs-12 col-md-12">
 							<div class="form-group">
-								<label for="nome">Hora</label>
-								<div class="input-group">									
-
-									<input type="text" class="form-control" id="hora" name="data" />
-								</div>
+								<label for="nome">Hora</label>		
+								<input type="text" class="form-control" id="hora" name="data" />
 							</div>
 						</div>
 					</div>
@@ -73,7 +73,7 @@
 					@endif
 					<div class="form-group">
 						<div class="input-group-addon">
-							<a href="{{ url()->previous() }}" class="btn btn-default pull-right">Cancelar</a>
+							<a href="{{ url()->previous() }}" class="btnL btn btn-default pull-right">Cancelar</a>
 							<input type="submit" id="submit" value="Guardar" class="btn btn-success pull-right">
 						</div>
 					</div>

@@ -11,15 +11,15 @@
 		<div class="panel-body">
 			<form id="registerForm" method="POST" action="/admin/tipos-leituras/adicionar/submit" >
 				<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">		
-				<div class="form-group">
+				<div class="form-group ">
 					<h4 class="border-bottom">Dados do Novo Tipo</h4>
-					<div class="col-xs-12 col-md-12">
+					<div class="col-xs-12 col-md-12 margin-bottom">
 						<label for="parâmetro">Nome do Parâmetro</label>
-						<div class="input-group">
+						<div class="input-group margin-bottom">
 							<input type="text" class="form-control" id="parametro"  name="parametro" placeholder="Insira o nome parâmetro" required><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>		
 						</div>
 						<label for="unidade">Unidade</label>
-						<div class="input-group">
+						<div class="input-group ">
 							<input type="text" class="form-control" id="unidade"  name="unidade" placeholder="Insira o unidade do parâmetro" required><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
 						</div>
 					</div>
@@ -36,7 +36,7 @@
 				</div>
 				<div class="form-group">
 					<div class="input-group-addon">
-						<a href="{{ url()->previous() }}" role="button" name="cancelar"class="btn btn-default pull-right">Cancelar</a>
+						<a href="{{ url()->previous() }}" role="button" name="cancelar"class="btnL btn btn-default pull-right">Cancelar</a>
 						<input type="submit" id="submit" value="Guardar" class="btn btn-success pull-right">
 					</div>
 				</div>
