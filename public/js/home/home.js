@@ -13,7 +13,9 @@ $(function() {
       downloadPNG:"Exportar para imagem em PNG",
       downloadPDF: "Exportar para ficheiro PDF",
       downloadJPEG: "Exportar para imagem em JPEG",
-      printChart: "Imprimir Gráfico"
+      printChart: "Imprimir Gráfico",
+      resetZoom: "Anular zoom",
+      resetZoomTitle: "Anular zoom para escala 1:1"
     }
   });
 
@@ -22,7 +24,7 @@ $(function() {
    $.get("/admin/leituras/ultimas/"+estufas.data[j].id, function(dados) {
 
    }).done(function(dados){
-    console.log(dados);
+
      var elem = "#monitor"+dados[0][0].estufa_id;
 
      var data = [];
@@ -40,7 +42,7 @@ $(function() {
           name: dados[i][0].parametro,
           data: points,
           tooltip: {
-              valueSuffix: " "+dados[i][0].unidade
+            valueSuffix: " "+dados[i][0].unidade
           }
         });
         
@@ -48,16 +50,20 @@ $(function() {
     }
 
     $(elem).highcharts({
-      chart: {
-        type: 'spline'
-      },credits : {
-        enabled : false
-      },
-      title: {
-        text: 'Monitor Estufa ' + dados[0][0].estufa_id
-      },
-      xAxis: {
-        type: 'datetime',
+     chart: {
+      zoomType: 'x'
+    },credits : {
+      enabled : false
+    },
+    title: {
+      text: 'Monitor Estufa ' + dados[0][0].estufa_id
+    },
+     subtitle: {
+    text: document.ontouchstart === undefined ?
+    'Clique e arraste no gráfico para fazer zoom' : 'Faça pinch para fazer zoom'
+  },
+    xAxis: {
+      type: 'datetime',
             dateTimeLabelFormats: { // don't display the dummy year
             hour: '%H:%M',
             month: '%e/%b',
@@ -65,10 +71,10 @@ $(function() {
             year: '%b'
           }
         },
-           yAxis: {
-            title: {
-                text: null
-            }
+        yAxis: {
+          title: {
+            text: null
+          }
         },
         tooltip: {
           headerFormat: '{point.x: %e/%b/%y às %Hh:%Mm}<br> ',
@@ -85,45 +91,6 @@ $(function() {
         series: data
       });
 
-  /*
-    var data = [];
-    var ykeys = [];
-    var labels = [];
-    for (var j = 0; j < dados.length; j++) {
-
-
-      if (dados[j][0] != null) {
-        ykeys[j]= 'value'+dados[j][0].parametro;
-        labels[j]= dados[j][0].parametro;
-      }
-
-      for (var i =0; i < dados[j].length; i++) {
-        data.push({
-          time: dados[j][i].data,
-          ['value'+dados[j][i].parametro]: dados[j][i].valor 
-        });
-
-      }
-    }
-
-    new Morris.Line({
-      // ID of the element in which to draw the chart.
-      element: 'monitor'+dados[0][0].estufa_id,
-      // Chart data records -- each entry in this array corresponds to a point on
-      // the chart.
-      resize: true,
-      data: data,
-      stacked: true,
-      pointSize: 3,
-      hideHover: true,
-      // The name of the data record attribute that contains x-values.
-      xkey: 'time',
-      // A list of names of data record attributes that contain y-values.
-      ykeys: ykeys,
-      // Labels for the ykeys -- will be displayed when you hover over the
-      // chart.
-      labels: labels,
-    });*/
   });
  };
 

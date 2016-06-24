@@ -21,9 +21,6 @@ class LeituraController extends Controller
     protected $exploracaoSelecionada;
     protected $filterPesquisa;
 
-
-
-
     public function __construct(LeituraService $lService, EstufaService $eService, TipoLeituraService $tService, AssociacoesService $aService)
     {
         $this->middleware('auth');
@@ -54,8 +51,6 @@ class LeituraController extends Controller
         return $tipos;
     }
 
-
-
      public function getAssociacoesDistinct($estufaID){//para o js do registoManual
         $estufa = $this->eService->procurarEstufa($estufaID);
         $tipos = $this->aService->getAssociacoesDistinct($estufa);
@@ -79,10 +74,17 @@ class LeituraController extends Controller
 
      return $this->lService->getLastHoursLeiturasFiltered($id, $this->exploracaoSelecionada);
 
-   }
+ }
 
-   public function pesquisar(){
+ public function grafico(){
+   $input = Input::except('_token');
+   $lista = $this->lService->gerarGrafico($this->exploracaoSelecionada, $input);
+   return $lista;
+}
+
+public function pesquisar(){
     $input = Input::except('_token');
+
     $estufas = $this->eService->getEstufas($this->exploracaoSelecionada);
     $tiposLeituras = $this->tService->getTiposLeitura();
     if(isset($input["limpar"]) && $input["limpar"] != 0){

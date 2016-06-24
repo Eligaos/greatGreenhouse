@@ -139,9 +139,10 @@ Route::group(['middleware' => ['web']], function ()
 	Route::get('/admin/leituras/ultimas/{id}', 'LeituraController@getLastHoursLeituras');
 	Route::post('/admin/leituras', 'LeituraController@pesquisar');
 	Route::get('/admin/leituras/exportar', 'LeituraController@exportar');
+	Route::post('/admin/leituras/grafico', 'LeituraController@grafico');
 
 	/**********GRAFICOS**********/
-	Route::get('/admin/graficos', 'LeituraController@listarLeituras');
+	Route::get('/admin/graficos', 'LeituraController@vistaGrafico');
 
 
 

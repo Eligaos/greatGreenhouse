@@ -46,11 +46,6 @@
          </li>
          <li><a href="/admin/registos/manual"><i class="  glyphicon glyphicon-pencil fa-lg"></i> Registar Leitura Manual </a></li>
          <li>
-           <a href="#">
-             <i class="glyphicon glyphicon-stats fa-lg"></i> Gráficos 
-           </a>
-         </li>
-         <li>
            <a href="/admin/alarmes">
              <i class="glyphicon glyphicon-time fa-lg"></i> Alarmes 
            </a>
