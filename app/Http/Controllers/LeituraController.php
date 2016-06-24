@@ -72,17 +72,23 @@ class LeituraController extends Controller
 
     public function getLastHoursLeituras($id){
 
-       return $this->lService->getLastHoursLeiturasFiltered($id, $this->exploracaoSelecionada);
+     return $this->lService->getLastHoursLeiturasFiltered($id, $this->exploracaoSelecionada);
+
+ }
+  public function exportar(){
+    $input = Input::all();
+   $res = $this->lService->export($this->exploracaoSelecionada);
+
+   return $res;
 
  }
 
  public function grafico(){
-   $input = Input::except('_token');
-   $lista = $this->lService->gerarGrafico($this->exploracaoSelecionada, $input);
-   return $lista;
-}
+     $lista = $this->lService->gerarGrafico($this->exploracaoSelecionada);
+     return $lista;
+ }
 
-public function pesquisar(){
+ public function pesquisar(){
     $input = Input::except('_token');
 
     $estufas = $this->eService->getEstufas($this->exploracaoSelecionada);

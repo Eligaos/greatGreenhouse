@@ -106,10 +106,7 @@ $(document).ready(function() {
 })
   });
 
-//href="/admin/leituras/pesquisar"
-$('#exportar').click(function(){
 
-});
 
 $('#grafico').click(function(){
   var dados = {};

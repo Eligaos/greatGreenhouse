@@ -64,8 +64,10 @@
 
 						<button  id="limpar" name="limpar" value="1" class="btn btn-success" toggle="tooltip" data-placement="top" title="Limpar Filtros"><i class="glyphicon glyphicon-erase"></i>Limpar							</button>
 
-						<a  role="button" id="exportar" value="2" class="btn btn-success" toggle="tooltip" data-placement="top" title="Exportar"><i class="glyphicon glyphicon-export"></i>Exportar	</a>
-						<a  role="button" id="grafico" value="3" class="btn btn-success" toggle="tooltip" data-placement="top" title="Gerar Gráfico"><i class="glyphicon glyphicon-stats"></i>Gerar Gráfico	</a>
+						<a  href="{{ URL::to('admin/leituras/exportar') }}" role="button" id="exportar" value="2" class="btn btn-success" toggle="tooltip" data-placement="top" title="Exportar"><i class="glyphicon glyphicon-export"></i>Exportar	</a>
+
+
+						<a   role="button" id="grafico" value="3" class="btn btn-success" toggle="tooltip" data-placement="top" title="Gerar Gráfico"><i class="glyphicon glyphicon-stats"></i>Gerar Gráfico	</a>
 
 					</div>
 				</form>
@@ -161,9 +163,6 @@
 
 	@section('customScripts')
 	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.core.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2014-11-29/FileSaver.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/TableExport/3.2.5/js/tableexport.min.js"></script>
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	<script src="{{asset('js/registoManual/timePicker.js')}}"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>

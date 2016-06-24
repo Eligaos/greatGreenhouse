@@ -141,11 +141,6 @@ Route::group(['middleware' => ['web']], function ()
 	Route::get('/admin/leituras/exportar', 'LeituraController@exportar');
 	Route::post('/admin/leituras/grafico', 'LeituraController@grafico');
 
-	/**********GRAFICOS**********/
-	Route::get('/admin/graficos', 'LeituraController@vistaGrafico');
-
-
-
 	/**********ALARMES**********/
 	Route::get('/admin/alarmes', 'AlarmeController@listarAlarmes');
 	Route::get('/admin/alarmes/adicionar', 'AlarmeController@adicionarAlarme');
