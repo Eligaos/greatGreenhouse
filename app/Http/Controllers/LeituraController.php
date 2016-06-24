@@ -35,7 +35,7 @@ class LeituraController extends Controller
     public function listarLeituras(){ 
       $estufas = $this->eService->getEstufasPesquisa($this->exploracaoSelecionada);
       $tiposLeituras = $this->tService->getTiposLeitura();
-      if($this->filterPesquisa==null){
+      if($this->filterPesquisa == null){
         $lista = $this->lService->getLeituras($this->exploracaoSelecionada);
         return view('leituras.listagemLeituras', compact('lista','estufas', 'tiposLeituras'));
     }else{
@@ -54,7 +54,7 @@ class LeituraController extends Controller
      public function getAssociacoesDistinct($estufaID){//para o js do registoManual
         $estufa = $this->eService->procurarEstufa($estufaID);
         $tipos = $this->aService->getAssociacoesDistinct($estufa);
-        return array_unique($tipos);
+        return $tipos;
     }
 
     public function adicionarRegistoManual(){
@@ -72,26 +72,22 @@ class LeituraController extends Controller
 
     public function getLastHoursLeituras($id){
 
-     return $this->lService->getLastHoursLeiturasFiltered($id, $this->exploracaoSelecionada);
+       return $this->lService->getLastHoursLeiturasFiltered($id, $this->exploracaoSelecionada);
 
- }
-  public function exportar(){
-    $input = Input::all();
-   $res = $this->lService->export($this->exploracaoSelecionada);
+   }
+   public function exportar(){
+    return $this->lService->export($this->exploracaoSelecionada);
 
-   return $res;
+}
 
- }
+public function grafico(){
+   $input = Input::all();
+   return $this->lService->gerarGrafico($this->exploracaoSelecionada, $input);
+   
+}
 
- public function grafico(){
-       $input = Input::all();
-     $lista = $this->lService->gerarGrafico($this->exploracaoSelecionada, $input);
-     return $lista;
- }
-
- public function pesquisar(){
+public function pesquisar(){
     $input = Input::except('_token');
-
     $estufas = $this->eService->getEstufas($this->exploracaoSelecionada);
     $tiposLeituras = $this->tService->getTiposLeitura();
     if(isset($input["limpar"]) && $input["limpar"] != 0){
