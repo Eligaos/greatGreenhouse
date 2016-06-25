@@ -7,13 +7,13 @@
 <div class="col-sm-10 col-md-10 col-sm-offset-2 col-md-offset-1 centered-form">
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<h3 class="modal-title">Adicionar Novo Tipo de Leitura</h3>
+			<h3 class="modal-title">Editar Tipo de Leitura</h3>
 		</div>
 		<div class="panel-body">
 			<form id="registerForm" method="POST" action="/admin/tipos-leituras/editar/submit/{{$tipoL->id}}" >
 				<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">		
 				<div class="form-group">
-					<h4 class="border-bottom">Dados do Novo Tipo</h4>
+					<h4 class="border-bottom sm-margin-left">Dados do Novo Tipo</h4>
 					<div class="col-xs-12 col-md-12 margin-bottom">
 						<label for="parâmetro">Nome do Parâmetro</label>
 						<div class="input-group margin-bottom">
@@ -36,20 +36,20 @@
 						</ul>
 					</div>
 					@endif
-				</div>
-				<div class="form-group">
-					<div class="input-group-addon">
+				</div>		</div>
+				<div class="panel-footer"> 
+					<div class="col-sm-12 input-group">
 						<a href="{{ url()->previous() }}" role="button" name="cancelar"class="btnL btn btn-default pull-right">Cancelar</a>
 						<input type="submit" id="submit" value="Guardar" class="btn btn-success pull-right">
 					</div>
 				</div>
 			</form>
+
 		</div>
 	</div>
-</div>
 
 
-@endsection
-@section('customScripts')
-@endsection
+	@endsection
+	@section('customScripts')
+	@endsection
 

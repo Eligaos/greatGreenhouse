@@ -23,6 +23,7 @@
 							<th>Nome</th>
 							<th>Modelo</th>
 							<th>Parâmetro</th>
+							<th>Alcance</th>
 							<th>Estado</th>
 							<th class="no-sort">Opções</th>
 						</tr>
@@ -39,6 +40,9 @@
 							<td>
 								<span>{{$sensor->parametro}}</span>
 							</td>
+							<td>
+								<span>{{$sensor->area_alcance}}</span>
+							</td>
 							@if($sensor->estado == 0)
 							<td>
 								<span>Inativo</span>
@@ -50,9 +54,6 @@
 							@endif
 							<td>
 								<div class="text-center">
-									<a  toggle="tooltip" data-placement="top" title="Detalhes Sensor" role="button" name="detalhes" href="/admin/sensores/detalhes/{{$sensor->sensor_id}}">  <button type="button" class="btn btn-default btn-xs">
-										<span class="glyphicon glyphicon-th-list"></span> Detalhes
-									</button></a>
 
 									<a toggle="tooltip" data-placement="top" title="Editar Sensor" role="button" name="editar" href="/admin/sensores/editar/{{$sensor->sensor_id}}">  <button type="button" class="btn btn-default btn-xs">
 										<span class="glyphicon glyphicon-edit"></span> Editar

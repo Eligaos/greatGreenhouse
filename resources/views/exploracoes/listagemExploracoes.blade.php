@@ -20,26 +20,32 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 col-sm-9 col-md-10 col-sm-offset-2 col-md-offset-1">
-				<section class="content">
-					<div >
-						<div class="panel panel-default">
-							<div class="panel-heading"><h2>Lista de Explorações Agrícolas</h2></div>
+				<div class="content">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+
+							<h3 class="modal-title">Lista de Explorações Agrícolas</h3>
+
+						</div>
+						<div class="panel-body">
 							@if( Session::get('message'))
 							<div class="text-center">
 								<span class="alert alert-info"> {{ Session::get('message') }}</span>
 							</div>
 							@endif
 
-							<form class="form-signin" method="POST" action="/admin/home">
+							<form method="POST" action="/admin/home">
 								<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">							
 								<div class="table-container">
 									@if(count($lista)!=0)	
 									<table class="table table-filter table-striped table-bordered table-responsive">
-										<tr class="success">
-											<th class="col-xs-6 col-sm-5 col-md-2 text-center">Nome</th>
-											<th class="col-xs-6 col-sm-5 col-md-2 text-center">Número</th>
-											<th class="col-xs-6 col-sm-5 col-md-2 text-center">Opções</th>
-										</tr>
+										<thead>
+											<tr class="success">
+												<th class="col-xs-6 col-sm-5 col-md-2 text-center">Nome</th>
+												<th class="col-xs-6 col-sm-5 col-md-2 text-center">Número</th>
+												<th class="col-xs-6 col-sm-5 col-md-2 text-center">Opções</th>
+											</tr>
+										</thead>
 										<tbody>
 											@foreach($lista as $key => $exploracao)
 											<tr>	
@@ -63,7 +69,8 @@
 														</a><span>Entrar</span>	<i class="glyphicon glyphicon-triangle-right"></i></button>
 
 													</td>
-												</tr>										@endforeach
+												</tr>										
+												@endforeach
 											</tbody>
 										</table>
 										@else
@@ -71,15 +78,16 @@
 										@endif										
 									</div>
 								</form> 
-								<div class="form-group">
-									<div class="input-group-addon">
-										<a href="/admin/exploracoes/adicionar" role="button" name="adicionar" id="adicionarExploracao" class="btn btn-success pull-right">Adicionar Exploração</a>
-									</div>
-								</div>	
 							</div>
+							<div class="panel-footer"> 
+								<div class="col-sm-12 input-group">
+									<a href="/admin/exploracoes/adicionar" role="button" name="adicionar" id="adicionarExploracao" class="btn btn-success pull-right">Adicionar Exploração</a>
+								</div>
+							</div>	
 						</div>
 					</div>
-				</section>
+
+				</div>
 			</div>
 		</div>
 	</div>

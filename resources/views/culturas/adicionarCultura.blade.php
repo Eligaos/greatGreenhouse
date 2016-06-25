@@ -118,7 +118,7 @@
 								<div class="btn-group">
 									<label>Escolha uma Estufa</label>
 									<div>
-										<select id="ddEstufa" name="ddEstufa" class="selectpicker form-control" title="Selecione uma Estufa"  data-live-search="true" showTick="true">
+										<select id="ddEstufa" name="ddEstufa" class="selectpicker form-control" title="Selecione uma Estufa"  data-live-search="true" showTick="true" required>
 											@foreach($lista as $key => $estufa)
 											<option value="{{$estufa->id}}">{{$estufa->nome}}</option>
 											@endforeach	
@@ -137,7 +137,7 @@
 								<div class="btn-group">
 									<label>Espécie</label>
 									<div>
-										<select id="especie_id" name="especie_id" class="selectpicker form-control" title="Selecione uma Especie"  data-live-search="true" showTick="true">	
+										<select id="especie_id" name="especie_id" class="selectpicker form-control" title="Selecione uma Especie"  data-live-search="true" showTick="true" required>	
 											@foreach($especies as $key => $especie)										
 											<option value="{{$especie->id}}">{{$especie->nome_comum}}</option>
 											@endforeach	

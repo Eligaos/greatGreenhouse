@@ -49,12 +49,6 @@ class SensorController extends Controller
 		return  Redirect::to("/admin/sensores")->with('message', 'Sensor guardado com sucesso!');
 	}
 
-	public function detalhesSensor($id){
-		$lista = $this->sService->getSensor($id);
-		//$lista[0]-- array de culturas  $lista[1]--array dos setores de setores $lista[2]--array de estufas		
-		return view('sensores.detalhesSensor', compact('lista'));  		
-	}
-
 	public function editarSensor($id){
 		$lista = $this->sService->getSensor($id);
 		$tiposLeituras = $this->tService->getTiposLeitura();		

@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<!-- Bootstrap core CSS -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!-- Bootstrap core CSS -->
   <title>Great Greenhouse @yield('title')</title>
   <link href="{{asset('css/bootstrap/bootstrap.css')}}" rel="stylesheet">
 
@@ -36,7 +36,7 @@
           </li>
           <li><a href="/admin/exploracao"><i class="glyphicon glyphicon-map-marker fa-lg"></i> Exploração Agrícola</a></li>
           <li><a href="/admin/estufas"><i class="glyphicon glyphicon-leaf fa-lg"></i> Estufas</a>  </li>
-          <li><a href="/admin/culturas"><i class="  glyphicon glyphicon-tree-deciduous fa-lg"></i> Culturas</a>	</li>
+          <li><a href="/admin/culturas"><i class="  glyphicon glyphicon-tree-deciduous fa-lg"></i> Culturas</a> </li>
 
 
           <li>

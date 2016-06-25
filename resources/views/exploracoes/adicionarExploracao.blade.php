@@ -12,21 +12,22 @@
 	<link href="{{asset('css/bootstrap/bootstrap.css')}}" rel="stylesheet">
 	<!-- Custom styles for this template -->
 	<link href="{{asset('css/home/geral.css')}}" rel="stylesheet">
-	<link href="{{asset('css/exploracoes/listagemExploracoes.css')}}" rel="stylesheet">
+
 </head>
 <body>
-	<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10 ">
-		<div class="container">
-			<div class="col-sm-10 col-md-10 col-sm-offset-2 col-md-offset-1 centered-form">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-9 col-md-10 col-sm-offset-2 col-md-offset-1">
+				<div class="content">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h3 class="modal-title" id="myModalLabel">Exploração Agrícola</h3>
+						<h3 class="modal-title">Exploração Agrícola</h3>
 					</div>
 					<div class="panel-body">
 						<form id="registerForm" method="POST" action="/admin/exploracoes/adicionar/submit" >
 							<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">		
 							<div class="form-group">
-								<h4 class="border-bottom">Dados do Terreno</h4>
+								<h4 class="border-bottom sm-margin-left">Dados do Terreno</h4>
 								<div class="col-xs-12 col-md-12 margin-bottom">
 									<label for="nome">Nome do Terreno</label>
 									<div class="input-group margin-bottom">
@@ -39,7 +40,7 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<h4 class="border-bottom">Localização</h4>
+								<h4 class="border-bottom  sm-margin-left">Localização</h4>
 								<div class="col-xs-12 col-md-12 margin-bottom">
 									<div class="row">
 										<div class="col-lg-6 ">	
@@ -71,20 +72,22 @@
 									</ul>
 								</div>
 								@endif
+							</div>	
 							</div>
-							<div class="form-group">
-								<div class="input-group-addon">
+							<div class="panel-footer"> 
+								<div class="col-sm-12 input-group">
 									<a href="/admin/exploracoes/listar" role="button" name="cancelar"class="btnL btn btn-default pull-right">Cancelar</a>
 									<input type="submit" name="submit" id="submit" value="Gravar" class="btn btn-success pull-right">
 								</div>
 							</div>
 						</form>
+
 					</div>
 				</div>
 			</div>
+
 		</div>
-	</div>
-</body>
-<script src="{{asset('js/jquery/jquery-2.1.4.js')}}"></script>
-<script src="{{asset('js/bootstrap/bootstrap.js')}}"></script>
-</html>
+	</body>
+	<script src="{{asset('js/jquery/jquery-2.1.4.js')}}"></script>
+	<script src="{{asset('js/bootstrap/bootstrap.js')}}"></script>
+	</html>

@@ -30,7 +30,7 @@
 							<span>{{$lista[0]->area_alcance}}</span>	
 						</p>
 						<p>
-							<label>Escolha o Tipo:</label>
+							<label>Tipo:</label>
 							<span>{{$lista[0]->parametro}}</span>	
 						</p>
 					</div>									

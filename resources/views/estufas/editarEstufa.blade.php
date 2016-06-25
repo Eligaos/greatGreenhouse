@@ -18,10 +18,11 @@
 						<h4 class="border-bottom sm-margin-left">Dados da Estufa</h4>
 						<div class="col-xs-12 col-md-12">
 							<label for="nome">Nome da Estufa</label>
-							<div class="input-group">											
+							<div class="input-group margin-bottom">											
 								<input type="text" class="form-control" id="nome"  name="nome" placeholder="Insira o nome da Estufa" value="{{$lista[0]->nome}}" required><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
 							</div>
-							<br/>
+							
+
 							<label for="nome">Descrição</label>
 							<div class="input-group margin-bottom">											
 								<input type="text" class="form-control" id="descricao"  name="descricao" placeholder="Insira uma descrição para estufa" value="{{$lista[0]->descricao}}" ><span class="input-group-addon"></span>
@@ -35,7 +36,6 @@
 										<table class="table-responsive table table-bordered table-hover table-sortable tab_logic">
 											<thead>
 												<tr>
-
 													<th class="text-center">
 													</th>
 
@@ -55,10 +55,10 @@
 														<input type="hidden" name="idSetor" value="{{$setor->id}}">
 													</td>
 													<td data-name="nomeSetor[]" id="0">
-														<input type="text" placeholder='Insira um nome' class="form-control"  value="{{$setor->nome}}"/>
+														<input type="text" placeholder='Insira um nome' class="form-control"  value="{{$setor->nome}}">
 													</td>
 													<td data-name="descricaoSetor[]">
-														<input type="text" placeholder='Insira uma descricao' class="form-control" value="{{$setor->descricao}}"/>
+														<input type="text" placeholder='Insira uma descricao' class="form-control" value="{{$setor->descricao}}">
 													</td>
 													<td data-name="del">
 														<button name="del0" class='btn btn-danger glyphicon glyphicon-remove row-remove'></button>
@@ -75,7 +75,7 @@
 														<input type="text" name='nomeS' placeholder='Nome' class="form-control"/>
 													</td>
 													<td data-name="descricaoSetor[]">
-														<input type="text" name='descricaoS' placeholder='Insira uma descricao' class="form-control"/>
+														<input type="text" name='descricaoS' placeholder='Insira uma descricao' class="form-control">
 													</td>
 													<td data-name="del">
 														<button name="del0" class='btn btn-danger glyphicon glyphicon-remove row-remove'></button>

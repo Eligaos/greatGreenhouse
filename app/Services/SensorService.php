@@ -9,7 +9,7 @@ class SensorService
 {
 	public function getSensores($exploracaoId){ 
 		$tudo = [];
-		$join = Sensor::join('tipo_leitura', 'sensores.tipo_id', '=', 'tipo_leitura.id')->select('sensores.id as sensor_id','tipo_leitura.id as tipo_leitura_id', 'sensores.nome','sensores.modelo','sensores.estado', 'tipo_leitura.parametro')->where('sensores.exploracao_id', '=', $exploracaoId['id'])->get();
+		$join = Sensor::join('tipo_leitura', 'sensores.tipo_id', '=', 'tipo_leitura.id')->select('sensores.id as sensor_id','tipo_leitura.id as tipo_leitura_id',  'sensores.area_alcance', 'sensores.nome','sensores.modelo','sensores.estado', 'tipo_leitura.parametro')->where('sensores.exploracao_id', '=', $exploracaoId['id'])->get();
 		array_push($tudo,$join);
 		$sensores = [];
 		for($i=0;$i < count($tudo);$i++){

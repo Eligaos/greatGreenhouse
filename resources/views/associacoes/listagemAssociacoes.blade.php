@@ -27,10 +27,10 @@
 					<table id="dataTable" class="table table-filter table-striped table-bordered table-responsive">
 						<thead>						 
 							<tr class="success">
-								<th>Nome Sensor</th>
+								<th>Nome do Sensor</th>
 								<th>Parâmetro</th>
 								<th>Unidade</th>
-								<th>Origem</th>
+								<th>Origem (Estufa -Setor) </th>
 								<th class="no-sort">Opções</th>
 							</tr>	
 						</thead>
@@ -48,17 +48,22 @@
 								<span>{{$associacao->unidade}}</span>
 
 							</td>
-							<td>		
-								<span>{{$associacao->estufa_nome}}</span>
+							<td>	
+
+							@if($associacao->setor_nome == "Nenhum")
+
+								<span>{{$associacao->estufa_nome}} - Geral</span>
+								
+							@else
+							<span>{{$associacao->estufa_nome}} - {{$associacao->setor_nome}}</span>
+								
+							@endif
+								
 
 							</td>
 							<td>
 
 								<div class="text-center">
-									<a  toggle="tooltip" data-placement="top" title="Detalhes Associação" role="button" name="detalhes" href="/admin/associacoes/detalhes/{{$associacao->associacoes_id}}">  <button type="button" class="btn btn-default btn-xs">
-										<span class="glyphicon glyphicon-th-list"></span> Detalhes
-									</button></a>
-
 									<a toggle="tooltip" data-placement="top" title="Editar Associação" role="button" name="editar" href="/admin/associacoes/editar/{{$associacao->associacoes_id}}">  <button type="button" class="btn btn-default btn-xs">
 										<span class="glyphicon glyphicon-edit"></span> Editar
 									</button></a>
