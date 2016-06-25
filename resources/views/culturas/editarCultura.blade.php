@@ -15,6 +15,14 @@
 			<h3 class="modal-title">Editar Cultura</h3>
 		</div>
 		<div class="panel-body">
+			@if (Session::get('message') )
+			<div class="col-xs-12 col-md-12 alert alert-danger">
+				<h4>Por favor corrija os seguintes erros:</h4>
+				<ul>
+					<li>{{ Session::get('message')}}</li>
+				</ul>
+			</div>
+			@endif
 			<form id="registerForm" method="POST" action="/admin/culturas/editar/submit/{{$lista[0]->id}}">
 				<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">							
 				<div class="form-group">
@@ -161,14 +169,7 @@
 						</div>
 					</div>	
 				</div>		
-				@if (Session::get('message') )
-				<div class="col-xs-12 col-md-12 alert alert-danger">
-					<h4>Por favor corrija os seguintes erros:</h4>
-					<ul>
-						<li>{{ Session::get('message')}}</li>
-					</ul>
-				</div>
-				@endif
+
 			</div>
 			<div class="panel-footer"> 
 				<div class="col-sm-12 input-group">

@@ -1,8 +1,6 @@
 @import url("http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css");
 
-#estufas {
-  margin-top: 25px;
-}
+
 
 .panel-pricing {
   -moz-transition: all .3s ease;
@@ -39,11 +37,11 @@
 }
 
 .monitor{
-  height: 350px;
+  height: 300px;
 }
 #culturas-container{
   color: #3c763d;
-  background-color: #dff0d8;
+
   height: auto;
 }
 
@@ -54,7 +52,7 @@
 
 #culturas-container ul li{
   display: inline;
-  float:left;
+
   margin-right: 14px;
   margin-left: 15px;
   margin-bottom: 5px;

@@ -64,11 +64,7 @@
 
        <li><a href="/admin/especies"><i class="glyphicon glyphicon-grain fa-lg"></i> Espécies</a></li>  
 
-       <li>
-         <a href="#" >
-           <i class="fa fa-users fa-lg"></i> Colaboradores 
-         </a>
-       </li>
+ 
        <li>
         <a href="/admin/perfil">
           <i class="fa fa-user fa-lg"></i> Perfil

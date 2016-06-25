@@ -33,7 +33,7 @@ class EspecieService
 			$exists = Especie::where("nome_comum", '=', $nome)->where("id",'!=',$id)->first();
 			if($exists == null){
 				$especie->nome_comum = $nome;
-				return $exists = $this->saveEspecie($cultura, $input);	
+				return $exists = $this->saveEspecie($especie, $input);	
 			}else{
 				return false;
 			}
@@ -41,15 +41,19 @@ class EspecieService
 	}
 
 	public function saveEspecie($especie, $input){
-
-		$especie->tipo_cultura = $input["tipo_cultura"];		
-		$especie->data_inicio_ciclo = $input["data_inicio_ciclo"];
-		$especie->data_prevista_fim_ciclo = $input["data_prevista_fim_ciclo"];
-		$especie->duracao_ciclo = $input["duracao_ciclo"];
-		$especie->espaco_na_linha = $input["espaco_na_linha"];
-		$especie->espaco_entre_linhas = $input["espaco_entre_linhas"];
-		$especie->setor_id = $input["setor_id"];
-		$cultura->save();
+		$especie->nome_comum = $input["nome_comum"];		
+		$especie->especie = $input["especie"];
+		$especie->cultivar = $input["cultivar"];
+		$especie->ph_solo_ideal = $input["ph_solo_ideal"];
+		$especie->ph_agua_ideal = $input["ph_agua_ideal"];
+		$especie->temperatura_atmosferica_ideal = $input["temperatura_atmosferica_ideal"];
+		$especie->temperatura_solo_ideal = $input["temperatura_solo_ideal"];
+		$especie->condutividade_electrica_solo_ideal = $input["condutividade_electrica_solo_ideal"];
+		$especie->tipo_fisionomico = $input["tipo_fisionomico"];
+		$especie->habitat = $input["habitat"];
+		$especie->epoca_floracao = $input["epoca_floracao"];
+		$especie->coleccao_termica = $input["coleccao_termica"];
+		$especie->save();
 		return true;
 	}
 

@@ -15,6 +15,16 @@
 			<h3 class="modal-title">Adicionar Cultura</h3>
 		</div>
 		<div class="panel-body">
+			@if (count($errors) > 0 )
+			<div class="col-xs-12 col-md-12 alert alert-danger">
+				<h4>Por favor corrija os seguintes erros:</h4>
+				<ul>
+					@foreach ($errors->all() as $error)
+					<li>{{ $error}}</li>
+					@endforeach
+				</ul>
+			</div>
+			@endif
 			<form id="registerForm" method="POST" action="/admin/culturas/adicionar/submit">
 				<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">							
 				<div class="form-group">
@@ -25,7 +35,7 @@
 							<input type="text" class="form-control" id="nome"  name="nome" value="{{ old('nome') }}" placeholder="Insira o nome da Cultura" required><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
 						</div>									
 						<div class="row">
-							<div class="col-md-6">										
+							<div class="col-md-6 margin-bottom">										
 								<label for="nome">Tipo Cultura</label>
 								<div>
 									<select id="tipo_cultura" name="tipo_cultura" class="selectpicker form-control" title="Selecione um Tipo de Cultura" value="{{ old('tipo_cultura') }}" selected="{{ old('tipo_cultura') }}" data-live-search="true" showTick="true">
@@ -138,24 +148,15 @@
 						</div>		
 					</div>		
 				</div>		
-				@if (count($errors) > 0 )
-				<div class="col-xs-12 col-md-12 alert alert-danger">
-					<h4>Por favor corrija os seguintes erros:</h4>
-					<ul>
-						@foreach ($errors->all() as $error)
-						<li>{{ $error}}</li>
-						@endforeach
-					</ul>
+
+			</div>
+			<div class="panel-footer"> 
+				<div class="col-sm-12 input-group">
+					<a href="/admin/culturas" role="button" name="cancelar"class="btnL btn btn-default pull-right">Cancelar</a>
+					<input type="submit" id="submit" value="Guardar" class="btn btn-success pull-right">
 				</div>
-				@endif
-				</div>
-				<div class="panel-footer"> 
-					<div class="col-sm-12 input-group">
-						<a href="/admin/culturas" role="button" name="cancelar"class="btnL btn btn-default pull-right">Cancelar</a>
-						<input type="submit" id="submit" value="Guardar" class="btn btn-success pull-right">
-					</div>
-				</div>
-			</form>						
+			</div>
+		</form>						
 		
 	</div>
 </div>

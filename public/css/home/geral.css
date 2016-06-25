@@ -69,3 +69,7 @@ p{
 .btnL{
 	 margin-left: 15px;
 }
+
+.panel-success {
+	border-color: #a1b78e;
+}
