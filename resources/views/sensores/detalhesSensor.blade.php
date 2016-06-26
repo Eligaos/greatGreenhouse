@@ -12,37 +12,35 @@
 			<h3 class="modal-title">Detalhes do Sensor</h3>
 		</div>
 		<div class="panel-body">
-			<form id="registerForm" method="POST" action="/admin/sensores/adicionar/submit" >
-				<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">		
-				<div class="form-group">
-					<h4 class="border-bottom sm-margin-left" >Dados do Sensor</h4>
-					<div class="col-xs-12 col-md-12">
-						<p>
-							<label for="nome">Nome do Sensor:</label>
-							<span>{{$lista[0]->nome}}</span>	
-						</p>
-						<p>										
-							<label for="modelo">Modelo:</label>
-							<span>{{$lista[0]->modelo}}</span>											
-						</p>
-						<p>
-							<label for="area_alcance">Alcance:</label>
-							<span>{{$lista[0]->area_alcance}}</span>	
-						</p>
-						<p>
-							<label>Tipo:</label>
-							<span>{{$lista[0]->parametro}}</span>	
-						</p>
-					</div>									
-				</div>			
-			</div>				
-			<div class="panel-footer"> 
-				<div class="col-sm-12 input-group">
-					<a href="/admin/sensores" role="button" name="cancelar"class="btnL btn btn-default pull-right" toggle="tooltip" data-placement="top" title="Cancelar">Voltar</a>
-					<a class="btn btn-success pull-right" toggle="tooltip" data-placement="top" title="Editar Sensor"  role="button" name="editar" href="/admin/sensores/editar/{{$lista[0]->sensor_id}}">Editar</a>
-				</div>
+			<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">		
+			<div class="form-group">
+				<h4 class="border-bottom sm-margin-left" >Dados do Sensor</h4>
+				<div class="col-xs-12 col-md-12">
+					<p>
+						<label for="nome">Nome do Sensor:</label>
+						<span>{{$lista[0]->nome}}</span>	
+					</p>
+					<p>										
+						<label for="modelo">Modelo:</label>
+						<span>{{$lista[0]->modelo}}</span>											
+					</p>
+					<p>
+						<label for="area_alcance">Alcance:</label>
+						<span>{{$lista[0]->area_alcance}}</span>	
+					</p>
+					<p>
+						<label>Tipo:</label>
+						<span>{{$lista[0]->parametro}}</span>	
+					</p>
+				</div>									
+			</div>			
+		</div>				
+		<div class="panel-footer"> 
+			<div class="col-sm-12 input-group">
+				<a href="/admin/sensores" role="button" name="cancelar"class="btnL btn btn-default pull-right" toggle="tooltip" data-placement="top" title="Cancelar">Voltar</a>
+				<a class="btn btn-success pull-right" toggle="tooltip" data-placement="top" title="Editar Sensor"  role="button" name="editar" href="/admin/sensores/editar/{{$lista[0]->sensor_id}}">Editar</a>
 			</div>
-		</form>
+		</div>
 	</div>
 </div>
 

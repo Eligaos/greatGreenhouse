@@ -50,7 +50,17 @@ class AlarmeController extends Controller
 	}
 
 	function historicoAlarmes(){
-		$lista = [];
+		$lista = $this->aService->historicoAlarmes($this->exploracaoSelecionada);
 		return view('alarmes.historicoAlarmes', compact('lista'));
+	}
+
+	function detalhesAlarme($id){
+		$alarme = $this->aService->getAlarme($id);
+		return view('alarmes.detalhesAlarmes', compact('alarme'));
+	}
+
+	function editarAlarme(){
+		$lista = $this->aService->listarAlarmeDistinct($this->exploracaoSelecionada); 
+		return view('alarmes.editarAlarmes', compact('lista'));
 	}
 }

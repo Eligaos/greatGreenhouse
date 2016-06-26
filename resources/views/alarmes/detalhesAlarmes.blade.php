@@ -1,55 +1,57 @@
 @extends('app')
 
 @section('customStyles')
-<link href="{{asset('css/exploracoes/addExploracao.css')}}" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
 
 @endsection
+@section('title', ' - Detalhes dos Alarmes')
 @section('content')
-<div class="container">
-	<div >
-		<div class="col-lg-10 col-xs-12 col-sm-10 col-md-11  col-lg-offset-2 col-sm-offset-3 col-md-offset-2">
-			<div class="content">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h3 class="modal-title">Detalhes do Sensor</h3>
-					</div>
-					<div class="panel-body">
-						<form id="registerForm" method="POST" action="/admin/sensores/adicionar/submit" >
-							<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">		
-							<div class="form-group">
-								<h4 class="border-bottom">Dados do Sensor</h4>
-								<div class="col-xs-12 col-md-12">
-									<p>
-										<label for="nome">Nome do Sensor:</label>
-										<span>{{$lista[0]->nome}}</span>	
-									</p>
-									<p>										
-										<label for="modelo">Modelo:</label>
-										<span>{{$lista[0]->modelo}}</span>											
-									</p>
-									<p>
-										<label for="area_alcance">Alcance:</label>
-										<span>{{$lista[0]->area_alcance}}</span>	
-									</p>
-									<p>
-										<label>Escolha o Tipo:</label>
-										<span>{{$lista[0]->parametro}}</span>	
-									</p>
-								</div>									
-							</div>							
-							<div class="form-group">
-								<div class="input-group-addon">
-									<a href="/admin/sensores/listar" role="button" name="cancelar"class="btn btn-default pull-right" toggle="tooltip" data-placement="top" title="Cancelar">Voltar</a>
-									<a class="btn btn-success pull-right" toggle="tooltip" data-placement="top" title="Editar Sensor"  role="button" name="editar" href="/admin/sensores/editar/{{$lista[0]->sensor_id}}">Editar</a>
-								</div>
-							</div>
-						</form>
-					</div>
+<div class="col-sm-10 col-md-10 col-sm-offset-2 col-md-offset-1 centered-form">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="modal-title">Detalhes do Alarme</h3>
+		</div>
+		<div class="panel-body">
+			<div class="form-group">
+				<h4 class="border-bottom sm-margin-left">Dados do Alarme</h4>
+				<div class="col-xs-12 col-md-12">
+					<p>
+						<label for="nome">Nome da Estufa:</label>
+						<span>{{$alarme->nome}}</span>	
+					</p>
+					
+					@if($alarme->regra == ">")
+					<p>		
+						<label for="regra">Regra</label>
+						<span>Valores Superiores a {{$alarme->valor}} {{$alarme->unidade}}</span>
+					</p>
+					@else
+					<p>		
+						<label for="regra">Regra:</label>
+						<span>Valores Inferiores a {{$alarme->valor}} {{$alarme->unidade}}</span>
+					</p>
+					@endif
+					<p>
+						<label for="parametro">Parametro:</label>
+						<span>{{$alarme->parametro}}</span>	
+					</p>
+					<p>
+						<label>Descrição:</label>
+						<span>{{$alarme->descricao}}</span>
+					</p>
+				</div>									
+			</div>							
+			<div class="form-group">
+				<div class="input-group-addon">
+					<a href="/admin/alarmes" role="button" name="cancelar"class="btn btn-default pull-right" toggle="tooltip" data-placement="top" title="Cancelar">Voltar</a>
+					<a class="btn btn-success pull-right" toggle="tooltip" data-placement="top" title="Editar Alarme"  role="button" name="editar" href="#">Editar</a>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
+</div>
+</div>
 </div>
 @endsection
 @section('customScripts')

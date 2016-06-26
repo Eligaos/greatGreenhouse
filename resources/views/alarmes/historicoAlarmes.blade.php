@@ -23,6 +23,7 @@
 						<th>Estufa</th>
 						<th>Regra</th>
 						<th>Tipo</th>
+						<th>Valor</th>
 						<th>Descricao</th>
 					</tr>
 				</thead>		
@@ -34,36 +35,40 @@
 						</td>
 						@if($alarme->regra == ">")
 						<td>		
-							<span>Valores Superiores a {{$alarme->valor}} {{$alarme->unidade}}</span>
+							<span>Valores Superiores a {{$alarme->alarme_valor}} {{$alarme->unidade}}</span>
 						</td>
 						@else
 						<td>		
-							<span>Valores Inferiores a {{$alarme->valor}} {{$alarme->unidade}}</span>
+							<span>Valores Inferiores a {{$alarme->alarme_valor}} {{$alarme->unidade}}</span>
 						</td>
 						@endif
 						<td>		
 							<span>{{$alarme->parametro}}</span>
-						</td><td>		
-						<span>{{$alarme->descricao}}</span>
-					</td>		
-				</tr>													
-				@endforeach
-			</tbody>
-		</table>	
-	</div>
-
-	@else
-	<div class="text-center" >
-		<h4> Não existem ocorrência de alarmes</h4>
-	</div>
-	@endif	
-
-	<div class="form-group ">
-		<div class="input-group-addon ">
-			<a href="{{ url()->previous() }}" class="btn btn-default pull-right">Voltar</a>
+						</td>
+						<td>		
+							<span>{{$alarme->leitura_valor}}</span>
+						</td>
+						<td>		
+							<span>{{$alarme->descricao}}</span>
+						</td>		
+					</tr>													
+					@endforeach
+				</tbody>
+			</table>	
 		</div>
-	</div>	
-</div>			
+
+		@else
+		<div class="text-center" >
+			<h4> Não existem ocorrência de alarmes</h4>
+		</div>
+		@endif	
+
+		<div class="form-group ">
+			<div class="input-group-addon ">
+				<a href="{{ url()->previous() }}" class="btn btn-default pull-right">Voltar</a>
+			</div>
+		</div>	
+	</div>			
 </div>
 @endsection
 
