@@ -12,14 +12,14 @@
 		<div class="panel-heading">
 			<h3 class="modal-title" >Lista de Estufas</h3>
 		</div>
+					
+	@if( Session::get('message'))
+		<div class="col-xs-12 col-md-12 col-lg-12 alert alert-info">
+			<span > {{ Session::get('message') }}</span>
+		</div>
+		@endif
 		<div class="panel-body">
-			
 
-			@if( Session::get('message'))
-			<div class="text-center">
-				<span class="alert alert-info"> {{ Session::get('message') }}</span>
-			</div>
-			@endif
 			<div class="table-container">
 				@if(count($lista)!=0)							
 				<table id="dataTable" class="table table-filter table-striped table-bordered table-responsive">

@@ -29,8 +29,6 @@ class EstufaController extends Controller
 
 	public function listarEstufas(){ 
 		$lista = $this->eService->getEstufas($this->exploracaoSelecionada);
-                 //\Debugbar::info(Auth::check());
-
 		return view('estufas.listagemEstufas', compact('lista'));
 	}
 
@@ -41,7 +39,7 @@ class EstufaController extends Controller
 		if($exists){
 			return Redirect::to("admin/estufas")->with('message', 'Estufa guardada com sucesso!');
 		}else{
-			return Redirect::to("/admin/estufas/adicionar")->with('message', 'Já existe uma Estufa com esse nome!');
+			return Redirect::to("/admin/estufas/adicionar")->with('message', 'Já existe uma Estufa com esse nome!')->withInput();
 		}
 	}
 
@@ -64,7 +62,7 @@ class EstufaController extends Controller
         if($estufa){
             return Redirect::to("/admin/estufas/detalhes/{$estufa->id}")->with('message', 'Estufa editada com sucesso!');
         }else{
-            return Redirect::to("/admin/estufas/editar/{$estufa->id}")->with('message', 'Já existe um Terreno com esse nome');
+            return Redirect::to("/admin/estufas/editar/{$estufa->id}")->with('message', 'Já existe um Terreno com esse nome')->withInput();
         }
     }
 
@@ -72,15 +70,4 @@ class EstufaController extends Controller
 		$setores = $this->eService->getSetores($idEstufa);
 		return $setores;	
 	}
-
-		/*$input = Input::except('_token');
-		$exploracaoSelecionada = Session::get('exploracaoSelecionada');
-		$estufa = $this->eService->saveEditEstufa($exploracaoSelecionada, $input, $idE);
-		if($estufa){
-			return Redirect::to("/admin/estufas/detalhes/{$estufa->id}")->with('message', 'Estufa guardada com sucesso!');
-		}else{
-			return Redirect::to("/admin/estufas/editar/{$estufa->id}")->with('message', 'Já existe um Terreno com esse nome');
-		}
-	}*/
-
 }

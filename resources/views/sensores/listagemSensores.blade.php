@@ -11,8 +11,8 @@
 		</div>
 		<div class="panel-body"> 
 			@if( Session::get('message'))
-			<div class="text-center">
-				<span class="alert alert-info"> {{ Session::get('message') }}</span>
+			<div class="col-xs-12 col-md-12 col-lg-12 alert alert-info">
+				<span > {{ Session::get('message') }}</span>
 			</div>
 			@endif
 			<div class="table-container">

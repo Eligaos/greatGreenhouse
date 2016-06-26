@@ -14,17 +14,24 @@
 		</div>
 		<div class="panel-body">
 			<form id="registerForm" method="POST" action="/admin/estufas/adicionar/submit">
-				<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">							
+				<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">								@if (Session::get('message') )
+				<div class="col-xs-12 col-md-12 col-lg-12 alert alert-danger">
+					<h4>Por favor corrija os seguintes erros:</h4>
+					<ul>
+						<li>{{ Session::get('message')}}</li>
+					</ul>
+				</div>
+				@endif
 				<div class="form-group">
 					<h4 class="border-bottom sm-margin-left">Dados da Estufa</h4>
 					<div class="col-xs-12 col-md-12">
 						<label for="nome">Nome da Estufa</label>
 						<div class="input-group margin-bottom">				
-							<input type="text" class="form-control" id="nome"  name="nome" placeholder="Insira o nome da Estufa" required><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+							<input type="text" class="form-control"  value="{{old('nome')}}" id="nome"  name="nome" placeholder="Insira o nome da Estufa" required><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
 						</div>
 						<label for="descricao">Descrição</label>
 						<div class="input-group margin-bottom">											
-							<input type="text" class="form-control" id="descricao"  name="descricao" placeholder="Insira uma descrição para estufa"><span class="input-group-addon"></span>
+							<input type="text" class="form-control" value="{{old('descricao')}}" id="descricao"  name="descricao" placeholder="Insira uma descrição para estufa"><span class="input-group-addon"></span>
 						</div>
 					</div>								
 					<div class="form-group ">
@@ -67,18 +74,11 @@
 						</div>
 					</div>
 					<div>
-						@if (Session::get('message') )
-						<div class="col-xs-12 col-md-12 col-lg-3 alert alert-danger">
-							<h4>Por favor corrija os seguintes erros:</h4>
-							<ul>
-								<li>{{ Session::get('message')}}</li>
-							</ul>
-						</div>
-						@endif
+						
 					</div>
 				</div>
 				<div class="panel-footer"> 
-				<div class="col-sm-12 input-group">
+					<div class="col-sm-12 input-group">
 						<a href="{{ url()->previous() }}" role="button" name="cancelar"class="btnL btn btn-default pull-right">Cancelar</a>
 						<input type="submit" name="submit" id="submit" value="Guardar" class="btn btn-success pull-right">
 					</div>

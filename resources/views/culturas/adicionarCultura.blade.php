@@ -14,7 +14,6 @@
 		<div class="panel-heading">
 			<h3 class="modal-title">Adicionar Cultura</h3>
 		</div>
-		<div class="panel-body">
 			@if (count($errors) > 0 )
 			<div class="col-xs-12 col-md-12 alert alert-danger">
 				<h4>Por favor corrija os seguintes erros:</h4>
@@ -25,6 +24,8 @@
 				</ul>
 			</div>
 			@endif
+		<div class="panel-body">
+		
 			<form id="registerForm" method="POST" action="/admin/culturas/adicionar/submit">
 				<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">							
 				<div class="form-group">

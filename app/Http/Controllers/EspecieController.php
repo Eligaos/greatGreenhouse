@@ -18,7 +18,7 @@ class EspecieController extends Controller
 	{
 		$this->middleware('auth');
 		$this->espService = $espService;
-        Session::forget('filterPesquisa');
+		Session::forget('filterPesquisa');
 		
 	}
 	public function listarEspecies(){
@@ -35,7 +35,15 @@ class EspecieController extends Controller
 	public function adicionarEspecie(){
 		$input = Input::except('_token');
 		$exists = $this->espService->criarEspecie($input);
-		return Redirect::to("admin/especies")->with('message', 'Espécie guardada com sucesso!');
+
+		if($exists){
+			
+			return Redirect::to("admin/especies")->with('message', 'Espécie guardada com sucesso!');
+		}else{
+			return Redirect::to("/admin/especies/adicionar")->with('message', 'Já existe uma Espécie com esse nome')->withInput();
+		}
+
+
 	}
 
 
@@ -51,12 +59,12 @@ class EspecieController extends Controller
 
 	public function saveEditEspecie($id){ 
 		$input = Input::except('_token');  
- 
+
 		$especie = $this->espService->saveEditEspecie($input, $id);
 		if($especie){
-			return Redirect::to("/admin/especies/detalhes/$id")->with('message', 'Espécie guardada com sucesso!');
+			return Redirect::to("/admin/especies/")->with('message', 'Espécie guardada com sucesso!');
 		}else{
-			return Redirect::to("/admin/especies/editar/$id")->withInput()->with('message', 'Já existe uma Espécie com esse nome');
+			return Redirect::to("/admin/especies/editar/$id")->withInput()->with('message', 'Já existe uma Espécie com esse nome')->withInput();
 		}
 	}
 }

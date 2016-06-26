@@ -15,16 +15,22 @@
 			<fieldset>
 				<div class="col-xs-12 col-md-12">
 					<p>
-					<label >Nome:</label>
-					<span>{{Auth::getUser()->name}}</span>
+						<label >Nome:</label>
+						<span>{{Auth::getUser()->name}}</span>
 					</p>
 					<p>
-					<label>E-mail: </label>
-					<span>{{Auth::getUser()->email}}</span>
+						<label>E-mail: </label>
+						<span>{{Auth::getUser()->email}}</span>
 					</p>
 					<p>
-					<label>Nº Telemóvel: </label>
-					<span>{{Auth::getUser()->cellphone}}</span>
+						<label>Nº Telemóvel: </label>
+						@if(Auth::getUser()->cellphone != "")
+						<span>{{Auth::getUser()->cellphone}}</span>	
+						@else
+						Não Definido
+						@endif
+						
+						
 					</p>
 				</fieldset>
 			</div>

@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Services\UserService;
 use Illuminate\Http\Request;
+
+
 use App\Http\Requests;
+use App\Http\Requests\PerfilRequest;
 use App\Services\HomeService;
 use App\Services\EstufaService;
 use App\Services\CulturaService;
@@ -88,7 +91,7 @@ class HomeController extends Controller
 		return Redirect::to('admin/exploracoes/listar');
 	}
 	
-	public function saveEditPerfil() {
+	public function saveEditPerfil(PerfilRequest $request) {
 
 		$user = User::find(Auth::getUser()->id);
 
@@ -101,10 +104,14 @@ class HomeController extends Controller
 				Session::flash('errors', $errors);
 				return Redirect::to('/admin/perfil/editar');
 			}
+
+			$user->name = $input['name'];
+			$user->email = $input['email'];
+			$user->cellphone = $input['cellphone'];
 			$user->save();
 			return Redirect::to('/admin/perfil');
 		}
-		return redirect('/admin/perfil/editar');
+		return redirect('/admin/perfil/editar')->withInput(Request::except('password','password_confirmation'));
 	}
 
 	public function logout() {

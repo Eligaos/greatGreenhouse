@@ -70,7 +70,7 @@ class CulturaController extends Controller
 		if($cultura){
 			return Redirect::to("/admin/culturas/detalhes/$idC")->with('message', 'Cultura guardada com sucesso!');
 		}else{
-			return Redirect::to("/admin/culturas/editar/$idC")->with('message', 'Já existe uma Cultura com esse nome!');
+			return Redirect::to("/admin/culturas/editar/$idC")->with('message', 'Já existe uma Cultura com esse nome!')->withInput();
 		}
 	}
 }

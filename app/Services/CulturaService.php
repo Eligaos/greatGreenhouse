@@ -27,10 +27,6 @@ class CulturaService
 		return Estufa::join('setores', 'estufas.id', '=', 'setores.estufa_id')->join('culturas','setores.id', '=','culturas.setor_id')->where('exploracoes_id', '=', $idExp)->select('estufas.id as estufa_id', 'setores.id as setor_id', 'culturas.id as cultura_id', 'estufas.nome as estufa_nome', 'setores.nome as setor_nome', 'culturas.nome as cultura_nome')->get();
 	}
 	
-/*	public function getSetorByCultura($idSetor){ 
-		$setor = Setor::find($idSetor);
-		return $setor;
-	}*/
 	public function adicionarCultura($input){ 
 		if($input["tipo_cultivo"]=="outro"){
 			$input["tipo_cultivo"] = $input["inpOutro"];

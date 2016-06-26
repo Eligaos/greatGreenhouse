@@ -13,8 +13,15 @@ class EspecieService
 	
 
 	public function criarEspecie($input){ 
+		$exists = Especie::where("nome_comum", '=', $input["nome_comum"])->first();
 
-		return Especie::create($input);
+		if($exists == null){
+
+			return $exists = Especie::create($input);;	
+		}else{
+			return false;
+		}
+
 	}
 
 
