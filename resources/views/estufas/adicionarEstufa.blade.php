@@ -14,11 +14,13 @@
 		</div>
 		<div class="panel-body">
 			<form id="registerForm" method="POST" action="/admin/estufas/adicionar/submit">
-				<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">								@if (Session::get('message') )
-				<div class="col-xs-12 col-md-12 col-lg-12 alert alert-danger">
+				<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">					@if (count($errors) > 0 )
+				<div class="col-xs-12 col-md-12 alert alert-danger">
 					<h4>Por favor corrija os seguintes erros:</h4>
 					<ul>
-						<li>{{ Session::get('message')}}</li>
+						@foreach ($errors->all() as $error)
+						<li>{{ $error}}</li>
+						@endforeach
 					</ul>
 				</div>
 				@endif

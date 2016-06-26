@@ -8,17 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class ExploracaoService
 {
 	public function adicionarExploracao($input){
-		$exists = Exploracao::where('nome','=',$input['nome'])->first();
-		if($exists != null){
-			return null;
-		}
-		$exploracao = Exploracao::create($input);
-		return $exploracao;
+
+		return Exploracao::create($input);
 	}
 
 
 	public function listarExploracao(){
-		return Exploracao::get();
+		return Exploracao::paginate(5);
 	}
 
 	public function procurarExploracao($id){ 

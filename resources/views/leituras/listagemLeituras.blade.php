@@ -5,10 +5,7 @@
 <link href="{{asset('css/registoManual/timePicker.css')}}" rel="stylesheet" />
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
-
-
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
 <link href="{{asset('css/associacoesTiposLeitura/adicionarAssociacao.css')}}" rel="stylesheet">
 <link href="{{asset('css/leituras/listagemleituras.css')}}" rel="stylesheet">
@@ -23,6 +20,12 @@
 		<div class="panel-heading margin-bottom">
 			<h3 class="modal-title" >Lista de Leituras</h3>
 		</div>
+			
+		@if( Session::get('message'))
+		<div class="col-xs-12 col-md-12 col-lg-12 alert alert-info">
+			<span > {{ Session::get('message') }}</span>
+		</div>
+		@endif
 		<div class="panel-body"> 
 			<div class="form-group margin-bottom">
 				<form id="form" method="POST">
@@ -173,6 +176,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/locale/pt.js"></script>
 	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/modules/no-data-to-display.js"></script>
 	<script src="https://code.highcharts.com/modules/exporting.js"></script>
 
 

@@ -59,7 +59,13 @@ class LeituraService
 			->where('exploracoes.id', '=', $idExp)
 			->orderBy('data', 'desc')
 			->take(32)->get();
-			array_push($tudo,$res);
+			if(count($res) != 0){
+
+				array_push($tudo,$res);
+			}
+		}
+		if(count($tudo) == 0){
+			$tudo['estufa_id'] = $id;
 		}
 
 		return $tudo;
@@ -314,17 +320,17 @@ class LeituraService
 
 		if(isset($data) ){
 			
-		for ($i=0; $i < count($data); $i++) { 
-			if($data[$i]["Leitura"] == 0){
-				$data[$i]["Leitura"] = "Automática";
-			}else{
-				$data[$i]["Leitura"] = "Manual";
-			}
+			for ($i=0; $i < count($data); $i++) { 
+				if($data[$i]["Leitura"] == 0){
+					$data[$i]["Leitura"] = "Automática";
+				}else{
+					$data[$i]["Leitura"] = "Manual";
+				}
 
-			if($data[$i]["Setor"] == "Nenhum"){
-				$data[$i]["Setor"] = "Geral";
+				if($data[$i]["Setor"] == "Nenhum"){
+					$data[$i]["Setor"] = "Geral";
+				}
 			}
-		}
 			if(count($data) != 0){
 				$exp = Exploracao::find($idExp);
 
@@ -338,10 +344,10 @@ class LeituraService
 
 				})->download('xlsx');
 			}
-		
+
 
 		}
-			return Redirect::to('admin/leituras');
+		return Redirect::to('admin/leituras');
 	}
 
 	public function pesquisar($idExp,$input)

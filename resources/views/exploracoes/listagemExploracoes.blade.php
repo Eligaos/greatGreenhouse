@@ -27,13 +27,12 @@
 							<h3 class="modal-title">Lista de Explorações Agrícolas</h3>
 
 						</div>
+						@if( Session::get('message'))
+						<div class="col-xs-12 col-md-12 col-lg-12 alert alert-info">
+							<span > {{ Session::get('message') }}</span>
+						</div>
+						@endif
 						<div class="panel-body">
-							@if( Session::get('message'))
-							<div class="text-center">
-								<span class="alert alert-info"> {{ Session::get('message') }}</span>
-							</div>
-							@endif
-
 							<form method="POST" action="/admin/home">
 								<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">							
 								<div class="table-container">
@@ -81,7 +80,8 @@
 							</div>
 							<div class="panel-footer"> 
 								<div class="col-sm-12 input-group">
-									<a href="/admin/exploracoes/adicionar" role="button" name="adicionar" id="adicionarExploracao" class="btn btn-success pull-right">Adicionar Exploração</a>
+									<a href="/admin/exploracoes/adicionar" role="button" name="adicionar" id="adicionarExploracao" class="btn btn-success pull-left">Adicionar Exploração</a>
+										<div  id="navigation"class="input-group pull-right"> {!! $lista->render() !!}</div>
 								</div>
 							</div>	
 						</div>

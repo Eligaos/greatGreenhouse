@@ -91,7 +91,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/locale/pt.js"></script>
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
-
+<script src="https://code.highcharts.com/modules/no-data-to-display.js"></script>
 
 <script src="{{asset('js/home/home.js')}}"></script>
 <script src="{{asset('js/home/checkBox.js')}}"></script>

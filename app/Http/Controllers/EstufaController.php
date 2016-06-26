@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use App\Http\Requests\EstufaRequest;
 use App\Services\EstufaService;
 use Illuminate\Support\Facades\Input;
 use Redirect;
@@ -19,7 +20,7 @@ class EstufaController extends Controller
 		$this->middleware('auth');
 		$this->eService = $eService;
 		$this->exploracaoSelecionada = Session::get('exploracaoSelecionada');
-        Session::forget('filterPesquisa');
+		Session::forget('filterPesquisa');
 		
 	}
 
@@ -33,14 +34,12 @@ class EstufaController extends Controller
 	}
 
 
-	public function adicionarEstufa(){     	
+	public function adicionarEstufa(EstufaRequest $request){     	
 		$input = Input::except('_token');
-		$exists = $this->eService->adicionarEstufa($this->exploracaoSelecionada, $input);
-		if($exists){
-			return Redirect::to("admin/estufas")->with('message', 'Estufa guardada com sucesso!');
-		}else{
-			return Redirect::to("/admin/estufas/adicionar")->with('message', 'Já existe uma Estufa com esse nome!')->withInput();
-		}
+		$this->eService->adicionarEstufa($this->exploracaoSelecionada, $input);
+
+		return Redirect::to("/admin/estufas")->with('message', 'Estufa guardada com sucesso!');
+		
 	}
 
 	public function detalhesEstufa($id){
@@ -57,16 +56,16 @@ class EstufaController extends Controller
 
 	public function saveEditEstufa($idE){ 
 
-        $input = Input::except('_token');
-        $estufa = $this->eService->saveEditEstufa($input, $idE);
-        if($estufa){
-            return Redirect::to("/admin/estufas/detalhes/{$estufa->id}")->with('message', 'Estufa editada com sucesso!');
-        }else{
-            return Redirect::to("/admin/estufas/editar/{$estufa->id}")->with('message', 'Já existe um Terreno com esse nome')->withInput();
-        }
-    }
+		$input = Input::except('_token');
+		$estufa = $this->eService->saveEditEstufa($input, $idE);
+		if($estufa){
+			return Redirect::to("/admin/estufas/detalhes/{$estufa->id}")->with('message', 'Estufa editada com sucesso!');
+		}else{
+			return Redirect::to("/admin/estufas/editar/{$estufa->id}")->with('message', 'Já existe um Terreno com esse nome')->withInput();
+		}
+	}
 
-    public function getSetores($idEstufa){
+	public function getSetores($idEstufa){
 		$setores = $this->eService->getSetores($idEstufa);
 		return $setores;	
 	}

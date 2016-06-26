@@ -25,10 +25,9 @@ $(function() {
 
    }).done(function(dados){
 
-     var elem = "#monitor"+dados[0][0].estufa_id;
+    if(dados['estufa_id'] == undefined){
 
      var data = [];
-
      for (var i = 0; i < dados.length; i++) {
 
        var points = [];
@@ -45,25 +44,50 @@ $(function() {
             valueSuffix: " "+dados[i][0].unidade
           }
         });
-        
+
       }
     }
 
-    $(elem).highcharts({
-     chart: {
-      zoomType: 'x'
-    },credits : {
-      enabled : false
-    },
-    title: {
-      text: 'Monitor Estufa ' + dados[0][0].estufa_id
-    },
-     subtitle: {
-    text: document.ontouchstart === undefined ?
-    'Clique e arraste no gráfico para fazer zoom' : 'Faça pinch para fazer zoom'
-  },
-    xAxis: {
-      type: 'datetime',
+    var elem = "#monitor"+dados[0][0].estufa_id;
+
+
+  }
+
+
+  if(dados['estufa_id'] != undefined){
+
+    var elem = "#monitor"+dados['estufa_id'];
+    
+  }
+
+  console.log(elem);
+
+
+
+  $(elem).highcharts({
+   chart: {
+    zoomType: 'x',
+    resetZoomButton: {
+      position: {
+                    // align: 'right', // by default
+                    // verticalAlign: 'top', // by default
+                    align:'left',
+                    x: -40,
+                    y: -65
+                  }
+                }
+              },credits : {
+                enabled : false
+              },
+              title: {
+                text: 'Últimas Leituras'
+              },
+              subtitle: {
+                text: document.ontouchstart === undefined ?
+                'Clique e arraste no gráfico para fazer zoom' : 'Faça pinch para fazer zoom'
+              },
+              xAxis: {
+                type: 'datetime',
             dateTimeLabelFormats: { // don't display the dummy year
             hour: '%H:%M',
             month: '%e/%b',
@@ -74,6 +98,16 @@ $(function() {
         yAxis: {
           title: {
             text: null
+          }
+        },
+        lang: {
+          noData: "Sem Dados"
+        },
+        noData: {
+          style: {
+            fontWeight: 'bold',
+            fontSize: '15px',
+            color: '#303030'
           }
         },
         tooltip: {
@@ -91,7 +125,7 @@ $(function() {
         series: data
       });
 
-  });
+});
  };
 
 });

@@ -47,10 +47,6 @@ class EstufaService
 
 
   public function adicionarEstufa($idExp, $input){
-    $exists = Estufa::where('nome','=',$input['nome'])->first();
-    if($exists != null){
-      return null;
-    }
     $estufa = Estufa::create([
       "nome"=> $input['nome'],
       "descricao"       => $input['descricao'],
@@ -75,14 +71,11 @@ class EstufaService
  }
 
 
-//Editar Estufa e Sector TODO Setor
  public function saveEditEstufa($input, $idE){
 
   $estufa = $this->procurarEstufaSemSetorGeral($idE);
-        /*	$nomeSetor = $input['nomeSetor'];
-        $descricaoSetor = $input['descricaoSetor'];*/
-        if($estufa[0]->nome == $input['nome']){
-          $estufa[0]->descricao = $input['descricao'];
+  if($estufa[0]->nome == $input['nome']){
+    $estufa[0]->descricao = $input['descricao'];
             if(count($estufa[1])==0){ //se estufa não tem setores;
               if(isset($input["nomeSetor"]) && count($input["nomeSetor"])>0){
                 $this->adicionarSetores($input,$estufa[0]);

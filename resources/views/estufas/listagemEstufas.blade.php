@@ -64,6 +64,7 @@
 		<div class="panel-footer"> 
 			<div class="col-sm-12 input-group">
 				<a  href="/admin/estufas/adicionar" role="button" name="adicionar" class="btn btn-success center-block pull-left" toggle="tooltip" data-placement="top" title="Adicionar Estufa" >Adicionar nova Estufa</a>
+					<div  id="navigation"class="input-group pull-right"> {!! $lista->render() !!}</div>
 			</div>
 		</div>
 

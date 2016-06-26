@@ -108,19 +108,37 @@ $(document).ready(function() {
 
 
 
-$('#grafico').click(function(){
-  var dados = {};
-  dados['_token'] = $("[name=_token]").val();
-  dados['tipo_id'] =  $('#tipo_id').selectpicker('val');
-  dados['ddEstufa'] =  $('#ddEstufa').selectpicker('val');
-  dados['setor_id'] = $('#setor_id').selectpicker('val');
-  dados['data_inicial'] =  $('#dataInicial').val();
-  dados['data_final'] =  $('#dataFinal').val()
-
-  $.post('/admin/leituras/grafico', dados, function(dados) {
+  $('#grafico').click(function(){
+    var dados = {};
+    dados['_token'] = $("[name=_token]").val();
+    dados['tipo_id'] =  $('#tipo_id').selectpicker('val');
+    dados['ddEstufa'] =  $('#ddEstufa').selectpicker('val');
+    dados['setor_id'] = $('#setor_id').selectpicker('val');
+    dados['data_inicial'] =  $('#dataInicial').val();
+    dados['data_final'] =  $('#dataFinal').val()
 
 
-  }).done(function(dados){
+    if(dados['tipo_id'] == null || dados['ddEstufa'] == "" || dados['setor_id'] == ""){
+
+      if (dados['tipo_id'] == null && dados['ddEstufa'] == "" && dados['setor_id'] == ""){
+       swal("Parâmetros em Falta", "Escolha uma Estufa, um Setor e pelo menos um Tipo");
+       return -1;
+     }else if (dados['tipo_id'] == null && dados['ddEstufa'] != "" && dados['setor_id'] != ""){
+      swal("Parâmetros em Falta", "Escolha pelo menos um Tipo");
+      return -1;
+    }else if(dados['ddEstufa'] == ""){
+     swal("Parâmetros em Falta", "Escolha uma Estufa e um Setor");
+     return -1;
+   }else if(dados['setor_id'] == ""){
+     swal("Parâmetros em Falta", "Escolha um Setor");
+     return -1;
+   }
+
+ }
+ $.post('/admin/leituras/grafico', dados, function(dados) {
+
+
+ }).done(function(dados){
 
 
    if(dados != null){
@@ -149,23 +167,43 @@ $('#grafico').click(function(){
     }
   }
 
-  
+
 
   $("#graficoDiv").highcharts({
    chart: {
-    zoomType: 'x'
-  },credits : {
-    enabled : false
-  },
-  title: {
-    text: ''
-  },
-  subtitle: {
-    text: document.ontouchstart === undefined ?
-    'Clique e arraste no gráfico para fazer zoom' : 'Faça pinch para fazer zoom'
-  },
-  xAxis: {
-    type: 'datetime',
+    zoomType: 'x',
+    resetZoomButton: {
+      position: {
+                    // align: 'right', // by default
+                    // verticalAlign: 'top', // by default
+                    align:'left',
+                    x: -40,
+                    y: -65
+                  }
+                }
+
+              },credits : {
+                enabled : false
+              },
+              title: {
+                text: ''
+              },
+              subtitle: {
+                text: document.ontouchstart === undefined ?
+                'Clique e arraste no gráfico para fazer zoom' : 'Faça pinch para fazer zoom'
+              },
+              lang: {
+                noData: "Sem Resultados"
+              },
+              noData: {
+                style: {
+                  fontWeight: 'bold',
+                  fontSize: '15px',
+                  color: '#303030'
+                }
+              },
+              xAxis: {
+                type: 'datetime',
             dateTimeLabelFormats: { // don't display the dummy year
             hour: '%H:%M',
             month: '%e/%b',
@@ -200,10 +238,9 @@ $('#grafico').click(function(){
 
 
 
-
 $('#pesquisar').click(function(){//fazer get para o serviço e devolver as queries
   $('#dataTable').show();
-$('#navigation').show();
+  $('#navigation').show();
 
 
 //var tipo = $("#tipo_id option:selected").text();
@@ -215,7 +252,8 @@ dados['tipo_id'] =  $('#tipo_id').selectpicker('val');
 dados['ddEstufa'] =  $('#ddEstufa').selectpicker('val');
 dados['setor_id'] = $('#setor_id').selectpicker('val');
 dados['data_inicial'] =  $('#dataInicial').val();
-dados['data_final'] =  $('#dataFinal').val()
+dados['data_final'] =  $('#dataFinal').val();
+
 
 $.post('/admin/leituras/', dados);
 

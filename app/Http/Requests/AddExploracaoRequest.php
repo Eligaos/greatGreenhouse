@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class AdiconarExploracao extends Request
+class AddExploracaoRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,9 +13,14 @@ class AdiconarExploracao extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
-
+       public function messages()
+    {
+        return [
+        'nome.unique' => 'Já existe um Terreno com esse nome!',
+        ];
+    }
     /**
      * Get the validation rules that apply to the request.
      *
@@ -24,7 +29,7 @@ class AdiconarExploracao extends Request
     public function rules()
     {
         return [
-            //
+        'nome' => 'required|min:2|unique:exploracoes',
         ];
     }
 }
