@@ -82,7 +82,7 @@ $(function () {
                 // button.fadeOut( "slow" );
                 //var hey = $("#dataTable > button :parent tr");
                // hey.fadeOut( "slow" );
-                var disapear = $("#dataTable input[id=checked]").closest('tr')
+                var disapear = $("#dataTable input[id=checked]:checked").closest('tr')
                 disapear.fadeOut( "slow" );
                 //console.log(hey);
             }
