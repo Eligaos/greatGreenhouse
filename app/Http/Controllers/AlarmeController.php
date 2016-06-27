@@ -63,4 +63,9 @@ class AlarmeController extends Controller
 		$lista = $this->aService->listarAlarmeDistinct($this->exploracaoSelecionada); 
 		return view('alarmes.editarAlarmes', compact('lista'));
 	}
+
+	function checkOcorrencia(Request $request){
+		dd("hey");
+		dd($request->input());
+	}
 }

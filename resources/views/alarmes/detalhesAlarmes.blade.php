@@ -19,7 +19,6 @@
 						<label for="nome">Nome da Estufa:</label>
 						<span>{{$alarme->nome}}</span>	
 					</p>
-					
 					@if($alarme->regra == ">")
 					<p>		
 						<label for="regra">Regra</label>

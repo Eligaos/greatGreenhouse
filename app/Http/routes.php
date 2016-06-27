@@ -148,6 +148,8 @@ Route::group(['middleware' => ['web']], function ()
 	Route::post('/admin/alarmes/editar/{id}', 'AlarmeController@guardarEditarAlarme');
 	Route::get('/admin/alarmes/detalhes/{id}', 'AlarmeController@detalhesAlarme');
 	Route::get('/admin/alarmes/historico', 'AlarmeController@historicoAlarmes');
+	Route::post('/admin/alarmes/checkOcorrencia', 'AlarmeController@checkOcorrencia');
+
 
 	/**********COLABORADORES**********/
 	Route::get('/admin/colaboradores', 'LeituraController@listarLeituras');
