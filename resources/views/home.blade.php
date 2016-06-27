@@ -8,75 +8,78 @@
 @section('title', ' - Home')
 @section('content')
 
-	@foreach($estufas as $key => $estufa)
-	<div id="estufa-container" class="col-xs-12 col-sm-10 col-md-10 col-lg-6 text-center col-md-offset-1 col-sm-offset-2 col-lg-offset-0">
-		<div class="panel panel-success">
-			<div class="panel-heading">
-				<i class="fa fa-leaf"></i>
-				<h3><a class="btn btn-md btn-block btn-success" href="/admin/estufas/detalhes/{{$estufa->id}}">{{$estufa->nome}}</a></h3>
-			</div>
-			<div class="panel-body">
-				<div>
-					@if(count($ocorrencias)!=0)
-					@foreach($estufasID as $key => $id)
-					@if($estufa->id == $id)
-					<table id="dataTable" class="table table-filter table-striped table-bordered table-responsive ">
-						<thead>
-							<tr class="success">
-								<th class="col-xs-6 col-sm-5 col-md-2 text-center">Parâmetro</th>
-								<th class="col-xs-6 col-sm-5 col-md-2 text-center">Sensor</th>
-								<th class="col-xs-6 col-sm-5 col-md-2 text-center">Valor</th>
-								<th class="col-xs-6 col-sm-5 col-md-2 text-center">Visto</th>
-							</tr>
-						</thead>
-						<tbody>
-							@foreach($ocorrencias as $key => $ocorrencia)
-							@if($estufa->id == $ocorrencia->estufa_id)	
-							<tr>
-								<td name = alarmeId class="text-center">{{$ocorrencia->parametro}}
-								</td>					
-								<td class="text-center">{{$ocorrencia->nome}}
-								</td>
-								<td class="text-center">{{$ocorrencia->leitura_valor}} {{$ocorrencia->unidade}}
-								</td>
-								<td>
-									<span class="button-checkbox">
-										<button type="button" value={{$ocorrencia->alarme_id}} class="btn" data-color="primary">Visto</button>
-										<input type="checkbox" class="hidden" />
-									</span>
-								</td>
-							</tr>
-							@endif
-							@endforeach
-						</tbody>
-					</table>
-					@endif				
-					@endforeach				
-					@endif
-				</div>
-				<div class=" col-xs-12 col-sm-12 col-md-12 col-lg-12">
-					<div id="monitor{{$estufa->id}}" class="monitor">	
-					</div>
-
-				</div>
-			</div>
-			<div class="panel-footer">
-
-				<div id="culturas-container" >  
-					<ul>
-						@foreach($culturas as $key => $cultura)
-						@if($cultura->estufa_id == $estufa->id)
-						<li class=""><i class="glyphicon glyphicon-tree-deciduous"></i> <a href="/admin/culturas/detalhes/{{$cultura->cultura_id}}">{{$cultura->cultura_nome}}</a> </li>
-						@endif
-						@endforeach
-					</ul>
-				</div>
-			</div>
+@foreach($estufas as $key => $estufa)
+<div id="estufa-container" class="col-xs-12 col-sm-10 col-md-10 col-lg-6 text-center col-md-offset-1 col-sm-offset-2 col-lg-offset-0">
+	<div class="panel panel-success">
+		<div class="panel-heading">
+			<i class="fa fa-leaf"></i>
+			<h3><a class="btn btn-md btn-block btn-success" href="/admin/estufas/detalhes/{{$estufa->id}}">{{$estufa->nome}}</a></h3>
+			<meta name="_token" content="{{ csrf_token() }}"/>
 
 		</div>
+		<div class="panel-body">
+
+			<div>
+				@if(count($ocorrencias)!=0)
+				@foreach($estufasID as $key => $id)
+				@if($estufa->id == $id)
+				<table id="dataTable" class="table table-filter table-striped table-bordered table-responsive ">
+					<thead>
+						<tr class="success">
+							<th class="col-xs-6 col-sm-5 col-md-2 text-center">Parâmetro</th>
+							<th class="col-xs-6 col-sm-5 col-md-2 text-center">Sensor</th>
+							<th class="col-xs-6 col-sm-5 col-md-2 text-center">Valor</th>
+							<th class="col-xs-6 col-sm-5 col-md-2 text-center">Visto</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach($ocorrencias as $key => $ocorrencia)
+						@if($estufa->id == $ocorrencia->estufa_id)	
+						<tr>
+							<td name = alarmeId class="text-center">{{$ocorrencia->parametro}}
+							</td>					
+							<td class="text-center">{{$ocorrencia->nome}}
+							</td>
+							<td class="text-center">{{$ocorrencia->leitura_valor}} {{$ocorrencia->unidade}}
+							</td>
+							<td>
+								<span class="button-checkbox">
+									<button type="button" value="{{$ocorrencia->alarme_id}}-{{$ocorrencia->leitura_id}}" class="btn" data-color="primary">Visto</button>
+									<input id="checked" type="checkbox" class="hidden" />
+								</span>
+							</td>
+						</tr>
+						@endif
+						@endforeach
+					</tbody>
+				</table>
+				@endif				
+				@endforeach				
+				@endif
+			</div>
+			<div class=" col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<div id="monitor{{$estufa->id}}" class="monitor">	
+				</div>
+
+			</div>
+		</div>
+		<div class="panel-footer">
+
+			<div id="culturas-container" >  
+				<ul>
+					@foreach($culturas as $key => $cultura)
+					@if($cultura->estufa_id == $estufa->id)
+					<li class=""><i class="glyphicon glyphicon-tree-deciduous"></i> <a href="/admin/culturas/detalhes/{{$cultura->cultura_id}}">{{$cultura->cultura_nome}}</a> </li>
+					@endif
+					@endforeach
+				</ul>
+			</div>
+		</div>
+
 	</div>
-	@endforeach
-	<!-- /item -->
+</div>
+@endforeach
+<!-- /item -->
 @endsection
 
 @section('customScripts')

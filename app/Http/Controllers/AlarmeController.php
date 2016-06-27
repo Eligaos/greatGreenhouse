@@ -65,7 +65,8 @@ class AlarmeController extends Controller
 	}
 
 	function checkOcorrencia(Request $request){
-		dd("hey");
-		dd($request->input());
+		$input = $request->input();
+		$checked = $this->aService->checkOcorrencia($input);
+		return $checked;
 	}
 }

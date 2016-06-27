@@ -1,7 +1,9 @@
 $(function () {
-    $('.button-checkbox').each(function () {
-        
+ $.ajaxSetup({
+     headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') }
+ });
 
+ $('.button-checkbox').each(function () {
         // Settings
         var $widget = $(this),
         $button = $widget.find('button'),
@@ -23,8 +25,8 @@ $(function () {
             updateDisplay();
         });
         $checkbox.on('change', function () {
-            updateDisplay();
-        });
+          //  updateDisplay();
+      });
 
         // Actions
         function updateDisplay() {
@@ -44,7 +46,7 @@ $(function () {
                 .removeClass('btn-default')
                 .addClass('btn-' + color + ' active');                
 
-                postOcorrencia($button.attr("value"));
+                postOcorrencia($button.attr("value"), $button);
             }
             else {
                 $button
@@ -64,48 +66,28 @@ $(function () {
             }
         }
 
-        function postOcorrencia(id){
-
-
-          /*  $.ajax({
-                type: 'POST',
-                url: "/admin/alarmes/checkOcorrencia",
-                dataType: 'json',
-                data: { id_array: id },
-                success: function(data) {
-                    console.log(data);
-                }, error: function(data) {
-                    console.log(data);
-                },
-            });*/
-            $.post("/admin/alarmes/checkOcorrencia",
+        function postOcorrencia(id, button){
+            var res = id.split("-");
+            $.post('/admin/alarmes/checkOcorrencia',
             {
                 '_token': $('meta[name=csrf-token]').attr('content'),
-                ocorrenciaID: id
-            },function(data) {
-
-                if(data) {
-                    alert(JSON.stringify(data));
-                }
-                else {
-
-                    alert('fail!');
-                }
-            });
-
-          /* $.post("designs/saveimage", 
-            { 
-                "_token": $( _this ).find( 'input[name=_token]' ).val(),
-                'base64_image': yourDesigner.getProductDataURL() 
-            }, function(data) {
-                if(data) {
-                    alert(JSON.stringify(data));
-                }
-                else {
-
-                    alert('fail!');
-                }*/
+                alarmeID: res[0],
+                leituraID: res[1]
+            })
+            .error(
+               // ...
+               )
+            .success(
+                function(data){
+                // button.fadeOut( "slow" );
+                //var hey = $("#dataTable > button :parent tr");
+               // hey.fadeOut( "slow" );
+                var disapear = $("#dataTable input[id=checked]").closest('tr')
+                disapear.fadeOut( "slow" );
+                //console.log(hey);
             }
-            init();
-        });
+            );
+        }
+        init();
+    });
 });
