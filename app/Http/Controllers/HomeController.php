@@ -118,4 +118,12 @@ class HomeController extends Controller
 		Auth::logout();
 		return Redirect::to('/');
 	}
+
+	public function verAlerta(Request $request){
+		$input = $request->input();
+		Session::forget('alerta');		
+		if($input["verAlerta"]==1){
+			return Redirect::to('/admin/home');
+		}
+	}
 }

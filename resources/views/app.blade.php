@@ -13,6 +13,7 @@
 
   <link href="{{asset('css/home/geral.css')}}" rel="stylesheet">
   <link href="{{asset('css/home/barraLateral.css')}}" rel="stylesheet">
+  <link href="{{asset('css/sweetalert.css')}}" rel="stylesheet">
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <!-- Custom styles for this template -->
   @yield('customStyles')
@@ -26,7 +27,10 @@
      @if(Auth::check())
      <span>{{Auth::getUser()->name}}</span>
      @endif  </div>
-
+     @if(Session::get('alerta'))
+     <div id="alerta" hidden="true" >{{Session::get('alerta')[1]}}</div>
+     <meta name="_token" content="{{ csrf_token() }}"/>
+     @endif
      <div class="menu-list">
 
       <ul id="menu-content" class="menu-content collapse out">
@@ -64,7 +68,7 @@
 
        <li><a href="/admin/especies"><i class="glyphicon glyphicon-grain fa-lg"></i> Espécies</a></li>  
 
- 
+
        <li>
         <a href="/admin/perfil">
           <i class="fa fa-user fa-lg"></i> Perfil
@@ -93,6 +97,8 @@
 </body>
 <script src="{{asset('js/jquery/jquery-2.1.4.js')}}"></script>
 <script src="{{asset('js/bootstrap/bootstrap.js')}}"></script>
+<script src="{{asset('js/sweetalert.min.js')}}"></script>
 <script src="{{asset('js/geral.js')}}"></script>
+<script src="{{asset('js/alerta.js')}}"></script>
 @yield('customScripts')
 </html>

@@ -36,7 +36,7 @@
 						@foreach($ocorrencias as $key => $ocorrencia)
 						@if($estufa->id == $ocorrencia->estufa_id)	
 						<tr>
-							<td name = alarmeId class="text-center">{{$ocorrencia->parametro}}
+							<td name = "alarmeId" class="text-center">{{$ocorrencia->parametro}}
 							</td>					
 							<td class="text-center">{{$ocorrencia->nome}}
 							</td>

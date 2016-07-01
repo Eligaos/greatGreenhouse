@@ -1,7 +1,6 @@
 "use strict";
 $(document).ready(function() {
   var parametroArr =[];
-
   $( "#ddEstufa" ).on('changed.bs.select',function() {
     $("#ass_id").children().remove();
     $("#valor_span").text("");

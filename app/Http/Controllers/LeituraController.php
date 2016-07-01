@@ -54,7 +54,7 @@ class LeituraController extends Controller
      public function getAssociacoesDistinct($estufaID){//para o js do registoManual
         $estufa = $this->eService->procurarEstufa($estufaID);
         $tipos = $this->aService->getAssociacoesDistinct($estufa);
-        return $tipos;
+        return array_unique($tipos);
     }
 
     public function adicionarRegistoManual(){
@@ -72,18 +72,18 @@ class LeituraController extends Controller
 
     public function getLastHoursLeituras($id){
 
-       return $this->lService->getLastHoursLeiturasFiltered($id, $this->exploracaoSelecionada);
+     return $this->lService->getLastHoursLeiturasFiltered($id, $this->exploracaoSelecionada);
 
-   }
-   public function exportar(){
+ }
+ public function exportar(){
     return $this->lService->export($this->exploracaoSelecionada);
 
 }
 
 public function grafico(){
-   $input = Input::all();
-   return $this->lService->gerarGrafico($this->exploracaoSelecionada, $input);
-   
+ $input = Input::all();
+ return $this->lService->gerarGrafico($this->exploracaoSelecionada, $input);
+ 
 }
 
 public function pesquisar(){
