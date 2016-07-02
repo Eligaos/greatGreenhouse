@@ -82,14 +82,12 @@ Route::group(['middleware' => ['web']], function ()
 		Route::post('/admin/estufas/adicionar/submit', 'EstufaController@adicionarEstufa');
 		Route::get('/admin/estufas/setores', 'EstufaController@getSetores');
 
-<<<<<<< HEAD
 
 	Route::get('/admin/estufas/getEstufas', 'EstufaControlleraController@getEstufas');
 
-	/**********ESPÉCIES**********/
-=======
+
 		/**********ESPÉCIES**********/
->>>>>>> f9f19c4c137b9d2c5fd4e47f7832a4e80d2c568e
+
 
 		Route::get('/admin/especies', 'EspecieController@listarEspecies');
 		Route::get('/admin/especies/adicionar', 'EspecieController@adicionar');
