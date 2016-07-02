@@ -177,8 +177,8 @@ $(document).ready(function() {
                     // align: 'right', // by default
                     // verticalAlign: 'top', // by default
                     align:'left',
-                    x: -40,
-                    y: -65
+                    x: 0,
+                    y: -45
                   }
                 }
 

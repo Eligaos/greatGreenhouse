@@ -15,6 +15,16 @@
 		<div class="panel-heading">
 			<h3 class="modal-title">Registo Manual</h3>
 		</div>
+		@if (count($errors) > 0 )
+		<div class="col-xs-12 col-md-12 alert alert-danger">
+			<h4>Por favor corrija os seguintes erros:</h4>
+			<ul>
+				@foreach ($errors->all() as $error)
+				<li>{{ $error}}</li>
+				@endforeach
+			</ul>
+		</div>
+		@endif
 		<div class="panel-body">
 			<form id="registerForm" method="POST" action="/admin/registos/manual/submit">
 				<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
@@ -61,16 +71,7 @@
 							</div>
 						</div>	
 					</div>
-					@if (count($errors) > 0 )
-					<div class="alert alert-danger col-lg-3">
-						<h4>Por favor corrija os seguintes erros:</h4>
-						<ul>
-							@foreach ($errors->all() as $error)
-							<li>{{ $error}}</li>
-							@endforeach
-						</ul>
-					</div>
-					@endif
+
 				</div>
 			</div>
 			<div class="panel-footer"> 

@@ -60,8 +60,6 @@ $(function() {
     
   }
 
-  console.log(elem);
-
 
 
   $(elem).highcharts({

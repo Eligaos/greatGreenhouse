@@ -37,6 +37,7 @@ class CulturaController extends Controller
 		$lista = $this->eService->procurarEstufa($idEstufa);//$estufas[0] --> lista de estufas ; $estufas[1]--> lista de setores da estufa
 		return $lista;	
 	}
+
 	public function listarCulturas(){ 
 		
 		$estufas = $this->eService->getEstufas($this->exploracaoSelecionada);
@@ -45,6 +46,7 @@ class CulturaController extends Controller
 		}		
 		return view('culturas.listagemCulturas', compact('lista', 'estufas'));
 	}
+
 	public function adicionarCultura(CulturaRequest $request){   
 		$input = Input::except('_token');
 		//dd($input);
@@ -57,6 +59,7 @@ class CulturaController extends Controller
 		//$lista[0]-- array de culturas  $lista[1]--array dos setores de setores $lista[2]--array de estufas	
 		return view('culturas.detalhesCultura', compact('lista'));  		
 	}
+
 	public function editarCultura($id){
 		$lista = $this->cService->procurarCultura($id);
 		//$lista[0]-- array de estufa  $lista[1]--array dos setores da estufa
@@ -64,6 +67,7 @@ class CulturaController extends Controller
 		$especies = $this->espService->getEspecies();		
 		return view('culturas.editarCultura', compact('lista', 'estufas', 'especies'));  		
 	}
+	
 	public function saveEditCultura($idC){ 
 		$input = Input::except('_token');    
 		$cultura = $this->cService->saveEditCultura($input, $idC);

@@ -22,25 +22,6 @@ class LeituraService
 		return Leitura::join('associacoes', 'leituras.associacao_id', '=', 'associacoes.id')->join('setores','associacoes.setor_id', '=','setores.id')->join('estufas','setores.estufa_id', '=','estufas.id')->join('exploracoes', 'estufas.exploracoes_id','=','exploracoes.id')->join('sensores','associacoes.sensor_id', '=','sensores.id')->join('tipo_leitura','sensores.tipo_id', '=','tipo_leitura.id')->select('sensores.nome as sensor_nome', 'estufas.nome as estufa_nome', 'tipo_leitura.parametro', 'tipo_leitura.unidade', 'leituras.valor as valor','leituras.data as data','leituras.manual as manual','setores.nome as setor_nome')->where('exploracoes.id', '=', $idExp)->orderBy('data', 'desc')->paginate(15);
 	}
 
-	
-
-
-	public function getLastHoursLeituras($id, $idExp){ 
-		$lista1 =  Leitura::join('associacoes', 'leituras.associacao_id', '=', 'associacoes.id')
-		->join('setores','associacoes.setor_id', '=','setores.id')
-		->join('estufas','setores.estufa_id', '=','estufas.id')->join('exploracoes', 'estufas.exploracoes_id','=','exploracoes.id')
-		->join('sensores','associacoes.sensor_id', '=','sensores.id')->join('tipo_leitura','sensores.tipo_id', '=','tipo_leitura.id')
-		->select('sensores.nome as sensor_nome', 'estufas.id as estufa_id' , 'tipo_leitura.parametro', 'tipo_leitura.unidade', 'leituras.valor as valor','leituras.data as data','leituras.manual as manual','setores.nome as setor_nome')
-		->whereIn('tipo_leitura.id',  [1])
-		->where('estufas.id','=',$id)
-		->where('exploracoes.id', '=', $idExp)
-		->orderBy('data', 'desc')
-		->take(32)->get();
-		return [$lista1];
-	}
-
-
-
 
 	public function getLastHoursLeiturasFiltered($id, $idExp){ 
 		$tudo = [];
@@ -317,7 +298,6 @@ class LeituraService
 
 		}
 
-
 		if(isset($data) ){
 			
 			for ($i=0; $i < count($data); $i++) { 
@@ -339,9 +319,7 @@ class LeituraService
 					$excel->sheet('Folha 1', function($sheet) use ($data)
 					{
 						$sheet->fromArray($data);
-
 					});
-
 				})->download('xlsx');
 			}
 
@@ -352,10 +330,8 @@ class LeituraService
 
 	public function pesquisar($idExp,$input)
 	{
-		if(count($input) < 5){
-
+		if(!isset($input["tipo_id"])){
 			$input["tipo_id"] = [];
-
 		}
 		if(count($input["tipo_id"]) > 0 && $input["ddEstufa"] != "" && $input["setor_id"] != "" && $input["data_inicial"] != "" &&  $input["data_final"] != ""){
 			$lista = Leitura::join('associacoes', 'leituras.associacao_id', '=', 'associacoes.id')

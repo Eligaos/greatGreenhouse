@@ -30,15 +30,16 @@
 						<span>{{$lista[0]->nome}}</span>
 
 					</p>
-					<label class="margin-bottom" for="desc">Descrição: </label>									
+					<label class="margin-bottom" for="desc">Descrição: </label>						
 					<span>{{$lista[0]->descricao}}</span>
-				
 				</div>	
 			</div>								
 			<div class="form-group ">
 				<h4 class="border-bottom sm-margin-left">Setores</h4>
 				@if(count($lista[1])==1 && $lista[1][0]->nome == "Nenhum")
+				<div class="col-xs-12 col-md-12 margin-bottom">
 				<p class="summary">Esta estufa não tem Setores</p>
+				</div>	
 				@else	
 				<div class="table-container md-padding">
 					<table class="table table-filter table-striped table-bordered table-responsive">

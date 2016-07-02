@@ -39,7 +39,7 @@
 							<div class="col-md-6 margin-bottom">										
 								<label for="nome">Tipo Cultura</label>
 								<div>
-									<select id="tipo_cultura" name="tipo_cultura" class="selectpicker form-control" title="Selecione um Tipo de Cultura" value="{{ old('tipo_cultura') }}" selected="{{ old('tipo_cultura') }}" data-live-search="true" showTick="true">
+									<select id="tipo_cultura" name="tipo_cultura" class="selectpicker form-control" title="Selecione um Tipo de Cultura"  value="{ old('tipo_cultura')}}"  data-live-search="true" showTick="true">
 										<option value="temporaria">Temporária</option>
 										<option value="permanente">Permanente</option>
 									</select>
@@ -48,7 +48,7 @@
 							<div class="col-md-6 pull-left">		
 								<label for="nome">Tipo Cultivo</label>
 								<div>
-									<select id="tipo_cultivo" name="tipo_cultivo" class="selectpicker form-control" title="Selecione um Tipo de Cultivo" value="{{ old('tipo_cultivo') }}" selected="{{ old('tipo_cultivo') }}"  data-live-search="true" showTick="true">
+									<select id="tipo_cultivo" name="tipo_cultivo" class="selectpicker form-control" title="Selecione um Tipo de Cultivo" value="{{ old('tipo_cultivo')}}"  data-live-search="true" showTick="true">
 										<option value="tradicional">Tradicional</option>
 										<option value="hidroponia">Hidroponia</option>
 										<option value="aeroponia">Aeroponia</option>
@@ -98,13 +98,13 @@
 								<div class="col-lg-6">	
 									<label for="nome">Espaço na Linha</label>
 									<div class="input-group">									
-										<input type="number" class="form-control" id="espaco_na_linha" value="{{ old('espaco_na_linha') }}" name="espaco_na_linha" placeholder="Insira o espaçamento na Linha" min=0><span class="input-group-addon">metros</span>
+										<input type="number" step="0.01" class="form-control" id="espaco_na_linha" value="{{ old('espaco_na_linha') }}" name="espaco_na_linha" placeholder="Insira o espaçamento na Linha" min=0><span class="input-group-addon">metros</span>
 									</div>
 								</div>
 								<div class="col-lg-6">											
 									<label for="nome">Espaço entre Linhas</label>
 									<div class="input-group">									
-										<input type="number" class="form-control" id="espaco_entre_linhas" value="{{ old('espaco_entre_linhas') }}" name="espaco_entre_linhas" placeholder="Insira o espaçamento entre as Linhas" min=0><span class="input-group-addon">metros</span>
+										<input type="number" step="0.01" class="form-control" id="espaco_entre_linhas" value="{{ old('espaco_entre_linhas') }}" name="espaco_entre_linhas" placeholder="Insira o espaçamento entre as Linhas" min=0><span class="input-group-addon">metros</span>
 									</div>
 								</div>
 							</div>
@@ -164,9 +164,12 @@
 </div>
 @endsection
 @section('customScripts')	
-<script src="{{asset('js/culturas/adicionarCultura.js')}}"></script>
+<script>		
+	var cultura = <?php echo json_encode(old())?>;
+</script>
+
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
-
+<script src="{{asset('js/culturas/adicionarCultura.js')}}"></script>
 @endsection
 

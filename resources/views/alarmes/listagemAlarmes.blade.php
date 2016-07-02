@@ -24,7 +24,7 @@
 							<th>Estufa</th>
 							<th>Regra</th>
 							<th>Tipo</th>
-							<th>Descricao</th>
+							<th>Descrição</th>
 							<th class="no-sort">Opções</th>
 						</tr>
 					</thead>		
@@ -47,7 +47,12 @@
 								<span>{{$alarme->parametro}}</span>
 							</td>
 							<td>		
-								<span>{{$alarme->descricao}}</span>
+							@if($alarme->descricao != "")
+							<span>{{$alarme->descricao}}</span>		
+							@else
+							<span>-----</span>
+							@endif
+								
 							</td>							
 							<td>
 								<div class="text-center">

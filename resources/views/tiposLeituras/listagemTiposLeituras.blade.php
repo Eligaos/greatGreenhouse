@@ -42,17 +42,9 @@
 
 							<td >
 								<div class="text-center">
-									<a  toggle="tooltip" data-placement="top" title="Detalhes Tipo de Leitura" role="button" name="detalhes" href="/admin/tipos-leituras/detalhes/{{$tipoLeitura->id}}">  <button type="button" class="btn btn-default btn-xs">
-										<span class="glyphicon glyphicon-th-list"></span> Detalhes
-									</button></a>
-
 									<a toggle="tooltip" data-placement="top" title="Editar Cultura" role="button" name="editar" href="/admin/tipos-leituras/editar/{{$tipoLeitura->id}}">  <button type="button" class="btn btn-default btn-xs">
 										<span class="glyphicon glyphicon-edit"></span> Editar
 									</button></a>
-									<a toggle="tooltip" data-placement="top" title="Remover Cultura" role="button" name="detalhes" href="#">  <button type="button" class="btn btn-default btn-xs">
-										<span class="glyphicon glyphicon-remove"></span> Remover
-									</button></a>
-
 								</div>
 							</td>
 						</tr>											

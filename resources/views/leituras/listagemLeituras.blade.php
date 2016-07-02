@@ -20,7 +20,6 @@
 		<div class="panel-heading margin-bottom">
 			<h3 class="modal-title" >Lista de Leituras</h3>
 		</div>
-			
 		@if( Session::get('message'))
 		<div class="col-xs-12 col-md-12 col-lg-12 alert alert-info">
 			<span > {{ Session::get('message') }}</span>
@@ -63,14 +62,16 @@
 					</div>
 
 					<div class="row pull-right md-margin-top margin-bottom md-margin-right ">
-						<button  id="pesquisar" class="btn btn-success" toggle="tooltip" data-placement="top" title="Pesquisar"><i class="glyphicon glyphicon-search fa-lg"></i>Pesquisar							</button>
+						<button  id="pesquisar" class="btn btn-success" toggle="tooltip" data-placement="top" title="Pesquisar"><i class="glyphicon glyphicon-search fa-lg">
+						</i>Pesquisar							
+						</button>
 
-						<button  id="limpar" name="limpar" value="1" class="btn btn-success" toggle="tooltip" data-placement="top" title="Limpar Filtros"><i class="glyphicon glyphicon-erase"></i>Limpar							</button>
-
+						<button  id="limpar" name="limpar" value="1" class="btn btn-success" toggle="tooltip" data-placement="top" title="Limpar Filtros"><i class="glyphicon glyphicon-erase">
+						</i>Limpar							
+						</button>
 						<a  href="{{ URL::to('admin/leituras/exportar') }}" role="button" id="exportar" value="2" class="btn btn-success" toggle="tooltip" data-placement="top" title="Exportar"><i class="glyphicon glyphicon-export"></i>Exportar	</a>
-
-
-						<a   role="button" id="grafico" value="3" class="btn btn-success" toggle="tooltip" data-placement="top" title="Gerar Gráfico"><i class="glyphicon glyphicon-stats"></i>Gerar Gráfico	</a>
+						<a   role="button" id="grafico" value="3" class="btn btn-success" toggle="tooltip" data-placement="top" title="Gerar Gráfico"><i class="glyphicon glyphicon-stats"></i>Gerar Gráfico	
+						</a>
 
 					</div>
 				</form>
@@ -148,16 +149,16 @@
 			</div>
 		</div>
 		@else
-			
-			<div  class="text-center input-group col-sm-12">
-					<h4>Não foram encontrados quaisquer resultados para a pesquisa efetuada </h4>
-			</div>
+
+		<div  class="text-center input-group col-sm-12">
+			<h4>Não foram encontrados quaisquer resultados para a pesquisa efetuada </h4>
+		</div>
 		
-			</div>
-			<div class="panel-footer">
-			<div class="input-group col-sm-12" >
-				<a  href="/admin/registos/manual" role="button" name="adicionar" class="btn btn-success center-block pull-left" toggle="tooltip" data-placement="top" title="Registar Leitura Manual" >Registar Leitura Manual</a>
-			</div>
+	</div>
+	<div class="panel-footer">
+		<div class="input-group col-sm-12" >
+			<a  href="/admin/registos/manual" role="button" name="adicionar" class="btn btn-success center-block pull-left" toggle="tooltip" data-placement="top" title="Registar Leitura Manual" >Registar Leitura Manual</a>
+		</div>
 		@endif
 		
 

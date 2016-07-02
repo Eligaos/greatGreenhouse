@@ -54,12 +54,8 @@
 							@endif
 							<td>
 								<div class="text-center">
-
 									<a toggle="tooltip" data-placement="top" title="Editar Sensor" role="button" name="editar" href="/admin/sensores/editar/{{$sensor->sensor_id}}">  <button type="button" class="btn btn-default btn-xs">
 										<span class="glyphicon glyphicon-edit"></span> Editar
-									</button></a>
-									<a toggle="tooltip" data-placement="top" title="Remover Sensor" role="button" name="detalhes" href="#">  <button type="button" class="btn btn-default btn-xs">
-										<span class="glyphicon glyphicon-remove"></span> Remover
 									</button></a>
 								</div>
 							</td>

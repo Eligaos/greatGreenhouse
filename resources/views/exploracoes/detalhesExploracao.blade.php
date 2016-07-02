@@ -27,7 +27,7 @@
 							@if($exploracao->numero>0)
 							<span>{{$exploracao->numero}}</span>		
 							@else
-							<label for="numero">----</label>
+							<span for="numero">----</span>
 							@endif
 
 						</div>
@@ -42,14 +42,14 @@
 								@if($exploracao->distrito==true)
 								<span>{{$exploracao->distrito}}</span>
 								@else
-								<label for="distrito">----</label>
+								<span for="distrito">----</span>
 								@endif
 							</div>
 							<label for="concelho">Concelho:</label>
 							@if($exploracao->concelho==true)
 							<span>{{$exploracao->concelho}}</span>	
 							@else
-							<label for="concelho">----</label>
+							<span for="concelho">----</span>
 							@endif									
 						</div> 
 
@@ -58,7 +58,7 @@
 							@if($exploracao->freguesia==true)
 							<span>{{$exploracao->freguesia}}</span>	
 							@else
-							<label for="freguesia">----</label>
+							<span for="freguesia">----</span>
 							@endif
 						</div>  
 

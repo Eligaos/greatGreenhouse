@@ -12,14 +12,12 @@
 		<div class="panel-heading">
 			<h3 class="modal-title" >Lista de Estufas</h3>
 		</div>
-					
-	@if( Session::get('message'))
+		@if( Session::get('message'))
 		<div class="col-xs-12 col-md-12 col-lg-12 alert alert-info">
 			<span > {{ Session::get('message') }}</span>
 		</div>
 		@endif
 		<div class="panel-body">
-
 			<div class="table-container">
 				@if(count($lista)!=0)							
 				<table id="dataTable" class="table table-filter table-striped table-bordered table-responsive">
@@ -45,9 +43,6 @@
 									<a toggle="tooltip" data-placement="top" title="Editar Estufa" role="button" name="editar" href="/admin/estufas/editar/{{$estufa->id}}">  <button type="button" class="btn btn-default btn-xs">
 										<span class="glyphicon glyphicon-edit"></span> Editar
 									</button></a>
-									<a toggle="tooltip" data-placement="top" title="Remover Estufa" role="button" name="detalhes" href="#">  <button type="button" class="btn btn-default btn-xs">
-										<span class="glyphicon glyphicon-remove"></span> Remover
-									</button></a>
 								</div>
 							</td>
 						</tr>	
@@ -64,7 +59,7 @@
 		<div class="panel-footer"> 
 			<div class="col-sm-12 input-group">
 				<a  href="/admin/estufas/adicionar" role="button" name="adicionar" class="btn btn-success center-block pull-left" toggle="tooltip" data-placement="top" title="Adicionar Estufa" >Adicionar nova Estufa</a>
-					<div  id="navigation"class="input-group pull-right"> {!! $lista->render() !!}</div>
+				<div  id="navigation"class="input-group pull-right"> {!! $lista->render() !!}</div>
 			</div>
 		</div>
 

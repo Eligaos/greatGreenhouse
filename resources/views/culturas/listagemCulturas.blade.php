@@ -13,8 +13,8 @@
 		</div>
 		<div class="panel-body">
 			@if( Session::get('message'))
-			<div class="text-center">
-				<span class="alert alert-info"> {{ Session::get('message') }}</span>
+			<div class="col-xs-12 col-md-12 col-lg-12 alert alert-info">
+				<span > {{ Session::get('message') }}</span>
 			</div>
 			@endif
 
@@ -55,9 +55,7 @@
 									<a toggle="tooltip" data-placement="top" title="Editar Cultura" role="button" name="editar" href="/admin/culturas/editar/{{$cultura->cultura_id}}">  <button type="button" class="btn btn-default btn-xs">
 										<span class="glyphicon glyphicon-edit"></span> Editar
 									</button></a>
-									<a toggle="tooltip" data-placement="top" title="Remover Cultura" role="button" name="detalhes" href="#">  <button type="button" class="btn btn-default btn-xs">
-										<span class="glyphicon glyphicon-remove"></span> Remover
-									</button></a>
+
 								</div>
 							</td>
 						</tr>	
@@ -81,7 +79,6 @@
 			<div class="col-sm-12 input-group">
 				@if(count($estufas)!=0)
 				<a  href="/admin/culturas/adicionar" role="button" name="adicionar" class="btn btn-success center-block pull-left" toggle="tooltip" data-placement="top" title="Adicionar Cultura" >Adicionar nova Cultura</a>
-
 				@else
 				<a role="button" name="adicionar" id="adicionar cultura" class="btn btn-success center-block pull-left" toggle="tooltip" data-placement="top" title="Adicione uma Estufa primeiro" disabled>Adicionar nova Cultura</a>
 				@endif

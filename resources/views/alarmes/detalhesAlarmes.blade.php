@@ -31,7 +31,7 @@
 					</p>
 					@endif
 					<p>
-						<label for="parametro">Parametro:</label>
+						<label for="parametro">Parâmetro:</label>
 						<span>{{$alarme->parametro}}</span>	
 					</p>
 					<p>
@@ -39,14 +39,15 @@
 						<span>{{$alarme->descricao}}</span>
 					</p>
 				</div>									
-			</div>							
-			<div class="form-group">
-				<div class="input-group-addon">
-					<a href="/admin/alarmes" role="button" name="cancelar"class="btn btn-default pull-right" toggle="tooltip" data-placement="top" title="Cancelar">Voltar</a>
-					<a class="btn btn-success pull-right" toggle="tooltip" data-placement="top" title="Editar Alarme"  role="button" name="editar" href="#">Editar</a>
-				</div>
+			</div>	
+		</div>						
+		<div class="panel-footer "> 
+			<div class="col-sm-12 input-group">
+				<a href="/admin/alarmes" role="button" name="cancelar"class="btn btn-default pull-right" toggle="tooltip" data-placement="top" title="Cancelar">Voltar</a>
+				<a class="btn btn-success pull-right" toggle="tooltip" data-placement="top" title="Editar Alarme"  role="button" name="editar" href="#">Editar</a>
 			</div>
 		</div>
+		
 	</div>
 </div>
 </div>

@@ -25,7 +25,7 @@
 						</div>
 						<label for="numero">Número do Terreno</label>
 						<div>
-							<input type="number" class="form-control" id="numero"  name="numero" min=0 placeholder="Insira o número de registo do terreno" value="{{$exploracao->numero}}">
+							<input type="number" class="form-control" id="numero"  name="numero" min="0" placeholder="Insira o número de registo do terreno" value="{{$exploracao->numero}}">
 						</div>
 					</div>
 				</div>

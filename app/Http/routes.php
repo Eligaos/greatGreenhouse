@@ -44,7 +44,7 @@ Route::group(['middleware' => ['web']], function ()
 	Route::post('/admin/exploracoes/adicionar/submit', 'ExploracaoController@adicionarExploracao');
 
 	Route::get('/admin/exploracoes/mudar', 'HomeController@mudarExploracao');	
-		Route::post('/admin/home', 'HomeController@inicio');
+	Route::post('/admin/home', 'HomeController@inicio');
 	Route::group(['middleware' => ['select.exploration']], function () 
 {
 
@@ -81,6 +81,9 @@ Route::group(['middleware' => ['web']], function ()
 	Route::get('/admin/estufas/adicionar', 'EstufaController@adicionar');
 	Route::post('/admin/estufas/adicionar/submit', 'EstufaController@adicionarEstufa');
 	Route::get('/admin/estufas/setores', 'EstufaController@getSetores');
+
+
+	Route::get('/admin/estufas/getEstufas', 'EstufaControlleraController@getEstufas');
 
 	/**********ESPÉCIES**********/
 

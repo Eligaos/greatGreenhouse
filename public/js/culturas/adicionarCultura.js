@@ -1,31 +1,57 @@
 "use strict";
 $(document).ready(function() {
-   // $("#tipo_cultura").selectpicker('render');
 
-//var cultura = $("#tipo_cultura option:selected").text();
 
-//console.log(cultura);teste
+  if(Object.keys(cultura).length > 0){
 
-var tC = $("#tipo_cultura").val();
-$("#tipo_cultura").selectpicker( tC);
-$("#tipo_cultura").selectpicker('render');
-$("#tipo_cultura").selectpicker('refresh');
+   $('.selectpicker').selectpicker();
+   $('#tipo_cultura').selectpicker('val', [cultura['tipo_cultura']]);
+   $('#tipo_cultivo').selectpicker('val', [cultura['tipo_cultivo']]);
+   $('#especie_id').selectpicker('val', [cultura['especie_id']]);
 
-$('#dInic').datepicker({
+   $('#ddEstufa').selectpicker('val', [cultura['ddEstufa']]);
+
+
+   $.get( "/admin/culturas/getSetorByEstufa/"+ cultura['ddEstufa'], function( data ) {
+
+   }).done(function(data){
+     if(data[1].length > 0){
+
+      for(var i=0; i < data[1].length; i++){
+        $('#setor_id').prepend($('<option>', {
+          value: data[1][i].id,
+          text: data[1][i].nome
+        }));
+      }
+      $('#divAssociacoesSetores').show();
+      $('.selectpicker').selectpicker('refresh');
+    }else{
+     $("#dropdownSetores").children().remove();
+     $('#divAssociacoesSetores').hide();
+   }
+  
+ });
+     
+
+ }
+ 
+
+
+ $('#dInic').datepicker({
   dateFormat: 'yy-mm-dd',
   minDate: 0    
 }).datepicker("setDate", new Date());
 
-$('#dFim').datepicker({
+ $('#dFim').datepicker({
   dateFormat: 'yy-mm-dd',
   minDate: 0
 });
 
-$.ajaxSetup({
+ $.ajaxSetup({
   headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
 });
 
-$( "#ddEstufa" ).on('changed.bs.select',function() {
+ $( "#ddEstufa" ).on('changed.bs.select',function() {
   var t = $("#tipo_cultura").prop("selected");
   $("#setor_id").children().remove();
   var estufaId = $( this ).selectpicker('val');
@@ -49,7 +75,7 @@ $( "#ddEstufa" ).on('changed.bs.select',function() {
 })
 });
 
-$("#tipo_cultivo").on('changed.bs.select', function() {
+ $("#tipo_cultivo").on('changed.bs.select', function() {
   var tCultivo = $( this ).selectpicker('val');
   if(tCultivo == "outro"){
     $("#dOutro").show();
@@ -61,7 +87,7 @@ $("#tipo_cultivo").on('changed.bs.select', function() {
   }
 });
 
-$('#dFim').change(function() {
+ $('#dFim').change(function() {
   $("#error").text("");
   var dInic = $('#dInic').datepicker("getDate");
   var dFim = $('#dFim').datepicker("getDate");
@@ -75,7 +101,7 @@ $('#dFim').change(function() {
 });
 
 
-$('#duracao_ciclo').change(function() {
+ $('#duracao_ciclo').change(function() {
   var dC = $('#duracao_ciclo').val();
   var dInic = $('#dInic').datepicker("getDate");        
   $("#error").text("");
@@ -88,7 +114,7 @@ $('#duracao_ciclo').change(function() {
  }
 });
 
-$('#dInic').change(function() {
+ $('#dInic').change(function() {
   $("#error").text("");
   var dInic = $('#dInic').datepicker("getDate");
   var dFim = $('#dFim').datepicker("getDate");
@@ -97,19 +123,16 @@ $('#dInic').change(function() {
     ciclo(dInic,dFim);        
   }else if(dC!=""){
     fim(dInic,dC);
-            //dInic = $('#dInic').datepicker('setDate', new Date());
 
-          }
 
-        });
-    /*var date2 = $('.pickupDate').datepicker('getDate');
-    var nextDayDate = new Date();
-    nextDayDate.setDate(date2.getDate() + 1);
-    $('input').val(nextDayDate);*/
+  }
 
-    var fim = function(dInic,dC){
-      var c = parseInt(dC);
-      var fim = new Date(dInic.getFullYear(), dInic.getMonth(), dInic.getDate() + c);
+});
+
+
+ var fim = function(dInic,dC){
+  var c = parseInt(dC);
+  var fim = new Date(dInic.getFullYear(), dInic.getMonth(), dInic.getDate() + c);
        // fim.setDate(dInic.getDate() + dC);
        $('#dFim').datepicker('setDate', fim);        
      }
