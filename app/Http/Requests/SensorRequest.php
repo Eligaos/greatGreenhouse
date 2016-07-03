@@ -25,7 +25,6 @@ class SensorRequest extends Request
     {
         return [
         'area_alcance' => 'min:0'
-            //
         ];
     }
 }

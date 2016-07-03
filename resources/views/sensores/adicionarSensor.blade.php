@@ -6,11 +6,11 @@
 @endsection
 @section('title', ' - Adicionar Sensor')
 
-@section('content')>
+@section('content')
 <div class="col-sm-10 col-md-10 col-sm-offset-2 col-md-offset-1 centered-form">
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<h3 class="modal-title" id="myModalLabel">Adicionar Novo Sensor</h3>
+			<h3 class="modal-title">Adicionar Novo Sensor</h3>
 		</div>
 		<div class="panel-body">
 			<form id="registerForm" method="POST" action="/admin/sensores/adicionar/submit" >
@@ -20,7 +20,7 @@
 					<div class="col-xs-12 col-md-12">
 						<label for="nome">Nome do Sensor</label>
 						<div class="input-group margin-bottom">
-							<input type="text" class="form-control" id="nome"  name="nome" placeholder="Insira o nome do sensor" required><span class="input-group-addon"></span>		
+							<input type="text" class="form-control" id="nome" name="nome" placeholder="Insira o nome do sensor" required><span class="input-group-addon"></span>
 						</div>
 						<label for="modelo">Modelo</label>
 						<div class="input-group margin-bottom">
@@ -40,25 +40,14 @@
 						</select>
 					</div>
 				</div>
-				@if (count($errors) > 0 )
-				<div class="alert alert-danger col-lg-3">
-					<h4>Por favor corrija os seguintes erros:</h4>
-					<ul>
-						@foreach ($errors->all() as $error)
-						<li>{{ $error}}</li>
-						@endforeach
-					</ul>
+			</div>
+			<div class="panel-footer"> 
+				<div class="col-sm-12 input-group">
+					<a href="{{ url()->previous() }}" role="button" name="cancelar" class="btnL btn btn-default pull-right">Cancelar</a>
+					<input type="submit" id="submit" value="Gravar" class="btn btn-success pull-right">
 				</div>
-				@endif
-				</div>
-				<div class="panel-footer"> 
-					<div class="col-sm-12 input-group">
-						<a href="{{ url()->previous() }}" role="button" name="cancelar" class="btnL btn btn-default pull-right">Cancelar</a>
-						<input type="submit" id="submit" value="Gravar" class="btn btn-success pull-right">
-					</div>
-				</div>
-			</form>
-
+			</div>
+		</form>
 	</div>
 </div>
 @endsection

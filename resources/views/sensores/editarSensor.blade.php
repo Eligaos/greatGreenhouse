@@ -19,6 +19,16 @@
 					<fieldset> 
 						<h4 class="border-bottom sm-margin-left" >Dados do Sensor</h4>
 						<div class="col-xs-12 col-md-12">
+							@if (count($errors) > 0 )
+							<div class="alert alert-danger col-lg-12">
+								<h4>Por favor corrija os seguintes erros:</h4>
+								<ul>
+									@foreach ($errors->all() as $error)
+									<li>{{ $error}}</li>
+									@endforeach
+								</ul>
+							</div>
+							@endif
 							<label for="nome">Nome do Sensor</label>
 							<div class="input-group">
 								<input type="text" class="form-control" id="nome"  name="nome" placeholder="Insira o nome do sensor" value="{{$lista[0]->nome}}" required><span class="input-group-addon"></span>		
@@ -29,7 +39,7 @@
 							</div>
 							<label for="area_alcance">Alcance</label>
 							<div class="input-group">
-								<input type="number" class="form-control" id="area_alcance"  name="area_alcance" placeholder="Insira o alcance do sensor" value="{{$lista[0]->area_alcance}}" required min=0><span class="input-group-addon">metros</span>
+								<input type="number" class="form-control" id="area_alcance"  name="area_alcance" placeholder="Insira o alcance do sensor" value="{{$lista[0]->area_alcance}}" min=0><span class="input-group-addon">metros</span>
 							</div>
 						</div>
 						<div class="col-xs-12 col-md-12">
@@ -42,29 +52,25 @@
 						</div>
 					</fieldset>
 				</div>
-				@if (count($errors) > 0 )
-				<div class="alert alert-danger col-lg-3">
-					<h4>Por favor corrija os seguintes erros:</h4>
-					<ul>
-						@foreach ($errors->all() as $error)
-						<li>{{ $error}}</li>
-						@endforeach
-					</ul>
-				</div>
-				@endif
+
 			</div>
 			<div class="panel-footer"> 
 				<div class="col-sm-12 input-group">
-				<a href="{{ url()->previous() }}" role="button" name="cancelar"class="btnL btn btn-default pull-right">Cancelar</a>
-				<input type="submit" id="submit" value="Gravar" class="btn btn-success pull-right">
+					<a href="{{ url()->previous() }}" role="button" name="cancelar"class="btnL btn btn-default pull-right">Cancelar</a>
+					<input type="submit" id="submit" value="Gravar" class="btn btn-success pull-right">
+				</div>
 			</div>
-		</div>
-	</form>
-</div>
+		</form>
+	</div>
 
 </div>
 @endsection
 @section('customScripts')
+<script>		
+	var sensor = <?php echo json_encode($lista)?>;
+</script>
+
+<script src="{{asset('js/sensores/editarSensor.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
 @endsection
 

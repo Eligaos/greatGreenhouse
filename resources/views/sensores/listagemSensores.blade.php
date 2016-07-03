@@ -23,7 +23,7 @@
 							<th>Nome</th>
 							<th>Modelo</th>
 							<th>Parâmetro</th>
-							<th>Alcance</th>
+							<th>Alcance (m)</th>
 							<th>Estado</th>
 							<th class="no-sort">Opções</th>
 						</tr>
