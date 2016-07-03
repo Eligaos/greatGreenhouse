@@ -90,7 +90,7 @@
 				</div>
 				<div class="panel-footer"> 
 				<div class="col-sm-12 input-group">
-						<a href="/admin/alarmes" class="btnL btn btn-default pull-right">Cancelar</a>
+						<a href="{{ url()->previous() }}" class="btnL btn btn-default pull-right">Cancelar</a>
 						<input type="submit" id="submit" value="Guardar" class="btn btn-success pull-right">
 					</div>
 				</div>
