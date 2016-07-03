@@ -65,6 +65,7 @@ class CulturaController extends Controller
 		//$lista[0]-- array de estufa  $lista[1]--array dos setores da estufa
 		$estufas = $this->eService->getEstufas($this->exploracaoSelecionada); //todas as estufas da exploracao
 		$especies = $this->espService->getEspecies();		
+	
 		return view('culturas.editarCultura', compact('lista', 'estufas', 'especies'));  		
 	}
 	

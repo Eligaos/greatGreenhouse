@@ -59,7 +59,7 @@
 			</div>
 			@else
 			<div class="text-center" >
-				<h4> Não existem ocorrência de alarmes</h4>
+				<h4> Não existem ocorrências de alarmes</h4>
 			</div>
 			@endif	
 		</div>

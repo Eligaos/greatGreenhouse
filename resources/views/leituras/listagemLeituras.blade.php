@@ -166,6 +166,7 @@
 	@endsection
 
 	@section('customScripts')
+
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	<script src="{{asset('js/registoManual/timePicker.js')}}"></script>

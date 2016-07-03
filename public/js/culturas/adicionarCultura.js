@@ -3,7 +3,7 @@ $(document).ready(function() {
 
 
   if(Object.keys(cultura).length > 0){
-
+  
    $('.selectpicker').selectpicker();
    $('#tipo_cultura').selectpicker('val', [cultura['tipo_cultura']]);
    $('#tipo_cultivo').selectpicker('val', [cultura['tipo_cultivo']]);
@@ -23,15 +23,20 @@ $(document).ready(function() {
           text: data[1][i].nome
         }));
       }
+
+
+      $('#setor_id').selectpicker('deselectAll');
+      $('#setor_id').selectpicker('val', [cultura['setor_id']]);
+      $('#setor_id').selectpicker('refresh');
+      $('#setor_id').selectpicker('render');
       $('#divAssociacoesSetores').show();
-      $('.selectpicker').selectpicker('refresh');
     }else{
      $("#dropdownSetores").children().remove();
      $('#divAssociacoesSetores').hide();
    }
-  
+   
  });
-     
+   
 
  }
  

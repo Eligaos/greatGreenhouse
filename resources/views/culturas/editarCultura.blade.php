@@ -185,7 +185,14 @@
 </div>
 @endsection
 @section('customScripts')	
-<script src="{{asset('js/culturas/adicionarCultura.js')}}"></script>
+<script>		
+	var cultura = <?php echo json_encode($lista[0])?>;
+	var setor = <?php echo json_encode($lista[1])?>;
+	var estufa = <?php echo json_encode($lista[2])?>;
+	var especie = <?php echo json_encode( $lista[3])?>;
+</script>
+
+<script src="{{asset('js/culturas/editarCultura.js')}}"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
 @endsection
