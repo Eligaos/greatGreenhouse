@@ -54,7 +54,7 @@
 
                                     <input class="form-control" type="password" name='palavra-passe' placeholder="palavra-passe"/>
                                 </div>
-                                <div class="text-center margin-bottom">
+                                <div class="text-center lg-margin-bottom">
                                     <button type="submit" class="btn btn-success btn-block">Entrar</button>
                                 </div>
                             </div>
