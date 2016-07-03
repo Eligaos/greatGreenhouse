@@ -17,7 +17,7 @@
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-12 col-sm-9 col-md-10 col-sm-offset-2 col-md-offset-1">
+			<div class="col-xs-12 col-sm-9 col-md-10 col-sm-offset-2 col-md-offset-1 centered-form">
 				<div class="content">
 					<div class="panel panel-default">
 						<div class="panel-heading">
