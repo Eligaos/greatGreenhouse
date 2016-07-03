@@ -73,3 +73,7 @@ p{
 .panel-success {
 	border-color: #a1b78e;
 }
+
+.ui-datepicker{
+ z-index: 9999 !important;
+}
