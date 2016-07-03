@@ -23,6 +23,8 @@ class ClientRegistrationRequest extends Request
             'password_confirmation.same' => 'A palavra-passe e a sua confirmação devem ser iguais.',
             'password.min' => 'A palavra-passe deve ter no mínimo :min caracteres.',
             'cellphone.digits' => 'O nº de telemóvel tem de ter :digits digitos.',
+             'cellphone.unique' => 'O nº de telemóvel já se encontra em uso',
+               'name.unique' => 'O bome de utilizador já se encontra em uso',
         ];
     }
     /**
@@ -35,7 +37,7 @@ class ClientRegistrationRequest extends Request
         return [
             'name' => 'required|min:2|unique:users',
             'email' => 'required|email|unique:users',
-           'cellphone' => 'digits:9|unique:users',
+            'cellphone' => 'digits:9|unique:users',
             'password' => 'required|min:3',
             'password_confirmation' => 'required|same:password'
         ];

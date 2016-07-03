@@ -16,59 +16,59 @@
 </head>
 <body>
     <div class="auth-content">
-            <div class="col-sm-12 col-md-4 col-md-offset-1">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h1 class="panel-title" id="panelTitle">Great Greenhouse</h1>
-                    </div>
-                    <div class="panel-body">
-                        <div class="col-sm-12 col-md-12 col-md-offset-1">
-                            @if (count($errors) > 0 )
+        <div class="col-sm-12 col-md-4 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h1 class="panel-title" id="panelTitle">Great Greenhouse</h1>
+                </div>
+                <div class="panel-body">
+                    <div class="col-sm-12 col-md-12 col-md-offset-1">
 
-                            <div class="alert alert-danger">
-                                <h4>Por favor corrija os seguintes erros:</h4>
-                                <ul>
-                                    @foreach ($errors->all() as $error)
+                        <form class="form-signin" method="POST" action="/register/registration">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <div id="registerText" class="margin-bottom md-margin-top border-bottom">
+                                @if (count($errors) > 0 )
 
-                                    <li>{{ $error}}</li>
-                                    @endforeach
-                                </ul>
+                                <div class="alert alert-danger">
+                                    <h4>Por favor corrija os seguintes erros:</h4>
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+
+                                        <li>{{ $error}}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                @endif
+                                <span class="text-center">Por favor preencha os seguintes dados:</span>
+                                <hr
                             </div>
-                            @endif
-                            <form class="form-signin" method="POST" action="/register/registration">
-                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                <div id="registerText" class="margin-bottom md-margin-top border-bottom">
-                                    <span class="text-center">Por favor preencha os seguintes dados:</span>
-                                    <hr
-                                </div>
-                                <div class="form-group input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                    <input class="form-control" type="text" name='name' placeholder="nome" required/><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
-                                </div>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <input class="form-control" type="text"  value="{{old('name')}}"  name='name' placeholder="nome" required/><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+                            </div>
 
-                                <div class="form-group input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                                    <input class="form-control" type="email" name='email' placeholder="email" required/><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
-                                </div>
-                                <div class="form-group input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                                    <input class="form-control" type="text" name='cellphone' placeholder="telemóvel"/>
-                                </div>
-                                <div class="form-group input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                    <input class="form-control" type="password" name='password' placeholder="palavra-passe" required/><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
-                                </div>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                <input class="form-control" type="email"  value="{{old('email')}}"  name='email' placeholder="email" required/><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+                            </div>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                                <input class="form-control" value="{{old('cellphone')}}" type="number" name='cellphone' placeholder="telemóvel"/>
+                            </div>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                <input class="form-control" type="password" name='password' placeholder="palavra-passe" required/><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+                            </div>
 
-                                <div class="form-group input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                    <input class="form-control" type="password" name='password_confirmation' placeholder="confirmação da palavra-passe" required/><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
-                                </div>
-
+                            <div class="form-group input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                <input class="form-control" type="password" name='password_confirmation' placeholder="confirmação da palavra-passe" required/><span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
                             </div>
 
                         </div>
 
-                    </form>
+                    </div>
+
                 </div>
                 <div class="panel-footer"> 
                     <div class="col-sm-12 input-group">
@@ -77,6 +77,8 @@
                     </div>
                 </div>
             </div>
+
+        </form>
 
     </div>
 </body>
