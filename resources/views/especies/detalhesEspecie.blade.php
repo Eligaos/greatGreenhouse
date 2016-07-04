@@ -75,7 +75,7 @@
 							@endif
 						</p>
 						<p>
-							<label for="condutividade_electrica_solo_ideal">Temperatura do Solo Ideal: </label>
+							<label for="condutividade_electrica_solo_ideal">Condutividade Eléctrica do Solo Ideal : </label>
 							@if($especie->condutividade_electrica_solo_ideal != null)	
 							<span>{{$especie->condutividade_electrica_solo_ideal}}</span>
 							@else

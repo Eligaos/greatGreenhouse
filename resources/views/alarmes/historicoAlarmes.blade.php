@@ -7,7 +7,7 @@
 <div class="col-sm-10 col-sm-offset-2 col-md-offset-1">
 	<div class="panel panel-default">
 		<div class="panel-heading margin-bottom">
-			<h3 class="modal-title" >Histórico de Alarmes</h3>
+			<h3 class="modal-title" >Histórico de Ocorrências de Alarmes</h3>
 		</div>
 
 		<div class="panel-body">
@@ -21,18 +21,29 @@
 				<table id="dataTable" class="table table-filter table-striped table-bordered table-responsive">
 					<thead>						
 						<tr class="success">
-							<th>Estufa</th>
+							<th>Local (Estufa - Setor)</th>
 							<th>Regra</th>
 							<th>Tipo</th>
 							<th>Valor</th>
+							<th>Data</th>
 							<th>Descricao</th>
 						</tr>
 					</thead>		
 					<tbody>		
 						@foreach($lista as $key => $alarme)
-						<tr>									
+						<tr>		
+
 							<td>		
-								<span>{{$alarme->estufa_nome}}</span>
+								@if($alarme->setor_nome == "Nenhum")
+
+								<span>{{$alarme->estufa_nome}} - Geral</span>
+
+								@else
+								
+								<span>{{$alarme->estufa_nome}} - {{$alarme->setor_nome}}</span>
+
+								@endif
+
 							</td>
 							@if($alarme->regra == ">")
 							<td>		
@@ -50,6 +61,9 @@
 								<span>{{$alarme->leitura_valor}}</span>
 							</td>
 							<td>		
+								<span>{{$alarme->data}}</span>
+							</td>
+							<td>		
 								<span>{{$alarme->descricao}}</span>
 							</td>		
 						</tr>													
@@ -65,6 +79,8 @@
 		</div>
 		<div class="panel-footer"> 
 			<div class="col-sm-12 input-group">
+
+
 				<a href="{{ url()->previous() }}" class="btnL btn btn-default pull-right">Cancelar</a>
 			</div>
 		</div>

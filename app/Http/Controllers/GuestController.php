@@ -29,7 +29,6 @@ class GuestController extends Controller
 
     public function login()
     {
-        \Debugbar::info(User::find(1));
         if(Auth::check()){
 
             return Redirect::to('/admin/exploracoes/listar');
@@ -64,7 +63,6 @@ class GuestController extends Controller
     {
         $input = Input::except('_token');
         $input['password'] = $this->uService->hashPass($input['password']);
-          //return dd($input);
         $user = User::create($input);
         if(trim($input['cellphone']) != ""){
             $user->cellphone = $input['cellphone'];

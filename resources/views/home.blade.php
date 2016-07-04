@@ -26,9 +26,10 @@
 				<table id="dataTable" class="table table-filter table-striped table-bordered table-responsive ">
 					<thead>
 						<tr class="success">
-							<th class="col-xs-6 col-sm-5 col-md-2 text-center">Parâmetro</th>
-							<th class="col-xs-6 col-sm-5 col-md-2 text-center">Sensor</th>
+							<th class="col-xs-6 col-sm-5 col-md-2 text-center">Sensor (Param.)</th>
+							<th class="col-xs-6 col-sm-5 col-md-2 text-center">Data</th>
 							<th class="col-xs-6 col-sm-5 col-md-2 text-center">Valor</th>
+							<th class="col-xs-6 col-sm-5 col-md-2 text-center">Alarme</th>
 							<th class="col-xs-6 col-sm-5 col-md-2 text-center">Visto</th>
 						</tr>
 					</thead>
@@ -36,11 +37,13 @@
 						@foreach($ocorrencias as $key => $ocorrencia)
 						@if($estufa->id == $ocorrencia->estufa_id)	
 						<tr>
-							<td name = "alarmeId" class="text-center">{{$ocorrencia->parametro}}
+							<td name = "alarmeId" class="text-center">{{$ocorrencia->nome}} ({{$ocorrencia->parametro}})
 							</td>					
-							<td class="text-center">{{$ocorrencia->nome}}
+							<td class="text-center">{{$ocorrencia->data}} 
 							</td>
 							<td class="text-center">{{$ocorrencia->leitura_valor}} {{$ocorrencia->unidade}}
+							</td>
+							<td class="text-center"><a href="/admin/alarmes/detalhes/{{$ocorrencia->alarme_id}}">Ver Detalhes</a>
 							</td>
 							<td>
 								<span class="button-checkbox">

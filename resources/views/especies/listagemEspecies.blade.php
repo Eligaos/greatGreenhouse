@@ -61,9 +61,6 @@
 									<a toggle="tooltip" data-placement="top" title="Editar Espécie" role="button" name="editar" href="/admin/especies/editar/{{$especie->id}}">  <button type="button" class="btn btn-default btn-xs">
 										<span class="glyphicon glyphicon-edit"></span> Editar
 									</button></a>
-									<a toggle="tooltip" data-placement="top" title="Remover Espécie" role="button" name="detalhes" href="#">  <button type="button" class="btn btn-default btn-xs">
-										<span class="glyphicon glyphicon-remove"></span> Remover
-									</button></a>
 								</div>
 							</td>
 						</tr>	

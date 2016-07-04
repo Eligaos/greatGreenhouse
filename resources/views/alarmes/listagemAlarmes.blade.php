@@ -50,9 +50,9 @@
 							@if($alarme->descricao != "")
 							<span>{{$alarme->descricao}}</span>		
 							@else
-							<span>-----</span>
+							<span>Não definida</span>
 							@endif
-								
+	
 							</td>							
 							<td>
 								<div class="text-center">
@@ -81,6 +81,9 @@
 			<div class="col-sm-12 input-group">
 				<a href="/admin/alarmes/adicionar" role="button" name="adicionar" id="adicionar alarme" class="btn btn-success center-block pull-left" toggle="tooltip" data-placement="top" title="Adicionar novo Alarme">Adicionar novo Alarme</a>
 				<a href="/admin/alarmes/historico" role="button" name="historico" id="historico alarme" class="btn btn-default center-block pull-left btnL" toggle="tooltip" data-placement="top" title="Histórico Alarmes">Histórico de Ocorrência de Alarmes</a>
+
+				<a href="{{ url()->previous() }}" class="btnL btn btn-default pull-right">Cancelar</a>
+			
 			</div>
 		</div>	
 	</div>			

@@ -77,11 +77,13 @@
 		
 		<div class="panel-footer"> 
 			<div class="col-sm-12 input-group">
+
 				@if(count($estufas)!=0)
 				<a  href="/admin/culturas/adicionar" role="button" name="adicionar" class="btn btn-success center-block pull-left" toggle="tooltip" data-placement="top" title="Adicionar Cultura" >Adicionar nova Cultura</a>
 				@else
 				<a role="button" name="adicionar" id="adicionar cultura" class="btn btn-success center-block pull-left" toggle="tooltip" data-placement="top" title="Adicione uma Estufa primeiro" disabled>Adicionar nova Cultura</a>
 				@endif
+
 			</div>
 		</div>	
 	</div>
