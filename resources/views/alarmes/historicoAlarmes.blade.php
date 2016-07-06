@@ -26,7 +26,7 @@
 							<th>Tipo</th>
 							<th>Valor</th>
 							<th>Data</th>
-							<th>Descricao</th>
+							<th>Descrição</th>
 						</tr>
 					</thead>		
 					<tbody>		
