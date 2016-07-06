@@ -7,16 +7,16 @@
 
 
 @endsection
-@section('title', ' - Adicionar Alarme')
+@section('title', ' - Editar Alarme')
 
 @section('content')
 <div class="col-sm-10 col-md-10 col-sm-offset-2 col-md-offset-1 centered-form">
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<h3 class="modal-title">Adicionar Alarme</h3>
+			<h3 class="modal-title">Editar Alarme</h3>
 		</div>
 		<div class="panel-body">
-			<form id="registerForm" method="POST" action="/admin/alarmes/adicionar/submit">
+			<form id="registerForm" method="POST" action="/admin/alarmes/editar/submit/{{$alarme->alarme_id}}">
 				<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 				<div class="form-group">							
 					<h4 class="border-bottom sm-margin-left">Origem</h4>							
@@ -61,7 +61,7 @@
 						<div class="form-group">
 							<label for="valor">Valor</label>
 							<div class="input-group">	
-								<input type="number"  step="0.01" class="form-control" id="valor" value="{{ old('valor') }}" name="valor" placeholder="Insira um valor" required><span id="valor_span"class="input-group-addon" ></span>
+								<input type="number"  step="0.01" class="form-control" id="valor" value="{{ $alarme->valor }}" name="valor" placeholder="Insira um valor" required><span id="valor_span"class="input-group-addon" ></span>
 							</div>
 						</div>
 					</div>	
@@ -72,7 +72,13 @@
 						<div class="form-group">
 							<label for="valor">Descrição</label>
 							<div class="input-group">	
+
+								@if(old('descricao')!=null)
 								<input type="text"  step="0.01" class="form-control" id="descricao" value="{{ old('descricao') }}" name="descricao" placeholder="Insira uma descrição"><span class="input-group-addon" ></span>
+								@else
+								<input type="text"  step="0.01" class="form-control" id="descricao" value="{{ $alarme->descricao }}" name="descricao" placeholder="Insira uma descrição"><span class="input-group-addon" ></span>
+								@endif
+
 							</div>
 						</div>
 					</div>	
@@ -87,21 +93,25 @@
 					</ul>
 				</div>
 				@endif
-				</div>
-				<div class="panel-footer"> 
+			</div>
+			<div class="panel-footer"> 
 				<div class="col-sm-12 input-group">
-						<a href="/admin/alarmes" class="btnL btn btn-default pull-right">Cancelar</a>
-						<input type="submit" id="submit" value="Guardar" class="btn btn-success pull-right">
-					</div>
+					<a href="{{ url()->previous() }}" class="btnL btn btn-default pull-right">Cancelar</a>
+					<input type="submit" id="submit" value="Guardar" class="btn btn-success pull-right">
 				</div>
-			</form>						
+			</div>
+		</form>						
 		
 	</div>
 </div>
 
 @endsection
 @section('customScripts')	
-<script src="{{asset('js/alarmes/adicionarAlarmes.js')}}"></script>
+<script>		
+	var alarme = <?php echo json_encode($alarme)?>;;
+</script>
+
+<script src="{{asset('js/alarmes/editarAlarmes.js')}}"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
 

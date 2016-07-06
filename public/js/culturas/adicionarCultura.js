@@ -16,7 +16,6 @@ $(document).ready(function() {
 
    }).done(function(data){
      if(data[1].length > 0){
-
       for(var i=0; i < data[1].length; i++){
         $('#setor_id').prepend($('<option>', {
           value: data[1][i].id,
@@ -24,11 +23,7 @@ $(document).ready(function() {
         }));
       }
 
-
-      $('#setor_id').selectpicker('deselectAll');
       $('#setor_id').selectpicker('val', [cultura['setor_id']]);
-      $('#setor_id').selectpicker('refresh');
-      $('#setor_id').selectpicker('render');
       $('#divAssociacoesSetores').show();
     }else{
      $("#dropdownSetores").children().remove();
@@ -37,7 +32,6 @@ $(document).ready(function() {
    
  });
    
-
  }
  
 

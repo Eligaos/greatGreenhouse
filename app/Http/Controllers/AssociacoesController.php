@@ -32,7 +32,7 @@ class AssociacoesController extends Controller
 		$this->sService = $sService;
 		$this->tService = $tService;
 		$this->exploracaoSelecionada = Session::get('exploracaoSelecionada');
-        Session::forget('filterPesquisa');
+		Session::forget('filterPesquisa');
 	}
 	
 	public function listarAssociacoes(){
@@ -58,6 +58,14 @@ class AssociacoesController extends Controller
 		return view('associacoes.adicionarAssociacao', compact('estufas', 'tiposLeituras', 'sensores'));
 		
 	}
+
+	public function getAssociacoesEstufa($estufa, $assoc){
+
+		return $this->aService->getAssociacoesEstufa($estufa, $assoc);
+
+	}
+
+	
 
 	public function associarSubmit(){
 		$input = Input::except('_token');

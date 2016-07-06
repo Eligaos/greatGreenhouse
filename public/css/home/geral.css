@@ -81,3 +81,8 @@ p{
 .ui-datepicker{
  z-index: 9999 !important;
 }
+
+#dataTable_filter{
+	padding: 7px;
+
+}

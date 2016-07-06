@@ -20,7 +20,7 @@ class TipoLeituraController extends Controller
 	}
 	
 	public function listarTiposLeituras(){
-		$lista = $this->tlService->getTiposLeitura();
+		$lista = $this->tlService->getTiposLeituraPaginate();
 		return view('tiposLeituras.listagemTiposLeituras', compact('lista'));
 	}
 

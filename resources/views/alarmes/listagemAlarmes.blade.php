@@ -60,7 +60,7 @@
 										<span class="glyphicon glyphicon-th-list"></span> Detalhes
 									</button></a>
 
-									<a toggle="tooltip" data-placement="top" title="Editar Alarme" role="button" name="editar" href="/admin/alarmes/detalhes/{{$alarme->alarme_id}}">  <button type="button" class="btn btn-default btn-xs">
+									<a toggle="tooltip" data-placement="top" title="Editar Alarme" role="button" name="editar" href="/admin/alarmes/editar/{{$alarme->alarme_id}}">  <button type="button" class="btn btn-default btn-xs">
 										<span class="glyphicon glyphicon-edit"></span> Editar
 									</button></a>
 								

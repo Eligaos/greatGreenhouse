@@ -40,7 +40,6 @@ class AlarmeController extends Controller
 		return view('alarmes.adicionarAlarmes', compact('estufas'));
 	}
 
-
 	function adicionarAlarmeSubmit(){
 		$input = Input::except('_token');
 		$estufa = $this->eService->procurarEstufa($input["ddEstufa"]);
@@ -49,6 +48,15 @@ class AlarmeController extends Controller
 		return Redirect::to('/admin/alarmes')->with('message', 'Alarme adicionado com sucesso!');
 	}
 
+	
+	public function guardarEditarAlarme($id){ 
+		$input = Input::except('_token');  
+
+		$alarme = $this->aService->saveEditAlarme($id,$input);
+		if($alarme){
+			return Redirect::to("/admin/alarmes/detalhes/$id")->with('message', 'Alarme guardado com sucesso!');
+		}
+	}
 	function historicoAlarmes(){
 		$lista = $this->aService->historicoAlarmes($this->exploracaoSelecionada);
 		return view('alarmes.historicoAlarmes', compact('lista'));
@@ -59,9 +67,11 @@ class AlarmeController extends Controller
 		return view('alarmes.detalhesAlarmes', compact('alarme'));
 	}
 
-	function editarAlarme(){
-		$lista = $this->aService->listarAlarmeDistinct($this->exploracaoSelecionada); 
-		return view('alarmes.editarAlarmes', compact('lista'));
+	function editarAlarme($id){
+		$estufas = $this->eService->getEstufas($this->exploracaoSelecionada); 
+		$alarme = $this->aService->getAlarme($id); 
+	
+		return view('alarmes.editarAlarmes', compact('estufas','alarme'));
 	}
 
 	function checkOcorrencia(Request $request){
@@ -69,4 +79,5 @@ class AlarmeController extends Controller
 		$checked = $this->aService->checkOcorrencia($input);
 		return $checked;
 	}
+	
 }

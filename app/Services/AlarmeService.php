@@ -7,8 +7,6 @@ use App\Models\Alarme;
 use Illuminate\Database\Eloquent\Model;
 
 
-
-
 class AlarmeService
 {
 	function adicionarAlarmeSubmit($input, $associacoes){
@@ -21,7 +19,6 @@ class AlarmeService
 				);
 			$saveAlarme = Alarme::create($alarme);
 		}
-
 	}
 
 	function listarAlarme($expId){
@@ -39,13 +36,11 @@ class AlarmeService
 		{			
 			foreach ($alarme->leituras as $relation)
 			{
-				//dd($relation);
 				if($relation->pivot->checked==0){
 					$associacoes = Alarme::join('ocorrencia_alarme', 'alarmes.id','=', 'ocorrencia_alarme.alarme_id')->join('associacoes', 'alarmes.associacoes_id', '=', 'associacoes.id')->join('sensores','associacoes.sensor_id','=','sensores.id')->join('leituras','ocorrencia_alarme.leitura_id', '=', 'leituras.id')->join('tipo_leitura','sensores.tipo_id', '=', 'tipo_leitura.id')->join('setores', 'associacoes.setor_id', '=' ,'setores.id')->join('estufas', 'setores.estufa_id','=', 'estufas.id')->where('alarmes.id','=', $relation->pivot->alarme_id)->where('leituras.id','=',$relation->pivot->leitura_id)->select('alarmes.id as alarme_id', 'leituras.id as leitura_id', 'leituras.valor as leitura_valor', 'sensores.nome','tipo_leitura.parametro as parametro','estufas.id as estufa_id','tipo_leitura.unidade as unidade', 'leituras.id as leitura_id', 'ocorrencia_alarme.created_at as data', 'setores.nome as setor_nome')->get();
 					array_push($tudo,$associacoes[0]);
 				}
 			}
-
 		}
 		return $tudo;
 	}
@@ -57,27 +52,37 @@ class AlarmeService
 		{			
 			foreach ($alarme->leituras as $relation)
 			{
-			
-					$associacoes = Alarme::join('ocorrencia_alarme', 'alarmes.id','=', 'ocorrencia_alarme.alarme_id')->join('associacoes', 'alarmes.associacoes_id', '=', 'associacoes.id')->join('sensores','associacoes.sensor_id','=','sensores.id')->join('leituras','ocorrencia_alarme.leitura_id', '=', 'leituras.id')->join('tipo_leitura','sensores.tipo_id', '=', 'tipo_leitura.id')->join('setores', 'associacoes.setor_id', '=' ,'setores.id')->join('estufas', 'setores.estufa_id','=', 'estufas.id')->where('alarmes.id','=', $relation->pivot->alarme_id)->where('leituras.id','=',$relation->pivot->leitura_id)->select('alarmes.id as alarme_id', 'leituras.id as leitura_id','alarmes.valor as alarme_valor', 'leituras.valor as leitura_valor', 'sensores.nome','tipo_leitura.parametro as parametro','estufas.id as estufa_id','tipo_leitura.unidade as unidade', 'estufas.nome as estufa_nome', 'ocorrencia_alarme.created_at as data', 'setores.nome as setor_nome')->get();
-					array_push($tudo,$associacoes[0]);
-				
+				$associacoes = Alarme::join('ocorrencia_alarme', 'alarmes.id','=', 'ocorrencia_alarme.alarme_id')->join('associacoes', 'alarmes.associacoes_id', '=', 'associacoes.id')->join('sensores','associacoes.sensor_id','=','sensores.id')->join('leituras','ocorrencia_alarme.leitura_id', '=', 'leituras.id')->join('tipo_leitura','sensores.tipo_id', '=', 'tipo_leitura.id')->join('setores', 'associacoes.setor_id', '=' ,'setores.id')->join('estufas', 'setores.estufa_id','=', 'estufas.id')->where('alarmes.id','=', $relation->pivot->alarme_id)->where('leituras.id','=',$relation->pivot->leitura_id)->select('alarmes.id as alarme_id', 'leituras.id as leitura_id','alarmes.valor as alarme_valor', 'leituras.valor as leitura_valor', 'sensores.nome','tipo_leitura.parametro as parametro','estufas.id as estufa_id','tipo_leitura.unidade as unidade', 'estufas.nome as estufa_nome', 'ocorrencia_alarme.created_at as data', 'setores.nome as setor_nome')->get();
+				array_push($tudo,$associacoes[0]);
 			}
-
 		}
 		return $tudo;
 	}
 
 	function getAlarme($id){
 		$alarme = Alarme::find($id);
-		return Alarme::join('associacoes', 'alarmes.associacoes_id', '=', 'associacoes.id')->join('setores', 'associacoes.setor_id', '=' ,'setores.id')->join('estufas', 'setores.estufa_id','=', 'estufas.id')->join('sensores','associacoes.sensor_id','=','sensores.id')->join('tipo_leitura','sensores.tipo_id', '=', 'tipo_leitura.id')->select('estufas.nome', 'alarmes.regra', 'alarmes.valor', 'alarmes.descricao', 'tipo_leitura.parametro' , 'tipo_leitura.unidade')->where('associacoes.id','=', $alarme->associacoes_id)->first();
+		return Alarme::join('associacoes', 'alarmes.associacoes_id', '=', 'associacoes.id')->join('setores', 'associacoes.setor_id', '=' ,'setores.id')->join('estufas', 'setores.estufa_id','=', 'estufas.id')->join('sensores','associacoes.sensor_id','=','sensores.id')->join('tipo_leitura','sensores.tipo_id', '=', 'tipo_leitura.id')->select('estufas.nome', 'alarmes.regra', 'alarmes.id as alarme_id','alarmes.valor', 'alarmes.descricao', 'tipo_leitura.parametro' , 'tipo_leitura.unidade', 'associacoes.id as associacoes_id','estufas.id as estufa_id')->where('associacoes.id','=', $alarme->associacoes_id)->first();
 	}
 
 
+
+	public function saveEditAlarme($id, $input){
+		
+		$alarme = Alarme::find($id);
+		if($alarme){
+			$alarme->associacoes_id = $input["ass_id"];		
+			$alarme->regra =  $input["regra"];
+			$alarme->valor = $input["valor"];
+			$alarme->descricao = $input["descricao"];
+			$alarme->save();
+			return true;
+		}
+		return false;
+		
+	}
+
 	function checkOcorrencia($input){
 		$alarme = Alarme::find($input["alarmeID"]);
-		/*$ocorrencia = DB::table('ocorrencia_alarme')->where('alarme_id','=',$input["alarmeID"])->where('leitura_id','=',$input["leituraID"])->get();
-		$ocorrencia->checked = 1;
-		$ocorrencia->save();*/
 		foreach ($alarme->leituras as $relation)
 		{
 			if($relation->pivot->leitura_id == $input["leituraID"]){
@@ -85,7 +90,6 @@ class AlarmeService
 				$relation->pivot->save();
 				return 1;
 			}
-
 		}
 		return 1;
 	}

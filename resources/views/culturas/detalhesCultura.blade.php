@@ -51,7 +51,7 @@
 					</p>
 					<p>
 						<label for="desc">Duração do Ciclo: </label>				
-						<span>{{$lista[0]->duracao_ciclo}}</span>
+						<span>{{$lista[0]->duracao_ciclo}} dias</span>
 					</p>
 					
 				</div>

@@ -73,6 +73,7 @@
 		<div class="panel-footer"> 
 			<div class="col-sm-12 input-group">
 				<a href="/admin/sensores/adicionar" role="button" name="adicionar" id="adicionar exploracao" class="btn btn-success center-block pull-left" toggle="tooltip" data-placement="top" title="Adicionar novo Sensor">Adicionar novo Sensor</a>
+
 			</div>
 		</div>	
 	</div>			

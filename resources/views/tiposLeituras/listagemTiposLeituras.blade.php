@@ -61,6 +61,7 @@
 		<div class="panel-footer"> 
 			<div class="col-sm-12 input-group">
 				<a href="/admin/tipos-leituras/adicionar" role="button" class="btn btn-success center-block pull-left">Adicionar novo Tipo de Leitura</a>
+					<div id="navigation" class="input-group pull-right"> {!! $lista->render() !!}</div>
 			</div>
 		</div>	
 

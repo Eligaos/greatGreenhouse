@@ -47,8 +47,6 @@ Route::group(['middleware' => ['web']], function ()
 	Route::post('/admin/home', 'HomeController@inicio');
 	Route::group(['middleware' => ['select.exploration']], function () 
 	{
-
-
 		/**********HOME**********/
 
 		Route::get('/admin/home', 'HomeController@home');
@@ -65,10 +63,7 @@ Route::group(['middleware' => ['web']], function ()
 
 		/**********EXPLORACOES**********/
 
-
-
 		Route::get('/admin/exploracao', 'ExploracaoController@detalhesExploracao');
-
 		Route::get('/admin/exploracao/editar', 'ExploracaoController@editarExploracao');
 		Route::post('/admin/exploracao/editar/submit', 'ExploracaoController@saveEditExploracao');
 
@@ -82,12 +77,10 @@ Route::group(['middleware' => ['web']], function ()
 		Route::post('/admin/estufas/adicionar/submit', 'EstufaController@adicionarEstufa');
 		Route::get('/admin/estufas/setores', 'EstufaController@getSetores');
 
-
-	Route::get('/admin/estufas/getEstufas', 'EstufaControlleraController@getEstufas');
+		Route::get('/admin/estufas/getEstufas', 'EstufaControlleraController@getEstufas');
 
 
 		/**********ESPÉCIES**********/
-
 
 		Route::get('/admin/especies', 'EspecieController@listarEspecies');
 		Route::get('/admin/especies/adicionar', 'EspecieController@adicionar');
@@ -119,7 +112,11 @@ Route::group(['middleware' => ['web']], function ()
 		Route::get('/admin/associacoes', 'AssociacoesController@listarAssociacoes');
 		Route::get('/admin/associacoes/editar/{id}', 'AssociacoesController@editarAssociacoes');
 		Route::get('/admin/associacoes/associar', 'AssociacoesController@associar');
-		Route::post('admin/associacoes/associar/submit', 'AssociacoesController@associarSubmit');
+		Route::post('/admin/associacoes/associar/submit', 'AssociacoesController@associarSubmit');
+
+		Route::get('/admin/associacoes/getAssociacoesTipo/{estufa_id}/{assoc_id}', 'AssociacoesController@getAssociacoesEstufa');
+
+
 
 
 		/**********SENSORES**********/
@@ -139,7 +136,6 @@ Route::group(['middleware' => ['web']], function ()
 		Route::get('/admin/registos/manual', 'LeituraController@adicionarRegistoManual');
 		Route::post('/admin/registos/manual/submit', 'LeituraController@adicionarRegistoManualSubmit');
 
-
 		Route::get('/admin/leituras/ultimas/{id}', 'LeituraController@getLastHoursLeituras');
 		Route::post('/admin/leituras', 'LeituraController@pesquisar');
 		Route::get('/admin/leituras/exportar', 'LeituraController@exportar');
@@ -150,14 +146,10 @@ Route::group(['middleware' => ['web']], function ()
 		Route::get('/admin/alarmes/adicionar', 'AlarmeController@adicionarAlarme');
 		Route::post('/admin/alarmes/adicionar/submit', 'AlarmeController@adicionarAlarmeSubmit');
 		Route::get('/admin/alarmes/editar/{id}', 'AlarmeController@editarAlarme');
-		Route::post('/admin/alarmes/editar/{id}', 'AlarmeController@guardarEditarAlarme');
+		Route::post('/admin/alarmes/editar/submit/{id}', 'AlarmeController@guardarEditarAlarme');
 		Route::get('/admin/alarmes/detalhes/{id}', 'AlarmeController@detalhesAlarme');
 		Route::get('/admin/alarmes/historico', 'AlarmeController@historicoAlarmes');
 		Route::post('/admin/alarmes/checkOcorrencia', 'AlarmeController@checkOcorrencia');
-
-
-		/**********COLABORADORES**********/
-		Route::get('/admin/colaboradores', 'LeituraController@listarLeituras');
 	});
 
 

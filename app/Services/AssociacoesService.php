@@ -50,9 +50,6 @@ class AssociacoesService
 
 		$tipos = Associacoes::join('sensores','associacoes.sensor_id','=','sensores.id')->join('tipo_leitura', 'sensores.tipo_id', '=', 'tipo_leitura.id')->join('setores','associacoes.setor_id','=','setores.id')->join('estufas','setores.estufa_id','=', 'estufas.id')->where('estufas.exploracoes_id','=',Session::get('exploracaoSelecionada'))->select('estufa_id', 'parametro', 'unidade')->distinct()->get();
 
-			//$tudo[$estufas[$i]->id]=$ass;
-			//array_push($tudo,$ass);
-
 
 
 		return $tipos;
@@ -66,7 +63,6 @@ class AssociacoesService
 		$sensor->estado = 1;
 		$sensor->save();
 		$tipo = $sensor::join('tipo_leitura', 'sensores.tipo_id', '=', 'tipo_leitura.id')->join('associacoes', 'sensores.id', '=', 'associacoes.sensor_id')->join('setores','associacoes.setor_id','=','setores.id')->where('tipo_leitura.id', '=', $sensor->tipo_id)->where('sensores.id','=',$sensor->id)->first();
-		//dd($tipo);
 		if(count($alarmes)!=0){
 			foreach ($alarmes as $alarme) {
 				if($alarme->parametro == $tipo->parametro && $alarme->estufas_id == $tipo->estufa_id){
@@ -117,5 +113,6 @@ class AssociacoesService
 
 
 
-}
+
+	}
 
