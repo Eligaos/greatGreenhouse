@@ -26,7 +26,7 @@ class AlarmeService
 	}
 
 	function listarAlarmeDistinct($expId){
-		return Alarme::join('associacoes', 'alarmes.associacoes_id', '=', 'associacoes.id')->join('setores', 'associacoes.setor_id', '=' ,'setores.id')->join('estufas', 'setores.estufa_id','=', 'estufas.id')->join('sensores','associacoes.sensor_id','=','sensores.id')->join('tipo_leitura','sensores.tipo_id', '=', 'tipo_leitura.id')->where('estufas.exploracoes_id', '=', $expId)->select('estufas.nome as estufa_nome' , 'tipo_leitura.parametro as parametro', 'alarmes.valor', 'alarmes.regra', 'alarmes.descricao' , 'tipo_leitura.unidade as unidade', 'estufas.id as estufas_id', 'alarmes.id as alarme_id')->distinct('valor','regra','descricao')->get();
+		return Alarme::join('associacoes', 'alarmes.associacoes_id', '=', 'associacoes.id')->join('setores', 'associacoes.setor_id', '=' ,'setores.id')->join('estufas', 'setores.estufa_id','=', 'estufas.id')->join('sensores','associacoes.sensor_id','=','sensores.id')->join('tipo_leitura','sensores.tipo_id', '=', 'tipo_leitura.id')->where('estufas.exploracoes_id', '=', $expId)->where('associacoes.deleted_at','=',NULL)->select('estufas.nome as estufa_nome' , 'tipo_leitura.parametro as parametro', 'alarmes.valor', 'alarmes.regra', 'alarmes.descricao' , 'tipo_leitura.unidade as unidade', 'estufas.id as estufas_id')->distinct('valor','regra','descricao')->get();
 	}
 
 	function getOcorrencias($expId){
@@ -66,10 +66,21 @@ class AlarmeService
 
 
 
-	public function saveEditAlarme($id, $input){
+	public function saveEditAlarme($id, $input, $assocOld, $assocNew){
+		dd("ad");	
 		
-		$alarme = Alarme::find($id);
+		for($i=0; $i<count($associacoes); $i++){			
+			$alarme = Alarme::where('associacoes_id','=',$associacoes[$i]->associacoes_id)->get();			
+			$alarme = array(
+				"associacoes_id" => $associacoes[$i]->associacoes_id,
+				"regra"	=> $input["regra"],
+				"valor" => $input["valor"],
+				"descricao" => $input["descricao"]
+				);
+			$saveAlarme = Alarme::create($alarme);
+		}
 		if($alarme){
+			dd($input["ass_id"]		);
 			$alarme->associacoes_id = $input["ass_id"];		
 			$alarme->regra =  $input["regra"];
 			$alarme->valor = $input["valor"];
@@ -93,5 +104,19 @@ class AlarmeService
 		}
 		return 1;
 	}
+
+	function eliminarAlarmes($estufa, $valor, $parametro, $descricao, $regra){
+		$alarmes=[];
+		foreach ($estufa[1] as $setor) {
+			$alarme = Alarme::join('associacoes','associacoes_id','=','associacoes.id')->join('sensores','associacoes.sensor_id','=','sensores.id')->join('tipo_leitura','sensores.tipo_id', '=', 'tipo_leitura.id')->where('associacoes.setor_id','=',$setor->id)->where('alarmes.regra','=',$regra)->where('alarmes.valor','=',$valor)->where('tipo_leitura.parametro','=',$parametro)->where('alarmes.descricao','=',$descricao)->select('alarmes.id as id')->get();
+			array_push($alarmes,$alarme);
+		}
+		foreach ($alarmes as $a) {
+			foreach ($a as $alarme) {
+				$alarme->delete();
+			}
+		}
+	}
 }
 
+//join('setores','associacoes.setor','=','setores.id')->join('estufas','setores.estufas_id','=','estufas.id')->

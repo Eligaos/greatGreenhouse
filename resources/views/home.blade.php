@@ -7,7 +7,7 @@
 @endsection
 @section('title', ' - Home')
 @section('content')
-
+@if(count($estufas)!=0)
 @foreach($estufas as $key => $estufa)
 <div id="estufa-container" class="col-xs-12 col-sm-10 col-md-10 col-lg-6 text-center col-md-offset-1 col-sm-offset-2 col-lg-offset-0">
 	<div class="panel panel-success">
@@ -78,10 +78,16 @@
 				</ul>
 			</div>
 		</div>
-
 	</div>
 </div>
 @endforeach
+@else
+<div class="text-center margin-bottom col-sm-12 ">
+	<img class="img-responsive margin-bottom" src="{{asset('img/greatgreenhouse_logo.png')}}">
+	<h3>A Exploração escolhida ainda não tem nenhuma Estufa!</h3>	
+		<a  href="/admin/estufas/adicionar" role="button" name="adicionar" class="btn btn-success" toggle="tooltip" data-placement="top" title="Adicione a primeira Estufa a esta Exploração">Adicionar nova Estufa</a>
+</div>
+@endif
 <!-- /item -->
 @endsection
 

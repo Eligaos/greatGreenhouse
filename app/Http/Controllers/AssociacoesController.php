@@ -82,5 +82,10 @@ class AssociacoesController extends Controller
 			return 0;
 		}
 	}
+
+	public function eliminarAssociacoes($id){
+		$eliminar = $this->aService->eliminarAssociacoes($id);
+		return Redirect::to("/admin/associacoes")->with('message', 'Associação eliminada com sucesso!');
+	}
 	
 }

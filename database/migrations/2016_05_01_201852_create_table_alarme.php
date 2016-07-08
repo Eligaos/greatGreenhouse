@@ -12,15 +12,16 @@ class CreateTableAlarme extends Migration
      */
     public function up()
     {
-        Schema::create('alarmes', function (Blueprint $table) {
-           $table->increments('id');
-           $table->integer('associacoes_id')->unsigned();
-           $table->foreign('associacoes_id')->references('id')->on('associacoes')->onDelete('cascade');
-           $table->string('regra');
-           $table->float('valor');            
-           $table->string('descricao');
-           $table->timestamps();
-       });
+      Schema::create('alarmes', function (Blueprint $table) {
+       $table->increments('id');
+       $table->integer('associacoes_id')->unsigned();
+       $table->foreign('associacoes_id')->references('id')->on('associacoes')->onDelete('cascade');
+       $table->string('regra');
+       $table->float('valor');            
+       $table->string('descricao');
+       $table->softDeletes();
+       $table->timestamps();
+     });
     }
 
     /**
@@ -31,8 +32,8 @@ class CreateTableAlarme extends Migration
     public function down()
     {
      Schema::table('alarmes', function(Blueprint $table) {
-        $table->dropForeign(['associacoes_id']);
+      $table->dropForeign(['associacoes_id']);
     });
      Schema::drop('alarmes');
+   }
  }
-}

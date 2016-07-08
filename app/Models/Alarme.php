@@ -3,11 +3,15 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Alarme extends Model
 {
+	use SoftDeletes;
+
 	protected $table = "alarmes";
 	protected $fillable = ['associacoes_id','regra','valor','descricao'];
+	protected $dates = ['deleted_at'];
 
 
 	public function associacoes()

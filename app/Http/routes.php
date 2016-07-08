@@ -111,9 +111,9 @@ Route::group(['middleware' => ['web']], function ()
 
 		Route::get('/admin/associacoes', 'AssociacoesController@listarAssociacoes');
 		Route::get('/admin/associacoes/editar/{id}', 'AssociacoesController@editarAssociacoes');
+		Route::get('/admin/associacoes/eliminar/{id}', 'AssociacoesController@eliminarAssociacoes');
 		Route::get('/admin/associacoes/associar', 'AssociacoesController@associar');
 		Route::post('/admin/associacoes/associar/submit', 'AssociacoesController@associarSubmit');
-
 		Route::get('/admin/associacoes/getAssociacoesTipo/{estufa_id}/{assoc_id}', 'AssociacoesController@getAssociacoesEstufa');
 
 
@@ -146,6 +146,7 @@ Route::group(['middleware' => ['web']], function ()
 		Route::get('/admin/alarmes/adicionar', 'AlarmeController@adicionarAlarme');
 		Route::post('/admin/alarmes/adicionar/submit', 'AlarmeController@adicionarAlarmeSubmit');
 		Route::get('/admin/alarmes/editar/{id}', 'AlarmeController@editarAlarme');
+		Route::get('/admin/alarmes/eliminar/{id}', 'AlarmeController@eliminarAlarme');
 		Route::post('/admin/alarmes/editar/submit/{id}', 'AlarmeController@guardarEditarAlarme');
 		Route::get('/admin/alarmes/detalhes/{id}', 'AlarmeController@detalhesAlarme');
 		Route::get('/admin/alarmes/historico', 'AlarmeController@historicoAlarmes');

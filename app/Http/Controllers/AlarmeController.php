@@ -32,6 +32,13 @@ class AlarmeController extends Controller
 
 	function listarAlarmes(){
 		$lista = $this->aService->listarAlarmeDistinct($this->exploracaoSelecionada); 
+		/*$lista = [];
+		foreach ($alarmes as $alarme) {
+			array_push($lista, $alarme);
+		}
+		
+		dd(array_unique($lista));*/
+		//dd($lista);
 		return view('alarmes.listagemAlarmes', compact('lista'));
 	}
 
@@ -50,9 +57,17 @@ class AlarmeController extends Controller
 
 	
 	public function guardarEditarAlarme($id){ 
-		$input = Input::except('_token');  
-
-		$alarme = $this->aService->saveEditAlarme($id,$input);
+		$input = Input::except('_token'); 
+		$estufaID = (explode(",",$id)[0]);
+		$alarmeValor = (explode(",",$id)[1]);
+		$alarmeParametro = (explode(",",$id)[2]);
+		$alarmeDescricao = (explode(",",$id)[3]);
+		$alarmeRegra = (explode(",",$id)[4]);
+		$estufaOld = $this->eService->procurarEstufa($estufaID);
+		$estufaNew = $this->eService->procurarEstufa($input["ddEstufa"]);
+		$assocOld =  $this->assocService->getAssociacoesTipo($estufa, $alarmeParametro);
+		$assocNew =  $this->assocService->getAssociacoesTipo($estufa, $input["ass_id"]);
+		$alarme = $this->aService->saveEditAlarme($id,$input,$assocOld, $assocNew);
 		if($alarme){
 			return Redirect::to("/admin/alarmes/detalhes/$id")->with('message', 'Alarme guardado com sucesso!');
 		}
@@ -68,16 +83,32 @@ class AlarmeController extends Controller
 	}
 
 	function editarAlarme($id){
+		$estufaID = (explode(",",$id)[0]);
+		$alarmeValor = (explode(",",$id)[1]);
+		$alarmeParametro = (explode(",",$id)[2]);
+		$alarmeDescricao = (explode(",",$id)[3]);
+		$alarmeRegra = (explode(",",$id)[4]);
 		$estufas = $this->eService->getEstufas($this->exploracaoSelecionada); 
 		$alarme = $this->aService->getAlarme($id); 
-	
-		return view('alarmes.editarAlarmes', compact('estufas','alarme'));
+
+		return view('alarmes.editarAlarmes', compact('estufas','alarmeValor','alarmeParametro','alarmeDescricao','alarmeRegra', 'estufaID'));
 	}
 
 	function checkOcorrencia(Request $request){
 		$input = $request->input();
 		$checked = $this->aService->checkOcorrencia($input);
 		return $checked;
+	}
+
+	function eliminarAlarme($id){
+		$estufaID = (explode(",",$id)[0]);
+		$alarmeValor = (explode(",",$id)[1]);
+		$alarmeParametro = (explode(",",$id)[2]);
+		$alarmeDescricao = (explode(",",$id)[3]);
+		$alarmeRegra = (explode(",",$id)[4]);
+		$estufa = $this->eService->procurarEstufa($estufaID);
+		$alarmes = $this->aService->eliminarAlarmes($estufa, $alarmeValor, $alarmeParametro, $alarmeDescricao, $alarmeRegra);
+		return Redirect::to('/admin/alarmes')->with('message', 'Alarme eliminado com sucesso!');
 	}
 	
 }

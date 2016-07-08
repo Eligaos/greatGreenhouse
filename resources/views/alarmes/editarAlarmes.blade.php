@@ -16,7 +16,7 @@
 			<h3 class="modal-title">Editar Alarme</h3>
 		</div>
 		<div class="panel-body">
-			<form id="registerForm" method="POST" action="/admin/alarmes/editar/submit/{{$alarme->alarme_id}}">
+			<form id="registerForm" method="POST" action="/admin/alarmes/editar/submit/{{$estufaID}},{{$alarmeValor}},{{$alarmeParametro}},{{$alarmeDescricao}},{{$alarmeRegra}}">
 				<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 				<div class="form-group">							
 					<h4 class="border-bottom sm-margin-left">Origem</h4>							
@@ -61,7 +61,7 @@
 						<div class="form-group">
 							<label for="valor">Valor</label>
 							<div class="input-group">	
-								<input type="number"  step="0.01" class="form-control" id="valor" value="{{ $alarme->valor }}" name="valor" placeholder="Insira um valor" required><span id="valor_span"class="input-group-addon" ></span>
+								<input type="number"  step="0.01" class="form-control" id="valor" value="{{ $alarmeValor }}" name="valor" placeholder="Insira um valor" required><span id="valor_span"class="input-group-addon" ></span>
 							</div>
 						</div>
 					</div>	
@@ -76,7 +76,7 @@
 								@if(old('descricao')!=null)
 								<input type="text"  step="0.01" class="form-control" id="descricao" value="{{ old('descricao') }}" name="descricao" placeholder="Insira uma descrição"><span class="input-group-addon" ></span>
 								@else
-								<input type="text"  step="0.01" class="form-control" id="descricao" value="{{ $alarme->descricao }}" name="descricao" placeholder="Insira uma descrição"><span class="input-group-addon" ></span>
+								<input type="text"  step="0.01" class="form-control" id="descricao" value="{{ $alarmeDescricao }}" name="descricao" placeholder="Insira uma descrição"><span class="input-group-addon" ></span>
 								@endif
 
 							</div>
@@ -108,7 +108,7 @@
 @endsection
 @section('customScripts')	
 <script>		
-	var alarme = <?php echo json_encode($alarme)?>;;
+	var alarme = <?php echo json_encode($alarmeValor)?>;;
 </script>
 
 <script src="{{asset('js/alarmes/editarAlarmes.js')}}"></script>

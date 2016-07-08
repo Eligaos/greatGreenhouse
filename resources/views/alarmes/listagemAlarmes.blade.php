@@ -9,7 +9,7 @@
 		<div class="panel-heading">
 			<h3 class="modal-title" >Lista de Alarmes</h3>
 		</div>
-			
+
 		@if( Session::get('message'))
 		<div class="col-xs-12 col-md-12 col-lg-12 alert alert-info">
 			<span > {{ Session::get('message') }}</span>
@@ -47,23 +47,19 @@
 								<span>{{$alarme->parametro}}</span>
 							</td>
 							<td>		
-							@if($alarme->descricao != "")
-							<span>{{$alarme->descricao}}</span>		
-							@else
-							<span>Não definida</span>
-							@endif
-	
+								@if($alarme->descricao != "")
+								<span>{{$alarme->descricao}}</span>		
+								@else
+								<span>Não definida</span>
+								@endif
+
 							</td>							
 							<td>
-								<div class="text-center">
-									<a  toggle="tooltip" data-placement="top" title="Detalhes Alarme" role="button" name="detalhes" href="/admin/alarmes/detalhes/{{$alarme->alarme_id}}">  <button type="button" class="btn btn-default btn-xs">
-										<span class="glyphicon glyphicon-th-list"></span> Detalhes
+								<div class="text-center">									
+									<a toggle="tooltip" data-placement="top" title="Editar Alarme" role="button" name="remover" href="/admin/alarmes/eliminar/{{$alarme->estufas_id}},{{$alarme->valor}},{{$alarme->parametro}},{{$alarme->descricao}},{{$alarme->regra}}">  <button type="button" class="btn btn-default btn-xs">
+										<span class="glyphicon glyphicon-trash"></span> Remover
 									</button></a>
 
-									<a toggle="tooltip" data-placement="top" title="Editar Alarme" role="button" name="editar" href="/admin/alarmes/editar/{{$alarme->alarme_id}}">  <button type="button" class="btn btn-default btn-xs">
-										<span class="glyphicon glyphicon-edit"></span> Editar
-									</button></a>
-								
 								</div>
 							</td>
 						</tr>													
@@ -83,7 +79,7 @@
 				<a href="/admin/alarmes/historico" role="button" name="historico" id="historico alarme" class="btn btn-default center-block pull-left btnL" toggle="tooltip" data-placement="top" title="Histórico Alarmes">Histórico de Ocorrência de Alarmes</a>
 
 				<a href="{{ url()->previous() }}" class="btnL btn btn-default pull-right">Cancelar</a>
-			
+
 			</div>
 		</div>	
 	</div>			
