@@ -123,8 +123,9 @@ Route::group(['middleware' => ['web']], function ()
 
 		Route::get('/admin/sensores', 'SensorController@listarSensores');
 		Route::get('/admin/sensores/adicionar', 'SensorController@adicionarSensor');
-		Route::get('/admin/sensores/editar/{id}', 'SensorController@editarSensor');
 		Route::post('/admin/sensores/adicionar/submit', 'SensorController@adicionarSensorSubmit');
+		Route::get('/admin/sensores/editar/{id}', 'SensorController@editarSensor');
+		Route::post('/admin/sensores/editar/submit/{id}', 'SensorController@saveEditSensor');
 
 
 		/**********LEITURAS**********/

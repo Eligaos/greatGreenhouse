@@ -21,7 +21,8 @@
 <body >
   <div class="main col-sm-2 col-md-2 col-lg-2">
    <div class="nav-side-menu ">
-    <div class="brand">Great Greenhouse</div>
+    <div class="brand">
+    <img src="{{asset('img/greatgreenhouse_logo_sm.png')}}" alt="Great Greenhouse"></img></div>
     <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
     <div class="welcome">Bem-vindo,  
      @if(Auth::check())

@@ -112,6 +112,9 @@ class AssociacoesService
 
 	public function eliminarAssociacoes($id){
 		$assoc = Associacoes::find($id);
+		$sensor = Sensor::find($assoc->sensor_id);
+		$sensor->estado = 0;
+		$sensor->save();
 		$assoc->delete();
 	}
 

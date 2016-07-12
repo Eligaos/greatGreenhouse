@@ -46,12 +46,7 @@
 							@if($sensor->estado == 0)
 							<td>
 								<span>Inativo</span>
-							</td>
-							@else
-							<td>
-								<span>Ativo</span>
-							</td>
-							@endif
+							</td>							
 							<td>
 								<div class="text-center">
 									<a toggle="tooltip" data-placement="top" title="Editar Sensor" role="button" name="editar" href="/admin/sensores/editar/{{$sensor->sensor_id}}">  <button type="button" class="btn btn-default btn-xs">
@@ -59,6 +54,18 @@
 									</button></a>
 								</div>
 							</td>
+							@else
+							<td>
+								<span>Ativo</span>
+							</td>
+							<td>
+								<div class="text-center">
+									<a toggle="tooltip" data-placement="top" title="Não é possível editar este Sensor porque ele está ativo" role="button" name="editar">  <button type="button" class="btn btn-default btn-xs" disabled>
+										<span class="glyphicon glyphicon-edit"></span> Editar
+									</button></a>
+								</div>
+							</td>
+							@endif
 						</tr>													
 						@endforeach
 					</tbody>

@@ -13,7 +13,7 @@
 			<h3 class="modal-title">Editar Sensor</h3>
 		</div>
 		<div class="panel-body">						
-			<form id="registerForm" method="POST" action="/admin/sensores/adicionar/submit" >
+			<form id="registerForm" method="POST" action="/admin/sensores/editar/submit/{{$lista[0]->sensor_id}}" >
 				<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">		
 				<div class="form-group">
 					<fieldset> 

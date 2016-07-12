@@ -17,7 +17,7 @@ class SensorController extends Controller
 {
 	protected $sService;
 	protected $aService;
-    protected $tService;
+	protected $tService;
 	protected $exploracaoSelecionada;
 
 
@@ -29,7 +29,7 @@ class SensorController extends Controller
 		$this->aService = $aService;
 		$this->tService = $tService;
 		$this->exploracaoSelecionada = Session::get('exploracaoSelecionada');
-        Session::forget('filterPesquisa');
+		Session::forget('filterPesquisa');
 	}
 
 	public function listarSensores(){
@@ -51,9 +51,15 @@ class SensorController extends Controller
 
 	public function editarSensor($id){
 		$lista = $this->sService->getSensor($id);
-		$tiposLeituras = $this->tService->getTiposLeitura();		
+		$tiposLeituras = $this->tService->getTiposLeitura();	
 		//$lista[0]-- array de estufa  $lista[1]--array dos setores da estufa
 		return view('sensores.editarSensor', compact('lista', 'tiposLeituras'));  		
+	}
+
+	public function saveEditSensor($id){
+		$input = Input::except('_token');    
+		$sensor = $this->sService->saveEditSensor($id, $input);
+		return Redirect::to("/admin/sensores")->with('message', 'Sensor guardado com sucesso!');
 	}
 
 }
