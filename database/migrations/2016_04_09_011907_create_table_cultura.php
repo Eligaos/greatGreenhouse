@@ -14,8 +14,8 @@ class CreateTableCultura extends Migration
             $table->increments('id');
             $table->string('nome');
             $table->bigInteger('duracao_ciclo');
-            $table->bigInteger('espaco_entre_linhas');
-            $table->bigInteger('espaco_na_linha');
+            $table->float('espaco_entre_linhas');
+            $table->float('espaco_na_linha');
             $table->date('data_inicio_ciclo')->nullable();
             $table->date('data_prevista_fim_ciclo')->nullable();
             $table->string('tipo_cultivo');
